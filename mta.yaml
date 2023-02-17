@@ -25,6 +25,6 @@ resources:
 - name: cross-container-service-1
   type: org.cloudfoundry.existing-service
   parameters:
-    service-name: UPS_SPS_CO
+    service-name: UPS_SPS_SD
   properties:
     the-service-name: ${service-name}
