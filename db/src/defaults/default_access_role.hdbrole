@@ -1,6 +1,48 @@
 {
     "role":{
          "name":"default_access_role",
+         "object_privileges": [
+            {
+               "type": "SYNONYM",
+               "name":"ZSDT113_C",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"VBRP",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"VBRK",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"VBPA",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"VBKD",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"VBAP",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"VBAK",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"TVARVC",
+               "privileges": ["SELECT"]
+            }
+         ],
          "schema_privileges":[
           {
              "privileges":[

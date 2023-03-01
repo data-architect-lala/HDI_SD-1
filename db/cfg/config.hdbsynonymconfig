@@ -4,5 +4,53 @@
             "object": "DUMMY",
             "schema": "SYS"
         }
+    },
+    "ZSDT113_C": {
+        "target": {
+            "object": "GVX_ZSDT113_C",
+            "schema": "SPS_SD"
+        }
+    },
+    "VBRP": {
+        "target": {
+            "object": "GVX_VBRP",
+            "schema": "SPS_SD"
+        }
+    },
+    "VBRK": {
+        "target": {
+            "object": "GVX_VBRK",
+            "schema": "SPS_SD"
+        }
+    },
+    "VBPA": {
+        "target": {
+            "object": "GVX_VBPA",
+            "schema": "SPS_SD"
+        }
+    },
+    "VBKD": {
+        "target": {
+            "object": "GVX_VBKD",
+            "schema": "SPS_SD"
+        }
+    },
+    "VBAP": {
+        "target": {
+            "object": "GVX_VBAP",
+            "schema": "SPS_SD"
+        }
+    },
+    "VBAK": {
+        "target": {
+            "object": "GVX_VBAK",
+            "schema": "SPS_SD"
+        }
+    },
+    "TVARVC": {
+        "target": {
+            "object": "GVX_TVARVC_BC",
+            "schema": "SPS_SD"
+        }
     }
 }

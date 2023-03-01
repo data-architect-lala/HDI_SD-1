@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="VTH_VBKD" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="VTH_VBKD.hdbcalculationview"/>
+<localVariables>
+  <variable id="IP_FECHA" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties mandatory="false" defaultValue="">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="SingleValue"/>
+      <derivationRule>
+        <resourceUri>current_date</resourceUri>
+      </derivationRule>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="VBKD">
+    <resourceUri>VBKD</resourceUri>
+  </DataSource>
+  <DataSource id="TVARVC">
+    <resourceUri>TVARVC</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="VBELN"/>
+      <viewAttribute id="KDGRP"/>
+      <viewAttribute id="INCO1"/>
+      <viewAttribute id="INCO2"/>
+      <viewAttribute id="PRSDT"/>
+      <viewAttribute id="FKDAT"/>
+      <viewAttribute id="BSTKD"/>
+      <viewAttribute id="BSTDK"/>
+      <viewAttribute id="BSTKD_M"/>
+      <viewAttribute id="VBAK_AUART"/>
+      <viewAttribute id="VBAK_ERDAT"/>
+      <viewAttribute id="VBAK_ERZET"/>
+      <viewAttribute id="VBAK_VKORG"/>
+      <viewAttribute id="VBAK_VTWEG"/>
+      <viewAttribute id="VBAK_BSTNK"/>
+      <viewAttribute id="VBAK_KUNNR"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="VBKD"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="NAME"/>
+      <viewAttribute id="TYPE"/>
+      <viewAttribute id="NUMB"/>
+      <viewAttribute id="OPTI"/>
+      <viewAttribute id="SIGN"/>
+      <viewAttribute id="LOW"/>
+      <viewAttribute id="HIGH"/>
+      <viewAttribute id="CLIE_INDEP"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="TVARVC"/>
+    <filter>&quot;NAME&quot; = 'Z_SCP_VBAK_AUART'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="VBELN"/>
+      <viewAttribute id="KDGRP"/>
+      <viewAttribute id="INCO1"/>
+      <viewAttribute id="INCO2"/>
+      <viewAttribute id="PRSDT"/>
+      <viewAttribute id="FKDAT"/>
+      <viewAttribute id="BSTKD"/>
+      <viewAttribute id="BSTDK"/>
+      <viewAttribute id="BSTKD_M"/>
+      <viewAttribute id="VBAK_AUART"/>
+      <viewAttribute id="VBAK_ERDAT"/>
+      <viewAttribute id="VBAK_ERZET"/>
+      <viewAttribute id="VBAK_VKORG"/>
+      <viewAttribute id="VBAK_VTWEG"/>
+      <viewAttribute id="VBAK_BSTNK"/>
+      <viewAttribute id="VBAK_KUNNR"/>
+      <viewAttribute id="MANDT_1"/>
+      <viewAttribute id="NAME"/>
+      <viewAttribute id="TYPE"/>
+      <viewAttribute id="NUMB"/>
+      <viewAttribute id="OPTI"/>
+      <viewAttribute id="SIGN"/>
+      <viewAttribute id="LOW"/>
+      <viewAttribute id="HIGH"/>
+      <viewAttribute id="CLIE_INDEP"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBELN" source="VBELN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KDGRP" source="KDGRP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="INCO1" source="INCO1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="INCO2" source="INCO2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRSDT" source="PRSDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FKDAT" source="FKDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BSTKD" source="BSTKD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BSTDK" source="BSTDK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BSTKD_M" source="BSTKD_M"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBAK_AUART" source="VBAK_AUART"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBAK_ERDAT" source="VBAK_ERDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBAK_ERZET" source="VBAK_ERZET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBAK_VKORG" source="VBAK_VKORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBAK_VTWEG" source="VBAK_VTWEG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBAK_BSTNK" source="VBAK_BSTNK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBAK_KUNNR" source="VBAK_KUNNR"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT_1" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NAME" source="NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NUMB" source="NUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPTI" source="OPTI"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SIGN" source="SIGN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOW" source="LOW"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HIGH" source="HIGH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLIE_INDEP" source="CLIE_INDEP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VBAK_AUART" source="LOW"/>
+    </input>
+    <joinAttribute name="VBAK_AUART"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="Join_1" columnName="MANDT"/>
+    </attribute>
+    <attribute id="VBELN" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBELN"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBELN"/>
+    </attribute>
+    <attribute id="KDGRP" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KDGRP"/>
+      <keyMapping columnObjectName="Join_1" columnName="KDGRP"/>
+    </attribute>
+    <attribute id="INCO1" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="INCO1"/>
+      <keyMapping columnObjectName="Join_1" columnName="INCO1"/>
+    </attribute>
+    <attribute id="INCO2" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="INCO2"/>
+      <keyMapping columnObjectName="Join_1" columnName="INCO2"/>
+    </attribute>
+    <attribute id="PRSDT" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRSDT"/>
+      <keyMapping columnObjectName="Join_1" columnName="PRSDT"/>
+    </attribute>
+    <attribute id="FKDAT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FKDAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="FKDAT"/>
+    </attribute>
+    <attribute id="BSTKD" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BSTKD"/>
+      <keyMapping columnObjectName="Join_1" columnName="BSTKD"/>
+    </attribute>
+    <attribute id="BSTDK" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BSTDK"/>
+      <keyMapping columnObjectName="Join_1" columnName="BSTDK"/>
+    </attribute>
+    <attribute id="BSTKD_M" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BSTKD_M"/>
+      <keyMapping columnObjectName="Join_1" columnName="BSTKD_M"/>
+    </attribute>
+    <attribute id="VBAK_AUART" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_AUART"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBAK_AUART"/>
+    </attribute>
+    <attribute id="VBAK_ERDAT" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_ERDAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBAK_ERDAT"/>
+    </attribute>
+    <attribute id="VBAK_ERZET" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_ERZET"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBAK_ERZET"/>
+    </attribute>
+    <attribute id="VBAK_VKORG" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_VKORG"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBAK_VKORG"/>
+    </attribute>
+    <attribute id="VBAK_VTWEG" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_VTWEG"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBAK_VTWEG"/>
+    </attribute>
+    <attribute id="VBAK_BSTNK" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_BSTNK"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBAK_BSTNK"/>
+    </attribute>
+    <attribute id="VBAK_KUNNR" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_KUNNR"/>
+      <keyMapping columnObjectName="Join_1" columnName="VBAK_KUNNR"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>'$$IP_FECHA$$' = &quot;VBAK_ERDAT&quot;</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-60" y="293"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="168" y="293"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="82" y="207"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="161.796875"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="150.18994140625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
