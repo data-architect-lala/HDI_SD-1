@@ -8,7 +8,7 @@
       <valueDomain type="empty"/>
       <selection multiLine="false" type="SingleValue"/>
       <derivationRule>
-        <resourceUri>current_date</resourceUri>
+        <resourceUri>current_date-1</resourceUri>
       </derivationRule>
     </variableProperties>
   </variable>
@@ -281,11 +281,11 @@
     </shape>
     <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="136.0234375"/>
+      <rectangleSize width="136"/>
     </shape>
     <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="150.18994140625"/>
+      <rectangleSize width="150"/>
     </shape>
   </shapes>
 </layout>

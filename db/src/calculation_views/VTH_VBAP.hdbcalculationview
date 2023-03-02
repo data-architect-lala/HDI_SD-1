@@ -8,7 +8,7 @@
       <valueDomain type="empty"/>
       <selection multiLine="false" type="SingleValue"/>
       <derivationRule>
-        <resourceUri>current_date</resourceUri>
+        <resourceUri>current_date-1</resourceUri>
       </derivationRule>
     </variableProperties>
   </variable>

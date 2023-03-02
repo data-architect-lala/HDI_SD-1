@@ -8,7 +8,7 @@
       <valueDomain type="empty"/>
       <selection multiLine="false" type="SingleValue"/>
       <derivationRule>
-        <resourceUri>current_date</resourceUri>
+        <resourceUri>current_date-1</resourceUri>
       </derivationRule>
     </variableProperties>
   </variable>
@@ -208,28 +208,30 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="40" y="85"/>
+      <upperLeftCorner x="221.11302679000914" y="112"/>
+    
+      <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-60" y="293"/>
+      <upperLeftCorner x="92.00000000000001" y="396.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="168" y="293"/>
+      <upperLeftCorner x="302.00000000000006" y="396.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="82" y="207"/>
+      <upperLeftCorner x="221.11302679000914" y="237"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="161.796875"/>
+      <rectangleSize width="161"/>
     </shape>
     <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="150.18994140625"/>
+      <rectangleSize width="150"/>
     </shape>
   </shapes>
 </layout>
