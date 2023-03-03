@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="VTH_ZMMT018_BIT" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="VTH_ZMMT018_BIT.hdbcalculationview"/>
+<localVariables>
+  <variable id="IP_FECHA" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties mandatory="false" defaultValue="">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="SingleValue"/>
+      <derivationRule>
+        <resourceUri>current_date-1</resourceUri>
+      </derivationRule>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="ZMMT018_BIT">
+    <resourceUri>ZMMT018_BIT</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="ZMMT018_BIT" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="MANDT"/>
+    </attribute>
+    <attribute id="MSGID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MSGID"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="MSGID"/>
+    </attribute>
+    <attribute id="MATNR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATNR"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="MATNR"/>
+    </attribute>
+    <attribute id="BLDAT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BLDAT"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="BLDAT"/>
+    </attribute>
+    <attribute id="WERKS" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKS"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="WERKS"/>
+    </attribute>
+    <attribute id="ERFMG" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERFMG"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="ERFMG"/>
+    </attribute>
+    <attribute id="BWART" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BWART"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="BWART"/>
+    </attribute>
+    <attribute id="UDATE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UDATE"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="UDATE"/>
+    </attribute>
+    <attribute id="UTIME" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UTIME"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="UTIME"/>
+    </attribute>
+    <attribute id="VALF" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VALF"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="VALF"/>
+    </attribute>
+    <attribute id="VALP" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VALP"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="VALP"/>
+    </attribute>
+    <attribute id="RUTA" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RUTA"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="RUTA"/>
+    </attribute>
+    <attribute id="UNIDAD" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UNIDAD"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="UNIDAD"/>
+    </attribute>
+    <attribute id="CAP" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CAP"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="CAP"/>
+    </attribute>
+    <attribute id="EMP" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMP"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="EMP"/>
+    </attribute>
+    <attribute id="TMOV" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TMOV"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="TMOV"/>
+    </attribute>
+    <attribute id="LOGNUMBER" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOGNUMBER"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="LOGNUMBER"/>
+    </attribute>
+    <attribute id="MBLNR" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MBLNR"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="MBLNR"/>
+    </attribute>
+    <attribute id="MJAHR" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MJAHR"/>
+      <keyMapping columnObjectName="ZMMT018_BIT" columnName="MJAHR"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;BLDAT&quot; = '$$IP_FECHA$$'</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
