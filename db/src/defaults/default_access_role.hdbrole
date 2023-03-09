@@ -41,11 +41,6 @@
                "type": "SYNONYM",
                "name":"TVARVC",
                "privileges": ["SELECT"]
-            },
-            {
-               "type": "SYNONYM",
-               "name":"ZMMT018_BIT",
-               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

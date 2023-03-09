@@ -52,11 +52,5 @@
         "object": "GVX_TVARVC_BC",
         "schema": "SPS_SD"
       }
-    },
-    "ZMMT018_BIT": {
-      "target": {
-        "object": "GVX_ZMMT018_BIT",
-        "schema": "SPS_SD"
-      }
     }
   }
