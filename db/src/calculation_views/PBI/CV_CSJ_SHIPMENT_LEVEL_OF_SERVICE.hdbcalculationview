@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_CSJ_SHIPMENT_LEVEL_OF_SERVICE.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE">
+    <resourceUri>GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MANDT"/>
+    </attribute>
+    <attribute id="VBELN" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBELN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VBELN"/>
+    </attribute>
+    <attribute id="POSNR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSNR"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="POSNR"/>
+    </attribute>
+    <attribute id="PSTYV" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PSTYV"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="PSTYV"/>
+    </attribute>
+    <attribute id="WERKS" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKS"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="WERKS"/>
+    </attribute>
+    <attribute id="VRKME" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VRKME"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VRKME"/>
+    </attribute>
+    <attribute id="VGBEL" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VGBEL"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VGBEL"/>
+    </attribute>
+    <attribute id="VGPOS" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VGPOS"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VGPOS"/>
+    </attribute>
+    <attribute id="OPERACION" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OPERACION"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="OPERACION"/>
+    </attribute>
+    <attribute id="BSTYP" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BSTYP"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="BSTYP"/>
+    </attribute>
+    <attribute id="BSART" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BSART"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="BSART"/>
+    </attribute>
+    <attribute id="BEDAT" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BEDAT"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="BEDAT"/>
+    </attribute>
+    <attribute id="TKNUM" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TKNUM"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TKNUM"/>
+    </attribute>
+    <attribute id="VBTYP" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBTYP"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VBTYP"/>
+    </attribute>
+    <attribute id="TPLST" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TPLST"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TPLST"/>
+    </attribute>
+    <attribute id="ERNAM" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERNAM"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ERNAM"/>
+    </attribute>
+    <attribute id="ERDAT" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERDAT"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ERDAT"/>
+    </attribute>
+    <attribute id="ERZET" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERZET"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ERZET"/>
+    </attribute>
+    <attribute id="VSART" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VSART"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VSART"/>
+    </attribute>
+    <attribute id="VSAVL" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VSAVL"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VSAVL"/>
+    </attribute>
+    <attribute id="VSANL" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VSANL"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VSANL"/>
+    </attribute>
+    <attribute id="VSBED" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VSBED"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VSBED"/>
+    </attribute>
+    <attribute id="ROUTE" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ROUTE"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ROUTE"/>
+    </attribute>
+    <attribute id="SIGNI" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SIGNI"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="SIGNI"/>
+    </attribute>
+    <attribute id="EXTI1" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EXTI1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="EXTI1"/>
+    </attribute>
+    <attribute id="EXTI2" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EXTI2"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="EXTI2"/>
+    </attribute>
+    <attribute id="TPBEZ" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TPBEZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TPBEZ"/>
+    </attribute>
+    <attribute id="STDIS" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STDIS"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STDIS"/>
+    </attribute>
+    <attribute id="DTDIS" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DTDIS"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DTDIS"/>
+    </attribute>
+    <attribute id="UZDIS" order="33" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UZDIS"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UZDIS"/>
+    </attribute>
+    <attribute id="STREG" order="34" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STREG"/>
+    </attribute>
+    <attribute id="DPREG" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DPREG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DPREG"/>
+    </attribute>
+    <attribute id="UPREG" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UPREG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UPREG"/>
+    </attribute>
+    <attribute id="DAREG" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAREG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DAREG"/>
+    </attribute>
+    <attribute id="UAREG" order="38" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UAREG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UAREG"/>
+    </attribute>
+    <attribute id="STLBG" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STLBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STLBG"/>
+    </attribute>
+    <attribute id="DPLBG" order="40" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DPLBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DPLBG"/>
+    </attribute>
+    <attribute id="UPLBG" order="41" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UPLBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UPLBG"/>
+    </attribute>
+    <attribute id="DALBG" order="42" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DALBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DALBG"/>
+    </attribute>
+    <attribute id="UALBG" order="43" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UALBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UALBG"/>
+    </attribute>
+    <attribute id="STLAD" order="44" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STLAD"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STLAD"/>
+    </attribute>
+    <attribute id="DPLEN" order="45" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DPLEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DPLEN"/>
+    </attribute>
+    <attribute id="UPLEN" order="46" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UPLEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UPLEN"/>
+    </attribute>
+    <attribute id="DALEN" order="47" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DALEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DALEN"/>
+    </attribute>
+    <attribute id="UALEN" order="48" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UALEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UALEN"/>
+    </attribute>
+    <attribute id="STABF" order="49" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STABF"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STABF"/>
+    </attribute>
+    <attribute id="DPABF" order="50" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DPABF"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DPABF"/>
+    </attribute>
+    <attribute id="UPABF" order="51" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UPABF"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UPABF"/>
+    </attribute>
+    <attribute id="DTABF" order="52" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DTABF"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DTABF"/>
+    </attribute>
+    <attribute id="UZABF" order="53" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UZABF"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UZABF"/>
+    </attribute>
+    <attribute id="STTBG" order="54" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STTBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STTBG"/>
+    </attribute>
+    <attribute id="DPTBG" order="55" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DPTBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DPTBG"/>
+    </attribute>
+    <attribute id="UPTBG" order="56" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UPTBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UPTBG"/>
+    </attribute>
+    <attribute id="DATBG" order="57" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DATBG"/>
+    </attribute>
+    <attribute id="UATBG" order="58" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UATBG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UATBG"/>
+    </attribute>
+    <attribute id="STTEN" order="59" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STTEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STTEN"/>
+    </attribute>
+    <attribute id="DPTEN" order="60" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DPTEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DPTEN"/>
+    </attribute>
+    <attribute id="UPTEN" order="61" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UPTEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UPTEN"/>
+    </attribute>
+    <attribute id="DATEN" order="62" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DATEN"/>
+    </attribute>
+    <attribute id="UATEN" order="63" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UATEN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UATEN"/>
+    </attribute>
+    <attribute id="STTRG" order="64" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STTRG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STTRG"/>
+    </attribute>
+    <attribute id="TDLNR" order="65" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TDLNR"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TDLNR"/>
+    </attribute>
+    <attribute id="DTMEG" order="66" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DTMEG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DTMEG"/>
+    </attribute>
+    <attribute id="DTMEV" order="67" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DTMEV"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DTMEV"/>
+    </attribute>
+    <attribute id="MEDST" order="69" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MEDST"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MEDST"/>
+    </attribute>
+    <attribute id="HANDLE" order="74" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HANDLE"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="HANDLE"/>
+    </attribute>
+    <attribute id="AEDAT" order="75" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AEDAT"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="AEDAT"/>
+    </attribute>
+    <attribute id="TSNUM" order="76" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TSNUM"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TSNUM"/>
+    </attribute>
+    <attribute id="TSRFO" order="77" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TSRFO"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TSRFO"/>
+    </attribute>
+    <attribute id="ERNAM_1" order="78" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERNAM_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ERNAM_1"/>
+    </attribute>
+    <attribute id="ERDAT_1" order="79" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERDAT_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ERDAT_1"/>
+    </attribute>
+    <attribute id="ERZET_1" order="80" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERZET_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ERZET_1"/>
+    </attribute>
+    <attribute id="ROUTE_1" order="81" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ROUTE_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ROUTE_1"/>
+    </attribute>
+    <attribute id="KNOTA" order="82" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KNOTA"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="KNOTA"/>
+    </attribute>
+    <attribute id="VSTEL" order="83" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VSTEL"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VSTEL"/>
+    </attribute>
+    <attribute id="WERKA" order="84" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKA"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="WERKA"/>
+    </attribute>
+    <attribute id="LGORTA" order="85" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LGORTA"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="LGORTA"/>
+    </attribute>
+    <attribute id="KUNNA" order="86" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KUNNA"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="KUNNA"/>
+    </attribute>
+    <attribute id="LIFNA" order="87" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LIFNA"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="LIFNA"/>
+    </attribute>
+    <attribute id="VSTEZ" order="88" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VSTEZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VSTEZ"/>
+    </attribute>
+    <attribute id="WERKZ" order="89" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="WERKZ"/>
+    </attribute>
+    <attribute id="LGORTZ" order="90" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LGORTZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="LGORTZ"/>
+    </attribute>
+    <attribute id="KUNNZ" order="91" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KUNNZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="KUNNZ"/>
+    </attribute>
+    <attribute id="LIFNZ" order="92" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LIFNZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="LIFNZ"/>
+    </attribute>
+    <attribute id="DPTBG_1" order="93" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DPTBG_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DPTBG_1"/>
+    </attribute>
+    <attribute id="DATBG_1" order="94" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATBG_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DATBG_1"/>
+    </attribute>
+    <attribute id="DPTEN_1" order="95" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DPTEN_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DPTEN_1"/>
+    </attribute>
+    <attribute id="DATEN_1" order="96" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATEN_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DATEN_1"/>
+    </attribute>
+    <attribute id="TDLNR_1" order="97" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TDLNR_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TDLNR_1"/>
+    </attribute>
+    <attribute id="MEDST_1" order="99" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MEDST_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MEDST_1"/>
+    </attribute>
+    <attribute id="MEIZT" order="102" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MEIZT"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MEIZT"/>
+    </attribute>
+    <attribute id="SPRAS" order="105" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SPRAS"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="SPRAS"/>
+    </attribute>
+    <attribute id="BEZEI" order="106" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BEZEI"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="BEZEI"/>
+    </attribute>
+    <attribute id="WERKS_1" order="107" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKS_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="WERKS_1"/>
+    </attribute>
+    <attribute id="NAME1" order="108" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NAME1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="NAME1"/>
+    </attribute>
+    <attribute id="PFACH" order="109" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PFACH"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="PFACH"/>
+    </attribute>
+    <attribute id="PSTLZ" order="110" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PSTLZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="PSTLZ"/>
+    </attribute>
+    <attribute id="ORT01" order="111" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORT01"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="ORT01"/>
+    </attribute>
+    <attribute id="VKORG" order="112" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VKORG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="VKORG"/>
+    </attribute>
+    <attribute id="EKORG" order="113" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EKORG"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="EKORG"/>
+    </attribute>
+    <attribute id="LAND1" order="114" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LAND1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="LAND1"/>
+    </attribute>
+    <attribute id="LANDX" order="115" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LANDX"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="LANDX"/>
+    </attribute>
+    <attribute id="NATIO" order="116" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NATIO"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="NATIO"/>
+    </attribute>
+    <attribute id="CHAZV_OLD" order="117" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHAZV_OLD"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CHAZV_OLD"/>
+    </attribute>
+    <attribute id="STREET" order="118" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="STREET"/>
+    </attribute>
+    <attribute id="HOUSE_NUM1" order="119" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HOUSE_NUM1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="HOUSE_NUM1"/>
+    </attribute>
+    <attribute id="REGION" order="120" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="REGION"/>
+    </attribute>
+    <attribute id="EKOTX" order="121" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EKOTX"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="EKOTX"/>
+    </attribute>
+    <attribute id="BUKRS" order="122" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUKRS"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="BUKRS"/>
+    </attribute>
+    <attribute id="TEL_NUMBER" order="123" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEL_NUMBER"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TEL_NUMBER"/>
+    </attribute>
+    <attribute id="TEL_EXTENS" order="124" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEL_EXTENS"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TEL_EXTENS"/>
+    </attribute>
+    <attribute id="TIME_ZONE" order="125" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TIME_ZONE"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="TIME_ZONE"/>
+    </attribute>
+    <attribute id="BUTXT" order="126" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUTXT"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="BUTXT"/>
+    </attribute>
+    <attribute id="SHTYP" order="127" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SHTYP"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="SHTYP"/>
+    </attribute>
+    <attribute id="BEZEI_1" order="128" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BEZEI_1"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="BEZEI_1"/>
+    </attribute>
+    <attribute id="MATNR" order="129" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATNR"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MATNR"/>
+    </attribute>
+    <attribute id="NTGEW" order="130">
+      <descriptions defaultDescription="NTGEW"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="NTGEW"/>
+    </attribute>
+    <attribute id="CC_SUPER_FAMILY" order="131" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_SUPER_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_SUPER_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_SUPER_FAMILY" order="132" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_SUPER_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_CVE_SUPER_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_FAMILY" order="133" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_CVE_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_BRAND" order="134" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_CVE_BRAND"/>
+    </attribute>
+    <attribute id="CC_CVE_SUB_BRAND" order="135" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_SUB_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_CVE_SUB_BRAND"/>
+    </attribute>
+    <attribute id="CC_BRAND" order="136" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_BRAND"/>
+    </attribute>
+    <attribute id="CC_CVE_LINE" order="137" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_LINE"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_CVE_LINE"/>
+    </attribute>
+    <attribute id="CC_CVE_FAMILYN" order="138" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_FAMILYN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_CVE_FAMILYN"/>
+    </attribute>
+    <attribute id="CC_FAMILY" order="139" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_FAMILY"/>
+    </attribute>
+    <attribute id="MTBEZ" order="140" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MTBEZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MTBEZ"/>
+    </attribute>
+    <attribute id="EAN11" order="141" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EAN11"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="EAN11"/>
+    </attribute>
+    <attribute id="MATKL" order="142" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATKL"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MATKL"/>
+    </attribute>
+    <attribute id="CC_SUB_BRAND" order="143" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_SUB_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_SUB_BRAND"/>
+    </attribute>
+    <attribute id="WGBEZ" order="144" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WGBEZ"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="WGBEZ"/>
+    </attribute>
+    <attribute id="MTART" order="145" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MTART"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MTART"/>
+    </attribute>
+    <attribute id="CC_LINE" order="146" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_LINE"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_LINE"/>
+    </attribute>
+    <attribute id="CC_FAMILYN" order="147" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_FAMILYN"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="CC_FAMILYN"/>
+    </attribute>
+    <attribute id="MHDHB" order="148">
+      <descriptions defaultDescription="MHDHB"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MHDHB"/>
+    </attribute>
+    <attribute id="MAKTX" order="149" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MAKTX"/>
+      <keyMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="MAKTX"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="LFIMG" order="6" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="LFIMG"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="LFIMG"/>
+    </measure>
+    <measure id="UMVKZ" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UMVKZ"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UMVKZ"/>
+    </measure>
+    <measure id="UMVKN" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UMVKN"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="UMVKN"/>
+    </measure>
+    <measure id="DISTZ" order="68" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="DISTZ"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DISTZ"/>
+    </measure>
+    <measure id="GESZTD" order="70" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="GESZTD"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="GESZTD"/>
+    </measure>
+    <measure id="FAHZTD" order="71" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FAHZTD"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="FAHZTD"/>
+    </measure>
+    <measure id="GESZTDA" order="72" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="GESZTDA"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="GESZTDA"/>
+    </measure>
+    <measure id="FAHZTDA" order="73" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FAHZTDA"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="FAHZTDA"/>
+    </measure>
+    <measure id="DISTZ_1" order="98" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="DISTZ_1"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="DISTZ_1"/>
+    </measure>
+    <measure id="FAHZT" order="100" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FAHZT"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="FAHZT"/>
+    </measure>
+    <measure id="GESZT" order="101" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="GESZT"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="GESZT"/>
+    </measure>
+    <measure id="GESZTD_1" order="103" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="GESZTD_1"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="GESZTD_1"/>
+    </measure>
+    <measure id="FAHZTD_1" order="104" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FAHZTD_1"/>
+      <measureMapping columnObjectName="GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE" columnName="FAHZTD_1"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
