@@ -31,6 +31,31 @@
                "type": "VIEW",
                "name":"CV_VBRP_EC",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_CARTA_PORTE",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_TVAGT",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_TVAUT",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_TSEGH",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_TTSEGEVTY",
+               "privileges": ["SELECT"]
             }
          ]
     }

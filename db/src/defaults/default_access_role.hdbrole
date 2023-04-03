@@ -86,6 +86,31 @@
                "type": "SYNONYM",
                "name":"GV_VBRP_EC",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_TVAGT",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_TVAUT",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_CARTA_PORTE",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_TSEGH",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_TTSEGEVTY",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

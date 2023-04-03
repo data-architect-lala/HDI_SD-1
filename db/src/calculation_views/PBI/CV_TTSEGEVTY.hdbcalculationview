@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_TTSEGEVTY" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_TTSEGEVTY.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_TTSEGEVTY">
+    <resourceUri>GV_TTSEGEVTY</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_TTSEGEVTY">
+  <attributes>
+    <attribute id="EVEN" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EVEN"/>
+      <keyMapping columnObjectName="GV_TTSEGEVTY" columnName="EVEN"/>
+    </attribute>
+    <attribute id="EVEN_DUR" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EVEN_DUR"/>
+      <keyMapping columnObjectName="GV_TTSEGEVTY" columnName="EVEN_DUR"/>
+    </attribute>
+    <attribute id="TEXT_40" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEXT_40"/>
+      <keyMapping columnObjectName="GV_TTSEGEVTY" columnName="TEXT_40"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
