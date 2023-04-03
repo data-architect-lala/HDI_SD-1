@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_TSEGH" applyPrivilegeType="NONE" dataCategory="DIMENSION" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_TSEGH.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_TSEGH">
+    <resourceUri>GV_TSEGH</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_TSEGH">
+  <attributes>
+    <attribute id="HEAD_HDL" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HEAD_HDL"/>
+      <keyMapping columnObjectName="GV_TSEGH" columnName="HEAD_HDL"/>
+    </attribute>
+    <attribute id="HEAD_UNACH" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HEAD_UNACH"/>
+      <keyMapping columnObjectName="GV_TSEGH" columnName="HEAD_UNACH"/>
+    </attribute>
+    <attribute id="EVEN" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EVEN"/>
+      <keyMapping columnObjectName="GV_TSEGH" columnName="EVEN"/>
+    </attribute>
+    <attribute id="EVEN_TSTFR" order="4">
+      <descriptions defaultDescription="EVEN_TSTFR"/>
+      <keyMapping columnObjectName="GV_TSEGH" columnName="EVEN_TSTFR"/>
+    </attribute>
+    <attribute id="EVEN_TSTTO" order="5">
+      <descriptions defaultDescription="EVEN_TSTTO"/>
+      <keyMapping columnObjectName="GV_TSEGH" columnName="EVEN_TSTTO"/>
+    </attribute>
+    <attribute id="EVEN_VERTY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EVEN_VERTY"/>
+      <keyMapping columnObjectName="GV_TSEGH" columnName="EVEN_VERTY"/>
+    </attribute>
+    <attribute id="EVEN_VERNU" order="7">
+      <descriptions defaultDescription="EVEN_VERNU"/>
+      <keyMapping columnObjectName="GV_TSEGH" columnName="EVEN_VERNU"/>
+    </attribute>
+    <attribute id="EVEN_CNT" order="8">
+      <descriptions defaultDescription="EVEN_CNT"/>
+      <keyMapping columnObjectName="GV_TSEGH" columnName="EVEN_CNT"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

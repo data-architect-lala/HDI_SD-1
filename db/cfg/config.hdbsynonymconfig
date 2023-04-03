@@ -118,5 +118,34 @@
             "object": "GV_VBRP_EC",
             "schema": "SPS_SD"
         }
+    }, "GV_TVAGT": {
+        "target": {
+            "object": "GV_TVAGT",
+            "schema": "SPS_SD"
+        }
+    },
+    "GV_TVAUT": {
+        "target": {
+            "object": "GV_TVAUT",
+            "schema": "SPS_SD"
+        }
+    },
+    "GV_CARTA_PORTE": {
+        "target": {
+            "object": "GV_CARTA_PORTE",
+            "schema": "SPS_SD"
+        }
+    },
+    "GV_TSEGH": {
+        "target": {
+            "object": "GV_TSEGH",
+            "schema": "SPS_SD"
+        }
+    },
+    "GV_TTSEGEVTY": {
+        "target": {
+            "object": "GV_TTSEGEVTY",
+            "schema": "SPS_SD"
+        }
     }
 }

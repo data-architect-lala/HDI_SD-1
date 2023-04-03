@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_TVAUT" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_TVAUT.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_TVAUT">
+    <resourceUri>GV_TVAUT</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_TVAUT">
+  <attributes>
+    <attribute id="AUGRU" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AUGRU"/>
+      <keyMapping columnObjectName="GV_TVAUT" columnName="AUGRU"/>
+    </attribute>
+    <attribute id="BEZEI" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BEZEI"/>
+      <keyMapping columnObjectName="GV_TVAUT" columnName="BEZEI"/>
+    </attribute>
+    <attribute id="SPRAS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SPRAS"/>
+      <keyMapping columnObjectName="GV_TVAUT" columnName="SPRAS"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

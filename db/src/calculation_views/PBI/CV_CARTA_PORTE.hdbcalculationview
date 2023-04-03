@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CARTA_PORTE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_CARTA_PORTE.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_CARTA_PORTE">
+    <resourceUri>GV_CARTA_PORTE</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_CARTA_PORTE">
+  <attributes>
+    <attribute id="SERIE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SERIE"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="SERIE"/>
+    </attribute>
+    <attribute id="FOLIO" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FOLIO"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="FOLIO"/>
+    </attribute>
+    <attribute id="CENTRO_ORIGEN" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CENTRO_ORIGEN"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="CENTRO_ORIGEN"/>
+    </attribute>
+    <attribute id="FECHA_DOC" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FECHA_DOC"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="FECHA_DOC"/>
+    </attribute>
+    <attribute id="HORA" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HORA"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="HORA"/>
+    </attribute>
+    <attribute id="DOCUMENTOS" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DOCUMENTOS"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="DOCUMENTOS"/>
+    </attribute>
+    <attribute id="UNIDAD" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UNIDAD"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="UNIDAD"/>
+    </attribute>
+    <attribute id="OPERADOR" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OPERADOR"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="OPERADOR"/>
+    </attribute>
+    <attribute id="FECHA_TIMBRADO" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FECHA_TIMBRADO"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="FECHA_TIMBRADO"/>
+    </attribute>
+    <attribute id="HORA_TIMBRADO" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HORA_TIMBRADO"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="HORA_TIMBRADO"/>
+    </attribute>
+    <attribute id="UUID" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UUID"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="UUID"/>
+    </attribute>
+    <attribute id="TIPO" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TIPO"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="TIPO"/>
+    </attribute>
+    <attribute id="ESTATUS" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ESTATUS"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="ESTATUS"/>
+    </attribute>
+    <attribute id="FUM" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FUM"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="FUM"/>
+    </attribute>
+    <attribute id="CC_FECHA_DOC" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_FECHA_DOC"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="CC_FECHA_DOC"/>
+    </attribute>
+    <attribute id="OPERADOR2" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OPERADOR2"/>
+      <keyMapping columnObjectName="GV_CARTA_PORTE" columnName="OPERADOR2"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
