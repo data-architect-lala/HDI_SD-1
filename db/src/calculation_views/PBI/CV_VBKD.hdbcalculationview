@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VBKD" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VBKD.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_VBKD">
+    <resourceUri>GV_VBKD</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_VBKD">
+  <attributes>
+    <attribute id="VBELN" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBELN"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBELN"/>
+    </attribute>
+    <attribute id="KDGRP" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KDGRP"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="KDGRP"/>
+    </attribute>
+    <attribute id="INCO1" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="INCO1"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="INCO1"/>
+    </attribute>
+    <attribute id="INCO2" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="INCO2"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="INCO2"/>
+    </attribute>
+    <attribute id="PRSDT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRSDT"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="PRSDT"/>
+    </attribute>
+    <attribute id="FKDAT_T" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FKDAT_T"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="FKDAT_T"/>
+    </attribute>
+    <attribute id="BSTKD" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BSTKD"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="BSTKD"/>
+    </attribute>
+    <attribute id="BSTDK" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BSTDK"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="BSTDK"/>
+    </attribute>
+    <attribute id="BSTKD_M" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BSTKD_M"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="BSTKD_M"/>
+    </attribute>
+    <attribute id="VBAK_AUART" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_AUART"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBAK_AUART"/>
+    </attribute>
+    <attribute id="VBAK_ERDAT_T" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_ERDAT_T"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBAK_ERDAT_T"/>
+    </attribute>
+    <attribute id="VBAK_ERZET" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_ERZET"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBAK_ERZET"/>
+    </attribute>
+    <attribute id="VBAK_VKORG" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_VKORG"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBAK_VKORG"/>
+    </attribute>
+    <attribute id="VBAK_VTWEG" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_VTWEG"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBAK_VTWEG"/>
+    </attribute>
+    <attribute id="VBAK_BSTNK" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_BSTNK"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBAK_BSTNK"/>
+    </attribute>
+    <attribute id="VBAK_KUNNR" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_KUNNR"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBAK_KUNNR"/>
+    </attribute>
+    <attribute id="FKDAT" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FKDAT"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="FKDAT"/>
+    </attribute>
+    <attribute id="VBAK_ERDAT" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBAK_ERDAT"/>
+      <keyMapping columnObjectName="GV_VBKD" columnName="VBAK_ERDAT"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

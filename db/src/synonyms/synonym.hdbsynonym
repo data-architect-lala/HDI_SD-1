@@ -82,5 +82,41 @@
         "object": "GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE",
         "schema": "SPS_SD"
       }
+    },
+    "GV_VBAK": {
+      "target": {
+        "object": "GV_VBAK",
+        "schema": "SPS_SD"
+      }
+    },
+    "GV_VBAP": {
+      "target": {
+        "object": "GV_VBAP",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GV_VBKD": {
+      "target": {
+        "object": "GV_VBKD",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GV_VBPA_EC": {
+      "target": {
+        "object": "GV_VBPA_EC",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GV_VBRK_EC": {
+      "target": {
+        "object": "GV_VBRK_EC",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GV_VBRP_EC": {
+      "target": {
+        "object": "GV_VBRP_EC",
+        "schema": "SPS_SD"
+      }        
     }
   }

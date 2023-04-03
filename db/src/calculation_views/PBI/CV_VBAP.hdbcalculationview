@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VBAP" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VBAP.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_VBAP">
+    <resourceUri>GV_VBAP</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_VBAP">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="MANDT"/>
+    </attribute>
+    <attribute id="VBELN" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBELN"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="VBELN"/>
+    </attribute>
+    <attribute id="POSNR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSNR"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="POSNR"/>
+    </attribute>
+    <attribute id="MATNR" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATNR"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="MATNR"/>
+    </attribute>
+    <attribute id="CHARG" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHARG"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="CHARG"/>
+    </attribute>
+    <attribute id="ABGRU" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ABGRU"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="ABGRU"/>
+    </attribute>
+    <attribute id="MEINS" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MEINS"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="MEINS"/>
+    </attribute>
+    <attribute id="KDMAT" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KDMAT"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="KDMAT"/>
+    </attribute>
+    <attribute id="WAERK" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WAERK"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="WAERK"/>
+    </attribute>
+    <attribute id="VRKME" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VRKME"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="VRKME"/>
+    </attribute>
+    <attribute id="WERKS" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKS"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="WERKS"/>
+    </attribute>
+    <attribute id="LGORT" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LGORT"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="LGORT"/>
+    </attribute>
+    <attribute id="VSTEL" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VSTEL"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="VSTEL"/>
+    </attribute>
+    <attribute id="ROUTE" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ROUTE"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="ROUTE"/>
+    </attribute>
+    <attribute id="ERDAT" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERDAT"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="ERDAT"/>
+    </attribute>
+    <attribute id="PRCTR" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRCTR"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="PRCTR"/>
+    </attribute>
+    <attribute id="PCTRF" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PCTRF"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="PCTRF"/>
+    </attribute>
+    <attribute id="OPERACION" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OPERACION"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="OPERACION"/>
+    </attribute>
+    <attribute id="AUART" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AUART"/>
+      <keyMapping columnObjectName="GV_VBAP" columnName="AUART"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="KBVER" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="KBVER"/>
+      <measureMapping columnObjectName="GV_VBAP" columnName="KBVER"/>
+    </measure>
+    <measure id="KEVER" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="KEVER"/>
+      <measureMapping columnObjectName="GV_VBAP" columnName="KEVER"/>
+    </measure>
+    <measure id="NETWR" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="NETWR"/>
+      <measureMapping columnObjectName="GV_VBAP" columnName="NETWR"/>
+    </measure>
+    <measure id="KWMENG" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="KWMENG"/>
+      <measureMapping columnObjectName="GV_VBAP" columnName="KWMENG"/>
+    </measure>
+    <measure id="LSMENG" order="14" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="LSMENG"/>
+      <measureMapping columnObjectName="GV_VBAP" columnName="LSMENG"/>
+    </measure>
+    <measure id="KBMENG" order="15" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="KBMENG"/>
+      <measureMapping columnObjectName="GV_VBAP" columnName="KBMENG"/>
+    </measure>
+    <measure id="KLMENG" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="KLMENG"/>
+      <measureMapping columnObjectName="GV_VBAP" columnName="KLMENG"/>
+    </measure>
+    <measure id="MWSBP" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="MWSBP"/>
+      <measureMapping columnObjectName="GV_VBAP" columnName="MWSBP"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

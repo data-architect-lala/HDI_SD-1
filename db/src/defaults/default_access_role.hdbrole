@@ -66,6 +66,36 @@
                "type": "SYNONYM",
                "name":"GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_VBAK",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_VBAP",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_VBKD",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_VBPA_EC",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_VBRK_EC",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_VBRP_EC",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

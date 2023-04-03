@@ -1,0 +1,37 @@
+{
+    "role":{
+         "name":"pbi_access_role",
+         "object_privileges": [
+            {
+               "type": "VIEW",
+               "name":"CV_VBAK",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_VBAP",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_VBKD",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_VBPA_EC",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_VBRK_EC",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_VBRP_EC",
+               "privileges": ["SELECT"]
+            }
+         ]
+    }
+}

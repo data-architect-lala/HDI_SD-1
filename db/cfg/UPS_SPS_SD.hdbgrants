@@ -79,6 +79,42 @@
                     "name": "GV_CSJ_SHIPMENT_LEVEL_OF_SERVICE",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GV_VBAK",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GV_VBAP",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GV_VBKD",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GV_VBPA_EC",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GV_VBRK_EC",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GV_VBRP_EC",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
                 }
             ]
         }

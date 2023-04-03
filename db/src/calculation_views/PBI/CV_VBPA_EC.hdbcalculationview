@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VBPA_EC" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VBPA_EC.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_VBPA_EC">
+    <resourceUri>GV_VBPA_EC</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_VBPA_EC">
+  <attributes>
+    <attribute id="VBELN" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBELN"/>
+      <keyMapping columnObjectName="GV_VBPA_EC" columnName="VBELN"/>
+    </attribute>
+    <attribute id="POSNR" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="POSNR"/>
+      <keyMapping columnObjectName="GV_VBPA_EC" columnName="POSNR"/>
+    </attribute>
+    <attribute id="PARVW" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARVW"/>
+      <keyMapping columnObjectName="GV_VBPA_EC" columnName="PARVW"/>
+    </attribute>
+    <attribute id="KUNNR" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KUNNR"/>
+      <keyMapping columnObjectName="GV_VBPA_EC" columnName="KUNNR"/>
+    </attribute>
+    <attribute id="LIFNR" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LIFNR"/>
+      <keyMapping columnObjectName="GV_VBPA_EC" columnName="LIFNR"/>
+    </attribute>
+    <attribute id="ADRNR" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADRNR"/>
+      <keyMapping columnObjectName="GV_VBPA_EC" columnName="ADRNR"/>
+    </attribute>
+    <attribute id="LAND1" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LAND1"/>
+      <keyMapping columnObjectName="GV_VBPA_EC" columnName="LAND1"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

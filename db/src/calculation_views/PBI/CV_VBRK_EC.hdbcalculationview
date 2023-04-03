@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VBRK_EC" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VBRK_EC.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_VBRK_EC">
+    <resourceUri>GV_VBRK_EC</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_VBRK_EC">
+  <attributes>
+    <attribute id="VBELN" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBELN"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="VBELN"/>
+    </attribute>
+    <attribute id="FKART" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FKART"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="FKART"/>
+    </attribute>
+    <attribute id="FKTYP" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FKTYP"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="FKTYP"/>
+    </attribute>
+    <attribute id="VBTYP" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VBTYP"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="VBTYP"/>
+    </attribute>
+    <attribute id="WAERK" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WAERK"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="WAERK"/>
+    </attribute>
+    <attribute id="VKORG" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VKORG"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="VKORG"/>
+    </attribute>
+    <attribute id="VTWEG" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VTWEG"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="VTWEG"/>
+    </attribute>
+    <attribute id="VSBED" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VSBED"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="VSBED"/>
+    </attribute>
+    <attribute id="KONDA" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KONDA"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="KONDA"/>
+    </attribute>
+    <attribute id="KURRF" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KURRF"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="KURRF"/>
+    </attribute>
+    <attribute id="FKDAT" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FKDAT"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="FKDAT"/>
+    </attribute>
+    <attribute id="BUKRS" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUKRS"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="BUKRS"/>
+    </attribute>
+    <attribute id="NETWR" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NETWR"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="NETWR"/>
+    </attribute>
+    <attribute id="ERNAM" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERNAM"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="ERNAM"/>
+    </attribute>
+    <attribute id="ERZET" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERZET"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="ERZET"/>
+    </attribute>
+    <attribute id="ERDAT" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERDAT"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="ERDAT"/>
+    </attribute>
+    <attribute id="LANDTX" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LANDTX"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="LANDTX"/>
+    </attribute>
+    <attribute id="XBLNR" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="XBLNR"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="XBLNR"/>
+    </attribute>
+    <attribute id="ZUONR" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZUONR"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="ZUONR"/>
+    </attribute>
+    <attribute id="FKDAT_F" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FKDAT_F"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="FKDAT_F"/>
+    </attribute>
+    <attribute id="ERDAT_F" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERDAT_F"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="ERDAT_F"/>
+    </attribute>
+    <attribute id="NETWR_V" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NETWR_V"/>
+      <keyMapping columnObjectName="GV_VBRK_EC" columnName="NETWR_V"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
