@@ -121,6 +121,21 @@
                "type": "SYNONYM",
                "name":"GV_TTSEGEVTY",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_CSJ_LIST_PRICES_SCRAP",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

@@ -56,6 +56,21 @@
                "type": "VIEW",
                "name":"CV_TTSEGEVTY",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_CSJ_LIST_PRICES_SCRAP",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY",
+               "privileges": ["SELECT"]
             }
          ]
     }

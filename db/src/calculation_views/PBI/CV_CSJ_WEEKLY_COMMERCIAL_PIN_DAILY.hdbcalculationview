@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY">
+    <resourceUri>GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY">
+  <attributes>
+    <attribute id="CALDAY" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALDAY"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CALDAY"/>
+    </attribute>
+    <attribute id="_BIC_ZDPARECON" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="_BIC_ZDPARECON"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="/BIC/ZDPARECON"/>
+    </attribute>
+    <attribute id="_BIC_ZDPLOCAL" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="_BIC_ZDPLOCAL"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="/BIC/ZDPLOCAL"/>
+    </attribute>
+    <attribute id="_BIC_ZDPPROD" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="_BIC_ZDPPROD"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="/BIC/ZDPPROD"/>
+    </attribute>
+    <attribute id="WERKS" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKS"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="WERKS"/>
+    </attribute>
+    <attribute id="NAME1" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NAME1"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="NAME1"/>
+    </attribute>
+    <attribute id="PFACH" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PFACH"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="PFACH"/>
+    </attribute>
+    <attribute id="PSTLZ" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PSTLZ"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="PSTLZ"/>
+    </attribute>
+    <attribute id="ORT01" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORT01"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="ORT01"/>
+    </attribute>
+    <attribute id="MANDT" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MANDT"/>
+    </attribute>
+    <attribute id="VKORG" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VKORG"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="VKORG"/>
+    </attribute>
+    <attribute id="EKORG" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EKORG"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="EKORG"/>
+    </attribute>
+    <attribute id="LAND1" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LAND1"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="LAND1"/>
+    </attribute>
+    <attribute id="LANDX" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LANDX"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="LANDX"/>
+    </attribute>
+    <attribute id="NATIO" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NATIO"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="NATIO"/>
+    </attribute>
+    <attribute id="CHAZV_OLD" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CHAZV_OLD"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CHAZV_OLD"/>
+    </attribute>
+    <attribute id="STREET" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="STREET"/>
+    </attribute>
+    <attribute id="BEZEI" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BEZEI"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="BEZEI"/>
+    </attribute>
+    <attribute id="HOUSE_NUM1" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HOUSE_NUM1"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="HOUSE_NUM1"/>
+    </attribute>
+    <attribute id="REGION" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="REGION"/>
+    </attribute>
+    <attribute id="EKOTX" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EKOTX"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="EKOTX"/>
+    </attribute>
+    <attribute id="BUKRS" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUKRS"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="BUKRS"/>
+    </attribute>
+    <attribute id="TEL_NUMBER" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEL_NUMBER"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="TEL_NUMBER"/>
+    </attribute>
+    <attribute id="TEL_EXTENS" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEL_EXTENS"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="TEL_EXTENS"/>
+    </attribute>
+    <attribute id="TIME_ZONE" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TIME_ZONE"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="TIME_ZONE"/>
+    </attribute>
+    <attribute id="BUTXT" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUTXT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="BUTXT"/>
+    </attribute>
+    <attribute id="MONTH" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MONTH"/>
+    </attribute>
+    <attribute id="MONTH_INT" order="32">
+      <descriptions defaultDescription="MONTH_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MONTH_INT"/>
+    </attribute>
+    <attribute id="QUARTER" order="33" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUARTER"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="QUARTER"/>
+    </attribute>
+    <attribute id="QUARTER_INT" order="34">
+      <descriptions defaultDescription="QUARTER_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="QUARTER_INT"/>
+    </attribute>
+    <attribute id="TZNTSTMPL" order="35">
+      <descriptions defaultDescription="TZNTSTMPL"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="TZNTSTMPL"/>
+    </attribute>
+    <attribute id="TZNTSTMPS" order="36">
+      <descriptions defaultDescription="TZNTSTMPS"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="TZNTSTMPS"/>
+    </attribute>
+    <attribute id="WEEK" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="WEEK"/>
+    </attribute>
+    <attribute id="WEEK_INT" order="38">
+      <descriptions defaultDescription="WEEK_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="WEEK_INT"/>
+    </attribute>
+    <attribute id="WEEK_YEAR" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="WEEK_YEAR"/>
+    </attribute>
+    <attribute id="WEEK_YEAR_INT" order="40">
+      <descriptions defaultDescription="WEEK_YEAR_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="WEEK_YEAR_INT"/>
+    </attribute>
+    <attribute id="YEAR" order="41" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="YEAR"/>
+    </attribute>
+    <attribute id="YEAR_INT" order="42">
+      <descriptions defaultDescription="YEAR_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="YEAR_INT"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK_INT" order="43">
+      <descriptions defaultDescription="DAY_OF_WEEK_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="DAY_OF_WEEK_INT"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK" order="44" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_OF_WEEK"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="DAY_OF_WEEK"/>
+    </attribute>
+    <attribute id="DAY_INT" order="45">
+      <descriptions defaultDescription="DAY_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="DAY_INT"/>
+    </attribute>
+    <attribute id="DAY" order="46" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="DAY"/>
+    </attribute>
+    <attribute id="DATE_SQL" order="47" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SQL"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="DATE_SQL"/>
+    </attribute>
+    <attribute id="DATE_SAP" order="48" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SAP"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="DATE_SAP"/>
+    </attribute>
+    <attribute id="CALWEEK" order="49" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALWEEK"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CALWEEK"/>
+    </attribute>
+    <attribute id="CALQUARTER" order="50" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALQUARTER"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CALQUARTER"/>
+    </attribute>
+    <attribute id="CALMONTH" order="51" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALMONTH"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CALMONTH"/>
+    </attribute>
+    <attribute id="MATNR" order="52" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATNR"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MATNR"/>
+    </attribute>
+    <attribute id="NTGEW" order="53">
+      <descriptions defaultDescription="NTGEW"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="NTGEW"/>
+    </attribute>
+    <attribute id="CC_SUPER_FAMILY" order="54" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_SUPER_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_SUPER_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_SUPER_FAMILY" order="55" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_SUPER_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_CVE_SUPER_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_FAMILY" order="56" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_CVE_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_BRAND" order="57" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_CVE_BRAND"/>
+    </attribute>
+    <attribute id="CC_CVE_SUB_BRAND" order="58" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_SUB_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_CVE_SUB_BRAND"/>
+    </attribute>
+    <attribute id="CC_BRAND" order="59" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_BRAND"/>
+    </attribute>
+    <attribute id="CC_CVE_LINE" order="60" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_LINE"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_CVE_LINE"/>
+    </attribute>
+    <attribute id="CC_CVE_FAMILYN" order="61" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_CVE_FAMILYN"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_CVE_FAMILYN"/>
+    </attribute>
+    <attribute id="CC_FAMILY" order="62" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_FAMILY"/>
+    </attribute>
+    <attribute id="MTBEZ" order="63" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MTBEZ"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MTBEZ"/>
+    </attribute>
+    <attribute id="EAN11" order="64" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EAN11"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="EAN11"/>
+    </attribute>
+    <attribute id="MATKL" order="65" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATKL"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MATKL"/>
+    </attribute>
+    <attribute id="CC_SUB_BRAND" order="66" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_SUB_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_SUB_BRAND"/>
+    </attribute>
+    <attribute id="WGBEZ" order="67" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WGBEZ"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="WGBEZ"/>
+    </attribute>
+    <attribute id="MTART" order="68" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MTART"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MTART"/>
+    </attribute>
+    <attribute id="CC_LINE" order="69" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_LINE"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_LINE"/>
+    </attribute>
+    <attribute id="CC_FAMILYN" order="70" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_FAMILYN"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_FAMILYN"/>
+    </attribute>
+    <attribute id="MHDHB" order="71">
+      <descriptions defaultDescription="MHDHB"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MHDHB"/>
+    </attribute>
+    <attribute id="MAKTX" order="72" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MAKTX"/>
+      <keyMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="MAKTX"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="_BI0_9AVHISTORY" order="5" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="_BI0_9AVHISTORY"/>
+      <measureMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="/BI0/9AVHISTORY"/>
+    </measure>
+    <measure id="_BIC_ZDPDEMBA" order="6" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="_BIC_ZDPDEMBA"/>
+      <measureMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="/BIC/ZDPDEMBA"/>
+    </measure>
+    <measure id="CC_PLAN_KL" order="7" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="CC_PLAN_KL"/>
+      <measureMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_PLAN_KL"/>
+    </measure>
+    <measure id="CC_SALES_KL" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="CC_SALES_KL"/>
+      <measureMapping columnObjectName="GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY" columnName="CC_SALES_KL"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
