@@ -135,5 +135,23 @@
             "object": "GV_TTSEGEVTY",
             "schema": "SPS_SD"
         }
+    },
+    "GV_CSJ_LIST_PRICES_SCRAP": {
+        "target": {
+            "object": "GV_CSJ_LIST_PRICES_SCRAP",
+            "schema": "SPS_SD"
+        }
+    },
+    "GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS": {
+        "target": {
+            "object": "GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS",
+            "schema": "SPS_SD"
+        }
+    },
+    "GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY": {
+        "target": {
+            "object": "GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY",
+            "schema": "SPS_SD"
+        }
     }
 }
