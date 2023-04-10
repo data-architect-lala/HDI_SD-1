@@ -155,12 +155,6 @@
         "schema": "SPS_SD"
       }        
     },
-    "ZSDT113_LOG": {
-      "target": {
-        "object": "GVX_ZSDT113_LOG",
-        "schema": "SPS_SD"
-      }        
-    },
     "GVM_ZSDT113_C": {
       "target": {
         "object": "GVM_ZSDT113_C",

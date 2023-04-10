@@ -153,12 +153,6 @@
                 },
                 {
                     "type": "VIEW",
-                    "name": "GVX_ZSDT113_LOG",
-                    "privileges": ["SELECT"],
-                    "privileges_with_grant_option": ["SELECT"]
-                },
-                {
-                    "type": "VIEW",
                     "name": "GVM_ZSDT113_C",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]

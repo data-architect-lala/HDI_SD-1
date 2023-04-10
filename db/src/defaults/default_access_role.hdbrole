@@ -129,11 +129,6 @@
             },
             {
                "type": "SYNONYM",
-               "name":"ZSDT113_LOG",
-               "privileges": ["SELECT"]
-            },
-            {
-               "type": "SYNONYM",
                "name":"GVM_ZSDT113_C",
                "privileges": ["SELECT"]
             },
