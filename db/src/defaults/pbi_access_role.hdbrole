@@ -71,6 +71,16 @@
                "type": "VIEW",
                "name":"CV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_CSJ_ELECTRONIC_PURCHASE_ORDERS",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_CSJ_ERROR_LOG",
+               "privileges": ["SELECT"]
             }
          ]
     }

@@ -1,417 +1,357 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_ERROR_LOG" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_ERROR_LOG" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CV_CSJ_ERROR_LOG.hdbcalculationview"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="GV_CSJ_ERROR_LOG">
-    <resourceUri>GV_CSJ_ERROR_LOG</resourceUri>
+  <DataSource id="GVM_ZSDT113_LOG">
+    <resourceUri>GVM_ZSDT113_LOG</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_ZSDT113_C">
+    <resourceUri>GVM_ZSDT113_C</resourceUri>
   </DataSource>
 </dataSources>
 <snapshotProcedures/>
-<calculationViews/>
-<logicalModel id="GV_CSJ_ERROR_LOG">
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="FECHA"/>
+      <viewAttribute id="CLI_AGRUPADOR"/>
+      <viewAttribute id="SUC_CLAVE"/>
+      <viewAttribute id="MSGNO"/>
+      <viewAttribute id="MAT_CLAVE"/>
+      <viewAttribute id="CED_CLAVE"/>
+      <viewAttribute id="CANTIDAD"/>
+      <viewAttribute id="UNAME"/>
+      <viewAttribute id="PED_FOLIO"/>
+      <viewAttribute id="RUT_CLAVE"/>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="CLI_CLAVE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_ZSDT113_LOG"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="PED_FREG"/>
+      <viewAttribute id="CLI_AGRUPADOR"/>
+      <viewAttribute id="SUC_CLAVE"/>
+      <viewAttribute id="STATUS_SICAV"/>
+      <viewAttribute id="PRO_CLAVE"/>
+      <viewAttribute id="CED_CLAVE"/>
+      <viewAttribute id="PED_FOLIO"/>
+      <viewAttribute id="UNAME"/>
+      <viewAttribute id="PED_CANTIDAD"/>
+      <viewAttribute id="LOADDATE"/>
+      <viewAttribute id="PED_TIPO"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID" datatype="NVARCHAR" length="50" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;STATUS_SICAV&quot; = '97'
+THEN 'ZSDT113_C_ERROR_97'
+ELSE 'ZSDT113_C'
+END </formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="PED_CANTIDAD_ERROR" datatype="DECIMAL" length="10" scale="2" expressionLanguage="SQL">
+        <formula>CASE
+WHEN &quot;STATUS_SICAV&quot; = '97'
+THEN &quot;PED_CANTIDAD&quot;
+ELSE 0
+END</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_ZSDT113_C"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="FECHA"/>
+      <viewAttribute id="CLI_AGRUPADOR"/>
+      <viewAttribute id="MSGNO"/>
+      <viewAttribute id="MAT_CLAVE"/>
+      <viewAttribute id="CED_CLAVE"/>
+      <viewAttribute id="PED_FOLIO"/>
+      <viewAttribute id="UNAME"/>
+      <viewAttribute id="ID"/>
+    
+      <viewAttribute id="CANTIDAD" aggregationType="sum"/>
+      <viewAttribute id="SUC_CLAVE"/>
+      <viewAttribute id="PED_CANTIDAD" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="PED_TIPO"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FECHA" source="FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLI_AGRUPADOR" source="CLI_AGRUPADOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MSGNO" source="MSGNO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MAT_CLAVE" source="MAT_CLAVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CED_CLAVE" source="CED_CLAVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PED_FOLIO" source="PED_FOLIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UNAME" source="UNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CANTIDAD" source="CANTIDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUC_CLAVE" source="SUC_CLAVE"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PED_CANTIDAD" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="LOADDATE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PED_TIPO" null="true" value=""/>
+    </input>
+    <input node="Projection_2" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FECHA" source="PED_FREG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CLI_AGRUPADOR" source="CLI_AGRUPADOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MSGNO" source="STATUS_SICAV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MAT_CLAVE" source="PRO_CLAVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CED_CLAVE" source="CED_CLAVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PED_FOLIO" source="PED_FOLIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UNAME" source="UNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="CANTIDAD" source="PED_CANTIDAD_ERROR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUC_CLAVE" source="SUC_CLAVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PED_CANTIDAD" source="PED_CANTIDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PED_TIPO" source="PED_TIPO"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="FECHA"/>
+      <viewAttribute id="CLI_AGRUPADOR"/>
+      <viewAttribute id="MSGNO"/>
+      <viewAttribute id="MAT_CLAVE"/>
+      <viewAttribute id="CED_CLAVE"/>
+      <viewAttribute id="PED_FOLIO"/>
+      <viewAttribute id="UNAME"/>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="CANTIDAD" aggregationType="sum"/>
+      <viewAttribute id="SUC_CLAVE"/>
+      <viewAttribute id="PED_CANTIDAD" aggregationType="sum"/>
+      <viewAttribute id="FUM"/>
+      <viewAttribute id="PED_TIPO"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Union_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FUM" source="LOADDATE"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Aggregation_1">
   <attributes>
-    <attribute id="CLI_AGRUPADOR" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Customer Cluster"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CLI_AGRUPADOR"/>
-    </attribute>
-    <attribute id="PED_FOLIO" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Order Number"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="PED_FOLIO"/>
-    </attribute>
-    <attribute id="FECHA" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Order Registration Date"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="FECHA"/>
-    </attribute>
-    <attribute id="ID" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ID"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="ID"/>
-    </attribute>
-    <attribute id="MSGNO" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Message  Number"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MSGNO"/>
-    </attribute>
-    <attribute id="CED_CLAVE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CED_CLAVE" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CEDIS"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CED_CLAVE"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CED_CLAVE"/>
     </attribute>
-    <attribute id="SUC_CLAVE" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Branch Number"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="SUC_CLAVE"/>
+    <attribute id="FECHA" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FECHA"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="FECHA"/>
     </attribute>
-    <attribute id="MAT_CLAVE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CLI_AGRUPADOR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Customer Cluster"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CLI_AGRUPADOR"/>
+    </attribute>
+    <attribute id="MSGNO" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Message  Number"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="MSGNO"/>
+    </attribute>
+    <attribute id="MAT_CLAVE" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="SKU"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MAT_CLAVE"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="MAT_CLAVE"/>
     </attribute>
-    <attribute id="UNAME" order="10" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="PED_FOLIO" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Order Number"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PED_FOLIO"/>
+    </attribute>
+    <attribute id="UNAME" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="User Name"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="UNAME"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="UNAME"/>
     </attribute>
-    <attribute id="PED_TIPO" order="13" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="ID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ID"/>
+    </attribute>
+    <attribute id="SUC_CLAVE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Branch Number"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="SUC_CLAVE"/>
+    </attribute>
+    <attribute id="FUM" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FUM"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="FUM"/>
+    </attribute>
+    <attribute id="PED_TIPO" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="PED_TIPO"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="PED_TIPO"/>
-    </attribute>
-    <attribute id="MANDT" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MANDT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MANDT"/>
-    </attribute>
-    <attribute id="NUEVO" order="15" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NUEVO"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="NUEVO"/>
-    </attribute>
-    <attribute id="CUSTOMER_TYPE" order="16" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CUSTOMER_TYPE"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CUSTOMER_TYPE"/>
-    </attribute>
-    <attribute id="TCLI_CLAVE" order="17" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TCLI_CLAVE"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="TCLI_CLAVE"/>
-    </attribute>
-    <attribute id="CONTROL_AREA" order="18" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CONTROL_AREA"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CONTROL_AREA"/>
-    </attribute>
-    <attribute id="SHORT_NAME" order="19" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="SHORT_NAME"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="SHORT_NAME"/>
-    </attribute>
-    <attribute id="CLI_AREACONTROL" order="20" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CLI_AREACONTROL"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CLI_AREACONTROL"/>
-    </attribute>
-    <attribute id="DISTRIBUTION_CHANNEL" order="21" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DISTRIBUTION_CHANNEL"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DISTRIBUTION_CHANNEL"/>
-    </attribute>
-    <attribute id="DISTRIB_SUBCHAN" order="22" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DISTRIB_SUBCHAN"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DISTRIB_SUBCHAN"/>
-    </attribute>
-    <attribute id="ID_SUP_CANAL" order="23" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ID_SUP_CANAL"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="ID_SUP_CANAL"/>
-    </attribute>
-    <attribute id="ESTCM" order="24" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ESTCM"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="ESTCM"/>
-    </attribute>
-    <attribute id="DISTRIB_SUBCHAN2" order="25" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DISTRIB_SUBCHAN2"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DISTRIB_SUBCHAN2"/>
-    </attribute>
-    <attribute id="DISTRIBUTION_CHANNEL_2" order="26" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DISTRIBUTION_CHANNEL_2"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DISTRIBUTION_CHANNEL_2"/>
-    </attribute>
-    <attribute id="COMMERCIAL_STRUCTURE" order="27" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="COMMERCIAL_STRUCTURE"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="COMMERCIAL_STRUCTURE"/>
-    </attribute>
-    <attribute id="SUP_CANAL" order="28" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="SUP_CANAL"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="SUP_CANAL"/>
-    </attribute>
-    <attribute id="MONTH" order="29" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MONTH"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MONTH"/>
-    </attribute>
-    <attribute id="MONTH_INT" order="30">
-      <descriptions defaultDescription="MONTH_INT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MONTH_INT"/>
-    </attribute>
-    <attribute id="QUARTER" order="31" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="QUARTER"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="QUARTER"/>
-    </attribute>
-    <attribute id="QUARTER_INT" order="32">
-      <descriptions defaultDescription="QUARTER_INT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="QUARTER_INT"/>
-    </attribute>
-    <attribute id="TZNTSTMPL" order="33">
-      <descriptions defaultDescription="TZNTSTMPL"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="TZNTSTMPL"/>
-    </attribute>
-    <attribute id="TZNTSTMPS" order="34">
-      <descriptions defaultDescription="TZNTSTMPS"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="TZNTSTMPS"/>
-    </attribute>
-    <attribute id="WEEK" order="35" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="WEEK"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="WEEK"/>
-    </attribute>
-    <attribute id="WEEK_INT" order="36">
-      <descriptions defaultDescription="WEEK_INT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="WEEK_INT"/>
-    </attribute>
-    <attribute id="WEEK_YEAR" order="37" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="WEEK_YEAR"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="WEEK_YEAR"/>
-    </attribute>
-    <attribute id="WEEK_YEAR_INT" order="38">
-      <descriptions defaultDescription="WEEK_YEAR_INT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="WEEK_YEAR_INT"/>
-    </attribute>
-    <attribute id="YEAR" order="39" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="YEAR"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="YEAR"/>
-    </attribute>
-    <attribute id="YEAR_INT" order="40">
-      <descriptions defaultDescription="YEAR_INT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="YEAR_INT"/>
-    </attribute>
-    <attribute id="DAY_OF_WEEK_INT" order="41">
-      <descriptions defaultDescription="DAY_OF_WEEK_INT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DAY_OF_WEEK_INT"/>
-    </attribute>
-    <attribute id="DAY_OF_WEEK" order="42" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DAY_OF_WEEK"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DAY_OF_WEEK"/>
-    </attribute>
-    <attribute id="DAY_INT" order="43">
-      <descriptions defaultDescription="DAY_INT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DAY_INT"/>
-    </attribute>
-    <attribute id="DAY" order="44" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DAY"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DAY"/>
-    </attribute>
-    <attribute id="DATE_SQL" order="45" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DATE_SQL"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="DATE_SQL"/>
-    </attribute>
-    <attribute id="CALWEEK" order="46" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CALWEEK"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CALWEEK"/>
-    </attribute>
-    <attribute id="CALQUARTER" order="47" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CALQUARTER"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CALQUARTER"/>
-    </attribute>
-    <attribute id="CALMONTH" order="48" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CALMONTH"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CALMONTH"/>
-    </attribute>
-    <attribute id="MATNR" order="49" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MATNR"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MATNR"/>
-    </attribute>
-    <attribute id="NTGEW" order="50">
-      <descriptions defaultDescription="NTGEW"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="NTGEW"/>
-    </attribute>
-    <attribute id="CC_SUPER_FAMILY" order="51" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_SUPER_FAMILY"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_SUPER_FAMILY"/>
-    </attribute>
-    <attribute id="CC_CVE_SUPER_FAMILY" order="52" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_SUPER_FAMILY"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_CVE_SUPER_FAMILY"/>
-    </attribute>
-    <attribute id="CC_CVE_FAMILY" order="53" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_FAMILY"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_CVE_FAMILY"/>
-    </attribute>
-    <attribute id="CC_CVE_BRAND" order="54" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_BRAND"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_CVE_BRAND"/>
-    </attribute>
-    <attribute id="CC_CVE_SUB_BRAND" order="55" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_SUB_BRAND"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_CVE_SUB_BRAND"/>
-    </attribute>
-    <attribute id="CC_BRAND" order="56" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_BRAND"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_BRAND"/>
-    </attribute>
-    <attribute id="CC_CVE_LINE" order="57" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_LINE"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_CVE_LINE"/>
-    </attribute>
-    <attribute id="CC_CVE_FAMILYN" order="58" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_FAMILYN"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_CVE_FAMILYN"/>
-    </attribute>
-    <attribute id="CC_FAMILY" order="59" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_FAMILY"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_FAMILY"/>
-    </attribute>
-    <attribute id="MTBEZ" order="60" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MTBEZ"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MTBEZ"/>
-    </attribute>
-    <attribute id="EAN11" order="61" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="EAN11"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="EAN11"/>
-    </attribute>
-    <attribute id="MATKL" order="62" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MATKL"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MATKL"/>
-    </attribute>
-    <attribute id="CC_SUB_BRAND" order="63" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_SUB_BRAND"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_SUB_BRAND"/>
-    </attribute>
-    <attribute id="WGBEZ" order="64" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="WGBEZ"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="WGBEZ"/>
-    </attribute>
-    <attribute id="MTART" order="65" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MTART"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MTART"/>
-    </attribute>
-    <attribute id="CC_LINE" order="66" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_LINE"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_LINE"/>
-    </attribute>
-    <attribute id="CC_FAMILYN" order="67" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_FAMILYN"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CC_FAMILYN"/>
-    </attribute>
-    <attribute id="MHDHB" order="68">
-      <descriptions defaultDescription="MHDHB"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MHDHB"/>
-    </attribute>
-    <attribute id="MAKTX" order="69" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MAKTX"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="MAKTX"/>
-    </attribute>
-    <attribute id="KUNNR" order="70" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="KUNNR"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="KUNNR"/>
-    </attribute>
-    <attribute id="NAME1_CUSTOMER" order="71" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NAME1_CUSTOMER"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="NAME1_CUSTOMER"/>
-    </attribute>
-    <attribute id="ORT01_CUSTOMER" order="72" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ORT01_CUSTOMER"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="ORT01_CUSTOMER"/>
-    </attribute>
-    <attribute id="PSTLZ_CUSTOMER" order="73" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PSTLZ_CUSTOMER"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="PSTLZ_CUSTOMER"/>
-    </attribute>
-    <attribute id="SPRAS" order="74" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="SPRAS"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="SPRAS"/>
-    </attribute>
-    <attribute id="WERKS" order="75" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="WERKS"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="WERKS"/>
-    </attribute>
-    <attribute id="PFACH" order="76" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PFACH"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="PFACH"/>
-    </attribute>
-    <attribute id="VKORG" order="77" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="VKORG"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="VKORG"/>
-    </attribute>
-    <attribute id="EKORG" order="78" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="EKORG"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="EKORG"/>
-    </attribute>
-    <attribute id="LAND1" order="79" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LAND1"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="LAND1"/>
-    </attribute>
-    <attribute id="LANDX" order="80" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LANDX"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="LANDX"/>
-    </attribute>
-    <attribute id="NATIO" order="81" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NATIO"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="NATIO"/>
-    </attribute>
-    <attribute id="CHAZV_OLD" order="82" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CHAZV_OLD"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CHAZV_OLD"/>
-    </attribute>
-    <attribute id="STREET" order="83" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="STREET"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="STREET"/>
-    </attribute>
-    <attribute id="BEZEI" order="84" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BEZEI"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="BEZEI"/>
-    </attribute>
-    <attribute id="HOUSE_NUM1" order="85" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="HOUSE_NUM1"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="HOUSE_NUM1"/>
-    </attribute>
-    <attribute id="REGION" order="86" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="REGION"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="REGION"/>
-    </attribute>
-    <attribute id="EKOTX" order="87" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="EKOTX"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="EKOTX"/>
-    </attribute>
-    <attribute id="BUKRS" order="88" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BUKRS"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="BUKRS"/>
-    </attribute>
-    <attribute id="TEL_NUMBER" order="89" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TEL_NUMBER"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="TEL_NUMBER"/>
-    </attribute>
-    <attribute id="TEL_EXTENS" order="90" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TEL_EXTENS"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="TEL_EXTENS"/>
-    </attribute>
-    <attribute id="TIME_ZONE" order="91" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TIME_ZONE"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="TIME_ZONE"/>
-    </attribute>
-    <attribute id="BUTXT" order="92" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BUTXT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="BUTXT"/>
-    </attribute>
-    <attribute id="FECHA_HORA" order="93">
-      <descriptions defaultDescription="FECHA_HORA"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="FECHA_HORA"/>
-    </attribute>
-    <attribute id="NAME1_PLANT" order="95" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NAME1_PLANT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="NAME1_PLANT"/>
-    </attribute>
-    <attribute id="ORT01_PLANT" order="96" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ORT01_PLANT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="ORT01_PLANT"/>
-    </attribute>
-    <attribute id="PSTLZ_PLANT" order="97" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PSTLZ_PLANT"/>
-      <keyMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="PSTLZ_PLANT"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PED_TIPO"/>
+    </attribute>
+    <attribute id="CLI_AGRUPADOR$local">
+      <descriptions defaultDescription="CLI_AGRUPADOR"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CLI_AGRUPADOR"/>
+    </attribute>
+    <attribute id="CED_CLAVE$local">
+      <descriptions defaultDescription="CED_CLAVE"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CED_CLAVE"/>
+    </attribute>
+    <attribute id="FECHA$local">
+      <descriptions defaultDescription="FECHA"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="FECHA"/>
+    </attribute>
+    <attribute id="MAT_CLAVE$local">
+      <descriptions defaultDescription="MAT_CLAVE"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="MAT_CLAVE"/>
+    </attribute>
+    <attribute id="SUC_CLAVE$local">
+      <descriptions defaultDescription="SUC_CLAVE"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="SUC_CLAVE"/>
     </attribute>
   </attributes>
-  <calculatedAttributes/>
+  <calculatedAttributes>
+    <calculatedAttribute id="FECHA_HORA" order="13" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FECHA_HORA"/>
+      <keyCalculation datatype="TIMESTAMP" expressionLanguage="SQL">
+        <formula>TO_TIMESTAMP(&quot;FECHA&quot;)</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
   <baseMeasures>
-    <measure id="CANTIDAD" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="Error Order Quantity"/>
-      <measureMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="CANTIDAD"/>
-    </measure>
-    <measure id="PED_CANTIDAD" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="PED_CANTIDAD" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Order Quantity"/>
-      <measureMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="PED_CANTIDAD"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="PED_CANTIDAD"/>
     </measure>
-    <measure id="LOADDATE" order="12" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="FUM"/>
-      <measureMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="LOADDATE"/>
-    </measure>
-    <measure id="COUNTER_OC" order="94" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="Count Order"/>
-      <measureMapping columnObjectName="GV_CSJ_ERROR_LOG" columnName="COUNTER_OC"/>
+    <measure id="CANTIDAD" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Error Order Quantity"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CANTIDAD"/>
     </measure>
   </baseMeasures>
-  <calculatedMeasures/>
+  <calculatedMeasures>
+    <measure id="COUNTER_OC" order="11" aggregationType="sum" measureType="simple" calculatedMeasureType="counter" datatype="BIGINT" length="" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Count Order"/>
+      <exceptionAggregation>
+        <attribute attributeName="PED_FOLIO"/>
+      </exceptionAggregation>
+      <formula>1</formula>
+      
+      </measure>
+  </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="CV_DMA_COMMERCIAL_STRUCTURE">
+      <attributes>
+        <attributeRef>CLI_AGRUPADOR$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>KUNNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_4" attributeName="MANDT"/>
+        <attributeReference alias="KUNNR_2" attributeName="KUNNR" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_PLANT">
+      <attributes>
+        <attributeRef>CED_CLAVE$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>WERKS</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_1" attributeName="MANDT" hidden="true"/>
+        <attributeReference attributeName="WERKS" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_TIME">
+      <attributes>
+        <attributeRef>FECHA$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>DATE_SAP</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="DATE_SAP" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_MATERIAL">
+      <attributes>
+        <attributeRef>MAT_CLAVE$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MATNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_2" attributeName="MANDT" hidden="true"/>
+        <attributeReference attributeName="MATNR" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_CUSTOMER">
+      <attributes>
+        <attributeRef>SUC_CLAVE$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>KUNNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_3" attributeName="MANDT" hidden="true"/>
+        <attributeReference alias="KUNNR_1" attributeName="KUNNR" hidden="true"/>
+        <attributeReference alias="NAME1_1" attributeName="NAME1"/>
+        <attributeReference alias="ORT01_1" attributeName="ORT01"/>
+        <attributeReference alias="PSTLZ_1" attributeName="PSTLZ"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+  </sharedDimensions>
 </logicalModel>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="40" y="85"/>
+      <upperLeftCorner x="241" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="556"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="556"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="222" y="416"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="222" y="311"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_COMMERCIAL_STRUCTURE" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="964" y="148"/>
+      <rectangleSize width="284.67578125"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_PLANT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="691" y="233"/>
+      <rectangleSize width="162.40380859375"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_TIME" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="1068" y="291"/>
+      <rectangleSize width="191.5419921875"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_MATERIAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="896" y="253"/>
+      <rectangleSize width="219.0634765625"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_CUSTOMER" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="897" y="520"/>
+      <rectangleSize width="189.794921875"/>
     </shape>
   </shapes>
 </layout>

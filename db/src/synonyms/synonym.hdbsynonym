@@ -154,5 +154,53 @@
         "object": "GV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY",
         "schema": "SPS_SD"
       }        
+    },
+    "ZSDT113_LOG": {
+      "target": {
+        "object": "GVX_ZSDT113_LOG",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_ZSDT113_C": {
+      "target": {
+        "object": "GVM_ZSDT113_C",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_ZSDT113_LOG": {
+      "target": {
+        "object": "GVM_ZSDT113_LOG",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DMA_COMMERCIAL_STRUCTURE": {
+      "target": {
+        "object": "GVM_DMA_COMMERCIAL_STRUCTURE",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DMA_PLANT": {
+      "target": {
+        "object": "GVM_DMA_PLANT",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DMA_TIME": {
+      "target": {
+        "object": "GVM_DMA_TIME",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DMA_MATERIAL": {
+      "target": {
+        "object": "GVM_DMA_MATERIAL",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DMA_CUSTOMER": {
+      "target": {
+        "object": "GVM_DMA_CUSTOMER",
+        "schema": "SPS_SD"
+      }        
     }
   }

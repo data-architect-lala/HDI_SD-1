@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMA_COMMERCIAL_STRUCTURE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DMA_COMMERCIAL_STRUCTURE.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMA_COMMERCIAL_STRUCTURE">
+    <resourceUri>GVM_DMA_COMMERCIAL_STRUCTURE</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMA_COMMERCIAL_STRUCTURE">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="MANDT"/>
+    </attribute>
+    <attribute id="KUNNR" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Customer Number CS"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="KUNNR"/>
+    </attribute>
+    <attribute id="NUEVO" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NUEVO"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="NUEVO"/>
+    </attribute>
+    <attribute id="CUSTOMER_TYPE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Customer Type"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="CUSTOMER_TYPE"/>
+    </attribute>
+    <attribute id="TCLI_CLAVE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TCLI_CLAVE"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="TCLI_CLAVE"/>
+    </attribute>
+    <attribute id="CONTROL_AREA" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Customer Super Channel"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="CONTROL_AREA"/>
+    </attribute>
+    <attribute id="SHORT_NAME" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Customer Short Name"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="SHORT_NAME"/>
+    </attribute>
+    <attribute id="CLI_AREACONTROL" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLI_AREACONTROL"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="CLI_AREACONTROL"/>
+    </attribute>
+    <attribute id="DISTRIBUTION_CHANNEL" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DISTRIBUTION_CHANNEL"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="DISTRIBUTION_CHANNEL"/>
+    </attribute>
+    <attribute id="DISTRIB_SUBCHAN" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DISTRIB_SUBCHAN"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="DISTRIB_SUBCHAN"/>
+    </attribute>
+    <attribute id="ID_SUP_CANAL" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Super Canal (Zship_to_Zsupcanal)"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="ID_SUP_CANAL"/>
+    </attribute>
+    <attribute id="ESTCM" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ESTCM"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="ESTCM"/>
+    </attribute>
+    <attribute id="DISTRIB_SUBCHAN2" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DISTRIB_SUBCHAN2"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="DISTRIB_SUBCHAN2"/>
+    </attribute>
+    <attribute id="DISTRIBUTION_CHANNEL_2" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DISTRIBUTION_CHANNEL_2"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="DISTRIBUTION_CHANNEL_2"/>
+    </attribute>
+    <attribute id="COMMERCIAL_STRUCTURE" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Customer Chain Group"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="COMMERCIAL_STRUCTURE"/>
+    </attribute>
+    <attribute id="SUP_CANAL" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Super Canal (Zship_to_Zsupcanal)"/>
+      <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="SUP_CANAL"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
