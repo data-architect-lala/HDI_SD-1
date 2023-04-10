@@ -13,31 +13,31 @@
 <logicalModel id="GV_VBPA_EC">
   <attributes>
     <attribute id="VBELN" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="VBELN"/>
+      <descriptions defaultDescription="No. Documento"/>
       <keyMapping columnObjectName="GV_VBPA_EC" columnName="VBELN"/>
     </attribute>
     <attribute id="POSNR" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="POSNR"/>
+      <descriptions defaultDescription="Posicion"/>
       <keyMapping columnObjectName="GV_VBPA_EC" columnName="POSNR"/>
     </attribute>
     <attribute id="PARVW" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PARVW"/>
+      <descriptions defaultDescription="Funcion Interlocutor"/>
       <keyMapping columnObjectName="GV_VBPA_EC" columnName="PARVW"/>
     </attribute>
     <attribute id="KUNNR" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="KUNNR"/>
+      <descriptions defaultDescription="No. Deudor"/>
       <keyMapping columnObjectName="GV_VBPA_EC" columnName="KUNNR"/>
     </attribute>
     <attribute id="LIFNR" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LIFNR"/>
+      <descriptions defaultDescription="No. Cuenta Acreedor"/>
       <keyMapping columnObjectName="GV_VBPA_EC" columnName="LIFNR"/>
     </attribute>
     <attribute id="ADRNR" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ADRNR"/>
+      <descriptions defaultDescription="Direccion"/>
       <keyMapping columnObjectName="GV_VBPA_EC" columnName="ADRNR"/>
     </attribute>
     <attribute id="LAND1" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LAND1"/>
+      <descriptions defaultDescription="Cve. Pais"/>
       <keyMapping columnObjectName="GV_VBPA_EC" columnName="LAND1"/>
     </attribute>
   </attributes>

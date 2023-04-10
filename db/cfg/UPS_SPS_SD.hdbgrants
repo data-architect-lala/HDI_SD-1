@@ -52,6 +52,18 @@
                 },
                 {
                     "type": "VIEW",
+                    "name": "GVX_ZMMT018_BIT",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVX_ZTSDE282_VALIDA",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
                     "name": "GV_CSJ_ELECTRONIC_PURCHASE_ORDERS",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]

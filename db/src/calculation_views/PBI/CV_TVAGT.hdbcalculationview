@@ -13,15 +13,15 @@
 <logicalModel id="GV_TVAGT">
   <attributes>
     <attribute id="ABGRU" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ABGRU"/>
+      <descriptions defaultDescription="Motivo de Rechazo"/>
       <keyMapping columnObjectName="GV_TVAGT" columnName="ABGRU"/>
     </attribute>
     <attribute id="BEZEI" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BEZEI"/>
+      <descriptions defaultDescription="Denominacion"/>
       <keyMapping columnObjectName="GV_TVAGT" columnName="BEZEI"/>
     </attribute>
     <attribute id="SPRAS" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="SPRAS"/>
+      <descriptions defaultDescription="Idioma"/>
       <keyMapping columnObjectName="GV_TVAGT" columnName="SPRAS"/>
     </attribute>
   </attributes>

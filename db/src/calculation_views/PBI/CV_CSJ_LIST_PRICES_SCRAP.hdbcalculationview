@@ -21,7 +21,7 @@
       <keyMapping columnObjectName="GV_CSJ_LIST_PRICES_SCRAP" columnName="MATNR"/>
     </attribute>
     <attribute id="WERKS" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="WERKS"/>
+      <descriptions defaultDescription="Centro"/>
       <keyMapping columnObjectName="GV_CSJ_LIST_PRICES_SCRAP" columnName="WERKS"/>
     </attribute>
     <attribute id="KBETR" order="4" displayAttribute="false" attributeHierarchyActive="false">
