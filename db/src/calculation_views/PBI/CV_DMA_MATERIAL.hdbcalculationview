@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMA_MATERIAL" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DMA_MATERIAL.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMA_MATERIAL">
+    <resourceUri>GVM_DMA_MATERIAL</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMA_MATERIAL">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Client"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MANDT"/>
+    </attribute>
+    <attribute id="MATNR" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Number"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MATNR"/>
+    </attribute>
+    <attribute id="NTGEW" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Net Weight"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="NTGEW"/>
+    </attribute>
+    <attribute id="CC_SUPER_FAMILY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Super Family"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_SUPER_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_SUPER_FAMILY" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Super Family ID"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_CVE_SUPER_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_FAMILY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Family ID"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_CVE_FAMILY"/>
+    </attribute>
+    <attribute id="CC_CVE_BRAND" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Brand ID"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_CVE_BRAND"/>
+    </attribute>
+    <attribute id="CC_CVE_SUB_BRAND" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Sub Brand ID"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_CVE_SUB_BRAND"/>
+    </attribute>
+    <attribute id="CC_BRAND" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Brand"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_BRAND"/>
+    </attribute>
+    <attribute id="CC_CVE_LINE" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Line ID"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_CVE_LINE"/>
+    </attribute>
+    <attribute id="CC_CVE_FAMILYN" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Familyn ID"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_CVE_FAMILYN"/>
+    </attribute>
+    <attribute id="CC_FAMILY" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Family"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_FAMILY"/>
+    </attribute>
+    <attribute id="MTBEZ" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Group Description"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MTBEZ"/>
+    </attribute>
+    <attribute id="EAN11" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EAN11"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="EAN11"/>
+    </attribute>
+    <attribute id="MATKL" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Group"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MATKL"/>
+    </attribute>
+    <attribute id="CC_SUB_BRAND" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Sub Brand"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_SUB_BRAND"/>
+    </attribute>
+    <attribute id="WGBEZ" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Description of Material Type"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="WGBEZ"/>
+    </attribute>
+    <attribute id="MTART" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Type"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MTART"/>
+    </attribute>
+    <attribute id="CC_LINE" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Line"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_LINE"/>
+    </attribute>
+    <attribute id="CC_FAMILYN" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Familyn"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="CC_FAMILYN"/>
+    </attribute>
+    <attribute id="MHDHB" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Shelf Life"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MHDHB"/>
+    </attribute>
+    <attribute id="MAKTX" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MAKTX"/>
+      <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MAKTX"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

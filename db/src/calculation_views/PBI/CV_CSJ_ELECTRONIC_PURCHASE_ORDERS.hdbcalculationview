@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_ELECTRONIC_PURCHASE_ORDERS" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_CSJ_ELECTRONIC_PURCHASE_ORDERS.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS">
+    <resourceUri>GV_CSJ_ELECTRONIC_PURCHASE_ORDERS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS">
+  <attributes>
+    <attribute id="CED_CLAVE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CED_CLAVE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CED_CLAVE"/>
+    </attribute>
+    <attribute id="CLI_AGRUPADOR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLI_AGRUPADOR"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CLI_AGRUPADOR"/>
+    </attribute>
+    <attribute id="CLI_CLAVE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLI_CLAVE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CLI_CLAVE"/>
+    </attribute>
+    <attribute id="ECC_ESTATUS" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ECC_ESTATUS"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="ECC_ESTATUS"/>
+    </attribute>
+    <attribute id="EST_CLAVE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EST_CLAVE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="EST_CLAVE"/>
+    </attribute>
+    <attribute id="NUM_TIENDA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NUM_TIENDA"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="NUM_TIENDA"/>
+    </attribute>
+    <attribute id="PED_CITA" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_CITA"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_CITA"/>
+    </attribute>
+    <attribute id="PED_DRESP" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_DRESP"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_DRESP"/>
+    </attribute>
+    <attribute id="PED_DSENT" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_DSENT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_DSENT"/>
+    </attribute>
+    <attribute id="PED_ENVIADO" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_ENVIADO"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_ENVIADO"/>
+    </attribute>
+    <attribute id="PED_FECHA" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_FECHA"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_FECHA"/>
+    </attribute>
+    <attribute id="PED_FIN" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_FIN"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_FIN"/>
+    </attribute>
+    <attribute id="PED_FINICIO" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_FINICIO"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_FINICIO"/>
+    </attribute>
+    <attribute id="PED_FOLIO" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_FOLIO"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_FOLIO"/>
+    </attribute>
+    <attribute id="PED_FREG" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_FREG"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_FREG"/>
+    </attribute>
+    <attribute id="PED_HREG" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_HREG"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_HREG"/>
+    </attribute>
+    <attribute id="PED_HRESP" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_HRESP"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_HRESP"/>
+    </attribute>
+    <attribute id="PED_HSENT" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_HSENT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_HSENT"/>
+    </attribute>
+    <attribute id="PED_ORDENC" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_ORDENC"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_ORDENC"/>
+    </attribute>
+    <attribute id="PED_PROVEEDOR" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_PROVEEDOR"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_PROVEEDOR"/>
+    </attribute>
+    <attribute id="PED_TIPO" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PED_TIPO"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_TIPO"/>
+    </attribute>
+    <attribute id="PRO_CLAVE" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRO_CLAVE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PRO_CLAVE"/>
+    </attribute>
+    <attribute id="STATUS_SICAV" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STATUS_SICAV"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="STATUS_SICAV"/>
+    </attribute>
+    <attribute id="RUT_CLAVE" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RUT_CLAVE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="RUT_CLAVE"/>
+    </attribute>
+    <attribute id="SUC_CLAVE" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUC_CLAVE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="SUC_CLAVE"/>
+    </attribute>
+    <attribute id="UNAME" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UNAME"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="UNAME"/>
+    </attribute>
+    <attribute id="UNAME_SENT" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UNAME_SENT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="UNAME_SENT"/>
+    </attribute>
+    <attribute id="UNIDAD_COMPRA" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UNIDAD_COMPRA"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="UNIDAD_COMPRA"/>
+    </attribute>
+    <attribute id="FECHA_HORA" order="37">
+      <descriptions defaultDescription="FECHA_HORA"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="FECHA_HORA"/>
+    </attribute>
+    <attribute id="CC_PEDFIN" order="38" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_PEDFIN"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_PEDFIN"/>
+    </attribute>
+    <attribute id="WERKS" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKS"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="WERKS"/>
+    </attribute>
+    <attribute id="EKOTX" order="40" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EKOTX"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="EKOTX"/>
+    </attribute>
+    <attribute id="NATIO" order="41" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NATIO"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="NATIO"/>
+    </attribute>
+    <attribute id="LANDX" order="42" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LANDX"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="LANDX"/>
+    </attribute>
+    <attribute id="PFACH" order="43" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PFACH"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PFACH"/>
+    </attribute>
+    <attribute id="PlantPostalCode_PSTLZ" order="44" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PlantPostalCode_PSTLZ"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PlantPostalCode_PSTLZ"/>
+    </attribute>
+    <attribute id="BUTXT" order="45" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUTXT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="BUTXT"/>
+    </attribute>
+    <attribute id="EKORG" order="46" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EKORG"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="EKORG"/>
+    </attribute>
+    <attribute id="PlantName_NAME1" order="47" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PlantName_NAME1"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PlantName_NAME1"/>
+    </attribute>
+    <attribute id="BUKRS" order="48" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BUKRS"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="BUKRS"/>
+    </attribute>
+    <attribute id="STREET" order="49" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STREET"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="STREET"/>
+    </attribute>
+    <attribute id="VKORG" order="50" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VKORG"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="VKORG"/>
+    </attribute>
+    <attribute id="LAND1" order="51" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LAND1"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="LAND1"/>
+    </attribute>
+    <attribute id="HOUSE_NUM1" order="52" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HOUSE_NUM1"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="HOUSE_NUM1"/>
+    </attribute>
+    <attribute id="PlantCity_ORT01" order="53" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PlantCity_ORT01"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PlantCity_ORT01"/>
+    </attribute>
+    <attribute id="REGION" order="54" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REGION"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="REGION"/>
+    </attribute>
+    <attribute id="CustomerName_NAME1" order="55" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerName_NAME1"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CustomerName_NAME1"/>
+    </attribute>
+    <attribute id="CustomerCity_ORT01" order="56" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerCity_ORT01"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CustomerCity_ORT01"/>
+    </attribute>
+    <attribute id="CustomerPostalCode_PSTLZ" order="57" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerPostalCode_PSTLZ"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CustomerPostalCode_PSTLZ"/>
+    </attribute>
+    <attribute id="STRAS" order="58" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STRAS"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="STRAS"/>
+    </attribute>
+    <attribute id="NTGEW" order="59">
+      <descriptions defaultDescription="NTGEW"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="NTGEW"/>
+    </attribute>
+    <attribute id="CC_SUB_BRAND" order="60" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_SUB_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_SUB_BRAND"/>
+    </attribute>
+    <attribute id="EAN11" order="61" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EAN11"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="EAN11"/>
+    </attribute>
+    <attribute id="MAKTX" order="62" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MAKTX"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="MAKTX"/>
+    </attribute>
+    <attribute id="CC_LINE" order="63" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_LINE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_LINE"/>
+    </attribute>
+    <attribute id="MTART" order="64" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MTART"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="MTART"/>
+    </attribute>
+    <attribute id="WGBEZ" order="65" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WGBEZ"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="WGBEZ"/>
+    </attribute>
+    <attribute id="MHDHB" order="66">
+      <descriptions defaultDescription="MHDHB"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="MHDHB"/>
+    </attribute>
+    <attribute id="MTBEZ" order="67" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MTBEZ"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="MTBEZ"/>
+    </attribute>
+    <attribute id="MATKL" order="68" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATKL"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="MATKL"/>
+    </attribute>
+    <attribute id="CC_SUPER_FAMILY" order="69" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_SUPER_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_SUPER_FAMILY"/>
+    </attribute>
+    <attribute id="COMMERCIAL_STRUCTURE_MANDT_0" order="70" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMMERCIAL_STRUCTURE_MANDT_0"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="COMMERCIAL_STRUCTURE_MANDT_0"/>
+    </attribute>
+    <attribute id="SHORT_NAME" order="71" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SHORT_NAME"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="SHORT_NAME"/>
+    </attribute>
+    <attribute id="COMMERCIAL_STRUCTURE" order="72" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COMMERCIAL_STRUCTURE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="COMMERCIAL_STRUCTURE"/>
+    </attribute>
+    <attribute id="ID_SUP_CANAL" order="73" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_SUP_CANAL"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="ID_SUP_CANAL"/>
+    </attribute>
+    <attribute id="DISTRIBUTION_CHANNEL_2" order="74" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DISTRIBUTION_CHANNEL_2"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="DISTRIBUTION_CHANNEL_2"/>
+    </attribute>
+    <attribute id="SUP_CANAL" order="75" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUP_CANAL"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="SUP_CANAL"/>
+    </attribute>
+    <attribute id="DISTRIBUTION_CHANNEL" order="76" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DISTRIBUTION_CHANNEL"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="DISTRIBUTION_CHANNEL"/>
+    </attribute>
+    <attribute id="CUSTOMER_TYPE" order="77" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMER_TYPE"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CUSTOMER_TYPE"/>
+    </attribute>
+    <attribute id="CONTROL_AREA" order="78" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONTROL_AREA"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CONTROL_AREA"/>
+    </attribute>
+    <attribute id="DATE_SAP" order="79" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SAP"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="DATE_SAP"/>
+    </attribute>
+    <attribute id="DAY" order="80" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="DAY"/>
+    </attribute>
+    <attribute id="MONTH_INT" order="81">
+      <descriptions defaultDescription="MONTH_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="MONTH_INT"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK_INT" order="82">
+      <descriptions defaultDescription="DAY_OF_WEEK_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="DAY_OF_WEEK_INT"/>
+    </attribute>
+    <attribute id="WEEK" order="83" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="WEEK"/>
+    </attribute>
+    <attribute id="CALQUARTER" order="84" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALQUARTER"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CALQUARTER"/>
+    </attribute>
+    <attribute id="WEEK_INT" order="85">
+      <descriptions defaultDescription="WEEK_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="WEEK_INT"/>
+    </attribute>
+    <attribute id="MONTH" order="86" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MONTH"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="MONTH"/>
+    </attribute>
+    <attribute id="QUARTER_INT" order="87">
+      <descriptions defaultDescription="QUARTER_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="QUARTER_INT"/>
+    </attribute>
+    <attribute id="DAY_INT" order="88">
+      <descriptions defaultDescription="DAY_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="DAY_INT"/>
+    </attribute>
+    <attribute id="YEAR_INT" order="89">
+      <descriptions defaultDescription="YEAR_INT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="YEAR_INT"/>
+    </attribute>
+    <attribute id="DATE_SQL" order="90" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE_SQL"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="DATE_SQL"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK" order="91" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY_OF_WEEK"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="DAY_OF_WEEK"/>
+    </attribute>
+    <attribute id="CALWEEK" order="92" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALWEEK"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CALWEEK"/>
+    </attribute>
+    <attribute id="CALMONTH" order="93" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALMONTH"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CALMONTH"/>
+    </attribute>
+    <attribute id="CLIENT" order="94" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CLIENT"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CLIENT"/>
+    </attribute>
+    <attribute id="QUARTER" order="95" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="QUARTER"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="QUARTER"/>
+    </attribute>
+    <attribute id="CC_FAMILY" order="96" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_FAMILY"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_FAMILY"/>
+    </attribute>
+    <attribute id="CC_FAMILYN" order="97" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_FAMILYN"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_FAMILYN"/>
+    </attribute>
+    <attribute id="CC_BRAND" order="98" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_BRAND"/>
+      <keyMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_BRAND"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="CANT_SICAV" order="1" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="CANT_SICAV"/>
+      <measureMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CANT_SICAV"/>
+    </measure>
+    <measure id="PED_CANTIDAD" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="PED_CANTIDAD"/>
+      <measureMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_CANTIDAD"/>
+    </measure>
+    <measure id="PED_EMBALAJE" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="PED_EMBALAJE"/>
+      <measureMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_EMBALAJE"/>
+    </measure>
+    <measure id="PED_ORIGINAL" order="23" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="PED_ORIGINAL"/>
+      <measureMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="PED_ORIGINAL"/>
+    </measure>
+    <measure id="CC_CANT_SICAV_KL" order="33" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="CC_CANT_SICAV_KL"/>
+      <measureMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_CANT_SICAV_KL"/>
+    </measure>
+    <measure id="CC_PED_CANTIDAD_KL" order="34" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="CC_PED_CANTIDAD_KL"/>
+      <measureMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_PED_CANTIDAD_KL"/>
+    </measure>
+    <measure id="CC_PED_ORIGINAL_KL" order="35" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="CC_PED_ORIGINAL_KL"/>
+      <measureMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="CC_PED_ORIGINAL_KL"/>
+    </measure>
+    <measure id="FUM" order="36" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FUM"/>
+      <measureMapping columnObjectName="GV_CSJ_ELECTRONIC_PURCHASE_ORDERS" columnName="FUM"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

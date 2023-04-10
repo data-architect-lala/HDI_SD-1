@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMA_PLANT" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DMA_PLANT.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMA_PLANT">
+    <resourceUri>GVM_DMA_PLANT</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMA_PLANT">
+  <attributes>
+    <attribute id="WERKS" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="WERKS"/>
+    </attribute>
+    <attribute id="NAME1" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Name"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="NAME1"/>
+    </attribute>
+    <attribute id="PFACH" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant PO Box"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="PFACH"/>
+    </attribute>
+    <attribute id="PSTLZ" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Postal Code"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="PSTLZ"/>
+    </attribute>
+    <attribute id="ORT01" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant City"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="ORT01"/>
+    </attribute>
+    <attribute id="MANDT" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Client"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="MANDT"/>
+    </attribute>
+    <attribute id="VKORG" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Sales organization for intercompany billing"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="VKORG"/>
+    </attribute>
+    <attribute id="EKORG" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Purchasing Organization"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="EKORG"/>
+    </attribute>
+    <attribute id="LAND1" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Country Key"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="LAND1"/>
+    </attribute>
+    <attribute id="LANDX" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Country Name"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="LANDX"/>
+    </attribute>
+    <attribute id="NATIO" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Nationality"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="NATIO"/>
+    </attribute>
+    <attribute id="CHAZV_OLD" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant ndicator: batch status management active"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="CHAZV_OLD"/>
+    </attribute>
+    <attribute id="STREET" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Street"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="STREET"/>
+    </attribute>
+    <attribute id="BEZEI" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Description Region"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="BEZEI"/>
+    </attribute>
+    <attribute id="HOUSE_NUM1" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant House Number"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="HOUSE_NUM1"/>
+    </attribute>
+    <attribute id="REGION" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Region (State, Province, County)"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="REGION"/>
+    </attribute>
+    <attribute id="EKOTX" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Description of Purchasing Organization"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="EKOTX"/>
+    </attribute>
+    <attribute id="BUKRS" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Company Code"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="BUKRS"/>
+    </attribute>
+    <attribute id="TEL_NUMBER" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant First telephone no.: dialling code+number"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="TEL_NUMBER"/>
+    </attribute>
+    <attribute id="TEL_EXTENS" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant First Telephone No.: Extension"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="TEL_EXTENS"/>
+    </attribute>
+    <attribute id="TIME_ZONE" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Address time zone"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="TIME_ZONE"/>
+    </attribute>
+    <attribute id="BUTXT" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant Name of Company Code or Company"/>
+      <keyMapping columnObjectName="GVM_DMA_PLANT" columnName="BUTXT"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

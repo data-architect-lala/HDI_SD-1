@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMA_TIME" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DMA_TIME.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMA_TIME">
+    <resourceUri>GVM_DMA_TIME</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMA_TIME">
+  <attributes>
+    <attribute id="MONTH" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Month MM"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="MONTH"/>
+    </attribute>
+    <attribute id="MONTH_INT" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Month M"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="MONTH_INT"/>
+    </attribute>
+    <attribute id="QUARTER" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Quarter QQ"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="QUARTER"/>
+    </attribute>
+    <attribute id="QUARTER_INT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Quarter Q"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="QUARTER_INT"/>
+    </attribute>
+    <attribute id="WEEK" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Week WW"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="WEEK"/>
+    </attribute>
+    <attribute id="WEEK_INT" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Week W"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="WEEK_INT"/>
+    </attribute>
+    <attribute id="YEAR_INT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="YEAR_INT"/>
+    </attribute>
+    <attribute id="TZNTSTMPL" hidden="true" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TZNTSTMPL"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="TZNTSTMPL"/>
+    </attribute>
+    <attribute id="TZNTSTMPS" hidden="true" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TZNTSTMPS"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="TZNTSTMPS"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK_INT" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Day Of Week D"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="DAY_OF_WEEK_INT"/>
+    </attribute>
+    <attribute id="WEEK_YEAR" hidden="true" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="WEEK_YEAR"/>
+    </attribute>
+    <attribute id="DAY_OF_WEEK" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Day Of Week DD"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="DAY_OF_WEEK"/>
+    </attribute>
+    <attribute id="WEEK_YEAR_INT" hidden="true" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR_INT"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="WEEK_YEAR_INT"/>
+    </attribute>
+    <attribute id="DAY_INT" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Day Of Month D"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="DAY_INT"/>
+    </attribute>
+    <attribute id="WEEK_ISO" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_ISO"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="WEEK_ISO"/>
+    </attribute>
+    <attribute id="YEAR" hidden="true" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YEAR"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="YEAR"/>
+    </attribute>
+    <attribute id="DAY" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Day Of Month DD"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="DAY"/>
+    </attribute>
+    <attribute id="DATE_SQL" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Date YYYY-MM-DD"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="DATE_SQL"/>
+    </attribute>
+    <attribute id="DATE_SAP" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Date YYYYMMDD"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="DATE_SAP"/>
+    </attribute>
+    <attribute id="CALWEEK" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year Week YYYYWW"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="CALWEEK"/>
+    </attribute>
+    <attribute id="CALQUARTER" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year Q YYYYQ"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="CALQUARTER"/>
+    </attribute>
+    <attribute id="CALMONTH" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year Month YYYYMM"/>
+      <keyMapping columnObjectName="GVM_DMA_TIME" columnName="CALMONTH"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
