@@ -210,6 +210,30 @@
                     "name": "GVM_MARM",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_VBAK",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_LIPS",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_TVARVC",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_MSEG",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
                 }
             ]
         }

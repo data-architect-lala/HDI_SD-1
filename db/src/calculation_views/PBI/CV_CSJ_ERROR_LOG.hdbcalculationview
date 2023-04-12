@@ -210,7 +210,7 @@ END</formula>
       <keyCalculation datatype="TIMESTAMP" expressionLanguage="SQL">
         <formula>TO_TIMESTAMP(&quot;FECHA&quot;)</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures>
     <measure id="PED_CANTIDAD" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
@@ -335,23 +335,23 @@ END</formula>
     </shape>
     <shape modelObjectName="CV_DMA_COMMERCIAL_STRUCTURE" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="964" y="148"/>
-      <rectangleSize width="284.67578125"/>
+      <rectangleSize width="284"/>
     </shape>
     <shape modelObjectName="CV_DMA_PLANT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="691" y="233"/>
-      <rectangleSize width="162.40380859375"/>
+      <rectangleSize width="162"/>
     </shape>
     <shape modelObjectName="CV_DMA_TIME" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="1068" y="291"/>
-      <rectangleSize width="191.5419921875"/>
+      <rectangleSize width="191"/>
     </shape>
     <shape modelObjectName="CV_DMA_MATERIAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="896" y="253"/>
-      <rectangleSize width="219.0634765625"/>
+      <rectangleSize width="219"/>
     </shape>
     <shape modelObjectName="CV_DMA_CUSTOMER" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="897" y="520"/>
-      <rectangleSize width="189.794921875"/>
+      <rectangleSize width="189"/>
     </shape>
   </shapes>
 </layout>

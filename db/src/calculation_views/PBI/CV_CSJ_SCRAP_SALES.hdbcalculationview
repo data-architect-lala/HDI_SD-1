@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_SCRAP_SALES" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_CSJ_SCRAP_SALES.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_MSEG">
+    <resourceUri>GVM_MSEG</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_TVARVC">
+    <resourceUri>GVM_TVARVC</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_LIPS">
+    <resourceUri>GVM_LIPS</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_VBAK">
+    <resourceUri>GVM_VBAK</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_MARM">
+    <resourceUri>GVM_MARM</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_MSEG">
+    <viewAttributes>
+      <viewAttribute id="BUDAT_MKPF"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="BWART"/>
+      <viewAttribute id="LGORT"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="SHKZG"/>
+      <viewAttribute id="VGART_MKPF"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="DMBTR"/>
+      <viewAttribute id="MENGE"/>
+    
+      <viewAttribute id="XBLNR_MKPF"/>
+      <viewAttribute id="FUM"/>
+      <viewAttribute id="FECHA_RESP"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_MSEG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="FUM" source="LOADDATE"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_TVARVC" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="NAME"/>
+      <viewAttribute id="SCRAP_TYPE"/>
+      <viewAttribute id="BWART"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_TVARVC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCRAP_TYPE" source="LOW"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BWART" source="HIGH"/>
+    </input>
+    <filter>&quot;NAME&quot; = 'ZPP_PBI_MOVSMERMA' AND
+&quot;SCRAP_TYPE&quot; = 'MERMA DE VENTAS' </filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="VBELN"/>
+      <viewAttribute id="VGBEL"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="LFIMG"/>
+      <viewAttribute id="BWART"/>
+      <viewAttribute id="PSTYV"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_LIPS"/>
+    <filter>&quot;BWART&quot; = '657'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_VBAK">
+    <viewAttributes>
+      <viewAttribute id="VBELN"/>
+      <viewAttribute id="IHREZ"/>
+      <viewAttribute id="KUNNR"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_VBAK"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_MARM">
+    <viewAttributes>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="UMREN"/>
+      <viewAttribute id="UMREZ"/>
+      <viewAttribute id="MEINH"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_FACTOR" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
+        <formula>&quot;UMREN&quot;/&quot;UMREZ&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_MARM"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_MSEG_SCRAP_TYPE" cardinality="CN_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="BUDAT_MKPF"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="BWART"/>
+      <viewAttribute id="LGORT"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="SHKZG"/>
+      <viewAttribute id="VGART_MKPF"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="DMBTR" aggregationType="sum"/>
+      <viewAttribute id="MENGE" aggregationType="sum"/>
+      <viewAttribute id="XBLNR_MKPF"/>
+      <viewAttribute id="FUM" aggregationType="min"/>
+      <viewAttribute id="FECHA_RESP"/>
+      <viewAttribute id="SCRAP_TYPE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_MSEG">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUDAT_MKPF" source="BUDAT_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BWART" source="BWART"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LGORT" source="LGORT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SHKZG" source="SHKZG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VGART_MKPF" source="VGART_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MENGE" source="MENGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XBLNR_MKPF" source="XBLNR_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FUM" source="FUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FECHA_RESP" source="FECHA_RESP"/>
+    </input>
+    <input node="Projection_TVARVC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCRAP_TYPE" source="SCRAP_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BWART" source="BWART"/>
+    </input>
+    <joinAttribute name="BWART"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_SCRAP_LIPS" cardinality="C1_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="BUDAT_MKPF"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="BWART"/>
+      <viewAttribute id="LGORT"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="SHKZG"/>
+      <viewAttribute id="VGART_MKPF"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="DMBTR" aggregationType="sum"/>
+      <viewAttribute id="MENGE" aggregationType="sum"/>
+      <viewAttribute id="XBLNR_MKPF"/>
+      <viewAttribute id="FUM" aggregationType="min"/>
+      <viewAttribute id="FECHA_RESP"/>
+      <viewAttribute id="SCRAP_TYPE"/>
+      <viewAttribute id="VGBEL"/>
+      <viewAttribute id="LFIMG" aggregationType="sum"/>
+      <viewAttribute id="PSTYV"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_MSEG_SCRAP_TYPE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUDAT_MKPF" source="BUDAT_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BWART" source="BWART"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LGORT" source="LGORT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SHKZG" source="SHKZG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VGART_MKPF" source="VGART_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MENGE" source="MENGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XBLNR_MKPF" source="XBLNR_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FUM" source="FUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FECHA_RESP" source="FECHA_RESP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCRAP_TYPE" source="SCRAP_TYPE"/>
+    </input>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="VGBEL" source="VGBEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LFIMG" source="LFIMG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MENGE" source="LFIMG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XBLNR_MKPF" source="VBELN"/>
+    </input>
+    <joinAttribute name="MATNR"/>
+    <joinAttribute name="MENGE"/>
+    <joinAttribute name="XBLNR_MKPF"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_SCRAP_VBAK" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="BUDAT_MKPF"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="BWART"/>
+      <viewAttribute id="LGORT"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="SHKZG"/>
+      <viewAttribute id="VGART_MKPF"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="DMBTR" aggregationType="sum"/>
+      <viewAttribute id="MENGE" aggregationType="sum"/>
+      <viewAttribute id="XBLNR_MKPF"/>
+      <viewAttribute id="FUM" aggregationType="min"/>
+      <viewAttribute id="FECHA_RESP"/>
+      <viewAttribute id="SCRAP_TYPE"/>
+      <viewAttribute id="VGBEL"/>
+      <viewAttribute id="LFIMG" aggregationType="sum"/>
+      <viewAttribute id="PSTYV"/>
+      <viewAttribute id="IHREZ"/>
+      <viewAttribute id="KUNNR"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_SCRAP_LIPS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUDAT_MKPF" source="BUDAT_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BWART" source="BWART"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LGORT" source="LGORT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SHKZG" source="SHKZG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VGART_MKPF" source="VGART_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MENGE" source="MENGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XBLNR_MKPF" source="XBLNR_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FUM" source="FUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FECHA_RESP" source="FECHA_RESP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCRAP_TYPE" source="SCRAP_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VGBEL" source="VGBEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LFIMG" source="LFIMG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+    </input>
+    <input node="Projection_VBAK">
+      <mapping xsi:type="Calculation:AttributeMapping" target="IHREZ" source="IHREZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KUNNR" source="KUNNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VGBEL" source="VBELN"/>
+    </input>
+    <joinAttribute name="VGBEL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_SCRAP_MARM" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="BUDAT_MKPF"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="BWART"/>
+      <viewAttribute id="LGORT"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="SHKZG"/>
+      <viewAttribute id="VGART_MKPF"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="DMBTR" aggregationType="sum"/>
+      <viewAttribute id="MENGE" aggregationType="sum"/>
+      <viewAttribute id="XBLNR_MKPF"/>
+      <viewAttribute id="FUM" aggregationType="min"/>
+      <viewAttribute id="FECHA_RESP"/>
+      <viewAttribute id="SCRAP_TYPE"/>
+      <viewAttribute id="VGBEL"/>
+      <viewAttribute id="LFIMG" aggregationType="sum"/>
+      <viewAttribute id="PSTYV"/>
+      <viewAttribute id="IHREZ"/>
+      <viewAttribute id="KUNNR"/>
+      <viewAttribute id="CC_FACTOR" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_QUANTITY" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;SHKZG&quot; = 'H'
+THEN &quot;MENGE&quot; *-1 
+ELSE  &quot;MENGE&quot;
+END </formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_QUANTITY_KL" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
+        <formula>&quot;CC_QUANTITY&quot; * &quot;CC_FACTOR&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Join_SCRAP_VBAK">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUDAT_MKPF" source="BUDAT_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BWART" source="BWART"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LGORT" source="LGORT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SHKZG" source="SHKZG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VGART_MKPF" source="VGART_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MENGE" source="MENGE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XBLNR_MKPF" source="XBLNR_MKPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FUM" source="FUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FECHA_RESP" source="FECHA_RESP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCRAP_TYPE" source="SCRAP_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VGBEL" source="VGBEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LFIMG" source="LFIMG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IHREZ" source="IHREZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KUNNR" source="KUNNR"/>
+    </input>
+    <input node="Projection_MARM">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_FACTOR" source="CC_FACTOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+    </input>
+    <joinAttribute name="MATNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_SCRAP_SALES">
+    <viewAttributes>
+      <viewAttribute id="BUDAT_MKPF"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="BWART"/>
+      <viewAttribute id="LGORT"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="DMBTR" aggregationType="sum"/>
+      <viewAttribute id="MENGE"/>
+      <viewAttribute id="XBLNR_MKPF"/>
+      <viewAttribute id="FUM" aggregationType="max"/>
+      <viewAttribute id="FECHA_RESP"/>
+      <viewAttribute id="SCRAP_TYPE"/>
+      <viewAttribute id="VGBEL"/>
+      <viewAttribute id="LFIMG"/>
+      <viewAttribute id="PSTYV"/>
+      <viewAttribute id="IHREZ"/>
+      <viewAttribute id="KUNNR"/>
+      <viewAttribute id="CC_QUANTITY" aggregationType="sum"/>
+      <viewAttribute id="CC_QUANTITY_KL" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID_FECHAL" datatype="TIMESTAMP" expressionLanguage="SQL">
+        <formula>TO_TIMESTAMP(&quot;BUDAT_MKPF&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="Join_SCRAP_MARM"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Aggregation_SCRAP_SALES">
+  <attributes>
+    <attribute id="BUKRS" key="true" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Company Code"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="BUKRS"/>
+    </attribute>
+    <attribute id="BWART" key="true" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Movement Type"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="BWART"/>
+    </attribute>
+    <attribute id="LGORT" key="true" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Storage Location"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="LGORT"/>
+    </attribute>
+    <attribute id="XBLNR_MKPF" key="true" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Reference Document Number"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="XBLNR_MKPF"/>
+    </attribute>
+    <attribute id="SCRAP_TYPE" key="true" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Scrap Type"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="SCRAP_TYPE"/>
+    </attribute>
+    <attribute id="VGBEL" key="true" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sales Document"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="VGBEL"/>
+    </attribute>
+    <attribute id="IHREZ" key="true" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Route"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="IHREZ"/>
+    </attribute>
+    <attribute id="ID_FECHAL" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha Larga"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="ID_FECHAL"/>
+    </attribute>
+    <attribute id="PSTYV" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tpos"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="PSTYV"/>
+    </attribute>
+    <attribute id="BUDAT_MKPF$local">
+      <descriptions defaultDescription="BUDAT_MKPF"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="BUDAT_MKPF"/>
+    </attribute>
+    <attribute id="MATNR$local">
+      <descriptions defaultDescription="MATNR"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="MATNR"/>
+    </attribute>
+    <attribute id="WERKS$local">
+      <descriptions defaultDescription="WERKS"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="WERKS"/>
+    </attribute>
+    <attribute id="KUNNR$local">
+      <descriptions defaultDescription="KUNNR"/>
+      <keyMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="KUNNR"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="CC_QUANTITY" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Quantity"/>
+      <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="CC_QUANTITY"/>
+    </measure>
+    <measure id="CC_QUANTITY_KL" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Quantity KL"/>
+      <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="CC_QUANTITY_KL"/>
+    </measure>
+    <measure id="LFIMG" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="LFIMG"/>
+      <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="LFIMG"/>
+    </measure>
+    <measure id="MENGE" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="MENGE"/>
+      <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="MENGE"/>
+    </measure>
+    <measure id="FUM" order="12" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FUM"/>
+      <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="FUM"/>
+    </measure>
+    <measure id="DMBTR" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Importe ML"/>
+      <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="DMBTR"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures>
+    <measure id="CC_AMOUNT" order="13" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Amount"/>
+      <formula>&quot;KBETR&quot; * &quot;CC_QUANTITY&quot;</formula>
+      </measure>
+  </calculatedMeasures>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="CV_DMA_TIME">
+      <attributes>
+        <attributeRef>BUDAT_MKPF$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>DATE_SAP</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_MATERIAL">
+      <attributes>
+        <attributeRef>MATNR$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MATNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_PLANT">
+      <attributes>
+        <attributeRef>WERKS$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>WERKS</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_1" attributeName="MANDT"/>
+        <attributeReference alias="BUKRS_1" attributeName="BUKRS"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_CUSTOMER">
+      <attributes>
+        <attributeRef>KUNNR$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>KUNNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_2" attributeName="MANDT"/>
+        <attributeReference alias="NAME1_1" attributeName="NAME1"/>
+        <attributeReference alias="ORT01_1" attributeName="ORT01"/>
+        <attributeReference alias="PSTLZ_1" attributeName="PSTLZ"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_COMMERCIAL_STRUCTURE">
+      <attributes>
+        <attributeRef>KUNNR$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>KUNNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_3" attributeName="MANDT"/>
+        <attributeReference alias="KUNNR_1" attributeName="KUNNR"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_CSJ_LIST_PRICES_SCRAP">
+      <attributes>
+        <attributeRef>MATNR$local</attributeRef>
+        <attributeRef>WERKS$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MATNR</attributeName>
+        <attributeName>WERKS</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MATNR_2" attributeName="MATNR">
+          <descriptions defaultDescription="MATNR_2"/>
+        </attributeReference>
+        <attributeReference alias="WERKS_1" attributeName="WERKS"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="562" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_MSEG" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="996"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_TVARVC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="996"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="381" y="851"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_VBAK" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="481" y="711"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_MARM" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="597" y="571"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_MSEG_SCRAP_TYPE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="118" y="855"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_MSEG" modelObjectNameSpace="Join_MSEG_SCRAP_TYPE" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="164"/>
+    </shape>
+    <shape modelObjectName="Projection_TVARVC" modelObjectNameSpace="Join_MSEG_SCRAP_TYPE" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="177"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_SCRAP_LIPS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="145" y="711"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_MSEG_SCRAP_TYPE" modelObjectNameSpace="Join_SCRAP_LIPS" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_SCRAP_LIPS" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_SCRAP_VBAK" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="171" y="571"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_SCRAP_LIPS" modelObjectNameSpace="Join_SCRAP_VBAK" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_VBAK" modelObjectNameSpace="Join_SCRAP_VBAK" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_SCRAP_MARM" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="545" y="431"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_SCRAP_VBAK" modelObjectNameSpace="Join_SCRAP_MARM" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_MARM" modelObjectNameSpace="Join_SCRAP_MARM" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_SCRAP_SALES" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="545" y="326"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_SCRAP_SALES" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="230"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_TIME" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="191"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_MATERIAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="219"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_PLANT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="920" y="30"/>
+      <rectangleSize width="162"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_CUSTOMER" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="850" y="374"/>
+      <rectangleSize width="189"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_COMMERCIAL_STRUCTURE" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="841" y="224"/>
+      <rectangleSize width="284"/>
+    </shape>
+    <shape modelObjectName="CV_CSJ_LIST_PRICES_SCRAP" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="897" y="432"/>
+      <rectangleSize width="243"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

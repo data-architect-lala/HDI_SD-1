@@ -81,6 +81,11 @@
                "type": "VIEW",
                "name":"CV_CSJ_ERROR_LOG",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_CSJ_SCRAP_SALES",
+               "privileges": ["SELECT"]
             }
          ]
     }

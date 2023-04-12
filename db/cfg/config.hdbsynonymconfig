@@ -213,5 +213,29 @@
             "object": "GVM_MARM",
             "schema": "SPS_SD"
         }
+    },
+    "GVM_VBAK": {
+        "target": {
+            "object": "GVM_VBAK",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_LIPS": {
+        "target": {
+            "object": "GVM_LIPS",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_TVARVC": {
+        "target": {
+            "object": "GVM_TVARVC",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_MSEG": {
+        "target": {
+            "object": "GVM_MSEG",
+            "schema": "SPS_SD"
+        }
     }
 }
