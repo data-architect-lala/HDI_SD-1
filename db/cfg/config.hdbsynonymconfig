@@ -53,6 +53,18 @@
             "schema": "SPS_SD"
         }
     },
+    "ZMMT018_BIT": {
+        "target": {
+            "object": "GVX_ZMMT018_BIT",
+            "schema": "SPS_SD"
+        }
+    },
+    "ZTSDE282_VALIDA": {
+        "target": {
+            "object": "GVX_ZTSDE282_VALIDA",
+            "schema": "SPS_SD"
+        }
+    },
     "GV_CSJ_ELECTRONIC_PURCHASE_ORDERS": {
         "target": {
             "object": "GV_CSJ_ELECTRONIC_PURCHASE_ORDERS",
@@ -193,6 +205,12 @@
     "GVM_DMA_CUSTOMER": {
         "target": {
             "object": "GVM_DMA_CUSTOMER",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_MARM": {
+        "target": {
+            "object": "GVM_MARM",
             "schema": "SPS_SD"
         }
     }
