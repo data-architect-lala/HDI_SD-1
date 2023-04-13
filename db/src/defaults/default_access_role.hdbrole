@@ -196,6 +196,11 @@
                "type": "SYNONYM",
                "name":"GVM_MSEG",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_FFZSD_C03",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

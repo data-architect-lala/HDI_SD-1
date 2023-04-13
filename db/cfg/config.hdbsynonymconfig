@@ -237,5 +237,11 @@
             "object": "GVM_MSEG",
             "schema": "SPS_SD"
         }
+    },
+    "GVM_FFZSD_C03": {
+        "target": {
+            "object": "GVM_FFZSD_C03",
+            "schema": "SPS_SD"
+        }
     }
 }

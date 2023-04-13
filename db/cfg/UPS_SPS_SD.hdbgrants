@@ -234,6 +234,12 @@
                     "name": "GVM_MSEG",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_FFZSD_C03",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
                 }
             ]
         }

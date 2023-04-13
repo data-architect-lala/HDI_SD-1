@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_DIRECT_SALES" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_CSJ_DIRECT_SALES.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_FFZSD_C03">
+    <resourceUri>GVM_FFZSD_C03</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_FFZSD_C03">
+    <viewAttributes>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_PLANT"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTA_PZA"/>
+      <viewAttribute id="0CALWEEK"/>
+      <viewAttribute id="0CALYEAR"/>
+      <viewAttribute id="0CALMONTH"/>
+      <viewAttribute id="ID_CLIENTE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_FFZSD_C03">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="0COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_PLANT" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ZSHIP_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ZRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="0BASE_UOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="0STAT_CURR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="NET_VAL_S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="/BIC/ZQUANT_KL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTA_PZA" source="QUANT_B"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLIENTE" source="ZSOLD_TO"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_FFZSD_C03">
+    <viewAttributes>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_PLANT"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTA_PZA" aggregationType="sum"/>
+      <viewAttribute id="0CALWEEK"/>
+      <viewAttribute id="0CALYEAR"/>
+      <viewAttribute id="0CALMONTH"/>
+      <viewAttribute id="ID_CLIENTE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Projection_FFZSD_C03"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Aggregation_FFZSD_C03">
+  <attributes>
+    <attribute id="ID_UMB" key="true" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UMB"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_UMB"/>
+    </attribute>
+    <attribute id="ID_MONEDA" key="true" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Currency"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_MONEDA"/>
+    </attribute>
+    <attribute id="ID_RUTA" key="true" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Route"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="ID_PLANT" key="true" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant / CEDIS"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_PLANT"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" key="true" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_FECHA" key="true" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sales Date"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD" key="true" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sales Association"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="0CALWEEK" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year Week YYYYWW"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="0CALWEEK"/>
+    </attribute>
+    <attribute id="0CALYEAR" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="0CALYEAR"/>
+    </attribute>
+    <attribute id="0CALMONTH" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year Month YYYYMM"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="0CALMONTH"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_SUCURSAL"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_MATERIAL$local">
+      <descriptions defaultDescription="ZMATERIAL"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_PLANT$local">
+      <descriptions defaultDescription="ZPLANT"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_PLANT"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL$local">
+      <descriptions defaultDescription="ZSHIP_TO"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_FECHA$local">
+      <descriptions defaultDescription="0CALDAY"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="ID_CLIENTE$local">
+      <descriptions defaultDescription="ZSOLD_TO"/>
+      <keyMapping columnObjectName="Aggregation_FFZSD_C03" columnName="ID_CLIENTE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="VENTAMN" order="4" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Sales LC"/>
+      <measureMapping columnObjectName="Aggregation_FFZSD_C03" columnName="VENTAMN"/>
+    </measure>
+    <measure id="VENTAKL" order="5" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Sales KL"/>
+      <measureMapping columnObjectName="Aggregation_FFZSD_C03" columnName="VENTAKL"/>
+    </measure>
+    <measure id="VENTA_PZA" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Sales PZA"/>
+      <measureMapping columnObjectName="Aggregation_FFZSD_C03" columnName="VENTA_PZA"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="CV_DMA_MATERIAL">
+      <attributes>
+        <attributeRef>ID_MATERIAL$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MATNR</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="MANDT" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_PLANT">
+      <attributes>
+        <attributeRef>ID_PLANT$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>WERKS</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_1" attributeName="MANDT" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_CUSTOMER">
+      <attributes>
+        <attributeRef>ID_SUCURSAL$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>KUNNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_2" attributeName="MANDT" hidden="true"/>
+        <attributeReference alias="NAME1_1" attributeName="NAME1"/>
+        <attributeReference alias="ORT01_1" attributeName="ORT01"/>
+        <attributeReference alias="PSTLZ_1" attributeName="PSTLZ"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_TIME">
+      <attributes>
+        <attributeRef>ID_FECHA$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>DATE_SQL</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="CALWEEK" hidden="true"/>
+        <attributeReference attributeName="YEAR_INT" hidden="true"/>
+        <attributeReference attributeName="CALMONTH" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_COMMERCIAL_STRUCTURE">
+      <attributes>
+        <attributeRef>ID_CLIENTE$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>KUNNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_3" attributeName="MANDT"/>
+        <attributeReference alias="KUNNR_1" attributeName="KUNNR"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_FFZSD_C03" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="382"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_FFZSD_C03" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="277"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_FFZSD_C03" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_MATERIAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="219"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_PLANT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="162"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_CUSTOMER" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="803" y="55"/>
+      <rectangleSize width="189"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_TIME" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="840" y="325"/>
+      <rectangleSize width="191"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_COMMERCIAL_STRUCTURE" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="304" y="545"/>
+      <rectangleSize width="284"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
