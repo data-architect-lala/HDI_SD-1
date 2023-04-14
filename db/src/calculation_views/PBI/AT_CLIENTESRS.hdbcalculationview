@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="AT_CLIENTESRS" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="AT_CLIENTESRS.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DCLIENTESRS">
+    <resourceUri>GVM_DCLIENTESRS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DCLIENTESRS">
+  <attributes>
+    <attribute id="ID_RAZONSOCIAL" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Razon Social"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="RSCIUDAD" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Ciudad"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="RSCIUDAD"/>
+    </attribute>
+    <attribute id="RSNUMERO" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Número"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="RSNUMERO"/>
+    </attribute>
+    <attribute id="ID_RSPAIS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Pais"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSPAIS"/>
+    </attribute>
+    <attribute id="RSDUNSNUM" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Numero DUNS"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="RSDUNSNUM"/>
+    </attribute>
+    <attribute id="ID_RSLATITUDE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Latitud"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSLATITUDE"/>
+    </attribute>
+    <attribute id="ID_RSLONGITUDE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Longitud"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSLONGITUDE"/>
+    </attribute>
+    <attribute id="ID_RSPOSTAL" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. CP"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSPOSTAL"/>
+    </attribute>
+    <attribute id="RSCALLE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Calle"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="RSCALLE"/>
+    </attribute>
+    <attribute id="ID_RSDIRFUNC" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Dirección Funcional"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSDIRFUNC"/>
+    </attribute>
+    <attribute id="ID_RSGRUPOCAD" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Grupo Cadena"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSGRUPOCAD"/>
+    </attribute>
+    <attribute id="ID_RSFORMATO" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Formato"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSFORMATO"/>
+    </attribute>
+    <attribute id="ID_RSNOMCOR" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Nombre Corto"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSNOMCOR"/>
+    </attribute>
+    <attribute id="ID_RSCANDIST" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSCANDIST"/>
+    </attribute>
+    <attribute id="ID_RSSUPCAN" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Súper Canal"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSSUPCAN"/>
+    </attribute>
+    <attribute id="ID_RSSUBCANDIST" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSSUBCANDIST"/>
+    </attribute>
+    <attribute id="ID_RSESCM" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Estructura Comercial"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="ID_RSESCM"/>
+    </attribute>
+    <attribute id="TXT_RSSUPCAN" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Súper Canal"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSSUPCAN"/>
+    </attribute>
+    <attribute id="TXTM_RSCANDIST" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXTM_RSCANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSCANDIST" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSCANDIST"/>
+    </attribute>
+    <attribute id="TXTM_RSSUBCANDIST" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Sub Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXTM_RSSUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSSUBCANDIST" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSSUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSDIRFUNCIONAL" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Dirección Funcional"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSDIRFUNCIONAL"/>
+    </attribute>
+    <attribute id="TXT_RSGRUPOCAD" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Grupo Cadena"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSGRUPOCAD"/>
+    </attribute>
+    <attribute id="TXT_RSNOMCOR" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Nombre Corto"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSNOMCOR"/>
+    </attribute>
+    <attribute id="TXT_RSESCM" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Estructura Comercial"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSESCM"/>
+    </attribute>
+    <attribute id="TXT_RSPAIS" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. País"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSPAIS"/>
+    </attribute>
+    <attribute id="TXT_RSFORMATO" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Formato"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSFORMATO"/>
+    </attribute>
+    <attribute id="TXT_RSCLIENTE" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Razon Social"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESRS" columnName="TXT_RSCLIENTE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

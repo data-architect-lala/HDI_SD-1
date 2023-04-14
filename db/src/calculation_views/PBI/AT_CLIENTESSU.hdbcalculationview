@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="AT_CLIENTESSU" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="AT_CLIENTESSU.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DCLIENTESSU">
+    <resourceUri>GVM_DCLIENTESSU</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DCLIENTESSU">
+  <attributes>
+    <attribute id="ID_SUCURSAL" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sucursal"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="SUNUMERO" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Número"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="SUNUMERO"/>
+    </attribute>
+    <attribute id="SUCCIUDAD" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Ciudad"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="SUCCIUDAD"/>
+    </attribute>
+    <attribute id="ID_SUCPAIS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Pais"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCPAIS"/>
+    </attribute>
+    <attribute id="SUCDUNSNUM" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Numero DUNS"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="SUCDUNSNUM"/>
+    </attribute>
+    <attribute id="ID_SUCLATITUDE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Latitud"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCLATITUDE"/>
+    </attribute>
+    <attribute id="ID_SUCLONGITUDE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Longitud"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCLONGITUDE"/>
+    </attribute>
+    <attribute id="ID_SUCPOSTAL" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. CP"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCPOSTAL"/>
+    </attribute>
+    <attribute id="SUCCALLE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Calle"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="SUCCALLE"/>
+    </attribute>
+    <attribute id="ID_SUCDIRFUNC" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Dirección Funcional"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCDIRFUNC"/>
+    </attribute>
+    <attribute id="ID_SUCGRUPOCAD" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Grupo Cadena"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCGRUPOCAD"/>
+    </attribute>
+    <attribute id="ID_SUCFORMATO" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Formato"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCFORMATO"/>
+    </attribute>
+    <attribute id="ID_SUCNOMCOR" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Nombre Corto"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCNOMCOR"/>
+    </attribute>
+    <attribute id="ID_SUCCANDIST" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCCANDIST"/>
+    </attribute>
+    <attribute id="ID_SUCSUPCAN" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Súper Canal"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="ID_SUCSUBCANDIST" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCSUBCANDIST"/>
+    </attribute>
+    <attribute id="ID_SUCESCM" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="ID_SUCESCM"/>
+    </attribute>
+    <attribute id="TXT_SUCSUPCAN" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Súper Canal"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="TXTM_SUCCANDIST" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXTM_SUCCANDIST"/>
+    </attribute>
+    <attribute id="TXT_SUCCANDIST" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCCANDIST"/>
+    </attribute>
+    <attribute id="TXTM_SUCSUBCANDIST" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Sub Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXTM_SUCSUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_SUCSUBCANDIST" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCSUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_SUCDIRFUNCIONAL" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Dirección Funcional"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCDIRFUNCIONAL"/>
+    </attribute>
+    <attribute id="TXT_SUCGRUPOCAD" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Grupo Cadena"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCGRUPOCAD"/>
+    </attribute>
+    <attribute id="TXT_SUCNOMCOR" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Nombre Corto"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCNOMCOR"/>
+    </attribute>
+    <attribute id="TXT_SUCESCM" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCESCM"/>
+    </attribute>
+    <attribute id="TXT_SUCPAIS" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. País"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCPAIS"/>
+    </attribute>
+    <attribute id="TXT_SUCFORMATO" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Formato"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCFORMATO"/>
+    </attribute>
+    <attribute id="TXT_SUCURSAL" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TXT_SUCURSAL"/>
+      <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCURSAL"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

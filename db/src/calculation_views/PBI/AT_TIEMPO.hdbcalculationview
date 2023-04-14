@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="AT_TIEMPO" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="AT_TIEMPO.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DTIEMPO">
+    <resourceUri>GVM_DTIEMPO</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DTIEMPO">
+  <attributes>
+    <attribute id="ID_FECHAL" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha Larga"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_FECHAL"/>
+    </attribute>
+    <attribute id="ID_FECHA" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="ID_FECHASAP" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha SAP"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_FECHASAP"/>
+    </attribute>
+    <attribute id="ID_ANIO" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_ANIO"/>
+    </attribute>
+    <attribute id="ID_QT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Trimestre"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_QT"/>
+    </attribute>
+    <attribute id="ID_MES" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Mes"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_MES"/>
+    </attribute>
+    <attribute id="ID_SEMANA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Semana"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_SEMANA"/>
+    </attribute>
+    <attribute id="ID_DIASEM" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Día Semana"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_DIASEM"/>
+    </attribute>
+    <attribute id="ID_ANIOMES" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Mes"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_ANIOSEMANA" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Semana"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_ANIOSEMANA"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

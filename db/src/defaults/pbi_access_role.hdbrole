@@ -91,6 +91,11 @@
                "type": "VIEW",
                "name":"CV_CSJ_DIRECT_SALES",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_UVENTACM",
+               "privileges": ["SELECT"]
             }
          ]
     }

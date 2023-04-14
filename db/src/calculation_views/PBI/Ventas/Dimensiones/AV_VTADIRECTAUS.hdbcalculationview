@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="AV_VTADIRECTAUS" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="AV_VTADIRECTAUS.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_FFZSD_C03">
+    <resourceUri>GVM_FFZSD_C03</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="LOADDATE"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="SUBTOT_1S"/>
+      <viewAttribute id="SUBTOT_2S"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="COSTO_VAL"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="row_count" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>1</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_FFZSD_C03">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="0FISCPER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="0FISCVARNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="0BASE_UOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="0STAT_CURR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="0DISTR_CHAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ZRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ZTIP_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="0SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ZSOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="0COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ZBILLPRTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="0BILL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ZENT_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ZSHIP_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="QUANT_B"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="NET_VAL_S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="/BIC/ZQUANT_KL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COSTO_VAL" source="COST_VAL_S"/>
+    </input>
+    <filter>&quot;ID_SOCIEDAD&quot; IN ('6201', '6202', 'US11', 'US12', 'US13', 'US14', 'US15')</filter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="ID_EJPERIODO" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ejercicio/Periodo"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_EJPERIODO"/>
+    </attribute>
+    <attribute id="ID_VARIANTEEJ" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Variante Ejercicio"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_VARIANTEEJ"/>
+    </attribute>
+    <attribute id="ID_UMB" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID UMB"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_UMB"/>
+    </attribute>
+    <attribute id="ID_MONEDA" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Moneda"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_MONEDA"/>
+    </attribute>
+    <attribute id="ID_CANDISOB" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Canal Distribución (Obsoleto)"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_CANDISOB"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ruta"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="ID_TIPRUTA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Ruta (Historico)"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_TIPRUTA"/>
+    </attribute>
+    <attribute id="ID_ORGVTA" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Organizacion Venta"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_ORGVTA"/>
+    </attribute>
+    <attribute id="LOADDATE" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOADDATE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="LOADDATE"/>
+    </attribute>
+    <attribute id="ID_SOLD_TO" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cliente/RS Agrupador"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_SOLD_TO"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_CEDIS$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_MATERIAL$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_RAZONSOCIAL$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="ID_CLFACTURA$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID_CLFACTURA"/>
+    </attribute>
+    <attribute id="ID_TIPOENT$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID_TIPOENT"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_FECHA$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID_FECHA"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="ID_INFOSITIO" order="16" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Infositio"/>
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="4">
+        <formula>'VC03'</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures>
+    <measure id="SUBTOT_1S" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Subtotal 1"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SUBTOT_1S"/>
+    </measure>
+    <measure id="SUBTOT_2S" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Subtotal 2"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SUBTOT_2S"/>
+    </measure>
+    <measure id="VENTAUMB" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta UMB"/>
+      <measureMapping columnObjectName="Projection_1" columnName="VENTAUMB"/>
+    </measure>
+    <measure id="VENTAMN" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="Projection_1" columnName="VENTAMN"/>
+    </measure>
+    <measure id="VENTAKL" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="Projection_1" columnName="VENTAKL"/>
+    </measure>
+    <measure id="COSTO_VAL" order="17" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Precio factura moneda estadística"/>
+      <measureMapping columnObjectName="Projection_1" columnName="COSTO_VAL"/>
+    </measure>
+  
+    <measure id="row_count" order="18" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="row_count"/>
+      <measureMapping columnObjectName="Projection_1" columnName="row_count"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="AT_SOCIEDAD">
+      <attributes>
+        <attributeRef>ID_SOCIEDAD$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_SOCIEDAD</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="AT_CEDIS">
+      <attributes>
+        <attributeRef>ID_CEDIS$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_CEDIS</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="AT_MATERIALES">
+      <attributes>
+        <attributeRef>ID_MATERIAL$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_MATERIAL</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="AT_CLIENTESRS">
+      <attributes>
+        <attributeRef>ID_RAZONSOCIAL$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_RAZONSOCIAL</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="AT_CLFACTURA">
+      <attributes>
+        <attributeRef>ID_CLFACTURA$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_CLFACTURA</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="AT_TIPOENT">
+      <attributes>
+        <attributeRef>ID_TIPOENT$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_TIPOENT</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="AT_CLIENTESSU">
+      <attributes>
+        <attributeRef>ID_SUCURSAL$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_SUCURSAL</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="AT_TIEMPO">
+      <attributes>
+        <attributeRef>ID_FECHA$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_FECHA</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="324"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  
+    <shape modelObjectName="AT_SOCIEDAD" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="-208" y="-549"/>
+      <rectangleSize width="170"/>
+    </shape>
+    <shape modelObjectName="AT_CEDIS" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="-214" y="-415"/>
+      <rectangleSize width="179"/>
+    </shape>
+    <shape modelObjectName="AT_MATERIALES" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="264" y="-159"/>
+      <rectangleSize width="177"/>
+    </shape>
+    <shape modelObjectName="AT_CLIENTESRS" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="-229" y="10"/>
+      <rectangleSize width="210"/>
+    </shape>
+    <shape modelObjectName="AT_CLFACTURA" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="264" y="553"/>
+      <rectangleSize width="178"/>
+    </shape>
+    <shape modelObjectName="AT_TIPOENT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="264" y="637"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape modelObjectName="AT_CLIENTESSU" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="-229" y="626"/>
+      <rectangleSize width="218"/>
+    </shape>
+    <shape modelObjectName="AT_TIEMPO" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="256" y="-415"/>
+      <rectangleSize width="176"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

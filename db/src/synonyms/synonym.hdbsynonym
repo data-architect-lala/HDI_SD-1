@@ -244,5 +244,77 @@
         "object": "GVM_FFZSD_C03",
         "schema": "SPS_SD"
       }        
+    },
+    "GVM_FFZVTA_CEN": {
+      "target": {
+        "object": "GVM_FFZVTA_CEN",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_FFZSD_C03NS": {
+      "target": {
+        "object": "GVM_FFZSD_C03NS",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DSOCIEDAD": {
+      "target": {
+        "object": "GVM_DSOCIEDAD",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DCEDIS": {
+      "target": {
+        "object": "GVM_DCEDIS",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DMATERIALES": {
+      "target": {
+        "object": "GVM_DMATERIALES",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DCLIENTESRS": {
+      "target": {
+        "object": "GVM_FFZSD_C03",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DCLFACTURA": {
+      "target": {
+        "object": "GVM_DCLFACTURA",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DTIPOENT": {
+      "target": {
+        "object": "GVM_DTIPOENT",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DCLIENTESSU": {
+      "target": {
+        "object": "GVM_DCLIENTESSU",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DTIEMPO": {
+      "target": {
+        "object": "GVM_DTIEMPO",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_DIMS_CLIAGRUPADOR": {
+      "target": {
+        "object": "GVM_DIMS_CLIAGRUPADOR",
+        "schema": "SPS_SD"
+      }        
+    },
+    "GVM_PZMATERIAL": {
+      "target": {
+        "object": "GVM_PZMATERIAL",
+        "schema": "SPS_SD"
+      }        
     }
   }

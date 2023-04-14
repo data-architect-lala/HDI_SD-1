@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="AT_SOCIEDAD" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="AT_SOCIEDAD.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DSOCIEDAD">
+    <resourceUri>GVM_DSOCIEDAD</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DSOCIEDAD">
+  <attributes>
+    <attribute id="ID_SOCIEDAD" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sociedad"/>
+      <keyMapping columnObjectName="GVM_DSOCIEDAD" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="TXT_SOCIEDAD" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sociedad"/>
+      <keyMapping columnObjectName="GVM_DSOCIEDAD" columnName="TXT_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_SPAIS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID País Sociedad"/>
+      <keyMapping columnObjectName="GVM_DSOCIEDAD" columnName="ID_SPAIS"/>
+    </attribute>
+    <attribute id="TXT_SPAIS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="País Sociedad"/>
+      <keyMapping columnObjectName="GVM_DSOCIEDAD" columnName="TXT_SPAIS"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

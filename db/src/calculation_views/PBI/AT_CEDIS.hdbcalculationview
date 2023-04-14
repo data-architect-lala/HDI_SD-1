@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="AT_CEDIS" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="AT_CEDIS.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DCEDIS">
+    <resourceUri>GVM_DCEDIS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DCEDIS">
+  <attributes>
+    <attribute id="ID_CEDIS" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis/Planta"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_CALTITUDE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Altitud Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_CALTITUDE"/>
+    </attribute>
+    <attribute id="ID_CPAIS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID País Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_CPAIS"/>
+    </attribute>
+    <attribute id="ID_CLATITUDE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Latitud Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_CLATITUDE"/>
+    </attribute>
+    <attribute id="ID_CLONGITUDE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Longitud Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_CLONGITUDE"/>
+    </attribute>
+    <attribute id="ID_POSTALCD" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CP Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_POSTALCD"/>
+    </attribute>
+    <attribute id="ID_CORGVTA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Organización Venta Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_CORGVTA"/>
+    </attribute>
+    <attribute id="ID_CZONAC" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Zona Comercial Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_CZONAC"/>
+    </attribute>
+    <attribute id="ID_CREGION" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Región Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_CREGION"/>
+    </attribute>
+    <attribute id="ID_AGRCEDIS" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis Agrupador"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="ID_AGRCEDIS"/>
+    </attribute>
+    <attribute id="TXT_CPAIS" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="País Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXT_CPAIS"/>
+    </attribute>
+    <attribute id="TXT_CREGION" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Región Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXT_CREGION"/>
+    </attribute>
+    <attribute id="TXTM_CZONAC" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Zona Comercial Cedis Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXTM_CZONAC"/>
+    </attribute>
+    <attribute id="TXT_CZONAC" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Zona Comercial Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXT_CZONAC"/>
+    </attribute>
+    <attribute id="TXT_CEDIS" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis/Planta"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXT_CEDIS"/>
+    </attribute>
+    <attribute id="TXTM_CEDIS" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis/Planta Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXTM_CEDIS"/>
+    </attribute>
+    <attribute id="TXTM_AGRCEDIS" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis Agrupador Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXTM_AGRCEDIS"/>
+    </attribute>
+    <attribute id="TXT_AGRCEDIS" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis Agrupador"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXT_AGRCEDIS"/>
+    </attribute>
+    <attribute id="TXT_CORGVTA" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Organización Venta Cedis"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="TXT_CORGVTA"/>
+    </attribute>
+    <attribute id="CEDIS_LALA" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis Agrupador ECC"/>
+      <keyMapping columnObjectName="GVM_DCEDIS" columnName="CEDIS_LALA"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
