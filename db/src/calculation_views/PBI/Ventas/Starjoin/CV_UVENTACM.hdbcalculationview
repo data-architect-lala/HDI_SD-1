@@ -968,7 +968,7 @@
       <viewAttribute id="TXT_STCLIENTE"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="Projection_1">
+    <input node="Projection_1" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
@@ -1122,7 +1122,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTALG" null="true" value=""/>
     </input>
-    <input node="Projection_2">
+    <input node="Projection_2" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
@@ -1276,7 +1276,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTALG" source="VENTALG"/>
     </input>
-    <input node="Projection_3">
+    <input node="Projection_3" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
@@ -1430,7 +1430,7 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="TXT_STCLIENTE" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTALG" null="true" value=""/>
     </input>
-    <input node="Projection_4">
+    <input node="Projection_4" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
@@ -1584,7 +1584,7 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="TXT_STCLIENTE" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTALG" null="true" value=""/>
     </input>
-    <input node="Projection_5">
+    <input node="Projection_5" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
@@ -1778,7 +1778,7 @@
       <descriptions defaultDescription="ID Organizacion Venta"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_ORGVTA"/>
     </attribute>
-    <attribute id="LOAD_DATE" order="14">
+    <attribute id="LOAD_DATE" order="14" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="LOAD_DATE"/>
       <keyMapping columnObjectName="Union_1" columnName="FUM"/>
     </attribute>
@@ -1810,7 +1810,7 @@
       <descriptions defaultDescription="ID Cedis/Planta"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_CEDIS"/>
     </attribute>
-    <attribute id="ID_CALTITUDE" order="22">
+    <attribute id="ID_CALTITUDE" order="22" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Altitud Cedis"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_CALTITUDE"/>
     </attribute>
@@ -1818,11 +1818,11 @@
       <descriptions defaultDescription="ID País Cedis"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_CPAIS"/>
     </attribute>
-    <attribute id="ID_CLATITUDE" order="24">
+    <attribute id="ID_CLATITUDE" order="24" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Latitud Cedis"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_CLATITUDE"/>
     </attribute>
-    <attribute id="ID_CLONGITUDE" order="25">
+    <attribute id="ID_CLONGITUDE" order="25" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Longitud Cedis"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_CLONGITUDE"/>
     </attribute>
@@ -1894,7 +1894,7 @@
       <descriptions defaultDescription="ID UMB Material"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_UMBMAT"/>
     </attribute>
-    <attribute id="PESOBRUTO" order="43">
+    <attribute id="PESOBRUTO" order="43" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Peso Bruto"/>
       <keyMapping columnObjectName="Union_1" columnName="PESOBRUTO"/>
     </attribute>
@@ -1906,7 +1906,7 @@
       <descriptions defaultDescription="ID Código Agrupador"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_CODAGR"/>
     </attribute>
-    <attribute id="FACTORKL" order="46">
+    <attribute id="FACTORKL" order="46" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Factor KL"/>
       <keyMapping columnObjectName="Union_1" columnName="FACTORKL"/>
     </attribute>
@@ -1958,7 +1958,7 @@
       <descriptions defaultDescription="ID Presentación"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_PRESENTA"/>
     </attribute>
-    <attribute id="FACTORLG" order="59">
+    <attribute id="FACTORLG" order="59" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Factor LG"/>
       <keyMapping columnObjectName="Union_1" columnName="FACTORLG"/>
     </attribute>
@@ -2046,11 +2046,11 @@
       <descriptions defaultDescription="Rs. Numero DUNS"/>
       <keyMapping columnObjectName="Union_1" columnName="RSDUNSNUM"/>
     </attribute>
-    <attribute id="ID_RSLATITUDE" order="81">
+    <attribute id="ID_RSLATITUDE" order="81" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Rs. Latitud"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_RSLATITUDE"/>
     </attribute>
-    <attribute id="ID_RSLONGITUDE" order="82">
+    <attribute id="ID_RSLONGITUDE" order="82" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Rs. Longitud"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_RSLONGITUDE"/>
     </attribute>
@@ -2178,11 +2178,11 @@
       <descriptions defaultDescription="Suc. Numero DUNS"/>
       <keyMapping columnObjectName="Union_1" columnName="SUCDUNSNUM"/>
     </attribute>
-    <attribute id="ID_SUCLATITUDE" order="114">
+    <attribute id="ID_SUCLATITUDE" order="114" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Suc. Latitud"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_SUCLATITUDE"/>
     </attribute>
-    <attribute id="ID_SUCLONGITUDE" order="115">
+    <attribute id="ID_SUCLONGITUDE" order="115" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Suc. Longitud"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_SUCLONGITUDE"/>
     </attribute>
@@ -2302,7 +2302,7 @@
       <descriptions defaultDescription="ID Año/Semana"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_ANIOSEMANA"/>
     </attribute>
-    <attribute id="ID_FECHAL" order="149">
+    <attribute id="ID_FECHAL" order="149" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ID Fecha Larga"/>
       <keyMapping columnObjectName="Union_1" columnName="ID_FECHAL"/>
     </attribute>
@@ -2317,14 +2317,7 @@
       <keyCalculation datatype="TIMESTAMP" expressionLanguage="SQL">
         <formula>TO_TIMESTAMP(concat(to_varchar(&quot;LOAD_DATE&quot;,'YYYY-MM-DD'), concat(' ',CURRENT_TIME)))</formula>
       </keyCalculation>
-      </calculatedAttribute>
-    <calculatedAttribute id="VENTAKL" order="155" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Venta KL"/>
-      <keyCalculation datatype="DECIMAL" expressionLanguage="SQL" length="17" scale="3">
-        <formula>ifnull(&quot;VENTAKL_ORG&quot;,0)</formula>
-      </keyCalculation>
-      </calculatedAttribute>
-  </calculatedAttributes>
+    </calculatedAttribute></calculatedAttributes>
   <baseMeasures>
     <measure id="SUBTOT_2S_ORG" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 2 ORIGINAL"/>
@@ -2376,6 +2369,10 @@
       <descriptions defaultDescription="Venta MN"/>
       <formula>ifnull(&quot;VENTAMN_ORG&quot;,0)</formula>
       </measure>
+    <measure id="VENTAKL" order="155" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta KL"/>
+      <formula>ifnull(&quot;VENTAKL_ORG&quot;,0)</formula>
+    </measure>
     <measure id="DEVOLUCIONMN" order="156" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <formula>ifnull(&quot;DEVOLUCIONMN_ORG&quot;,0) </formula>
