@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VCMVNOSAPUS" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VCMVNOSAPUS.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_PZMATERIAL">
+    <resourceUri>GVM_PZMATERIAL</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_FFZSD_C03NS">
+    <resourceUri>GVM_FFZSD_C03NS</resourceUri>
+  </DataSource>
+  <DataSource id="P_MATERIAL$$$$GVM_PZMATERIAL$$">
+    <resourceUri>GVM_PZMATERIAL</resourceUri>
+  </DataSource>
+  <DataSource id="P_ZSD_C03NS$$$$GVM_FFZSD_C03NS$$">
+    <resourceUri>GVM_FFZSD_C03NS</resourceUri>
+  </DataSource>
+  <DataSource id="P_MATERIALD$$$$GVM_PZMATERIAL$$">
+    <resourceUri>GVM_PZMATERIAL</resourceUri>
+  </DataSource>
+  <DataSource id="P_ZSD_C03NSD$$$$GVM_FFZSD_C03NS$$">
+    <resourceUri>GVM_FFZSD_C03NS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_MATERIALB" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="FACTORKL"/>
+      <viewAttribute id="FACTORLG"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_PZMATERIAL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="MATL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="ZFACTORLG"/>
+    </input>
+    <filter>&quot;ID_MATLTYPE&quot; = 'ZFER'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZSD_C03NSB" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="LOADDATE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_FFZSD_C03NS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="0CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="0CALWEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="0FISCPER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="0CALYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="0CALMONTH2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="0CALQUART1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="0FISCVARNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="0WEEKDAY1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="0BASE_UOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="0STAT_CURR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ZSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="0BILL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ZBILLPRTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="0DISTR_CHAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ZENT_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ZSHIP_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ZRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ZTIP_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="0SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="SUBTOT_2S"/>
+    </input>
+    <filter>(&quot;ID_SOCIEDAD&quot; IN ('6201','6202','US11','US12','US13','US14','US15') 
+AND 
+&quot;ID_CLFACTURA&quot; IN ('S1', 'ZF4', 'ZRBI', 'ZRF2', 'ZS1', 'ZS2', 'ZR01','ZFRN','ZFCK','ZS15'))</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_MATERIAL" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="FACTORKL"/>
+      <viewAttribute id="FACTORLG"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_MATERIAL$$$$GVM_PZMATERIAL$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="MATL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="ZFACTORLG"/>
+    </input>
+    <filter>&quot;ID_MATLTYPE&quot; = 'ZFER'
+</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZSD_C03NS" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="LOADDATE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_ZSD_C03NS$$$$GVM_FFZSD_C03NS$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="0CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="0CALWEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="0FISCPER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="0CALYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="0CALMONTH2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="0CALQUART1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="0FISCVARNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="0WEEKDAY1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="0BASE_UOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="0STAT_CURR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ZSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="0BILL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ZBILLPRTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="0DISTR_CHAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ZENT_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ZSHIP_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ZRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ZTIP_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="0SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="QUANT_B"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="NET_VAL_S"/>
+    </input>
+    <filter>(&quot;ID_SOCIEDAD&quot; IN ('6201','6202','US11','US12','US13','US14','US15'))</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_MATERIALD" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="FACTORKL"/>
+      <viewAttribute id="FACTORLG"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_MATERIALD$$$$GVM_PZMATERIAL$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="MATL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="ZFACTORLG"/>
+    </input>
+    <filter>&quot;ID_MATLTYPE&quot; = 'ZFER'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZSD_C03NSD" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="LOADDATE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_ZSD_C03NSD$$$$GVM_FFZSD_C03NS$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="0CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="0CALWEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="0FISCPER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="0CALYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="0CALMONTH2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="0CALQUART1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="0FISCVARNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="0WEEKDAY1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="0BASE_UOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="0STAT_CURR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ZSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="0BILL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ZBILLPRTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="0DISTR_CHAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ZENT_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ZSHIP_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ZRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ZTIP_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="0SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="SUBTOT_2S"/>
+    </input>
+    <filter>(&quot;ID_SOCIEDAD&quot; IN ('6201','6202','US11','US12','US13','US14','US15') 
+AND 
+&quot;ID_CLFACTURA&quot; IN('ZREU','ZRER','ZFRR','ZS14'))</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_VNSMATB" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES" aggregationType="sum"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="BONIFICACIONMN" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="FACTORKL" aggregationType="sum"/>
+      <viewAttribute id="FACTORLG" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_ZSD_C03NSB">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    </input>
+    <input node="P_MATERIALB">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+    </input>
+    <joinAttribute name="ID_MATERIAL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_VNSMAT" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES" aggregationType="sum"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="VENTAUMB" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="FACTORKL" aggregationType="sum"/>
+      <viewAttribute id="FACTORLG" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_ZSD_C03NS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="VENTAUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    </input>
+    <input node="P_MATERIAL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+    </input>
+    <joinAttribute name="ID_MATERIAL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_VNSMATD" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES" aggregationType="sum"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="FACTORKL" aggregationType="sum"/>
+      <viewAttribute id="FACTORLG" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_ZSD_C03NSD">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    </input>
+    <input node="P_MATERIALD">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+    </input>
+    <joinAttribute name="ID_MATERIAL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="U_VTANSUS">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES" aggregationType="sum"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="VENTAUMB" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="FACTORLG" aggregationType="sum"/>
+      <viewAttribute id="FACTORKL" aggregationType="sum"/>
+      <viewAttribute id="BONIFICACIONMN" aggregationType="sum"/>
+      <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_VNSMAT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="VENTAUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BONIFICACIONMN" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
+    </input>
+    <input node="J_VNSMATB">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAUMB" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAMN" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
+    </input>
+    <input node="J_VNSMATD">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAUMB" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAMN" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BONIFICACIONMN" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="U_VTANSUS">
+  <attributes>
+    <attribute id="ID_FECHA" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="ID_ANIOMES" order="2">
+      <descriptions defaultDescription="ID Año/Mes"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_ANIOSEMANA" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Semana"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_ANIOSEMANA"/>
+    </attribute>
+    <attribute id="ID_EJPERIODO" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ejercicio/Periodo"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_EJPERIODO"/>
+    </attribute>
+    <attribute id="ID_ANIO" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_ANIO"/>
+    </attribute>
+    <attribute id="ID_MES" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Mes"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_MES"/>
+    </attribute>
+    <attribute id="ID_QT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Trimestre"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_QT"/>
+    </attribute>
+    <attribute id="ID_VARIANTEEJ" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Variante Ejercicio"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_VARIANTEEJ"/>
+    </attribute>
+    <attribute id="ID_DIASEM" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Día Semana"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_DIASEM"/>
+    </attribute>
+    <attribute id="ID_UMB" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID UMB"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_UMB"/>
+    </attribute>
+    <attribute id="ID_MONEDA" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Moneda"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_MONEDA"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sociedad"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_SEMANA" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Semana"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_SEMANA"/>
+    </attribute>
+    <attribute id="ID_CLFACTURA" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Clase Factura"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_CLFACTURA"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis/Planta"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_RAZONSOCIAL" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cliente/Razón Social"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="ID_CANDISOB" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Canal Distribución (Obsoleto)"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_CANDISOB"/>
+    </attribute>
+    <attribute id="ID_TIPOENT" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Entrega"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_TIPOENT"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cliente/Sucursal"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ruta"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="ID_TIPRUTA" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Ruta (Historico)"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_TIPRUTA"/>
+    </attribute>
+    <attribute id="ID_ORGVTA" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Organizacion Venta"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_ORGVTA"/>
+    </attribute>
+    <attribute id="ID_MATLTYPE" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Material"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="ID_MATLTYPE"/>
+    </attribute>
+    <attribute id="FACTORLG" order="28">
+      <descriptions defaultDescription="Factor LG"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="FACTORLG"/>
+    </attribute>
+    <attribute id="FACTORKL" order="29">
+      <descriptions defaultDescription="Factor KL"/>
+      <keyMapping columnObjectName="U_VTANSUS" columnName="FACTORKL"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="ID_INFOSITIO" order="32" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Infositio"/>
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="4">
+        <formula>'VNOS'</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures>
+    <measure id="VENTAUMB" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta UMB"/>
+      <measureMapping columnObjectName="U_VTANSUS" columnName="VENTAUMB"/>
+    </measure>
+    <measure id="VENTAMN" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="U_VTANSUS" columnName="VENTAMN"/>
+    </measure>
+    <measure id="LOADDATE" order="26" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="LOADDATE"/>
+      <measureMapping columnObjectName="U_VTANSUS" columnName="LOADDATE"/>
+    </measure>
+    <measure id="BONIFICACIONMN" order="30" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="BONIFICACIONMN"/>
+      <measureMapping columnObjectName="U_VTANSUS" columnName="BONIFICACIONMN"/>
+    </measure>
+    <measure id="DEVOLUCIONMN" order="31" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="DEVOLUCIONMN"/>
+      <measureMapping columnObjectName="U_VTANSUS" columnName="DEVOLUCIONMN"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures>
+    <measure id="VENTAKL" order="33" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Vneta KL"/>
+      <formula>&quot;VENTAUMB&quot; * &quot;FACTORKL&quot;</formula>
+      </measure>
+    <measure id="VENTALG" order="34" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta L/G"/>
+      <formula>(&quot;VENTAUMB&quot; * &quot;FACTORLG&quot;)</formula>
+      </measure>
+    <measure id="C_BONIFICACIONMN" order="35" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Bonificación MN"/>
+      <formula>(&quot;BONIFICACIONMN&quot; * -1)</formula>
+      </measure>
+    <measure id="C_DEVOLUCIONMN" order="36" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Devolución MN"/>
+      <formula>(&quot;DEVOLUCIONMN&quot; * -1)</formula>
+      </measure>
+    <measure id="VENTABRUTAMN" order="37" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta Bruta MN"/>
+      <formula>(&quot;VENTAMN&quot; + &quot;C_BONIFICACIONMN&quot; + &quot;C_DEVOLUCIONMN&quot;)</formula>
+      </measure>
+  </calculatedMeasures>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="735.9845252085802" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_MATERIALB" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="301.9999999999999" y="551.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ZSD_C03NSB" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91.99999999999989" y="551.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_VNSMATB" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="275.33333333333326" y="391.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ZSD_C03NSB" modelObjectNameSpace="J_VNSMATB" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="182"/>
+    </shape>
+    <shape modelObjectName="P_MATERIALB" modelObjectNameSpace="J_VNSMATB" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="920" y="30"/>
+      <rectangleSize width="159"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_MATERIAL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="722" y="551.9999964237213"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ZSD_C03NS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="512" y="551.9999964237213"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_VNSMAT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="622.9952185942919" y="405.3333309491476"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ZSD_C03NS" modelObjectNameSpace="J_VNSMAT" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="181.96533203125"/>
+    </shape>
+    <shape modelObjectName="P_MATERIAL" modelObjectNameSpace="J_VNSMAT" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="159.5517578125"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MATERIALD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="932" y="551.9999964237213"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1142" y="551.9999964237213"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_VNSMATD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="916.3116775235128" y="405.3333309491476"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="J_VNSMATD" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="181.96533203125"/>
+    </shape>
+    <shape modelObjectName="P_MATERIALD" modelObjectNameSpace="J_VNSMATD" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="159.5517578125"/>
+    </shape>
+    <shape expanded="true" modelObjectName="U_VTANSUS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="622.9952185942919" y="236.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

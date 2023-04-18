@@ -96,6 +96,16 @@
                "type": "VIEW",
                "name":"CV_UVENTACM",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_UVENTACM_BONI",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_UVENTACM_ALL",
+               "privileges": ["SELECT"]
             }
          ]
     }

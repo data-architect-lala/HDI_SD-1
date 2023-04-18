@@ -315,5 +315,23 @@
             "object": "GVM_PZMATERIAL",
             "schema": "SPS_SD"
         }
+    },
+    "GVM_FDM_PZCUSTOMER": {
+        "target": {
+            "object": "GVM_FDM_PZCUSTOMER",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_FFZSD_C15": {
+        "target": {
+            "object": "GVM_FFZSD_C15",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_FDM_PZKNART_SE": {
+        "target": {
+            "object": "GVM_FDM_PZKNART_SE",
+            "schema": "SPS_SD"
+        }
     }
 }

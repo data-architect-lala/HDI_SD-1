@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VCMCCONDICION" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VCMCCONDICION.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_FFZSD_C15">
+    <resourceUri>GVM_FFZSD_C15</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_FDM_PZCUSTOMER">
+    <resourceUri>GVM_FDM_PZCUSTOMER</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_PZMATERIAL">
+    <resourceUri>GVM_PZMATERIAL</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_ZSD_C15" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="CCONDICIONMN"/>
+      <viewAttribute id="CCONDICIONUMB"/>
+      <viewAttribute id="CCONDICIONKL"/>
+      <viewAttribute id="LOADDATE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_FFZSD_C15">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="0CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="0CALWEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="0FISCPER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="0CALYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="0CALMONTH2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="0CALQUART1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="0FISCVARNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="0WEEKDAY1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="0SALES_UNIT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="0LOC_CURRCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="0COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ZSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="0BILL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ZBILLPRTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="0DISTR_CHAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ZENT_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ZSHIP_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="0SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONMN" source="KNVAL_LOC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONUMB" source="INV_QTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONKL" source="BICZENTKL"/>
+    </input>
+    <filter>(&quot;ID_SOCIEDAD&quot; NOT IN ('1003','1054','6201','6202','US11','US12','US13','US14','US15') 
+AND 
+&quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18'))</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_CUSTOMER" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_DIRFUNCIONAL"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_FDM_PZCUSTOMER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ZCUSTOMER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIRFUNCIONAL" source="ZAREACTRL"/>
+    </input>
+    <filter>(&quot;ID_DIRFUNCIONAL&quot; IN ('01','02','04'))</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_MATERIAL" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_SUPFAMILIA"/>
+      <viewAttribute id="ID_SUPMARCA"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_PZMATERIAL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMILIA" source="ZFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPFAMILIA" source="ZSUPERFAM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPMARCA" source="ZSUPMARCA"/>
+    </input>
+    <filter>(&quot;ID_SUPFAMILIA&quot; IN ('010','020','030','040','050','060','070','701','703' ) 
+AND 
+&quot;ID_FAMILIA&quot; != '701'
+AND 
+&quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008','009','010','012','013','015','017'))</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_CCONSUC" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES" aggregationType="sum"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="CCONDICIONMN" aggregationType="sum"/>
+      <viewAttribute id="CCONDICIONUMB" aggregationType="sum"/>
+      <viewAttribute id="CCONDICIONKL" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_ZSD_C15">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONMN" source="CCONDICIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONUMB" source="CCONDICIONUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONKL" source="CCONDICIONKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    </input>
+    <input node="P_CUSTOMER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+    </input>
+    <joinAttribute name="ID_SUCURSAL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_CCONSUCMAT" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES" aggregationType="sum"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="CCONDICIONMN" aggregationType="sum"/>
+      <viewAttribute id="CCONDICIONUMB" aggregationType="sum"/>
+      <viewAttribute id="CCONDICIONKL" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_CCONSUC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONMN" source="CCONDICIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONUMB" source="CCONDICIONUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONKL" source="CCONDICIONKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    </input>
+    <input node="P_MATERIAL">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+    </input>
+    <joinAttribute name="ID_MATERIAL"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="J_CCONSUCMAT">
+  <attributes>
+    <attribute id="ID_FECHA" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="ID_ANIOMES" order="2">
+      <descriptions defaultDescription="ID Año/Mes"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_ANIOSEMANA" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Semana"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_ANIOSEMANA"/>
+    </attribute>
+    <attribute id="ID_EJPERIODO" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ejercicio/Periodo"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_EJPERIODO"/>
+    </attribute>
+    <attribute id="ID_ANIO" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_ANIO"/>
+    </attribute>
+    <attribute id="ID_MES" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Mes"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_MES"/>
+    </attribute>
+    <attribute id="ID_QT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Trimestre"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_QT"/>
+    </attribute>
+    <attribute id="ID_VARIANTEEJ" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Variante Ejercicio"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_VARIANTEEJ"/>
+    </attribute>
+    <attribute id="ID_DIASEM" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Día Semana"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_DIASEM"/>
+    </attribute>
+    <attribute id="ID_UMB" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID UMB"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_UMB"/>
+    </attribute>
+    <attribute id="ID_MONEDA" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Moneda"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_MONEDA"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sociedad"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_SEMANA" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Semana"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_SEMANA"/>
+    </attribute>
+    <attribute id="ID_CLFACTURA" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Clase Factura"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_CLFACTURA"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis/Planta"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_RAZONSOCIAL" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cliente/Razón Social"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="ID_CANDISOB" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Canal Distribución (Obsoleto)"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_CANDISOB"/>
+    </attribute>
+    <attribute id="ID_TIPOENT" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Entrega"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_TIPOENT"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cliente/Sucursal"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_ORGVTA" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Organizacion Venta"/>
+      <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_ORGVTA"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="ID_INFOSITIO" order="20" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Infositio"/>
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="4">
+        <formula>'VC15'</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures>
+    <measure id="CCONDICIONMN" order="23" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Cla. Con. MN"/>
+      <measureMapping columnObjectName="J_CCONSUCMAT" columnName="CCONDICIONMN"/>
+    </measure>
+    <measure id="CCONDICIONUMB" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Cla. Con. UMB"/>
+      <measureMapping columnObjectName="J_CCONSUCMAT" columnName="CCONDICIONUMB"/>
+    </measure>
+    <measure id="CCONDICIONKL" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Cla. Con. KL"/>
+      <measureMapping columnObjectName="J_CCONSUCMAT" columnName="CCONDICIONKL"/>
+    </measure>
+    <measure id="LOADDATE" order="26" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="LOADDATE"/>
+      <measureMapping columnObjectName="J_CCONSUCMAT" columnName="LOADDATE"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="328.6900820831794" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_ZSD_C15" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="501.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_CUSTOMER" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="501.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_CCONSUC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="118.66666666666666" y="360.3333321412405"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ZSD_C15" modelObjectNameSpace="J_CCONSUC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="181.96533203125"/>
+    </shape>
+    <shape modelObjectName="P_CUSTOMER" modelObjectNameSpace="J_CCONSUC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="185.623046875"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MATERIAL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="395.83468516943316" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_CCONSUCMAT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="328.6900820831794" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_CCONSUC" modelObjectNameSpace="J_CCONSUCMAT" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="181.96533203125"/>
+    </shape>
+    <shape modelObjectName="P_MATERIAL" modelObjectNameSpace="J_CCONSUCMAT" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="167.91455078125"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

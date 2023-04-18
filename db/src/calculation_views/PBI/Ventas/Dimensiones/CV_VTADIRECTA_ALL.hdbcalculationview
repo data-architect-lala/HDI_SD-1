@@ -1,0 +1,2054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VTADIRECTA_ALL" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VTADIRECTA_ALL.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="AV_VTADIRECTA_ALL">
+    <resourceUri>AV_VTADIRECTA_ALL</resourceUri>
+  </DataSource>
+  <DataSource id="Projection_2$$$$AV_VTADIRECTA_ALL$$">
+    <resourceUri>AV_VTADIRECTA_ALL</resourceUri>
+  </DataSource>
+  <DataSource id="Projection_3$$$$AV_VTADIRECTA_ALL$$">
+    <resourceUri>AV_VTADIRECTA_ALL</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_DIMS_CLIAGRUPADOR">
+    <resourceUri>GVM_DIMS_CLIAGRUPADOR</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="SUBTOT_1S"/>
+      <viewAttribute id="SUBTOT_2S"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="LOADDATE"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="TXT_SOCIEDAD"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="TXT_SPAIS"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_CALTITUDE"/>
+      <viewAttribute id="ID_CPAIS"/>
+      <viewAttribute id="ID_CLATITUDE"/>
+      <viewAttribute id="ID_CLONGITUDE"/>
+      <viewAttribute id="ID_POSTALCD"/>
+      <viewAttribute id="ID_CORGVTA"/>
+      <viewAttribute id="ID_CZONAC"/>
+      <viewAttribute id="ID_CREGION"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="TXT_CPAIS"/>
+      <viewAttribute id="TXT_CREGION"/>
+      <viewAttribute id="TXTM_CZONAC"/>
+      <viewAttribute id="TXT_CZONAC"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXTM_CEDIS"/>
+      <viewAttribute id="TXTM_AGRCEDIS"/>
+      <viewAttribute id="TXT_AGRCEDIS"/>
+      <viewAttribute id="TXT_CORGVTA"/>
+      <viewAttribute id="CEDIS_LALA"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_UMBMAT"/>
+      <viewAttribute id="PESOBRUTO"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="ID_CODAGR"/>
+      <viewAttribute id="FACTORKL"/>
+      <viewAttribute id="ID_SUPFAMILIA"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_MARCA"/>
+      <viewAttribute id="ID_SUBMARCA"/>
+      <viewAttribute id="ID_LINEA"/>
+      <viewAttribute id="ID_TIPO"/>
+      <viewAttribute id="ID_SUBTIPO"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="ID_ENVASE"/>
+      <viewAttribute id="ID_SABOR"/>
+      <viewAttribute id="ID_SUPMARCA"/>
+      <viewAttribute id="ID_PRESENTA"/>
+      <viewAttribute id="FACTORLG"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="TXT_TCODAGR"/>
+      <viewAttribute id="TXTM_FAMILIA"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="TXT_SUPMARCA"/>
+      <viewAttribute id="TXT_MARCA"/>
+      <viewAttribute id="TXT_SUBMARCA"/>
+      <viewAttribute id="TXT_LINEA"/>
+      <viewAttribute id="TXT_SUBTIPO"/>
+      <viewAttribute id="TXT_TIPO"/>
+      <viewAttribute id="TXT_ENVASE"/>
+      <viewAttribute id="TXT_SABOR"/>
+      <viewAttribute id="TXT_PRESENTA"/>
+      <viewAttribute id="TXT_SUPFAMILIA"/>
+      <viewAttribute id="TXT_MATLTYPE"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="RSCIUDAD"/>
+      <viewAttribute id="RSNUMERO"/>
+      <viewAttribute id="ID_RSPAIS"/>
+      <viewAttribute id="RSDUNSNUM"/>
+      <viewAttribute id="ID_RSLATITUDE"/>
+      <viewAttribute id="ID_RSLONGITUDE"/>
+      <viewAttribute id="ID_RSPOSTAL"/>
+      <viewAttribute id="RSCALLE"/>
+      <viewAttribute id="ID_RSDIRFUNC"/>
+      <viewAttribute id="ID_RSGRUPOCAD"/>
+      <viewAttribute id="ID_RSFORMATO"/>
+      <viewAttribute id="ID_RSNOMCOR"/>
+      <viewAttribute id="ID_RSCANDIST"/>
+      <viewAttribute id="ID_RSSUPCAN"/>
+      <viewAttribute id="ID_RSSUBCANDIST"/>
+      <viewAttribute id="ID_RSESCM"/>
+      <viewAttribute id="TXT_RSSUPCAN"/>
+      <viewAttribute id="TXTM_RSCANDIST"/>
+      <viewAttribute id="TXT_RSCANDIST"/>
+      <viewAttribute id="TXTM_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_RSGRUPOCAD"/>
+      <viewAttribute id="TXT_RSNOMCOR"/>
+      <viewAttribute id="TXT_RSESCM"/>
+      <viewAttribute id="TXT_RSPAIS"/>
+      <viewAttribute id="TXT_RSFORMATO"/>
+      <viewAttribute id="TXT_RSCLIENTE"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="TXT_CLFACTURA"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="TXT_TIPOENT"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="SUNUMERO"/>
+      <viewAttribute id="SUCCIUDAD"/>
+      <viewAttribute id="ID_SUCPAIS"/>
+      <viewAttribute id="SUCDUNSNUM"/>
+      <viewAttribute id="ID_SUCLATITUDE"/>
+      <viewAttribute id="ID_SUCLONGITUDE"/>
+      <viewAttribute id="ID_SUCPOSTAL"/>
+      <viewAttribute id="SUCCALLE"/>
+      <viewAttribute id="ID_SUCDIRFUNC"/>
+      <viewAttribute id="ID_SUCGRUPOCAD"/>
+      <viewAttribute id="ID_SUCFORMATO"/>
+      <viewAttribute id="ID_SUCNOMCOR"/>
+      <viewAttribute id="ID_SUCCANDIST"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCSUBCANDIST"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="TXTM_SUCCANDIST"/>
+      <viewAttribute id="TXT_SUCCANDIST"/>
+      <viewAttribute id="TXTM_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_SUCGRUPOCAD"/>
+      <viewAttribute id="TXT_SUCNOMCOR"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="TXT_SUCPAIS"/>
+      <viewAttribute id="TXT_SUCFORMATO"/>
+      <viewAttribute id="TXT_SUCURSAL"/>
+      <viewAttribute id="ID_FECHAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="AV_VTADIRECTA_ALL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="LOADDATE"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="TXT_SOCIEDAD"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="TXT_SPAIS"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_CALTITUDE"/>
+      <viewAttribute id="ID_CPAIS"/>
+      <viewAttribute id="ID_CLATITUDE"/>
+      <viewAttribute id="ID_CLONGITUDE"/>
+      <viewAttribute id="ID_POSTALCD"/>
+      <viewAttribute id="ID_CORGVTA"/>
+      <viewAttribute id="ID_CZONAC"/>
+      <viewAttribute id="ID_CREGION"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="TXT_CPAIS"/>
+      <viewAttribute id="TXT_CREGION"/>
+      <viewAttribute id="TXTM_CZONAC"/>
+      <viewAttribute id="TXT_CZONAC"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXTM_CEDIS"/>
+      <viewAttribute id="TXTM_AGRCEDIS"/>
+      <viewAttribute id="TXT_AGRCEDIS"/>
+      <viewAttribute id="TXT_CORGVTA"/>
+      <viewAttribute id="CEDIS_LALA"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_UMBMAT"/>
+      <viewAttribute id="PESOBRUTO"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="ID_CODAGR"/>
+      <viewAttribute id="FACTORKL"/>
+      <viewAttribute id="ID_SUPFAMILIA"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_MARCA"/>
+      <viewAttribute id="ID_SUBMARCA"/>
+      <viewAttribute id="ID_LINEA"/>
+      <viewAttribute id="ID_TIPO"/>
+      <viewAttribute id="ID_SUBTIPO"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="ID_ENVASE"/>
+      <viewAttribute id="ID_SABOR"/>
+      <viewAttribute id="ID_SUPMARCA"/>
+      <viewAttribute id="ID_PRESENTA"/>
+      <viewAttribute id="FACTORLG"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="TXT_TCODAGR"/>
+      <viewAttribute id="TXTM_FAMILIA"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="TXT_SUPMARCA"/>
+      <viewAttribute id="TXT_MARCA"/>
+      <viewAttribute id="TXT_SUBMARCA"/>
+      <viewAttribute id="TXT_LINEA"/>
+      <viewAttribute id="TXT_SUBTIPO"/>
+      <viewAttribute id="TXT_TIPO"/>
+      <viewAttribute id="TXT_ENVASE"/>
+      <viewAttribute id="TXT_SABOR"/>
+      <viewAttribute id="TXT_PRESENTA"/>
+      <viewAttribute id="TXT_SUPFAMILIA"/>
+      <viewAttribute id="TXT_MATLTYPE"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="RSCIUDAD"/>
+      <viewAttribute id="RSNUMERO"/>
+      <viewAttribute id="ID_RSPAIS"/>
+      <viewAttribute id="RSDUNSNUM"/>
+      <viewAttribute id="ID_RSLATITUDE"/>
+      <viewAttribute id="ID_RSLONGITUDE"/>
+      <viewAttribute id="ID_RSPOSTAL"/>
+      <viewAttribute id="RSCALLE"/>
+      <viewAttribute id="ID_RSDIRFUNC"/>
+      <viewAttribute id="ID_RSGRUPOCAD"/>
+      <viewAttribute id="ID_RSFORMATO"/>
+      <viewAttribute id="ID_RSNOMCOR"/>
+      <viewAttribute id="ID_RSCANDIST"/>
+      <viewAttribute id="ID_RSSUPCAN"/>
+      <viewAttribute id="ID_RSSUBCANDIST"/>
+      <viewAttribute id="ID_RSESCM"/>
+      <viewAttribute id="TXT_RSSUPCAN"/>
+      <viewAttribute id="TXTM_RSCANDIST"/>
+      <viewAttribute id="TXT_RSCANDIST"/>
+      <viewAttribute id="TXTM_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_RSGRUPOCAD"/>
+      <viewAttribute id="TXT_RSNOMCOR"/>
+      <viewAttribute id="TXT_RSESCM"/>
+      <viewAttribute id="TXT_RSPAIS"/>
+      <viewAttribute id="TXT_RSFORMATO"/>
+      <viewAttribute id="TXT_RSCLIENTE"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="TXT_CLFACTURA"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="TXT_TIPOENT"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="SUNUMERO"/>
+      <viewAttribute id="SUCCIUDAD"/>
+      <viewAttribute id="ID_SUCPAIS"/>
+      <viewAttribute id="SUCDUNSNUM"/>
+      <viewAttribute id="ID_SUCLATITUDE"/>
+      <viewAttribute id="ID_SUCLONGITUDE"/>
+      <viewAttribute id="ID_SUCPOSTAL"/>
+      <viewAttribute id="SUCCALLE"/>
+      <viewAttribute id="ID_SUCDIRFUNC"/>
+      <viewAttribute id="ID_SUCGRUPOCAD"/>
+      <viewAttribute id="ID_SUCFORMATO"/>
+      <viewAttribute id="ID_SUCNOMCOR"/>
+      <viewAttribute id="ID_SUCCANDIST"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCSUBCANDIST"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="TXTM_SUCCANDIST"/>
+      <viewAttribute id="TXT_SUCCANDIST"/>
+      <viewAttribute id="TXTM_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_SUCGRUPOCAD"/>
+      <viewAttribute id="TXT_SUCNOMCOR"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="TXT_SUCPAIS"/>
+      <viewAttribute id="TXT_SUCFORMATO"/>
+      <viewAttribute id="TXT_SUCURSAL"/>
+      <viewAttribute id="ID_FECHAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_2$$$$AV_VTADIRECTA_ALL$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="VENTAMN"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+    <viewAttributes>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="LOADDATE"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="TXT_SOCIEDAD"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="TXT_SPAIS"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_CALTITUDE"/>
+      <viewAttribute id="ID_CPAIS"/>
+      <viewAttribute id="ID_CLATITUDE"/>
+      <viewAttribute id="ID_CLONGITUDE"/>
+      <viewAttribute id="ID_POSTALCD"/>
+      <viewAttribute id="ID_CORGVTA"/>
+      <viewAttribute id="ID_CZONAC"/>
+      <viewAttribute id="ID_CREGION"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="TXT_CPAIS"/>
+      <viewAttribute id="TXT_CREGION"/>
+      <viewAttribute id="TXTM_CZONAC"/>
+      <viewAttribute id="TXT_CZONAC"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXTM_CEDIS"/>
+      <viewAttribute id="TXTM_AGRCEDIS"/>
+      <viewAttribute id="TXT_AGRCEDIS"/>
+      <viewAttribute id="TXT_CORGVTA"/>
+      <viewAttribute id="CEDIS_LALA"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_UMBMAT"/>
+      <viewAttribute id="PESOBRUTO"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="ID_CODAGR"/>
+      <viewAttribute id="FACTORKL"/>
+      <viewAttribute id="ID_SUPFAMILIA"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_MARCA"/>
+      <viewAttribute id="ID_SUBMARCA"/>
+      <viewAttribute id="ID_LINEA"/>
+      <viewAttribute id="ID_TIPO"/>
+      <viewAttribute id="ID_SUBTIPO"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="ID_ENVASE"/>
+      <viewAttribute id="ID_SABOR"/>
+      <viewAttribute id="ID_SUPMARCA"/>
+      <viewAttribute id="ID_PRESENTA"/>
+      <viewAttribute id="FACTORLG"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="TXT_TCODAGR"/>
+      <viewAttribute id="TXTM_FAMILIA"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="TXT_SUPMARCA"/>
+      <viewAttribute id="TXT_MARCA"/>
+      <viewAttribute id="TXT_SUBMARCA"/>
+      <viewAttribute id="TXT_LINEA"/>
+      <viewAttribute id="TXT_SUBTIPO"/>
+      <viewAttribute id="TXT_TIPO"/>
+      <viewAttribute id="TXT_ENVASE"/>
+      <viewAttribute id="TXT_SABOR"/>
+      <viewAttribute id="TXT_PRESENTA"/>
+      <viewAttribute id="TXT_SUPFAMILIA"/>
+      <viewAttribute id="TXT_MATLTYPE"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="RSCIUDAD"/>
+      <viewAttribute id="RSNUMERO"/>
+      <viewAttribute id="ID_RSPAIS"/>
+      <viewAttribute id="RSDUNSNUM"/>
+      <viewAttribute id="ID_RSLATITUDE"/>
+      <viewAttribute id="ID_RSLONGITUDE"/>
+      <viewAttribute id="ID_RSPOSTAL"/>
+      <viewAttribute id="RSCALLE"/>
+      <viewAttribute id="ID_RSDIRFUNC"/>
+      <viewAttribute id="ID_RSGRUPOCAD"/>
+      <viewAttribute id="ID_RSFORMATO"/>
+      <viewAttribute id="ID_RSNOMCOR"/>
+      <viewAttribute id="ID_RSCANDIST"/>
+      <viewAttribute id="ID_RSSUPCAN"/>
+      <viewAttribute id="ID_RSSUBCANDIST"/>
+      <viewAttribute id="ID_RSESCM"/>
+      <viewAttribute id="TXT_RSSUPCAN"/>
+      <viewAttribute id="TXTM_RSCANDIST"/>
+      <viewAttribute id="TXT_RSCANDIST"/>
+      <viewAttribute id="TXTM_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_RSGRUPOCAD"/>
+      <viewAttribute id="TXT_RSNOMCOR"/>
+      <viewAttribute id="TXT_RSESCM"/>
+      <viewAttribute id="TXT_RSPAIS"/>
+      <viewAttribute id="TXT_RSFORMATO"/>
+      <viewAttribute id="TXT_RSCLIENTE"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="TXT_CLFACTURA"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="TXT_TIPOENT"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="SUNUMERO"/>
+      <viewAttribute id="SUCCIUDAD"/>
+      <viewAttribute id="ID_SUCPAIS"/>
+      <viewAttribute id="SUCDUNSNUM"/>
+      <viewAttribute id="ID_SUCLATITUDE"/>
+      <viewAttribute id="ID_SUCLONGITUDE"/>
+      <viewAttribute id="ID_SUCPOSTAL"/>
+      <viewAttribute id="SUCCALLE"/>
+      <viewAttribute id="ID_SUCDIRFUNC"/>
+      <viewAttribute id="ID_SUCGRUPOCAD"/>
+      <viewAttribute id="ID_SUCFORMATO"/>
+      <viewAttribute id="ID_SUCNOMCOR"/>
+      <viewAttribute id="ID_SUCCANDIST"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCSUBCANDIST"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="TXTM_SUCCANDIST"/>
+      <viewAttribute id="TXT_SUCCANDIST"/>
+      <viewAttribute id="TXTM_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_SUCGRUPOCAD"/>
+      <viewAttribute id="TXT_SUCNOMCOR"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="TXT_SUCPAIS"/>
+      <viewAttribute id="TXT_SUCFORMATO"/>
+      <viewAttribute id="TXT_SUCURSAL"/>
+      <viewAttribute id="ID_FECHAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_3$$$$AV_VTADIRECTA_ALL$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="VENTAMN"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4">
+    <viewAttributes>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="TXT_STCLIENTE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_DIMS_CLIAGRUPADOR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="SUBTOT_1S" aggregationType="sum"/>
+      <viewAttribute id="SUBTOT_2S" aggregationType="sum"/>
+      <viewAttribute id="VENTAUMB" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="TXT_SOCIEDAD"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="TXT_SPAIS"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_CALTITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_CPAIS"/>
+      <viewAttribute id="ID_CLATITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_CLONGITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_POSTALCD"/>
+      <viewAttribute id="ID_CORGVTA"/>
+      <viewAttribute id="ID_CZONAC"/>
+      <viewAttribute id="ID_CREGION"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="TXT_CPAIS"/>
+      <viewAttribute id="TXT_CREGION"/>
+      <viewAttribute id="TXTM_CZONAC"/>
+      <viewAttribute id="TXT_CZONAC"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXTM_CEDIS"/>
+      <viewAttribute id="TXTM_AGRCEDIS"/>
+      <viewAttribute id="TXT_AGRCEDIS"/>
+      <viewAttribute id="TXT_CORGVTA"/>
+      <viewAttribute id="CEDIS_LALA"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_UMBMAT"/>
+      <viewAttribute id="PESOBRUTO" aggregationType="sum"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="ID_CODAGR"/>
+      <viewAttribute id="FACTORKL" aggregationType="sum"/>
+      <viewAttribute id="ID_SUPFAMILIA"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_MARCA"/>
+      <viewAttribute id="ID_SUBMARCA"/>
+      <viewAttribute id="ID_LINEA"/>
+      <viewAttribute id="ID_TIPO"/>
+      <viewAttribute id="ID_SUBTIPO"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="ID_ENVASE"/>
+      <viewAttribute id="ID_SABOR"/>
+      <viewAttribute id="ID_SUPMARCA"/>
+      <viewAttribute id="ID_PRESENTA"/>
+      <viewAttribute id="FACTORLG" aggregationType="sum"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="TXT_TCODAGR"/>
+      <viewAttribute id="TXTM_FAMILIA"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="TXT_SUPMARCA"/>
+      <viewAttribute id="TXT_MARCA"/>
+      <viewAttribute id="TXT_SUBMARCA"/>
+      <viewAttribute id="TXT_LINEA"/>
+      <viewAttribute id="TXT_SUBTIPO"/>
+      <viewAttribute id="TXT_TIPO"/>
+      <viewAttribute id="TXT_ENVASE"/>
+      <viewAttribute id="TXT_SABOR"/>
+      <viewAttribute id="TXT_PRESENTA"/>
+      <viewAttribute id="TXT_SUPFAMILIA"/>
+      <viewAttribute id="TXT_MATLTYPE"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="RSCIUDAD"/>
+      <viewAttribute id="RSNUMERO"/>
+      <viewAttribute id="ID_RSPAIS"/>
+      <viewAttribute id="RSDUNSNUM"/>
+      <viewAttribute id="ID_RSLATITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_RSLONGITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_RSPOSTAL"/>
+      <viewAttribute id="RSCALLE"/>
+      <viewAttribute id="ID_RSDIRFUNC"/>
+      <viewAttribute id="ID_RSGRUPOCAD"/>
+      <viewAttribute id="ID_RSFORMATO"/>
+      <viewAttribute id="ID_RSNOMCOR"/>
+      <viewAttribute id="ID_RSCANDIST"/>
+      <viewAttribute id="ID_RSSUPCAN"/>
+      <viewAttribute id="ID_RSSUBCANDIST"/>
+      <viewAttribute id="ID_RSESCM"/>
+      <viewAttribute id="TXT_RSSUPCAN"/>
+      <viewAttribute id="TXTM_RSCANDIST"/>
+      <viewAttribute id="TXT_RSCANDIST"/>
+      <viewAttribute id="TXTM_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_RSGRUPOCAD"/>
+      <viewAttribute id="TXT_RSNOMCOR"/>
+      <viewAttribute id="TXT_RSESCM"/>
+      <viewAttribute id="TXT_RSPAIS"/>
+      <viewAttribute id="TXT_RSFORMATO"/>
+      <viewAttribute id="TXT_RSCLIENTE"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="TXT_CLFACTURA"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="TXT_TIPOENT"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="SUNUMERO"/>
+      <viewAttribute id="SUCCIUDAD"/>
+      <viewAttribute id="ID_SUCPAIS"/>
+      <viewAttribute id="SUCDUNSNUM"/>
+      <viewAttribute id="ID_SUCLATITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_SUCLONGITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_SUCPOSTAL"/>
+      <viewAttribute id="SUCCALLE"/>
+      <viewAttribute id="ID_SUCDIRFUNC"/>
+      <viewAttribute id="ID_SUCGRUPOCAD"/>
+      <viewAttribute id="ID_SUCFORMATO"/>
+      <viewAttribute id="ID_SUCNOMCOR"/>
+      <viewAttribute id="ID_SUCCANDIST"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCSUBCANDIST"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="TXTM_SUCCANDIST"/>
+      <viewAttribute id="TXT_SUCCANDIST"/>
+      <viewAttribute id="TXTM_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_SUCGRUPOCAD"/>
+      <viewAttribute id="TXT_SUCNOMCOR"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="TXT_SUCPAIS"/>
+      <viewAttribute id="TXT_SUCFORMATO"/>
+      <viewAttribute id="TXT_SUCURSAL"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_FECHAL" aggregationType="min"/>
+      <viewAttribute id="BONIFICACIONMN" aggregationType="sum"/>
+      <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_1S" source="SUBTOT_1S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_2S" source="SUBTOT_2S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="VENTAUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_INFOSITIO" source="ID_INFOSITIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SOCIEDAD" source="TXT_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SPAIS" source="ID_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SPAIS" source="TXT_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CALTITUDE" source="ID_CALTITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CPAIS" source="ID_CPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLATITUDE" source="ID_CLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLONGITUDE" source="ID_CLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_POSTALCD" source="ID_POSTALCD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CORGVTA" source="ID_CORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CZONAC" source="ID_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CREGION" source="ID_CREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS" source="ID_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CPAIS" source="TXT_CPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CREGION" source="TXT_CREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_CZONAC" source="TXTM_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CZONAC" source="TXT_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_CEDIS" source="TXTM_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_AGRCEDIS" source="TXTM_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_AGRCEDIS" source="TXT_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CORGVTA" source="TXT_CORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEDIS_LALA" source="CEDIS_LALA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMBMAT" source="ID_UMBMAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PESOBRUTO" source="PESOBRUTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CODAGR" source="ID_CODAGR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPFAMILIA" source="ID_SUPFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMILIA" source="ID_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MARCA" source="ID_MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUBMARCA" source="ID_SUBMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_LINEA" source="ID_LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPO" source="ID_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUBTIPO" source="ID_SUBTIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMYLIN" source="ID_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ENVASE" source="ID_ENVASE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SABOR" source="ID_SABOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPMARCA" source="ID_SUPMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_PRESENTA" source="ID_PRESENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATERIAL" source="TXT_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TCODAGR" source="TXT_TCODAGR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_FAMILIA" source="TXTM_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMILIA" source="TXT_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMYLIN" source="TXT_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPMARCA" source="TXT_SUPMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MARCA" source="TXT_MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUBMARCA" source="TXT_SUBMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_LINEA" source="TXT_LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUBTIPO" source="TXT_SUBTIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TIPO" source="TXT_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_ENVASE" source="TXT_ENVASE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SABOR" source="TXT_SABOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_PRESENTA" source="TXT_PRESENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPFAMILIA" source="TXT_SUPFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATLTYPE" source="TXT_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSCIUDAD" source="RSCIUDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSNUMERO" source="RSNUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSPAIS" source="ID_RSPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSDUNSNUM" source="RSDUNSNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSLATITUDE" source="ID_RSLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSLONGITUDE" source="ID_RSLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSPOSTAL" source="ID_RSPOSTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSCALLE" source="RSCALLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSDIRFUNC" source="ID_RSDIRFUNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSGRUPOCAD" source="ID_RSGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSFORMATO" source="ID_RSFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSNOMCOR" source="ID_RSNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSCANDIST" source="ID_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUPCAN" source="ID_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUBCANDIST" source="ID_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSESCM" source="ID_RSESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSSUPCAN" source="TXT_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_RSCANDIST" source="TXTM_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSCANDIST" source="TXT_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_RSSUBCANDIST" source="TXTM_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSSUBCANDIST" source="TXT_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSDIRFUNCIONAL" source="TXT_RSDIRFUNCIONAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSGRUPOCAD" source="TXT_RSGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSNOMCOR" source="TXT_RSNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSESCM" source="TXT_RSESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSPAIS" source="TXT_RSPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSFORMATO" source="TXT_RSFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSCLIENTE" source="TXT_RSCLIENTE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CLFACTURA" source="TXT_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TIPOENT" source="TXT_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUNUMERO" source="SUNUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCCIUDAD" source="SUCCIUDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCPAIS" source="ID_SUCPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCDUNSNUM" source="SUCDUNSNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCLATITUDE" source="ID_SUCLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCLONGITUDE" source="ID_SUCLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCPOSTAL" source="ID_SUCPOSTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCCALLE" source="SUCCALLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCDIRFUNC" source="ID_SUCDIRFUNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCGRUPOCAD" source="ID_SUCGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCFORMATO" source="ID_SUCFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCNOMCOR" source="ID_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCCANDIST" source="ID_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUBCANDIST" source="ID_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_SUCCANDIST" source="TXTM_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCCANDIST" source="TXT_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_SUCSUBCANDIST" source="TXTM_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUBCANDIST" source="TXT_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCDIRFUNCIONAL" source="TXT_SUCDIRFUNCIONAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCGRUPOCAD" source="TXT_SUCGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCNOMCOR" source="TXT_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCPAIS" source="TXT_SUCPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCFORMATO" source="TXT_SUCFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCURSAL" source="TXT_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BONIFICACIONMN" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SUBTOT_1S" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SUBTOT_2S" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAUMB" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAMN" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAKL" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_INFOSITIO" source="ID_INFOSITIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SOCIEDAD" source="TXT_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SPAIS" source="ID_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SPAIS" source="TXT_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CALTITUDE" source="ID_CALTITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CPAIS" source="ID_CPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLATITUDE" source="ID_CLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLONGITUDE" source="ID_CLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_POSTALCD" source="ID_POSTALCD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CORGVTA" source="ID_CORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CZONAC" source="ID_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CREGION" source="ID_CREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS" source="ID_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CPAIS" source="TXT_CPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CREGION" source="TXT_CREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_CZONAC" source="TXTM_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CZONAC" source="TXT_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_CEDIS" source="TXTM_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_AGRCEDIS" source="TXTM_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_AGRCEDIS" source="TXT_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CORGVTA" source="TXT_CORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEDIS_LALA" source="CEDIS_LALA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMBMAT" source="ID_UMBMAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PESOBRUTO" source="PESOBRUTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CODAGR" source="ID_CODAGR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPFAMILIA" source="ID_SUPFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMILIA" source="ID_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MARCA" source="ID_MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUBMARCA" source="ID_SUBMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_LINEA" source="ID_LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPO" source="ID_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUBTIPO" source="ID_SUBTIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMYLIN" source="ID_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ENVASE" source="ID_ENVASE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SABOR" source="ID_SABOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPMARCA" source="ID_SUPMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_PRESENTA" source="ID_PRESENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATERIAL" source="TXT_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TCODAGR" source="TXT_TCODAGR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_FAMILIA" source="TXTM_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMILIA" source="TXT_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMYLIN" source="TXT_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPMARCA" source="TXT_SUPMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MARCA" source="TXT_MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUBMARCA" source="TXT_SUBMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_LINEA" source="TXT_LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUBTIPO" source="TXT_SUBTIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TIPO" source="TXT_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_ENVASE" source="TXT_ENVASE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SABOR" source="TXT_SABOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_PRESENTA" source="TXT_PRESENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPFAMILIA" source="TXT_SUPFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATLTYPE" source="TXT_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSCIUDAD" source="RSCIUDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSNUMERO" source="RSNUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSPAIS" source="ID_RSPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSDUNSNUM" source="RSDUNSNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSLATITUDE" source="ID_RSLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSLONGITUDE" source="ID_RSLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSPOSTAL" source="ID_RSPOSTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSCALLE" source="RSCALLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSDIRFUNC" source="ID_RSDIRFUNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSGRUPOCAD" source="ID_RSGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSFORMATO" source="ID_RSFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSNOMCOR" source="ID_RSNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSCANDIST" source="ID_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUPCAN" source="ID_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUBCANDIST" source="ID_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSESCM" source="ID_RSESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSSUPCAN" source="TXT_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_RSCANDIST" source="TXTM_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSCANDIST" source="TXT_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_RSSUBCANDIST" source="TXTM_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSSUBCANDIST" source="TXT_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSDIRFUNCIONAL" source="TXT_RSDIRFUNCIONAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSGRUPOCAD" source="TXT_RSGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSNOMCOR" source="TXT_RSNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSESCM" source="TXT_RSESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSPAIS" source="TXT_RSPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSFORMATO" source="TXT_RSFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSCLIENTE" source="TXT_RSCLIENTE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CLFACTURA" source="TXT_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TIPOENT" source="TXT_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUNUMERO" source="SUNUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCCIUDAD" source="SUCCIUDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCPAIS" source="ID_SUCPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCDUNSNUM" source="SUCDUNSNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCLATITUDE" source="ID_SUCLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCLONGITUDE" source="ID_SUCLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCPOSTAL" source="ID_SUCPOSTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCCALLE" source="SUCCALLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCDIRFUNC" source="ID_SUCDIRFUNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCGRUPOCAD" source="ID_SUCGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCFORMATO" source="ID_SUCFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCNOMCOR" source="ID_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCCANDIST" source="ID_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUBCANDIST" source="ID_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_SUCCANDIST" source="TXTM_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCCANDIST" source="TXT_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_SUCSUBCANDIST" source="TXTM_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUBCANDIST" source="TXT_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCDIRFUNCIONAL" source="TXT_SUCDIRFUNCIONAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCGRUPOCAD" source="TXT_SUCGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCNOMCOR" source="TXT_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCPAIS" source="TXT_SUCPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCFORMATO" source="TXT_SUCFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCURSAL" source="TXT_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
+    </input>
+    <input node="Projection_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SUBTOT_1S" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SUBTOT_2S" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAUMB" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAMN" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAKL" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_INFOSITIO" source="ID_INFOSITIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SOCIEDAD" source="TXT_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SPAIS" source="ID_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SPAIS" source="TXT_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CALTITUDE" source="ID_CALTITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CPAIS" source="ID_CPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLATITUDE" source="ID_CLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLONGITUDE" source="ID_CLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_POSTALCD" source="ID_POSTALCD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CORGVTA" source="ID_CORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CZONAC" source="ID_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CREGION" source="ID_CREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS" source="ID_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CPAIS" source="TXT_CPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CREGION" source="TXT_CREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_CZONAC" source="TXTM_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CZONAC" source="TXT_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_CEDIS" source="TXTM_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_AGRCEDIS" source="TXTM_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_AGRCEDIS" source="TXT_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CORGVTA" source="TXT_CORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEDIS_LALA" source="CEDIS_LALA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMBMAT" source="ID_UMBMAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PESOBRUTO" source="PESOBRUTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CODAGR" source="ID_CODAGR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPFAMILIA" source="ID_SUPFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMILIA" source="ID_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MARCA" source="ID_MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUBMARCA" source="ID_SUBMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_LINEA" source="ID_LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPO" source="ID_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUBTIPO" source="ID_SUBTIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMYLIN" source="ID_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ENVASE" source="ID_ENVASE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SABOR" source="ID_SABOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPMARCA" source="ID_SUPMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_PRESENTA" source="ID_PRESENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATERIAL" source="TXT_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TCODAGR" source="TXT_TCODAGR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_FAMILIA" source="TXTM_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMILIA" source="TXT_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMYLIN" source="TXT_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPMARCA" source="TXT_SUPMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MARCA" source="TXT_MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUBMARCA" source="TXT_SUBMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_LINEA" source="TXT_LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUBTIPO" source="TXT_SUBTIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TIPO" source="TXT_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_ENVASE" source="TXT_ENVASE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SABOR" source="TXT_SABOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_PRESENTA" source="TXT_PRESENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPFAMILIA" source="TXT_SUPFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATLTYPE" source="TXT_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSCIUDAD" source="RSCIUDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSNUMERO" source="RSNUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSPAIS" source="ID_RSPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSDUNSNUM" source="RSDUNSNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSLATITUDE" source="ID_RSLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSLONGITUDE" source="ID_RSLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSPOSTAL" source="ID_RSPOSTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSCALLE" source="RSCALLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSDIRFUNC" source="ID_RSDIRFUNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSGRUPOCAD" source="ID_RSGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSFORMATO" source="ID_RSFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSNOMCOR" source="ID_RSNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSCANDIST" source="ID_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUPCAN" source="ID_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUBCANDIST" source="ID_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSESCM" source="ID_RSESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSSUPCAN" source="TXT_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_RSCANDIST" source="TXTM_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSCANDIST" source="TXT_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_RSSUBCANDIST" source="TXTM_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSSUBCANDIST" source="TXT_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSDIRFUNCIONAL" source="TXT_RSDIRFUNCIONAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSGRUPOCAD" source="TXT_RSGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSNOMCOR" source="TXT_RSNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSESCM" source="TXT_RSESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSPAIS" source="TXT_RSPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSFORMATO" source="TXT_RSFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSCLIENTE" source="TXT_RSCLIENTE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CLFACTURA" source="TXT_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TIPOENT" source="TXT_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUNUMERO" source="SUNUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCCIUDAD" source="SUCCIUDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCPAIS" source="ID_SUCPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCDUNSNUM" source="SUCDUNSNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCLATITUDE" source="ID_SUCLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCLONGITUDE" source="ID_SUCLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCPOSTAL" source="ID_SUCPOSTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCCALLE" source="SUCCALLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCDIRFUNC" source="ID_SUCDIRFUNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCGRUPOCAD" source="ID_SUCGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCFORMATO" source="ID_SUCFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCNOMCOR" source="ID_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCCANDIST" source="ID_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUBCANDIST" source="ID_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_SUCCANDIST" source="TXTM_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCCANDIST" source="TXT_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_SUCSUBCANDIST" source="TXTM_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUBCANDIST" source="TXT_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCDIRFUNCIONAL" source="TXT_SUCDIRFUNCIONAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCGRUPOCAD" source="TXT_SUCGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCNOMCOR" source="TXT_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCPAIS" source="TXT_SUCPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCFORMATO" source="TXT_SUCFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCURSAL" source="TXT_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BONIFICACIONMN" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="SUBTOT_1S" aggregationType="sum"/>
+      <viewAttribute id="SUBTOT_2S" aggregationType="sum"/>
+      <viewAttribute id="VENTAUMB" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="TXT_SOCIEDAD"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="TXT_SPAIS"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_CALTITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_CPAIS"/>
+      <viewAttribute id="ID_CLATITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_CLONGITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_POSTALCD"/>
+      <viewAttribute id="ID_CORGVTA"/>
+      <viewAttribute id="ID_CZONAC"/>
+      <viewAttribute id="ID_CREGION"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="TXT_CPAIS"/>
+      <viewAttribute id="TXT_CREGION"/>
+      <viewAttribute id="TXTM_CZONAC"/>
+      <viewAttribute id="TXT_CZONAC"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXTM_CEDIS"/>
+      <viewAttribute id="TXTM_AGRCEDIS"/>
+      <viewAttribute id="TXT_AGRCEDIS"/>
+      <viewAttribute id="TXT_CORGVTA"/>
+      <viewAttribute id="CEDIS_LALA"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_UMBMAT"/>
+      <viewAttribute id="PESOBRUTO" aggregationType="sum"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="ID_CODAGR"/>
+      <viewAttribute id="FACTORKL" aggregationType="sum"/>
+      <viewAttribute id="ID_SUPFAMILIA"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_MARCA"/>
+      <viewAttribute id="ID_SUBMARCA"/>
+      <viewAttribute id="ID_LINEA"/>
+      <viewAttribute id="ID_TIPO"/>
+      <viewAttribute id="ID_SUBTIPO"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="ID_ENVASE"/>
+      <viewAttribute id="ID_SABOR"/>
+      <viewAttribute id="ID_SUPMARCA"/>
+      <viewAttribute id="ID_PRESENTA"/>
+      <viewAttribute id="FACTORLG" aggregationType="sum"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="TXT_TCODAGR"/>
+      <viewAttribute id="TXTM_FAMILIA"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="TXT_SUPMARCA"/>
+      <viewAttribute id="TXT_MARCA"/>
+      <viewAttribute id="TXT_SUBMARCA"/>
+      <viewAttribute id="TXT_LINEA"/>
+      <viewAttribute id="TXT_SUBTIPO"/>
+      <viewAttribute id="TXT_TIPO"/>
+      <viewAttribute id="TXT_ENVASE"/>
+      <viewAttribute id="TXT_SABOR"/>
+      <viewAttribute id="TXT_PRESENTA"/>
+      <viewAttribute id="TXT_SUPFAMILIA"/>
+      <viewAttribute id="TXT_MATLTYPE"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="RSCIUDAD"/>
+      <viewAttribute id="RSNUMERO"/>
+      <viewAttribute id="ID_RSPAIS"/>
+      <viewAttribute id="RSDUNSNUM"/>
+      <viewAttribute id="ID_RSLATITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_RSLONGITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_RSPOSTAL"/>
+      <viewAttribute id="RSCALLE"/>
+      <viewAttribute id="ID_RSDIRFUNC"/>
+      <viewAttribute id="ID_RSGRUPOCAD"/>
+      <viewAttribute id="ID_RSFORMATO"/>
+      <viewAttribute id="ID_RSNOMCOR"/>
+      <viewAttribute id="ID_RSCANDIST"/>
+      <viewAttribute id="ID_RSSUPCAN"/>
+      <viewAttribute id="ID_RSSUBCANDIST"/>
+      <viewAttribute id="ID_RSESCM"/>
+      <viewAttribute id="TXT_RSSUPCAN"/>
+      <viewAttribute id="TXTM_RSCANDIST"/>
+      <viewAttribute id="TXT_RSCANDIST"/>
+      <viewAttribute id="TXTM_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSSUBCANDIST"/>
+      <viewAttribute id="TXT_RSDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_RSGRUPOCAD"/>
+      <viewAttribute id="TXT_RSNOMCOR"/>
+      <viewAttribute id="TXT_RSESCM"/>
+      <viewAttribute id="TXT_RSPAIS"/>
+      <viewAttribute id="TXT_RSFORMATO"/>
+      <viewAttribute id="TXT_RSCLIENTE"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="TXT_CLFACTURA"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="TXT_TIPOENT"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="SUNUMERO"/>
+      <viewAttribute id="SUCCIUDAD"/>
+      <viewAttribute id="ID_SUCPAIS"/>
+      <viewAttribute id="SUCDUNSNUM"/>
+      <viewAttribute id="ID_SUCLATITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_SUCLONGITUDE" aggregationType="sum"/>
+      <viewAttribute id="ID_SUCPOSTAL"/>
+      <viewAttribute id="SUCCALLE"/>
+      <viewAttribute id="ID_SUCDIRFUNC"/>
+      <viewAttribute id="ID_SUCGRUPOCAD"/>
+      <viewAttribute id="ID_SUCFORMATO"/>
+      <viewAttribute id="ID_SUCNOMCOR"/>
+      <viewAttribute id="ID_SUCCANDIST"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCSUBCANDIST"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="TXTM_SUCCANDIST"/>
+      <viewAttribute id="TXT_SUCCANDIST"/>
+      <viewAttribute id="TXTM_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCSUBCANDIST"/>
+      <viewAttribute id="TXT_SUCDIRFUNCIONAL"/>
+      <viewAttribute id="TXT_SUCGRUPOCAD"/>
+      <viewAttribute id="TXT_SUCNOMCOR"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="TXT_SUCPAIS"/>
+      <viewAttribute id="TXT_SUCFORMATO"/>
+      <viewAttribute id="TXT_SUCURSAL"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_FECHAL" aggregationType="min"/>
+      <viewAttribute id="BONIFICACIONMN" aggregationType="sum"/>
+      <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
+      <viewAttribute id="TXT_STCLIENTE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Union_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMB" source="ID_UMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MONEDA" source="ID_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDISOB" source="ID_CANDISOB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPRUTA" source="ID_TIPRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_1S" source="SUBTOT_1S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_2S" source="SUBTOT_2S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="VENTAUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_INFOSITIO" source="ID_INFOSITIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SOCIEDAD" source="TXT_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SPAIS" source="ID_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SPAIS" source="TXT_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CALTITUDE" source="ID_CALTITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CPAIS" source="ID_CPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLATITUDE" source="ID_CLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLONGITUDE" source="ID_CLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_POSTALCD" source="ID_POSTALCD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CORGVTA" source="ID_CORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CZONAC" source="ID_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CREGION" source="ID_CREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS" source="ID_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CPAIS" source="TXT_CPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CREGION" source="TXT_CREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_CZONAC" source="TXTM_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CZONAC" source="TXT_CZONAC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_CEDIS" source="TXTM_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_AGRCEDIS" source="TXTM_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_AGRCEDIS" source="TXT_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CORGVTA" source="TXT_CORGVTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEDIS_LALA" source="CEDIS_LALA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_UMBMAT" source="ID_UMBMAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PESOBRUTO" source="PESOBRUTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CODAGR" source="ID_CODAGR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPFAMILIA" source="ID_SUPFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMILIA" source="ID_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MARCA" source="ID_MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUBMARCA" source="ID_SUBMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_LINEA" source="ID_LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPO" source="ID_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUBTIPO" source="ID_SUBTIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMYLIN" source="ID_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ENVASE" source="ID_ENVASE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SABOR" source="ID_SABOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPMARCA" source="ID_SUPMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_PRESENTA" source="ID_PRESENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATERIAL" source="TXT_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TCODAGR" source="TXT_TCODAGR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_FAMILIA" source="TXTM_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMILIA" source="TXT_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMYLIN" source="TXT_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPMARCA" source="TXT_SUPMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MARCA" source="TXT_MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUBMARCA" source="TXT_SUBMARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_LINEA" source="TXT_LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUBTIPO" source="TXT_SUBTIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TIPO" source="TXT_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_ENVASE" source="TXT_ENVASE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SABOR" source="TXT_SABOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_PRESENTA" source="TXT_PRESENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPFAMILIA" source="TXT_SUPFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATLTYPE" source="TXT_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSCIUDAD" source="RSCIUDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSNUMERO" source="RSNUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSPAIS" source="ID_RSPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSDUNSNUM" source="RSDUNSNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSLATITUDE" source="ID_RSLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSLONGITUDE" source="ID_RSLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSPOSTAL" source="ID_RSPOSTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RSCALLE" source="RSCALLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSDIRFUNC" source="ID_RSDIRFUNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSGRUPOCAD" source="ID_RSGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSFORMATO" source="ID_RSFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSNOMCOR" source="ID_RSNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSCANDIST" source="ID_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUPCAN" source="ID_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUBCANDIST" source="ID_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSESCM" source="ID_RSESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSSUPCAN" source="TXT_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_RSCANDIST" source="TXTM_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSCANDIST" source="TXT_RSCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_RSSUBCANDIST" source="TXTM_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSSUBCANDIST" source="TXT_RSSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSDIRFUNCIONAL" source="TXT_RSDIRFUNCIONAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSGRUPOCAD" source="TXT_RSGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSNOMCOR" source="TXT_RSNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSESCM" source="TXT_RSESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSPAIS" source="TXT_RSPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSFORMATO" source="TXT_RSFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_RSCLIENTE" source="TXT_RSCLIENTE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLFACTURA" source="ID_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CLFACTURA" source="TXT_CLFACTURA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_TIPOENT" source="ID_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_TIPOENT" source="TXT_TIPOENT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUNUMERO" source="SUNUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCCIUDAD" source="SUCCIUDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCPAIS" source="ID_SUCPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCDUNSNUM" source="SUCDUNSNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCLATITUDE" source="ID_SUCLATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCLONGITUDE" source="ID_SUCLONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCPOSTAL" source="ID_SUCPOSTAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCCALLE" source="SUCCALLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCDIRFUNC" source="ID_SUCDIRFUNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCGRUPOCAD" source="ID_SUCGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCFORMATO" source="ID_SUCFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCNOMCOR" source="ID_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCCANDIST" source="ID_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUBCANDIST" source="ID_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_SUCCANDIST" source="TXTM_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCCANDIST" source="TXT_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTM_SUCSUBCANDIST" source="TXTM_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUBCANDIST" source="TXT_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCDIRFUNCIONAL" source="TXT_SUCDIRFUNCIONAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCGRUPOCAD" source="TXT_SUCGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCNOMCOR" source="TXT_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCPAIS" source="TXT_SUCPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCFORMATO" source="TXT_SUCFORMATO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCURSAL" source="TXT_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_QT" source="ID_QT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MES" source="ID_MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SEMANA" source="ID_SEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIASEM" source="ID_DIASEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
+    </input>
+    <input node="Projection_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+    </input>
+    <joinAttribute name="ID_SOLD_TO"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="ID_FECHA" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="ID_EJPERIODO" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ejercicio/Periodo"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_EJPERIODO"/>
+    </attribute>
+    <attribute id="ID_VARIANTEEJ" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Variante Ejercicio"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_VARIANTEEJ"/>
+    </attribute>
+    <attribute id="ID_UMB" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID UMB"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_UMB"/>
+    </attribute>
+    <attribute id="ID_MONEDA" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Moneda"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_MONEDA"/>
+    </attribute>
+    <attribute id="ID_CANDISOB" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Canal Distribución (Obsoleto)"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CANDISOB"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ruta"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="ID_TIPRUTA" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Ruta (Historico)"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_TIPRUTA"/>
+    </attribute>
+    <attribute id="ID_ORGVTA" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Organizacion Venta"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_ORGVTA"/>
+    </attribute>
+    <attribute id="LOADDATE" order="15">
+      <descriptions defaultDescription="LOADDATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="LOADDATE"/>
+    </attribute>
+    <attribute id="ID_SOLD_TO" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cliente/RS Agrupador"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SOLD_TO"/>
+    </attribute>
+    <attribute id="ID_INFOSITIO" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Infositio"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_INFOSITIO"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sociedad"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="TXT_SOCIEDAD" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sociedad"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_SPAIS" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID País Sociedad"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SPAIS"/>
+    </attribute>
+    <attribute id="TXT_SPAIS" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="País Sociedad"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SPAIS"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis/Planta"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_CALTITUDE" order="23">
+      <descriptions defaultDescription="Altitud Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CALTITUDE"/>
+    </attribute>
+    <attribute id="ID_CPAIS" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID País Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CPAIS"/>
+    </attribute>
+    <attribute id="ID_CLATITUDE" order="25">
+      <descriptions defaultDescription="Latitud Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CLATITUDE"/>
+    </attribute>
+    <attribute id="ID_CLONGITUDE" order="26">
+      <descriptions defaultDescription="Longitud Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CLONGITUDE"/>
+    </attribute>
+    <attribute id="ID_POSTALCD" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CP Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_POSTALCD"/>
+    </attribute>
+    <attribute id="ID_CORGVTA" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Organización Venta Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CORGVTA"/>
+    </attribute>
+    <attribute id="ID_CZONAC" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Zona Comercial Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CZONAC"/>
+    </attribute>
+    <attribute id="ID_CREGION" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Región Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CREGION"/>
+    </attribute>
+    <attribute id="ID_AGRCEDIS" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis Agrupador"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_AGRCEDIS"/>
+    </attribute>
+    <attribute id="TXT_CPAIS" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="País Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_CPAIS"/>
+    </attribute>
+    <attribute id="TXT_CREGION" order="33" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Región Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_CREGION"/>
+    </attribute>
+    <attribute id="TXTM_CZONAC" order="34" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Zona Comercial Cedis Txt Brev"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTM_CZONAC"/>
+    </attribute>
+    <attribute id="TXT_CZONAC" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Zona Comercial Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_CZONAC"/>
+    </attribute>
+    <attribute id="TXT_CEDIS" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis/Planta"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_CEDIS"/>
+    </attribute>
+    <attribute id="TXTM_CEDIS" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis/Planta Txt Brev"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTM_CEDIS"/>
+    </attribute>
+    <attribute id="TXTM_AGRCEDIS" order="38" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis Agrupador Txt Brev"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTM_AGRCEDIS"/>
+    </attribute>
+    <attribute id="TXT_AGRCEDIS" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis Agrupador"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_AGRCEDIS"/>
+    </attribute>
+    <attribute id="TXT_CORGVTA" order="40" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Organización Venta Cedis"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_CORGVTA"/>
+    </attribute>
+    <attribute id="CEDIS_LALA" order="41" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis Agrupador ECC"/>
+      <keyMapping columnObjectName="Join_1" columnName="CEDIS_LALA"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="42" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_UMBMAT" order="43" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID UMB Material"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_UMBMAT"/>
+    </attribute>
+    <attribute id="PESOBRUTO" order="44">
+      <descriptions defaultDescription="Peso Bruto"/>
+      <keyMapping columnObjectName="Join_1" columnName="PESOBRUTO"/>
+    </attribute>
+    <attribute id="ID_MATLTYPE" order="45" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Material"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_MATLTYPE"/>
+    </attribute>
+    <attribute id="ID_CODAGR" order="46" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Código Agrupador"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CODAGR"/>
+    </attribute>
+    <attribute id="FACTORKL" order="47">
+      <descriptions defaultDescription="Factor KL"/>
+      <keyMapping columnObjectName="Join_1" columnName="FACTORKL"/>
+    </attribute>
+    <attribute id="ID_SUPFAMILIA" order="48" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Super Familia"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUPFAMILIA"/>
+    </attribute>
+    <attribute id="ID_FAMILIA" order="49" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Familia"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_FAMILIA"/>
+    </attribute>
+    <attribute id="ID_MARCA" order="50" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Marca"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_MARCA"/>
+    </attribute>
+    <attribute id="ID_SUBMARCA" order="51" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sub Marca"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUBMARCA"/>
+    </attribute>
+    <attribute id="ID_LINEA" order="52" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Linea"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_LINEA"/>
+    </attribute>
+    <attribute id="ID_TIPO" order="53" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_TIPO"/>
+    </attribute>
+    <attribute id="ID_SUBTIPO" order="54" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sub Tipo"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUBTIPO"/>
+    </attribute>
+    <attribute id="ID_FAMYLIN" order="55" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Famylin"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_FAMYLIN"/>
+    </attribute>
+    <attribute id="ID_ENVASE" order="56" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Envase"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_ENVASE"/>
+    </attribute>
+    <attribute id="ID_SABOR" order="57" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sabor"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SABOR"/>
+    </attribute>
+    <attribute id="ID_SUPMARCA" order="58" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Super Marca"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUPMARCA"/>
+    </attribute>
+    <attribute id="ID_PRESENTA" order="59" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Presentación"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_PRESENTA"/>
+    </attribute>
+    <attribute id="FACTORLG" order="60">
+      <descriptions defaultDescription="Factor LG"/>
+      <keyMapping columnObjectName="Join_1" columnName="FACTORLG"/>
+    </attribute>
+    <attribute id="TXT_MATERIAL" order="61" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_MATERIAL"/>
+    </attribute>
+    <attribute id="TXT_TCODAGR" order="62" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Código Agrupador"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_TCODAGR"/>
+    </attribute>
+    <attribute id="TXTM_FAMILIA" order="63" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Familia Txt Brev"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTM_FAMILIA"/>
+    </attribute>
+    <attribute id="TXT_FAMILIA" order="64" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Familia"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_FAMILIA"/>
+    </attribute>
+    <attribute id="TXT_FAMYLIN" order="65" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Famylin"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_FAMYLIN"/>
+    </attribute>
+    <attribute id="TXT_SUPMARCA" order="66" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Super Marca"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUPMARCA"/>
+    </attribute>
+    <attribute id="TXT_MARCA" order="67" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Marca"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_MARCA"/>
+    </attribute>
+    <attribute id="TXT_SUBMARCA" order="68" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sub Marca"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUBMARCA"/>
+    </attribute>
+    <attribute id="TXT_LINEA" order="69" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Linea"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_LINEA"/>
+    </attribute>
+    <attribute id="TXT_SUBTIPO" order="70" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sub Tipo"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUBTIPO"/>
+    </attribute>
+    <attribute id="TXT_TIPO" order="71" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tipo"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_TIPO"/>
+    </attribute>
+    <attribute id="TXT_ENVASE" order="72" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Envase"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_ENVASE"/>
+    </attribute>
+    <attribute id="TXT_SABOR" order="73" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sabor"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SABOR"/>
+    </attribute>
+    <attribute id="TXT_PRESENTA" order="74" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Presentación"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_PRESENTA"/>
+    </attribute>
+    <attribute id="TXT_SUPFAMILIA" order="75" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Super Familia"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUPFAMILIA"/>
+    </attribute>
+    <attribute id="TXT_MATLTYPE" order="76" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tipo Material"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_MATLTYPE"/>
+    </attribute>
+    <attribute id="ID_RAZONSOCIAL" order="77" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Razon Social"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="RSCIUDAD" order="78" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Ciudad"/>
+      <keyMapping columnObjectName="Join_1" columnName="RSCIUDAD"/>
+    </attribute>
+    <attribute id="RSNUMERO" order="79" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Número"/>
+      <keyMapping columnObjectName="Join_1" columnName="RSNUMERO"/>
+    </attribute>
+    <attribute id="ID_RSPAIS" order="80" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Pais"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSPAIS"/>
+    </attribute>
+    <attribute id="RSDUNSNUM" order="81" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Numero DUNS"/>
+      <keyMapping columnObjectName="Join_1" columnName="RSDUNSNUM"/>
+    </attribute>
+    <attribute id="ID_RSLATITUDE" order="82">
+      <descriptions defaultDescription="Rs. Latitud"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSLATITUDE"/>
+    </attribute>
+    <attribute id="ID_RSLONGITUDE" order="83">
+      <descriptions defaultDescription="Rs. Longitud"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSLONGITUDE"/>
+    </attribute>
+    <attribute id="ID_RSPOSTAL" order="84" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. CP"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSPOSTAL"/>
+    </attribute>
+    <attribute id="RSCALLE" order="85" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Calle"/>
+      <keyMapping columnObjectName="Join_1" columnName="RSCALLE"/>
+    </attribute>
+    <attribute id="ID_RSDIRFUNC" order="86" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Dirección Funcional"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSDIRFUNC"/>
+    </attribute>
+    <attribute id="ID_RSGRUPOCAD" order="87" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Grupo Cadena"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSGRUPOCAD"/>
+    </attribute>
+    <attribute id="ID_RSFORMATO" order="88" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Formato"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSFORMATO"/>
+    </attribute>
+    <attribute id="ID_RSNOMCOR" order="89" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Nombre Corto"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSNOMCOR"/>
+    </attribute>
+    <attribute id="ID_RSCANDIST" order="90" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Canal Distribución"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSCANDIST"/>
+    </attribute>
+    <attribute id="ID_RSSUPCAN" order="91" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Súper Canal"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSSUPCAN"/>
+    </attribute>
+    <attribute id="ID_RSSUBCANDIST" order="92" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSSUBCANDIST"/>
+    </attribute>
+    <attribute id="ID_RSESCM" order="93" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Estructura Comercial"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_RSESCM"/>
+    </attribute>
+    <attribute id="TXT_RSSUPCAN" order="94" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Súper Canal"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSSUPCAN"/>
+    </attribute>
+    <attribute id="TXTM_RSCANDIST" order="95" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTM_RSCANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSCANDIST" order="96" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Canal Distribución"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSCANDIST"/>
+    </attribute>
+    <attribute id="TXTM_RSSUBCANDIST" order="97" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Sub Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTM_RSSUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSSUBCANDIST" order="98" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSSUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSDIRFUNCIONAL" order="99" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Dirección Funcional"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSDIRFUNCIONAL"/>
+    </attribute>
+    <attribute id="TXT_RSGRUPOCAD" order="100" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Grupo Cadena"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSGRUPOCAD"/>
+    </attribute>
+    <attribute id="TXT_RSNOMCOR" order="101" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Nombre Corto"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSNOMCOR"/>
+    </attribute>
+    <attribute id="TXT_RSESCM" order="102" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Estructura Comercial"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSESCM"/>
+    </attribute>
+    <attribute id="TXT_RSPAIS" order="103" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. País"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSPAIS"/>
+    </attribute>
+    <attribute id="TXT_RSFORMATO" order="104" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Formato"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSFORMATO"/>
+    </attribute>
+    <attribute id="TXT_RSCLIENTE" order="105" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Razon Social"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_RSCLIENTE"/>
+    </attribute>
+    <attribute id="ID_CLFACTURA" order="106" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Clase Factura"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_CLFACTURA"/>
+    </attribute>
+    <attribute id="TXT_CLFACTURA" order="107" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Txt Clase Factura"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_CLFACTURA"/>
+    </attribute>
+    <attribute id="ID_TIPOENT" order="108" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Entrega"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_TIPOENT"/>
+    </attribute>
+    <attribute id="TXT_TIPOENT" order="109" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tipo Entrega Txt"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_TIPOENT"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL" order="110" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sucursal"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="SUNUMERO" order="111" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Número"/>
+      <keyMapping columnObjectName="Join_1" columnName="SUNUMERO"/>
+    </attribute>
+    <attribute id="SUCCIUDAD" order="112" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Ciudad"/>
+      <keyMapping columnObjectName="Join_1" columnName="SUCCIUDAD"/>
+    </attribute>
+    <attribute id="ID_SUCPAIS" order="113" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Pais"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCPAIS"/>
+    </attribute>
+    <attribute id="SUCDUNSNUM" order="114" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Numero DUNS"/>
+      <keyMapping columnObjectName="Join_1" columnName="SUCDUNSNUM"/>
+    </attribute>
+    <attribute id="ID_SUCLATITUDE" order="115">
+      <descriptions defaultDescription="Suc. Latitud"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCLATITUDE"/>
+    </attribute>
+    <attribute id="ID_SUCLONGITUDE" order="116">
+      <descriptions defaultDescription="Suc. Longitud"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCLONGITUDE"/>
+    </attribute>
+    <attribute id="ID_SUCPOSTAL" order="117" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. CP"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCPOSTAL"/>
+    </attribute>
+    <attribute id="SUCCALLE" order="118" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Calle"/>
+      <keyMapping columnObjectName="Join_1" columnName="SUCCALLE"/>
+    </attribute>
+    <attribute id="ID_SUCDIRFUNC" order="119" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Dirección Funcional"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCDIRFUNC"/>
+    </attribute>
+    <attribute id="ID_SUCGRUPOCAD" order="120" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Grupo Cadena"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCGRUPOCAD"/>
+    </attribute>
+    <attribute id="ID_SUCFORMATO" order="121" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Formato"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCFORMATO"/>
+    </attribute>
+    <attribute id="ID_SUCNOMCOR" order="122" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Nombre Corto"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCNOMCOR"/>
+    </attribute>
+    <attribute id="ID_SUCCANDIST" order="123" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Canal Distribución"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCCANDIST"/>
+    </attribute>
+    <attribute id="ID_SUCSUPCAN" order="124" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Súper Canal"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="ID_SUCSUBCANDIST" order="125" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCSUBCANDIST"/>
+    </attribute>
+    <attribute id="ID_SUCESCM" order="126" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SUCESCM"/>
+    </attribute>
+    <attribute id="TXT_SUCSUPCAN" order="127" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Súper Canal"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="TXTM_SUCCANDIST" order="128" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTM_SUCCANDIST"/>
+    </attribute>
+    <attribute id="TXT_SUCCANDIST" order="129" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Canal Distribución"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCCANDIST"/>
+    </attribute>
+    <attribute id="TXTM_SUCSUBCANDIST" order="130" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Sub Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTM_SUCSUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_SUCSUBCANDIST" order="131" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCSUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_SUCDIRFUNCIONAL" order="132" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Dirección Funcional"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCDIRFUNCIONAL"/>
+    </attribute>
+    <attribute id="TXT_SUCGRUPOCAD" order="133" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Grupo Cadena"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCGRUPOCAD"/>
+    </attribute>
+    <attribute id="TXT_SUCNOMCOR" order="134" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Nombre Corto"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCNOMCOR"/>
+    </attribute>
+    <attribute id="TXT_SUCESCM" order="135" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCESCM"/>
+    </attribute>
+    <attribute id="TXT_SUCPAIS" order="136" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. País"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCPAIS"/>
+    </attribute>
+    <attribute id="TXT_SUCFORMATO" order="137" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Formato"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCFORMATO"/>
+    </attribute>
+    <attribute id="TXT_SUCURSAL" order="138" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sucursal"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_ANIO" order="139" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_ANIO"/>
+    </attribute>
+    <attribute id="ID_QT" order="140" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Trimestre"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_QT"/>
+    </attribute>
+    <attribute id="ID_MES" order="141" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Mes"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_MES"/>
+    </attribute>
+    <attribute id="ID_SEMANA" order="142" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Semana"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_SEMANA"/>
+    </attribute>
+    <attribute id="ID_DIASEM" order="143" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Día Semana"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_DIASEM"/>
+    </attribute>
+    <attribute id="ID_ANIOMES" order="144" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Mes"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_ANIOSEMANA" order="145" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Semana"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_ANIOSEMANA"/>
+    </attribute>
+    <attribute id="ID_FECHAL" order="146">
+      <descriptions defaultDescription="ID Fecha Larga"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID_FECHAL"/>
+    </attribute>
+    <attribute id="TXT_STCLIENTE" order="152" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cliente/RS Agrupador"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXT_STCLIENTE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="SUBTOT_1S" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Subtotal 1"/>
+      <measureMapping columnObjectName="Join_1" columnName="SUBTOT_1S"/>
+    </measure>
+    <measure id="SUBTOT_2S" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Subtotal 2"/>
+      <measureMapping columnObjectName="Join_1" columnName="SUBTOT_2S"/>
+    </measure>
+    <measure id="VENTAUMB" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta UMB"/>
+      <measureMapping columnObjectName="Join_1" columnName="VENTAUMB"/>
+    </measure>
+    <measure id="VENTAMN" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="Join_1" columnName="VENTAMN"/>
+    </measure>
+    <measure id="VENTAKL" order="14" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="Join_1" columnName="VENTAKL"/>
+    </measure>
+    <measure id="BONIFICACIONMN" order="147" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="BONIFICACIONMN"/>
+      <measureMapping columnObjectName="Join_1" columnName="BONIFICACIONMN"/>
+    </measure>
+    <measure id="DEVOLUCIONMN_C" order="149" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="DEVOLUCIONMN_C"/>
+      <measureMapping columnObjectName="Join_1" columnName="DEVOLUCIONMN"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures>
+    <measure id="C_BONIFICACIONMN" order="148" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Bonificacion MN"/>
+      <formula> (IFNULL(&quot;BONIFICACIONMN&quot;,0)+IFNULL(&quot;SUBTOT_2S&quot; ,0))*-1</formula>
+      </measure>
+    <measure id="VENTABRUTAMN" order="150" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta Bruta MN"/>
+      <formula>(&quot;VENTAMN&quot; + &quot;C_BONIFICACIONMN&quot; + &quot;DEVOLUCIONMN&quot;)</formula>
+      </measure>
+    <measure id="DEVOLUCIONMN" order="151" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="DEVOLUCIONMN"/>
+      <formula>IFNULL(&quot;DEVOLUCIONMN_C&quot;,0)*-1</formula>
+      </measure>
+  </calculatedMeasures>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-236" y="543"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-5" y="543"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="205" y="543"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-27" y="392"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="226" y="392"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="65" y="246"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Union_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="218.623046875"/>
+    </shape>
+    <shape modelObjectName="Projection_4" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="173.40380859375"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

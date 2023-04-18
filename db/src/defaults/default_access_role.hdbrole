@@ -261,6 +261,21 @@
                "type": "SYNONYM",
                "name":"GVM_PZMATERIAL",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_FDM_PZCUSTOMER",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_FFZSD_C15",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_FDM_PZKNART_SE",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[
