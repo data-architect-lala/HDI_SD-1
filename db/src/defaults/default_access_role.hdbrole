@@ -276,6 +276,11 @@
                "type": "SYNONYM",
                "name":"GVM_FDM_PZKNART_SE",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_ZFS_PAPM2_AG",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

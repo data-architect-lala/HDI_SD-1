@@ -334,5 +334,11 @@
         "object": "GVM_FDM_PZKNART_SE",
         "schema": "SPS_SD"
       }      
+    },
+    "GVM_ZFS_PAPM2_AG": {
+      "target": {
+        "object": "GVM_ZFS_PAPM2_AG",
+        "schema": "SPS_SD"
+      }      
     }
   }
