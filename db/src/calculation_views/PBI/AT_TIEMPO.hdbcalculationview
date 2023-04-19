@@ -52,6 +52,23 @@
       <descriptions defaultDescription="ID Año/Semana"/>
       <keyMapping columnObjectName="GVM_DTIEMPO" columnName="ID_ANIOSEMANA"/>
     </attribute>
+  
+    <attribute id="WEEK_YEAR" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WEEK_YEAR"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="WEEK_YEAR"/>
+    </attribute>
+    <attribute id="DAY" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DAY"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="DAY"/>
+    </attribute>
+    <attribute id="CALQUARTER" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CALQUARTER"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="CALQUARTER"/>
+    </attribute>
+    <attribute id="DATETIME_SAP" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATETIME_SAP"/>
+      <keyMapping columnObjectName="GVM_DTIEMPO" columnName="DATETIME_SAP"/>
+    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
