@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DIMS_RAZONSOCIAL" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DIMS_RAZONSOCIAL.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DIMS_RAZONSOCIAL">
+    <resourceUri>GVM_DIMS_RAZONSOCIAL</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DIMS_RAZONSOCIAL">
+  <attributes>
+    <attribute id="ID_RAZONSOCIAL" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Razon Social"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_CLIENTE"/>
+    </attribute>
+    <attribute id="RSCIUDAD" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Ciudad"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="CIUDAD"/>
+    </attribute>
+    <attribute id="ID_RSPAIS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Pais"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_PAIS"/>
+    </attribute>
+    <attribute id="RSDUNSNUM" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Numero DUNS"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="DUNSNUM"/>
+    </attribute>
+    <attribute id="ID_RSLATITUDE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Latitud"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_LATITUDE"/>
+    </attribute>
+    <attribute id="ID_RSLONGITUDE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Longitud"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_LONGITUDE"/>
+    </attribute>
+    <attribute id="ID_RSPOSTAL" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. CP"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_POSTAL"/>
+    </attribute>
+    <attribute id="RSCALLE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Calle"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="CALLE"/>
+    </attribute>
+    <attribute id="ID_RSDIRFUNC" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Dirección Funcional"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_DIRFUNCIONAL"/>
+    </attribute>
+    <attribute id="ID_RSGRUPOCAD" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Grupo Cadena"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_GRUPOCAD"/>
+    </attribute>
+    <attribute id="ID_RSFORMATO" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Formato"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_FORMATO"/>
+    </attribute>
+    <attribute id="ID_RSNOMCOR" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Nombre Corto"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_NOMCOR"/>
+    </attribute>
+    <attribute id="ID_RSCANDIST" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_CANDIST"/>
+    </attribute>
+    <attribute id="ID_RSSUPCAN" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Súper Canal"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_SUPCAN"/>
+    </attribute>
+    <attribute id="ID_RSSUBCANDIST" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_SUBCANDIST"/>
+    </attribute>
+    <attribute id="ID_RSESCM" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Estructura Comercial"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="ID_ESCM"/>
+    </attribute>
+    <attribute id="TXT_RSSUPCAN" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Súper Canal"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_SUPCAN"/>
+    </attribute>
+    <attribute id="TXTM_RSCANDIST" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXTM_CANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSCANDIST" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_CANDIST"/>
+    </attribute>
+    <attribute id="TXTM_RSSUBCANDIST" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Sub Canal Distribución Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXTM_SUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSSUBCANDIST" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_SUBCANDIST"/>
+    </attribute>
+    <attribute id="TXT_RSDIRFUNCIONAL" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Dirección Funcional"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_DIRFUNCIONAL"/>
+    </attribute>
+    <attribute id="TXT_RSGRUPOCAD" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Grupo Cadena"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_GRUPOCAD"/>
+    </attribute>
+    <attribute id="TXT_RSNOMCOR" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Nombre Corto"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_NOMCOR"/>
+    </attribute>
+    <attribute id="TXT_RSESCM" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Estructura Comercial"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_ESCM"/>
+    </attribute>
+    <attribute id="TXT_RSPAIS" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. País"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_PAIS"/>
+    </attribute>
+    <attribute id="TXT_RSFORMATO" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Rs. Formato"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_FORMATO"/>
+    </attribute>
+    <attribute id="TXT_RSCLIENTE" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Razon Social"/>
+      <keyMapping columnObjectName="GVM_DIMS_RAZONSOCIAL" columnName="TXT_CLIENTE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

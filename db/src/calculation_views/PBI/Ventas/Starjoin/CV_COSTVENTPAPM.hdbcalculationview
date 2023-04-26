@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_COSTVENTPAPM" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_COSTVENTPAPM.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMA_UNITS_OF_MEASURE">
+    <resourceUri>GVM_DMA_UNITS_OF_MEASURE</resourceUri>
+  </DataSource>
+  <DataSource id="CV_VENTACMARCA_IBP">
+    <resourceUri>CV_VENTACMARCA_IBP</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_PAPM">
+    <resourceUri>GVM_PAPM</resourceUri>
+  </DataSource>
+  <DataSource id="AGR_RAW_MAT$$$$GVM_PAPM$$">
+    <resourceUri>GVM_PAPM</resourceUri>
+  </DataSource>
+  <DataSource id="AGR_VENTAS$$$$GVM_PAPM$$">
+    <resourceUri>GVM_PAPM</resourceUri>
+  </DataSource>
+  <DataSource id="AGR_TRANSFORMACION$$$$GVM_PAPM$$">
+    <resourceUri>GVM_PAPM</resourceUri>
+  </DataSource>
+  <DataSource id="AGR_DISTRIBUCION$$$$GVM_PAPM$$">
+    <resourceUri>GVM_PAPM</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="MEINH"/>
+      <viewAttribute id="UMREN"/>
+      <viewAttribute id="UMREZ"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_DMA_UNITS_OF_MEASURE"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="AGR_VENTAS_IBP">
+    <viewAttributes>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="PERIODO_VENTA" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+        <formula>CONCAT(YEAR(&quot;ID_FECHA&quot;), LPAD(MONTH(&quot;ID_FECHA&quot;),2,'0'))</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="CV_VENTACMARCA_IBP"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="AGR_SPACES" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ZCHSKU"/>
+      <viewAttribute id="ZCHPERIO"/>
+      <viewAttribute id="ZCHPL1"/>
+      <viewAttribute id="ZCHPL2"/>
+      <viewAttribute id="ZKF_VAL_M" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="GVM_PAPM"/>
+    <filter>&quot;ZCHPL1&quot; = 'SPACES' AND &quot;ZCHPL2&quot; = 'SPACES'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="AGR_RAW_MAT" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ZCHSKU"/>
+      <viewAttribute id="ZCHPERIO"/>
+      <viewAttribute id="ZCHPL1"/>
+      <viewAttribute id="ZCHPL2"/>
+      <viewAttribute id="ZKF_VAL_M" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="AGR_RAW_MAT$$$$GVM_PAPM$$"/>
+    <filter>&quot;ZCHPL1&quot;='VIC' AND &quot;ZCHPL2&quot; = 'RAW MATERIALS'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="AGR_VENTAS" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ZCHSKU"/>
+      <viewAttribute id="ZCHPERIO"/>
+      <viewAttribute id="ZCHPL1"/>
+      <viewAttribute id="ZCHPL2"/>
+      <viewAttribute id="ZKF_VAL_M" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="AGR_VENTAS$$$$GVM_PAPM$$"/>
+    <filter>&quot;ZCHPL1&quot; = 'VLC' AND &quot;ZCHPL2&quot; = 'SALES'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="AGR_TRANSFORMACION" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ZCHSKU"/>
+      <viewAttribute id="ZCHPERIO"/>
+      <viewAttribute id="ZCHPL1"/>
+      <viewAttribute id="ZCHPL2"/>
+      <viewAttribute id="ZKF_VAL_M" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="AGR_TRANSFORMACION$$$$GVM_PAPM$$"/>
+    <filter>(&quot;ZCHPL1&quot; = 'VIC' 
+AND 
+&quot;ZCHPL2&quot; IN ('3RD PARTY LABOR','DIRECT LABOR','LOSSES','OTHER INDUSTRIAL','PACKAGING','ROYALTIES','UTILITIES'))</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="AGR_DISTRIBUCION" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ZCHSKU"/>
+      <viewAttribute id="ZCHPERIO"/>
+      <viewAttribute id="ZCHPL1"/>
+      <viewAttribute id="ZCHPL2"/>
+      <viewAttribute id="ZKF_VAL_M" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="AGR_DISTRIBUCION$$$$GVM_PAPM$$"/>
+    <filter>&quot;ZCHPL1&quot; = 'VLC' AND &quot;ZCHPL2&quot; = 'DISTRIBUTION'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="PERIODO_VENTA"/>
+      <viewAttribute id="IBP_VENTASKL" aggregationType="sum"/>
+      <viewAttribute id="UMREN" aggregationType="sum"/>
+      <viewAttribute id="UMREZ" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="IBP_VENTASKL_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE
+WHEN &quot;IBP_VENTASKL&quot; = 0
+THEN NULL 
+ELSE TO_DECIMAL(&quot;IBP_VENTASKL&quot;,17,8)
+END </formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UMREZ_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;UMREZ&quot; = 0
+THEN NULL 
+ELSE TO_DECIMAL(&quot;UMREZ&quot;,17,8)
+END </formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UMREN_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;UMREN&quot; = 0
+THEN NULL 
+ELSE TO_DECIMAL(&quot;UMREN&quot;,17,8)
+END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="IBP_VENTASPZ" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>(&quot;IBP_VENTASKL_FIXED&quot; * &quot;UMREZ_FIXED&quot; ) /  &quot;UMREN_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="AGR_VENTAS_IBP">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PERIODO_VENTA" source="PERIODO_VENTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IBP_VENTASKL" source="VENTAKL"/>
+    </input>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="UMREN" source="UMREN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UMREZ" source="UMREZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="MATNR"/>
+    </input>
+    <joinAttribute name="ID_MATERIAL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="UNION_PAPM">
+    <viewAttributes>
+      <viewAttribute id="ZCHSKU"/>
+      <viewAttribute id="ZCHPERIO"/>
+      <viewAttribute id="SPACES" aggregationType="sum"/>
+      <viewAttribute id="VIC_RAW_MATERIALS" aggregationType="sum"/>
+      <viewAttribute id="VIC_TRANSFORMACION" aggregationType="sum"/>
+      <viewAttribute id="VLC_DISTRIBUCION" aggregationType="sum"/>
+      <viewAttribute id="VLC_VENTAS" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="SKU" datatype="NVARCHAR" length="18" expressionLanguage="SQL">
+        <formula>LPAD(&quot;ZCHSKU&quot;, 18,'0')</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="AGR_SPACES" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHSKU" source="ZCHSKU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHPERIO" source="ZCHPERIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SPACES" source="ZKF_VAL_M"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VIC_RAW_MATERIALS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VIC_TRANSFORMACION" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VLC_DISTRIBUCION" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VLC_VENTAS" null="true" value=""/>
+    </input>
+    <input node="AGR_RAW_MAT" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHSKU" source="ZCHSKU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHPERIO" source="ZCHPERIO"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SPACES" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VIC_RAW_MATERIALS" source="ZKF_VAL_M"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VIC_TRANSFORMACION" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VLC_DISTRIBUCION" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VLC_VENTAS" null="true" value=""/>
+    </input>
+    <input node="AGR_TRANSFORMACION" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHSKU" source="ZCHSKU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHPERIO" source="ZCHPERIO"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SPACES" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VIC_RAW_MATERIALS" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VIC_TRANSFORMACION" source="ZKF_VAL_M"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VLC_DISTRIBUCION" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VLC_VENTAS" null="true" value=""/>
+    </input>
+    <input node="AGR_DISTRIBUCION" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHSKU" source="ZCHSKU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHPERIO" source="ZCHPERIO"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SPACES" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VIC_RAW_MATERIALS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VIC_TRANSFORMACION" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VLC_DISTRIBUCION" source="ZKF_VAL_M"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VLC_VENTAS" null="true" value=""/>
+    </input>
+    <input node="AGR_VENTAS" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHSKU" source="ZCHSKU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZCHPERIO" source="ZCHPERIO"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SPACES" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VIC_RAW_MATERIALS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VIC_TRANSFORMACION" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VLC_DISTRIBUCION" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VLC_VENTAS" source="ZKF_VAL_M"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="PERIODO_VENTA"/>
+      <viewAttribute id="IBP_VENTASKL" aggregationType="sum"/>
+      <viewAttribute id="IBP_VENTASPZ" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_1"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_2">
+    <viewAttributes>
+      <viewAttribute id="SKU"/>
+      <viewAttribute id="ZCHPERIO"/>
+      <viewAttribute id="SPACES" aggregationType="sum"/>
+      <viewAttribute id="VIC_RAW_MATERIALS" aggregationType="sum"/>
+      <viewAttribute id="VIC_TRANSFORMACION" aggregationType="sum"/>
+      <viewAttribute id="VLC_DISTRIBUCION" aggregationType="sum"/>
+      <viewAttribute id="VLC_VENTAS" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="UNION_PAPM"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="SKU"/>
+      <viewAttribute id="PERIODO"/>
+      <viewAttribute id="SPACES" aggregationType="sum"/>
+      <viewAttribute id="VIC_RAW_MATERIALS" aggregationType="sum"/>
+      <viewAttribute id="VIC_TRANSFORMACION" aggregationType="sum"/>
+      <viewAttribute id="VLC_DISTRIBUCION" aggregationType="sum"/>
+      <viewAttribute id="VLC_VENTAS" aggregationType="sum"/>
+      <viewAttribute id="IBP_VENTASKL" aggregationType="sum"/>
+      <viewAttribute id="IBP_VENTASPZ" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="SPACES_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;SPACES&quot; = 0
+THEN NULL
+ELSE TO_DECIMAL(&quot;SPACES&quot;,17,8)
+END </formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="VIC_RAW_MATERIALS_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;VIC_RAW_MATERIALS&quot; = 0
+THEN NULL
+ELSE TO_DECIMAL(&quot;VIC_RAW_MATERIALS&quot;,17,8)  
+END 
+</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="VIC_TRANSFORMACION_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;VIC_TRANSFORMACION&quot; = 0
+THEN NULL
+ELSE TO_DECIMAL(&quot;VIC_TRANSFORMACION&quot;,17,8)
+END </formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="VLC_DISTRIBUCION_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;VLC_DISTRIBUCION&quot; = 0
+THEN NULL
+ELSE TO_DECIMAL(&quot;VLC_DISTRIBUCION&quot;,17,8)
+END </formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="VLC_VENTAS_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;VLC_VENTAS&quot; = 0
+THEN NULL
+ELSE TO_DECIMAL(&quot;VLC_VENTAS&quot;,17,8)
+END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="IBP_VENTASKL_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;IBP_VENTASKL&quot; = 0
+THEN NULL 
+ELSE TO_DECIMAL(&quot;IBP_VENTASKL&quot;,17,8)
+END </formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="IBP_VENTASPZ_FIXED" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;IBP_VENTASPZ&quot; = 0
+THEN NULL
+ELSE TO_DECIMAL(&quot;IBP_VENTASPZ&quot;,17,8)
+END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_SPACESKL" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;SPACES_FIXED&quot; / &quot;IBP_VENTASKL_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_RAW_MATERIALKL" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;VIC_RAW_MATERIALS_FIXED&quot; / &quot;IBP_VENTASKL_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_VIC_TRANSFORMACIONKL" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;VIC_TRANSFORMACION_FIXED&quot; / &quot;IBP_VENTASKL_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_VLC_DISTRIBUCIONKL" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;VLC_DISTRIBUCION_FIXED&quot; / &quot;IBP_VENTASKL_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_VLC_VENTASKL" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;VLC_VENTAS_FIXED&quot; / &quot;IBP_VENTASKL_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_SPACESPZ" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;SPACES_FIXED&quot; / &quot;IBP_VENTASPZ_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_RAW_MATERIALPZ" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;VIC_RAW_MATERIALS_FIXED&quot; / &quot;IBP_VENTASPZ_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_VIC_TRANSFORMACIONPZ" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;VIC_TRANSFORMACION_FIXED&quot; / &quot;IBP_VENTASPZ_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_VLC_DISTRIBUCIONPZ" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;VLC_DISTRIBUCION_FIXED&quot; / &quot;IBP_VENTASPZ_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="UNIT_VLC_VENTASPZ" datatype="DECIMAL" length="17" scale="8" expressionLanguage="SQL">
+        <formula>&quot;VLC_VENTAS_FIXED&quot; / &quot;IBP_VENTASPZ_FIXED&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Aggregation_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SKU" source="SKU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PERIODO" source="ZCHPERIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SPACES" source="SPACES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VIC_RAW_MATERIALS" source="VIC_RAW_MATERIALS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VIC_TRANSFORMACION" source="VIC_TRANSFORMACION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VLC_DISTRIBUCION" source="VLC_DISTRIBUCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VLC_VENTAS" source="VLC_VENTAS"/>
+    </input>
+    <input node="Aggregation_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="IBP_VENTASKL" source="IBP_VENTASKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IBP_VENTASPZ" source="IBP_VENTASPZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SKU" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PERIODO" source="PERIODO_VENTA"/>
+    </input>
+    <joinAttribute name="SKU"/>
+    <joinAttribute name="PERIODO"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_2">
+  <attributes>
+    <attribute id="SKU" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SKU"/>
+      <keyMapping columnObjectName="Join_2" columnName="SKU"/>
+    </attribute>
+    <attribute id="PERIODO" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PERIODO"/>
+      <keyMapping columnObjectName="Join_2" columnName="PERIODO"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="SPACES" order="3" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="SPACES"/>
+      <measureMapping columnObjectName="Join_2" columnName="SPACES"/>
+    </measure>
+    <measure id="VIC_RAW_MATERIALS" order="4" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="VIC_RAW_MATERIALS"/>
+      <measureMapping columnObjectName="Join_2" columnName="VIC_RAW_MATERIALS"/>
+    </measure>
+    <measure id="VIC_TRANSFORMACION" order="5" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="VIC_TRANSFORMACION"/>
+      <measureMapping columnObjectName="Join_2" columnName="VIC_TRANSFORMACION"/>
+    </measure>
+    <measure id="VLC_DISTRIBUCION" order="6" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="VLC_DISTRIBUCION"/>
+      <measureMapping columnObjectName="Join_2" columnName="VLC_DISTRIBUCION"/>
+    </measure>
+    <measure id="VLC_VENTAS" order="7" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="VLC_VENTAS"/>
+      <measureMapping columnObjectName="Join_2" columnName="VLC_VENTAS"/>
+    </measure>
+    <measure id="IBP_VENTASKL" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="IBP_VENTASKL"/>
+      <measureMapping columnObjectName="Join_2" columnName="IBP_VENTASKL"/>
+    </measure>
+    <measure id="IBP_VENTASPZ" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="IBP_VENTASPZ"/>
+      <measureMapping columnObjectName="Join_2" columnName="IBP_VENTASPZ"/>
+    </measure>
+    <measure id="UNIT_SPACESKL" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_SPACESKL"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_SPACESKL"/>
+    </measure>
+    <measure id="UNIT_RAW_MATERIALKL" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_RAW_MATERIALKL"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_RAW_MATERIALKL"/>
+    </measure>
+    <measure id="UNIT_VIC_TRANSFORMACIONKL" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_VIC_TRANSFORMACIONKL"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_VIC_TRANSFORMACIONKL"/>
+    </measure>
+    <measure id="UNIT_VLC_DISTRIBUCIONKL" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_VLC_DISTRIBUCIONKL"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_VLC_DISTRIBUCIONKL"/>
+    </measure>
+    <measure id="UNIT_VLC_VENTASKL" order="14" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_VLC_VENTASKL"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_VLC_VENTASKL"/>
+    </measure>
+    <measure id="UNIT_SPACESPZ" order="15" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_SPACESPZ"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_SPACESPZ"/>
+    </measure>
+    <measure id="UNIT_RAW_MATERIALPZ" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_RAW_MATERIALPZ"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_RAW_MATERIALPZ"/>
+    </measure>
+    <measure id="UNIT_VIC_TRANSFORMACIONPZ" order="17" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_VIC_TRANSFORMACIONPZ"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_VIC_TRANSFORMACIONPZ"/>
+    </measure>
+    <measure id="UNIT_VLC_DISTRIBUCIONPZ" order="18" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_VLC_DISTRIBUCIONPZ"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_VLC_DISTRIBUCIONPZ"/>
+    </measure>
+    <measure id="UNIT_VLC_VENTASPZ" order="19" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="UNIT_VLC_VENTASPZ"/>
+      <measureMapping columnObjectName="Join_2" columnName="UNIT_VLC_VENTASPZ"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="807" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="706"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AGR_VENTAS_IBP" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="706"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AGR_SPACES" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="992" y="706"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AGR_RAW_MAT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="512" y="706"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AGR_VENTAS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1477" y="706"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AGR_TRANSFORMACION" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1202" y="706"/>
+      <rectangleSize width="225"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AGR_DISTRIBUCION" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="722" y="706"/>
+      <rectangleSize width="220"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="275" y="531"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="AGR_VENTAS_IBP" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="178"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="136"/>
+    </shape>
+    <shape expanded="true" modelObjectName="UNION_PAPM" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="992" y="501"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="275" y="376"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="752" y="376"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="725" y="236"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_2" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="214"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="178"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

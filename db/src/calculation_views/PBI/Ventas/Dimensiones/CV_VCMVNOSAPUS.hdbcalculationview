@@ -489,7 +489,7 @@ AND
       <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="J_VNSMAT">
+    <input node="J_VNSMAT" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
@@ -522,7 +522,7 @@ AND
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BONIFICACIONMN" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
     </input>
-    <input node="J_VNSMATB">
+    <input node="J_VNSMATB" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
@@ -555,7 +555,7 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
     </input>
-    <input node="J_VNSMATD">
+    <input node="J_VNSMATD" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
@@ -596,7 +596,7 @@ AND
       <descriptions defaultDescription="ID Fecha"/>
       <keyMapping columnObjectName="U_VTANSUS" columnName="ID_FECHA"/>
     </attribute>
-    <attribute id="ID_ANIOMES" order="2">
+    <attribute id="ID_ANIOMES" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ID Año/Mes"/>
       <keyMapping columnObjectName="U_VTANSUS" columnName="ID_ANIOMES"/>
     </attribute>
@@ -688,11 +688,11 @@ AND
       <descriptions defaultDescription="ID Tipo Material"/>
       <keyMapping columnObjectName="U_VTANSUS" columnName="ID_MATLTYPE"/>
     </attribute>
-    <attribute id="FACTORLG" order="28">
+    <attribute id="FACTORLG" order="28" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Factor LG"/>
       <keyMapping columnObjectName="U_VTANSUS" columnName="FACTORLG"/>
     </attribute>
-    <attribute id="FACTORKL" order="29">
+    <attribute id="FACTORKL" order="29" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Factor KL"/>
       <keyMapping columnObjectName="U_VTANSUS" columnName="FACTORKL"/>
     </attribute>
@@ -703,7 +703,7 @@ AND
       <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="4">
         <formula>'VNOS'</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures>
     <measure id="VENTAUMB" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
@@ -755,21 +755,38 @@ AND
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="735.9845252085802" y="112"/>
+      <upperLeftCorner x="735" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_MATERIALB" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="301.9999999999999" y="551.9999964237213"/>
+      <upperLeftCorner x="301" y="551"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_ZSD_C03NSB" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="91.99999999999989" y="551.9999964237213"/>
+      <upperLeftCorner x="91" y="551"/>
       <rectangleSize height="30" width="160"/>
     </shape>
+  
+    <shape expanded="true" modelObjectName="P_MATERIAL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="722" y="551"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ZSD_C03NS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="512" y="551"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MATERIALD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="932" y="551"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1142" y="551"/>
+      <rectangleSize width="160"/>
+    </shape>
     <shape expanded="true" modelObjectName="J_VNSMATB" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="275.33333333333326" y="391.9999976158142"/>
+      <upperLeftCorner x="275" y="391"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_ZSD_C03NSB" modelObjectNameSpace="J_VNSMATB" modelObjectType="JoinNodeInput">
@@ -780,49 +797,32 @@ AND
       <upperLeftCorner x="920" y="30"/>
       <rectangleSize width="159"/>
     </shape>
-  
-    <shape expanded="true" modelObjectName="P_MATERIAL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="722" y="551.9999964237213"/>
-      <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_ZSD_C03NS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="512" y="551.9999964237213"/>
-      <rectangleSize width="160"/>
-    </shape>
     <shape expanded="true" modelObjectName="J_VNSMAT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="622.9952185942919" y="405.3333309491476"/>
+      <upperLeftCorner x="622" y="405"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_ZSD_C03NS" modelObjectNameSpace="J_VNSMAT" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="181.96533203125"/>
+      <rectangleSize width="181"/>
     </shape>
     <shape modelObjectName="P_MATERIAL" modelObjectNameSpace="J_VNSMAT" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="159.5517578125"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_MATERIALD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="932" y="551.9999964237213"/>
-      <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1142" y="551.9999964237213"/>
-      <rectangleSize width="160"/>
+      <rectangleSize width="159"/>
     </shape>
     <shape expanded="true" modelObjectName="J_VNSMATD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="916.3116775235128" y="405.3333309491476"/>
+      <upperLeftCorner x="916" y="405"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="J_VNSMATD" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="181.96533203125"/>
+      <rectangleSize width="181"/>
     </shape>
     <shape modelObjectName="P_MATERIALD" modelObjectNameSpace="J_VNSMATD" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="159.5517578125"/>
+      <rectangleSize width="159"/>
     </shape>
     <shape expanded="true" modelObjectName="U_VTANSUS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="622.9952185942919" y="236.9999988079071"/>
+      <upperLeftCorner x="622" y="236"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>

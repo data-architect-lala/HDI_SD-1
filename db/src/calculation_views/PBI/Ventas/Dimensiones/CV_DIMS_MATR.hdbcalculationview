@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DIMS_MATR" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DIMS_MATR.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DIMS_MATR">
+    <resourceUri>GVM_DIMS_MATR</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DIMS_MATR">
+  <attributes>
+    <attribute id="ID_MATERIAL" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_UMBMAT" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID UMB Material"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_UMBMAT"/>
+    </attribute>
+    <attribute id="PESOBRUTO" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Peso Bruto"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="PESOBRUTO"/>
+    </attribute>
+    <attribute id="FACTORKL" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Factor KL"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="FACTORKL"/>
+    </attribute>
+    <attribute id="ID_SUPFAMILIA" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Super Familia"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_SUPFAMILIA"/>
+    </attribute>
+    <attribute id="ID_FAMILIA" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Familia"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_FAMILIA"/>
+    </attribute>
+    <attribute id="ID_MARCA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Marca"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_MARCA"/>
+    </attribute>
+    <attribute id="ID_SUBMARCA" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sub Marca"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_SUBMARCA"/>
+    </attribute>
+    <attribute id="ID_LINEA" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Linea"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_LINEA"/>
+    </attribute>
+    <attribute id="ID_TIPO" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_TIPO"/>
+    </attribute>
+    <attribute id="ID_SUBTIPO" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sub Tipo"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_SUBTIPO"/>
+    </attribute>
+    <attribute id="ID_FAMYLIN" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Famylin"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_FAMYLIN"/>
+    </attribute>
+    <attribute id="ID_ENVASE" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Envase"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_ENVASE"/>
+    </attribute>
+    <attribute id="ID_SABOR" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sabor"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_SABOR"/>
+    </attribute>
+    <attribute id="ID_SUPMARCA" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Super Marca"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_SUPMARCA"/>
+    </attribute>
+    <attribute id="ID_PRESENTA" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Presentación"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_PRESENTA"/>
+    </attribute>
+    <attribute id="TXTM_FAMILIA" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Familia Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXTM_FAMILIA"/>
+    </attribute>
+    <attribute id="TXT_FAMILIA" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Familia"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_FAMILIA"/>
+    </attribute>
+    <attribute id="TXT_FAMYLIN" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Famylin"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_FAMYLIN"/>
+    </attribute>
+    <attribute id="TXT_SUPMARCA" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Super Marca"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_SUPMARCA"/>
+    </attribute>
+    <attribute id="TXT_MARCA" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Marca"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_MARCA"/>
+    </attribute>
+    <attribute id="TXT_SUBMARCA" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sub Marca"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_SUBMARCA"/>
+    </attribute>
+    <attribute id="TXT_LINEA" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Linea"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_LINEA"/>
+    </attribute>
+    <attribute id="TXT_TIPO" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tipo"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_TIPO"/>
+    </attribute>
+    <attribute id="TXT_SUBTIPO" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sub Tipo"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_SUBTIPO"/>
+    </attribute>
+    <attribute id="TXT_ENVASE" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Envase"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_ENVASE"/>
+    </attribute>
+    <attribute id="TXT_SABOR" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sabor"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_SABOR"/>
+    </attribute>
+    <attribute id="TXT_PRESENTA" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Presentación"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_PRESENTA"/>
+    </attribute>
+    <attribute id="FACTORLG" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Factor LG"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="FACTORLG"/>
+    </attribute>
+    <attribute id="ID_CODAGR" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Código Agrupador"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_CODAGR"/>
+    </attribute>
+    <attribute id="ID_MATLTYPE" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Material"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_MATLTYPE"/>
+    </attribute>
+    <attribute id="TXT_TCODAGR" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Código Agrupador"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_TCODAGR"/>
+    </attribute>
+    <attribute id="TXT_MATLTYPE" order="33" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tipo Material"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_MATLTYPE"/>
+    </attribute>
+    <attribute id="TXT_SUPFAMILIA" order="34" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Super Familia"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_SUPFAMILIA"/>
+    </attribute>
+    <attribute id="TXT_MATERIAL" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="TXT_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_LANGU" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Lenguaje Material"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_LANGU"/>
+    </attribute>
+    <attribute id="ID_UNIONMAT" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Llave Unica Mat"/>
+      <keyMapping columnObjectName="GVM_DIMS_MATR" columnName="ID_UNIONMAT"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

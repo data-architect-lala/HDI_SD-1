@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DIMS_CLFACTURA" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DIMS_CLFACTURA.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DIMS_CLFACTURA">
+    <resourceUri>GVM_DIMS_CLFACTURA</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DIMS_CLFACTURA">
+  <attributes>
+    <attribute id="ID_CLFACTURA" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Clase Factura"/>
+      <keyMapping columnObjectName="GVM_DIMS_CLFACTURA" columnName="ID_CLFACTURA"/>
+    </attribute>
+    <attribute id="TXT_CLFACTURA" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Txt Clase Factura"/>
+      <keyMapping columnObjectName="GVM_DIMS_CLFACTURA" columnName="TXT_CLFACTURA"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

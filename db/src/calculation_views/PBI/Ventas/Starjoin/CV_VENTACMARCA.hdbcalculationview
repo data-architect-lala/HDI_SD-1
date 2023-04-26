@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VENTACMARCA" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VENTACMARCA.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_VCMUVENTAS">
+    <resourceUri>CV_VCMUVENTAS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_UVENTAS">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_ANIOSEMANA"/>
+      <viewAttribute id="ID_EJPERIODO"/>
+      <viewAttribute id="ID_ANIO"/>
+      <viewAttribute id="ID_MES"/>
+      <viewAttribute id="ID_QT"/>
+      <viewAttribute id="ID_VARIANTEEJ"/>
+      <viewAttribute id="ID_DIASEM"/>
+      <viewAttribute id="ID_UMB"/>
+      <viewAttribute id="ID_MONEDA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_SEMANA"/>
+      <viewAttribute id="ID_CLFACTURA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_CANDISOB"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_TIPRUTA"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="SUBTOT_1S"/>
+      <viewAttribute id="SUBTOT_2S"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="VENTABRUTAMN"/>
+      <viewAttribute id="CCONDICIONMN"/>
+      <viewAttribute id="CCONDICIONUMB"/>
+      <viewAttribute id="CCONDICIONKL"/>
+      <viewAttribute id="VENTALG"/>
+      <viewAttribute id="FUM"/>
+      <viewAttribute id="ID_MATIDI"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="FECHA_HORA" datatype="TIMESTAMP" expressionLanguage="SQL">
+        <formula>TO_TIMESTAMP(&quot;ID_FECHA&quot;)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="ID_LENSOC" datatype="NVARCHAR" length="1" expressionLanguage="SQL">
+        <formula>CASE
+WHEN &quot;ID_SOCIEDAD&quot; IN ('6201','6202','US11','US12','US13','US14','US15')
+THEN 'E'
+ELSE 'S'
+END </formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="CV_VCMUVENTAS"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="P_UVENTAS">
+  <attributes>
+    <attribute id="ID_FECHA" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="ID_ANIOMES" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Mes"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_ANIOSEMANA" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Semana"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_ANIOSEMANA"/>
+    </attribute>
+    <attribute id="ID_EJPERIODO" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ejercicio/Periodo"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_EJPERIODO"/>
+    </attribute>
+    <attribute id="ID_ANIO" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_ANIO"/>
+    </attribute>
+    <attribute id="ID_MES" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Mes"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_MES"/>
+    </attribute>
+    <attribute id="ID_QT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Trimestre"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_QT"/>
+    </attribute>
+    <attribute id="ID_VARIANTEEJ" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Variante Ejercicio"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_VARIANTEEJ"/>
+    </attribute>
+    <attribute id="ID_DIASEM" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Día Semana"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_DIASEM"/>
+    </attribute>
+    <attribute id="ID_UMB" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID UMB"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_UMB"/>
+    </attribute>
+    <attribute id="ID_MONEDA" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Moneda"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_MONEDA"/>
+    </attribute>
+    <attribute id="ID_SEMANA" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Semana"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_SEMANA"/>
+    </attribute>
+    <attribute id="ID_CANDISOB" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Canal Distribución (Obsoleto)"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_CANDISOB"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ruta"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="ID_TIPRUTA" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Ruta (Historico)"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_TIPRUTA"/>
+    </attribute>
+    <attribute id="ID_ORGVTA" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Organizacion Venta"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_ORGVTA"/>
+    </attribute>
+    <attribute id="ID_INFOSITIO" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Infositio"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_INFOSITIO"/>
+    </attribute>
+    <attribute id="FECHA_HORA" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FECHA_HORA"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="FECHA_HORA"/>
+    </attribute>
+    <attribute id="ID_LENSOC" hidden="true" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_LENSOC"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_LENSOC"/>
+    </attribute>
+    <attribute id="ID_CLFACTURA$local">
+      <descriptions defaultDescription="ID Clase Factura"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_CLFACTURA"/>
+    </attribute>
+    <attribute id="ID_CEDIS$local">
+      <descriptions defaultDescription="ID Cedis/Planta"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_TIPOENT$local">
+      <descriptions defaultDescription="ID Tipo Entrega"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_TIPOENT"/>
+    </attribute>
+    <attribute id="ID_MATIDI$local">
+      <descriptions defaultDescription="ID_MATIDI"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_MATIDI"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD$local">
+      <descriptions defaultDescription="ID Sociedad"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_RAZONSOCIAL$local">
+      <descriptions defaultDescription="ID Cliente/Razón Social"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL$local">
+      <descriptions defaultDescription="ID Cliente/Sucursal"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_SOLD_TO$local">
+      <descriptions defaultDescription="ID Cliente/RS Agrupador"/>
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_SOLD_TO"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="SUBTOT_1S" order="18" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Subtotal 1"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="SUBTOT_1S"/>
+    </measure>
+    <measure id="SUBTOT_2S" order="19" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Subtotal 2"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="SUBTOT_2S"/>
+    </measure>
+    <measure id="VENTAUMB" order="20" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta UMB"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="VENTAUMB"/>
+    </measure>
+    <measure id="VENTAMN" order="21" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="VENTAMN"/>
+    </measure>
+    <measure id="VENTAKL" order="22" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="VENTAKL"/>
+    </measure>
+    <measure id="DEVOLUCIONMN" order="23" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Devolución MN"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="DEVOLUCIONMN"/>
+    </measure>
+    <measure id="BONIFICACIONMN" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Bonificación MN"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="BONIFICACIONMN"/>
+    </measure>
+    <measure id="VENTABRUTAMN" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta Bruta MN"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="VENTABRUTAMN"/>
+    </measure>
+    <measure id="CCONDICIONMN" order="26" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Cla. Con. MN"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="CCONDICIONMN"/>
+    </measure>
+    <measure id="CCONDICIONUMB" order="27" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Cla. Con. UMB"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="CCONDICIONUMB"/>
+    </measure>
+    <measure id="CCONDICIONKL" order="28" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Cla. Con. KL"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="CCONDICIONKL"/>
+    </measure>
+    <measure id="VENTALG" order="29" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta L/G"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="VENTALG"/>
+    </measure>
+    <measure id="FUM" order="30" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Fecha Última Modificación"/>
+      <measureMapping columnObjectName="P_UVENTAS" columnName="FUM"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="CV_DIMS_CLFACTURA">
+      <attributes>
+        <attributeRef>ID_CLFACTURA$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_CLFACTURA</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DIMS_CEDIS">
+      <attributes>
+        <attributeRef>ID_CEDIS$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_CEDIS</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DIMS_TIPOENT">
+      <attributes>
+        <attributeRef>ID_TIPOENT$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_TIPOENT</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DIMS_MATR">
+      <attributes>
+        <attributeRef>ID_MATIDI$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_UNIONMAT</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="C1_1" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="ID_UNIONMAT" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DIMS_COMP">
+      <attributes>
+        <attributeRef>ID_SOCIEDAD$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_SOCIEDAD</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DIMS_RAZONSOCIAL">
+      <attributes>
+        <attributeRef>ID_RAZONSOCIAL$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_RAZONSOCIAL</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DIMS_SUCURSAL">
+      <attributes>
+        <attributeRef>ID_SUCURSAL$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_SUCURSAL</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DIMS_CLIAGRUPADOR">
+      <attributes>
+        <attributeRef>ID_SOLD_TO$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID_SOLD_TO</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_UVENTAS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="322"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_UVENTAS" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CV_DIMS_CLFACTURA" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="197.341796875"/>
+    </shape>
+    <shape modelObjectName="CV_DIMS_CEDIS" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="189.91455078125"/>
+    </shape>
+    <shape modelObjectName="CV_DIMS_TIPOENT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="920" y="30"/>
+      <rectangleSize width="176.01953125"/>
+    </shape>
+    <shape modelObjectName="CV_DIMS_MATR" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="753" y="80"/>
+      <rectangleSize width="177.68994140625"/>
+    </shape>
+    <shape modelObjectName="CV_DIMS_COMP" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="766" y="380"/>
+      <rectangleSize width="170.34765625"/>
+    </shape>
+    <shape modelObjectName="CV_DIMS_RAZONSOCIAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="789" y="248"/>
+      <rectangleSize width="212.013671875"/>
+    </shape>
+    <shape modelObjectName="CV_DIMS_SUCURSAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="791" y="324"/>
+      <rectangleSize width="216.17919921875"/>
+    </shape>
+    <shape modelObjectName="CV_DIMS_CLIAGRUPADOR" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="783.125" y="936"/>
+      <rectangleSize width="221.125"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

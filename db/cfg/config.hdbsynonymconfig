@@ -339,5 +339,71 @@
             "object": "GVM_ZFS_PAPM2_AG",
             "schema": "SPS_SD"
         }
+    },
+    "GVM_DIMS_CLFACTURA": {
+        "target": {
+            "object": "GVM_DIMS_CLFACTURA",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DIMS_CEDIS": {
+        "target": {
+            "object": "GVM_DIMS_CEDIS",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DIMS_TIPOENT": {
+        "target": {
+            "object": "GVM_DIMS_TIPOENT",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DIMS_MATR": {
+        "target": {
+            "object": "GVM_DIMS_MATR",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DIMS_COMP": {
+        "target": {
+            "object": "GVM_DIMS_COMP",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DIMS_RAZONSOCIAL": {
+        "target": {
+            "object": "GVM_DIMS_RAZONSOCIAL",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DIMS_SUCURSAL": {
+        "target": {
+            "object": "GVM_DIMS_SUCURSAL",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_T001W": {
+        "target": {
+            "object": "GVM_T001W",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_KNVV": {
+        "target": {
+            "object": "GVM_KNVV",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DMA_UNITS_OF_MEASURE": {
+        "target": {
+            "object": "GVM_DMA_UNITS_OF_MEASURE",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_PAPM": {
+        "target": {
+            "object": "GVM_PAPM",
+            "schema": "SPS_SD"
+        }
     }
 }

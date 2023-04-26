@@ -104,12 +104,27 @@
             },
             {
                "type": "VIEW",
+               "name":"CV_VENTACMARCA",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
                "name":"CV_UVENTACM_ALL",
                "privileges": ["SELECT"]
             },
             {
                "type": "VIEW",
+               "name":"CV_VENTACMARCA_IBP",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
                "name":"CV_SAPVTAFLE",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_COSTVENTPAPM",
                "privileges": ["SELECT"]
             }
          ]

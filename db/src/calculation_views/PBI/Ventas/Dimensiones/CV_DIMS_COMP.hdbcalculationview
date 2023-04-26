@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DIMS_COMP" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DIMS_COMP.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DIMS_COMP">
+    <resourceUri>GVM_DIMS_COMP</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DIMS_COMP">
+  <attributes>
+    <attribute id="ID_SOCIEDAD" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sociedad"/>
+      <keyMapping columnObjectName="GVM_DIMS_COMP" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_SPAIS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID País Sociedad"/>
+      <keyMapping columnObjectName="GVM_DIMS_COMP" columnName="ID_SPAIS"/>
+    </attribute>
+    <attribute id="TXT_SPAIS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="País Sociedad"/>
+      <keyMapping columnObjectName="GVM_DIMS_COMP" columnName="TXT_SPAIS"/>
+    </attribute>
+    <attribute id="TXT_SOCIEDAD" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sociedad"/>
+      <keyMapping columnObjectName="GVM_DIMS_COMP" columnName="TXT_SOCIEDAD"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="100" y="105"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

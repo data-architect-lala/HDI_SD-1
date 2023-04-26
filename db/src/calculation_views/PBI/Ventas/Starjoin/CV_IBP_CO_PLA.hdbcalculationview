@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_IBP_CO_PLA" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_IBP_CO_PLA.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_VENTACMARCA">
+    <resourceUri>CV_VENTACMARCA</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_T001W">
+    <resourceUri>GVM_T001W</resourceUri>
+  </DataSource>
+  <DataSource id="CV_DIMS_SUCURSAL">
+    <resourceUri>CV_DIMS_SUCURSAL</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_VENTA_PLA" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXT_SUCURSAL"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_AGRCEDIS_ECC"/>
+      <viewAttribute id="TXT_STCLIENTE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_VENTACMARCA"/>
+    <filter>(&quot;ID_SOCIEDAD&quot;='1001' OR &quot;ID_SOCIEDAD&quot;='1052') 
+AND &quot;ID_SUCSUPCAN&quot;='01' 
+AND &quot;ID_INFOSITIO&quot;='VC03' 
+AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="NODETYPE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_T001W"/>
+    <filter>&quot;NODETYPE&quot;!='DC'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_DIMSUC_PLA">
+    <viewAttributes>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_DIMS_SUCURSAL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_T001W_PLA" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXT_SUCURSAL"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_AGRCEDIS_ECC"/>
+      <viewAttribute id="TXT_STCLIENTE"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID_CLIENTE" datatype="NVARCHAR" length="20" expressionLanguage="SQL">
+        <formula>&quot;ID_AGRCEDIS_ECC&quot;+LTRIM(&quot;ID_SUCURSAL&quot;,'0')</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="P_VENTA_PLA">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCURSAL" source="TXT_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATERIAL" source="TXT_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMILIA" source="ID_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMYLIN" source="ID_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMILIA" source="TXT_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMYLIN" source="TXT_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="ID_AGRCEDIS_ECC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
+    </input>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="WERKS"/>
+    </input>
+    <joinAttribute name="ID_AGRCEDIS_ECC"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_CO_PLA" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXT_SUCURSAL"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_MATLTYPE"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="ID_SOLD_TO"/>
+      <viewAttribute id="ID_AGRCEDIS_ECC"/>
+      <viewAttribute id="TXT_STCLIENTE"/>
+      <viewAttribute id="ID_CLIENTE"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_T001W_PLA">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCURSAL" source="TXT_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_MATERIAL" source="TXT_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMILIA" source="ID_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FAMYLIN" source="ID_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMILIA" source="TXT_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMYLIN" source="TXT_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="ID_AGRCEDIS_ECC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLIENTE" source="ID_CLIENTE"/>
+    </input>
+    <input node="P_DIMSUC_PLA">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+    </input>
+    <joinAttribute name="ID_SUCURSAL"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="J_CO_PLA">
+  <attributes>
+    <attribute id="ID_SUCSUPCAN" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Súper Canal"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis/Planta"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sucursal"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_FECHA" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="TXT_SUCSUPCAN" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Súper Canal"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="TXT_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="TXT_CEDIS" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis/Planta"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="TXT_CEDIS"/>
+    </attribute>
+    <attribute id="TXT_SUCURSAL" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sucursal"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="TXT_SUCURSAL"/>
+    </attribute>
+    <attribute id="TXT_MATERIAL" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="TXT_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sociedad"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_MATLTYPE" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Material"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_MATLTYPE"/>
+    </attribute>
+    <attribute id="ID_FAMILIA" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Familia"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_FAMILIA"/>
+    </attribute>
+    <attribute id="ID_FAMYLIN" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Famylin"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_FAMYLIN"/>
+    </attribute>
+    <attribute id="TXT_FAMILIA" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Familia"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="TXT_FAMILIA"/>
+    </attribute>
+    <attribute id="TXT_FAMYLIN" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Famylin"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="TXT_FAMYLIN"/>
+    </attribute>
+    <attribute id="ID_SOLD_TO" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cliente/RS Agrupador"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_SOLD_TO"/>
+    </attribute>
+    <attribute id="ID_AGRCEDIS_ECC" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis Agrupador ECC"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_AGRCEDIS_ECC"/>
+    </attribute>
+    <attribute id="TXT_STCLIENTE" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cliente/RS Agrupador"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="TXT_STCLIENTE"/>
+    </attribute>
+    <attribute id="ID_CLIENTE" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_CLIENTE"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_CLIENTE"/>
+    </attribute>
+    <attribute id="ID_SUCESCM" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="ID_SUCESCM"/>
+    </attribute>
+    <attribute id="TXT_SUCESCM" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="J_CO_PLA" columnName="TXT_SUCESCM"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="VENTAKL" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="J_CO_PLA" columnName="VENTAKL"/>
+    </measure>
+    <measure id="VENTAMN" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="J_CO_PLA" columnName="VENTAMN"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="328.6900820831794" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_VENTA_PLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="496.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="496.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_T001W_PLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="118.66666666666666" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_VENTA_PLA" modelObjectNameSpace="J_T001W_PLA" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="189.91455078125"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="J_T001W_PLA" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="146.5107421875"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_DIMSUC_PLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="395.83468516943316" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_CO_PLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="328.6900820831794" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_T001W_PLA" modelObjectNameSpace="J_CO_PLA" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="189.91455078125"/>
+    </shape>
+    <shape modelObjectName="P_DIMSUC_PLA" modelObjectNameSpace="J_CO_PLA" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="167.8984375"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
