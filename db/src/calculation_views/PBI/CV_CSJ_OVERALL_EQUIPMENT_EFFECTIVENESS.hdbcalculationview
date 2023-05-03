@@ -230,11 +230,7 @@
       <viewAttribute id="CC_FECHA_FIN" aggregationType="max"/>
       <viewAttribute id="CC_MERMA" aggregationType="sum"/>
     </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="ISSD_F" datatype="DATE" expressionLanguage="SQL">
-        <formula>TO_DATE(&quot;ISDD&quot;, 'YYYYMMDD')</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
+    <calculatedViewAttributes/>
     <restrictedViewAttributes/>
     <input node="Join_1"/>
   </calculationView>
@@ -348,10 +344,6 @@
     <attribute id="HIGH_1" hidden="true" order="29" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="HIGH_1"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="HIGH"/>
-    </attribute>
-    <attribute id="ISSD_F" order="39" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CONFIRMED DATE FOR START OF EXECUTION _ F"/>
-      <keyMapping columnObjectName="Aggregation_1" columnName="ISSD_F"/>
     </attribute>
     <attribute id="MANDT$local">
       <descriptions defaultDescription="MANDT"/>
