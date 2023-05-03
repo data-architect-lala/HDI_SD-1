@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMA_WORK_CENTER" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DMA_WORK_CENTER.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMA_WORK_CENTER">
+    <resourceUri>GVM_DMA_WORK_CENTER</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMA_WORK_CENTER">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Client"/>
+      <keyMapping columnObjectName="GVM_DMA_WORK_CENTER" columnName="MANDT"/>
+    </attribute>
+    <attribute id="OBJTY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Object types of the CIM resource"/>
+      <keyMapping columnObjectName="GVM_DMA_WORK_CENTER" columnName="OBJTY"/>
+    </attribute>
+    <attribute id="OBJID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Object ID of the resource"/>
+      <keyMapping columnObjectName="GVM_DMA_WORK_CENTER" columnName="OBJID"/>
+    </attribute>
+    <attribute id="SPRAS" hidden="true" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Language Key"/>
+      <keyMapping columnObjectName="GVM_DMA_WORK_CENTER" columnName="SPRAS"/>
+    </attribute>
+    <attribute id="AEDAT_TEXT" hidden="true" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Changed on"/>
+      <keyMapping columnObjectName="GVM_DMA_WORK_CENTER" columnName="AEDAT_TEXT"/>
+    </attribute>
+    <attribute id="AENAM_TEXT" hidden="true" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="User Name"/>
+      <keyMapping columnObjectName="GVM_DMA_WORK_CENTER" columnName="AENAM_TEXT"/>
+    </attribute>
+    <attribute id="KTEXT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Short description"/>
+      <keyMapping columnObjectName="GVM_DMA_WORK_CENTER" columnName="KTEXT"/>
+    </attribute>
+    <attribute id="KTEXT_UP" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Short description in capitals"/>
+      <keyMapping columnObjectName="GVM_DMA_WORK_CENTER" columnName="KTEXT_UP"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

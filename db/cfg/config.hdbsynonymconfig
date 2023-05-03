@@ -405,5 +405,29 @@
             "object": "GVM_PAPM",
             "schema": "SPS_SD"
         }
+    },
+    "GVM_DMA_REASON_FOR_VARIANCE_N1": {
+        "target": {
+            "object": "GVM_DMA_REASON_FOR_VARIANCE_N1",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DMA_REASON_FOR_VARIANCE_N2": {
+        "target": {
+            "object": "GVM_DMA_REASON_FOR_VARIANCE_N2",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DMA_PERSONAL_DATA": {
+        "target": {
+            "object": "GVM_DMA_PERSONAL_DATA",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DMA_WORK_CENTER": {
+        "target": {
+            "object": "GVM_DMA_WORK_CENTER",
+            "schema": "SPS_SD"
+        }
     }
 }

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMA_PERSONAL_DATA" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DMA_PERSONAL_DATA.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMA_PERSONAL_DATA">
+    <resourceUri>GVM_DMA_PERSONAL_DATA</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMA_PERSONAL_DATA">
+  <attributes>
+    <attribute id="AEDTM" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Changed On"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="AEDTM"/>
+    </attribute>
+    <attribute id="ANRED" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Form-of-Address Key"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="ANRED"/>
+    </attribute>
+    <attribute id="ANZKD" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Number of Children"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="ANZKD"/>
+    </attribute>
+    <attribute id="BEGDA" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Start Date"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="BEGDA"/>
+    </attribute>
+    <attribute id="CNAME" hidden="true" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CNAME"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="CNAME"/>
+    </attribute>
+    <attribute id="ENDDA" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="End Date"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="ENDDA"/>
+    </attribute>
+    <attribute id="FAMDT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Valid From Date of Current Marital Status"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="FAMDT"/>
+    </attribute>
+    <attribute id="FAMST" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Marital Status Key"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="FAMST"/>
+    </attribute>
+    <attribute id="FLAG1" hidden="true" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLAG1"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="FLAG1"/>
+    </attribute>
+    <attribute id="FLAG2" hidden="true" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLAG2"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="FLAG2"/>
+    </attribute>
+    <attribute id="FLAG3" hidden="true" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLAG3"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="FLAG3"/>
+    </attribute>
+    <attribute id="FLAG4" hidden="true" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLAG4"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="FLAG4"/>
+    </attribute>
+    <attribute id="FNAMK" hidden="true" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="First name (Katakana)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="FNAMK"/>
+    </attribute>
+    <attribute id="FNAMR" hidden="true" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="First Name (Romaji)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="FNAMR"/>
+    </attribute>
+    <attribute id="GBDAT" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Date of Birth"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GBDAT"/>
+    </attribute>
+    <attribute id="GBDEP" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="State"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GBDEP"/>
+    </attribute>
+    <attribute id="GBJHR" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year of Birth"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GBJHR"/>
+    </attribute>
+    <attribute id="GBLND" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Country of Birth"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GBLND"/>
+    </attribute>
+    <attribute id="GBMON" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Month of Birth"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GBMON"/>
+    </attribute>
+    <attribute id="GBORT" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Birthplace"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GBORT"/>
+    </attribute>
+    <attribute id="GBPAS" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Date of Birth According to Passport"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GBPAS"/>
+    </attribute>
+    <attribute id="GBTAG" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Birth Date (to Month/Year)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GBTAG"/>
+    </attribute>
+    <attribute id="GESCH" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Gender Key"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GESCH"/>
+    </attribute>
+    <attribute id="GRPVL" hidden="true" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Grouping Value for Personnel Assignments"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="GRPVL"/>
+    </attribute>
+    <attribute id="HISTO" hidden="true" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Historical Record Flag"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="HISTO"/>
+    </attribute>
+    <attribute id="INITS" hidden="true" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Initials"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="INITS"/>
+    </attribute>
+    <attribute id="ITBLD" hidden="true" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infotype Screen Control"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="ITBLD"/>
+    </attribute>
+    <attribute id="ITXEX" hidden="true" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Text Exists for Infotype"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="ITXEX"/>
+    </attribute>
+    <attribute id="KNZNM" hidden="true" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name Format Indicator for Employee in a List"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="KNZNM"/>
+    </attribute>
+    <attribute id="KONFE" hidden="true" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Religious Denomination Key"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="KONFE"/>
+    </attribute>
+    <attribute id="LNAMK" hidden="true" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Last name (Katakana)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="LNAMK"/>
+    </attribute>
+    <attribute id="LNAMR" hidden="true" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Last Name (Romaji)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="LNAMR"/>
+    </attribute>
+    <attribute id="MANDT" order="33" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Client"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="MANDT"/>
+    </attribute>
+    <attribute id="MIDNM" hidden="true" order="34" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Middle Name"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="MIDNM"/>
+    </attribute>
+    <attribute id="NABIK" hidden="true" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name of Birth (Katakana)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NABIK"/>
+    </attribute>
+    <attribute id="NABIR" hidden="true" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name of Birth (Romaji)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NABIR"/>
+    </attribute>
+    <attribute id="NACH2" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Second Name"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NACH2"/>
+    </attribute>
+    <attribute id="NACHN" order="38" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Last Name"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NACHN"/>
+    </attribute>
+    <attribute id="NACON" hidden="true" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name Connection"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NACON"/>
+    </attribute>
+    <attribute id="NAME2" hidden="true" order="40" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name at Birth"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NAME2"/>
+    </attribute>
+    <attribute id="NAMZ2" hidden="true" order="41" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name Affix for Name at Birth"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NAMZ2"/>
+    </attribute>
+    <attribute id="NAMZU" hidden="true" order="42" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Other Title"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NAMZU"/>
+    </attribute>
+    <attribute id="NATI2" order="43" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Second Nationality"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NATI2"/>
+    </attribute>
+    <attribute id="NATI3" hidden="true" order="44" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Third Nationality"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NATI3"/>
+    </attribute>
+    <attribute id="NATIO" order="45" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Nationality"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NATIO"/>
+    </attribute>
+    <attribute id="NCHMC" order="46" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Last Name (Field for Search Help)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NCHMC"/>
+    </attribute>
+    <attribute id="NICKK" hidden="true" order="47" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Koseki (Katakana)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NICKK"/>
+    </attribute>
+    <attribute id="NICKR" hidden="true" order="48" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Koseki (Romaji)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="NICKR"/>
+    </attribute>
+    <attribute id="OBJPS" hidden="true" order="49" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Object Identification"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="OBJPS"/>
+    </attribute>
+    <attribute id="ORDEX" hidden="true" order="50" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Confirmation Fields Exist"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="ORDEX"/>
+    </attribute>
+    <attribute id="PERID" order="51" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Personnel ID Number"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="PERID"/>
+    </attribute>
+    <attribute id="PERMO" order="52" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Modifier for Personnel Identifier"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="PERMO"/>
+    </attribute>
+    <attribute id="PERNR" order="53" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Personnel number"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="PERNR"/>
+    </attribute>
+    <attribute id="PREAS" hidden="true" order="54" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Reason for Changing Master Data"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="PREAS"/>
+    </attribute>
+    <attribute id="REFEX" hidden="true" order="55" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Reference Fields Exist (Primary/Secondary Costs)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="REFEX"/>
+    </attribute>
+    <attribute id="RESE1" hidden="true" order="56" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Reserved Field/Unused Field of Length 2"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="RESE1"/>
+    </attribute>
+    <attribute id="RESE2" hidden="true" order="57" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Reserved Field/Unused Field of Length 2"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="RESE2"/>
+    </attribute>
+    <attribute id="RUFNM" hidden="true" order="58" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Nickname"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="RUFNM"/>
+    </attribute>
+    <attribute id="SEQNR" hidden="true" order="59" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Number of Infotype Record with Same Key"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="SEQNR"/>
+    </attribute>
+    <attribute id="SPRPS" hidden="true" order="60" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Lock Indicator for HR Master Data Record"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="SPRPS"/>
+    </attribute>
+    <attribute id="SPRSL" order="61" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Communication Language"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="SPRSL"/>
+    </attribute>
+    <attribute id="SUBTY" hidden="true" order="62" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Subtype"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="SUBTY"/>
+    </attribute>
+    <attribute id="TITEL" hidden="true" order="63" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Title"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="TITEL"/>
+    </attribute>
+    <attribute id="TITL2" hidden="true" order="64" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Second Title"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="TITL2"/>
+    </attribute>
+    <attribute id="UNAME" order="65" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name of Person Who Changed Object"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="UNAME"/>
+    </attribute>
+    <attribute id="VNAMC" order="66" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="First Name (Field for Search Help)"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="VNAMC"/>
+    </attribute>
+    <attribute id="VORNA" order="67" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="First Name"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="VORNA"/>
+    </attribute>
+    <attribute id="VORS2" hidden="true" order="68" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Second Name Prefix"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="VORS2"/>
+    </attribute>
+    <attribute id="VORSW" hidden="true" order="69" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name Prefix"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="VORSW"/>
+    </attribute>
+    <attribute id="CC_FULL_NAME" order="70" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Complete Name"/>
+      <keyMapping columnObjectName="GVM_DMA_PERSONAL_DATA" columnName="CC_FULL_NAME"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

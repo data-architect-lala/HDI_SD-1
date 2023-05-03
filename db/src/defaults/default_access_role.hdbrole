@@ -336,6 +336,26 @@
                "type": "SYNONYM",
                "name":"GVM_PAPM",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_DMA_REASON_FOR_VARIANCE_N1",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_DMA_REASON_FOR_VARIANCE_N2",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_DMA_PERSONAL_DATA",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_DMA_WORK_CENTER",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

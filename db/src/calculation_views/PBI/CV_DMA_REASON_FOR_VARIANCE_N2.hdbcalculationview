@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMA_REASON_FOR_VARIANCE_N2" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_DMA_REASON_FOR_VARIANCE_N2.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMA_REASON_FOR_VARIANCE_N2">
+    <resourceUri>GVM_DMA_REASON_FOR_VARIANCE_N2</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMA_REASON_FOR_VARIANCE_N2">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Client"/>
+      <keyMapping columnObjectName="GVM_DMA_REASON_FOR_VARIANCE_N2" columnName="MANDT"/>
+    </attribute>
+    <attribute id="SPRAS" hidden="true" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Language Key"/>
+      <keyMapping columnObjectName="GVM_DMA_REASON_FOR_VARIANCE_N2" columnName="SPRAS"/>
+    </attribute>
+    <attribute id="WERKS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="WERKS"/>
+      <keyMapping columnObjectName="GVM_DMA_REASON_FOR_VARIANCE_N2" columnName="WERKS"/>
+    </attribute>
+    <attribute id="GRUND" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Reason for Variance N2"/>
+      <keyMapping columnObjectName="GVM_DMA_REASON_FOR_VARIANCE_N2" columnName="GRUND"/>
+    </attribute>
+    <attribute id="GRDTX" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Text describing the reason for a variance in a confirmation N2"/>
+      <keyMapping columnObjectName="GVM_DMA_REASON_FOR_VARIANCE_N2" columnName="GRDTX"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS.hdbcalculationview"/>
 <localVariables/>
 <variableMappings/>
@@ -7,491 +7,598 @@
   <DataSource id="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS">
     <resourceUri>GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS</resourceUri>
   </DataSource>
+  <DataSource id="GVM_TVARVC">
+    <resourceUri>GVM_TVARVC</resourceUri>
+  </DataSource>
 </dataSources>
 <snapshotProcedures/>
-<calculationViews/>
-<logicalModel id="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS">
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="AUFNR"/>
+      <viewAttribute id="PLNBEZ"/>
+      <viewAttribute id="APRIO"/>
+      <viewAttribute id="RUECK"/>
+      <viewAttribute id="RMZHL"/>
+      <viewAttribute id="ERNAM"/>
+      <viewAttribute id="BUDAT"/>
+      <viewAttribute id="LTXA1"/>
+      <viewAttribute id="GMNGA"/>
+      <viewAttribute id="XMNGA"/>
+      <viewAttribute id="MEINH"/>
+      <viewAttribute id="PERNR"/>
+      <viewAttribute id="ISDD"/>
+      <viewAttribute id="ISDZ"/>
+      <viewAttribute id="IEDD"/>
+      <viewAttribute id="IEDZ"/>
+      <viewAttribute id="AUERU"/>
+      <viewAttribute id="STOKZ"/>
+      <viewAttribute id="STZHL"/>
+      <viewAttribute id="SMENG"/>
+      <viewAttribute id="ORIND"/>
+      <viewAttribute id="CC_LOSS_TIME_SECONDS"/>
+      <viewAttribute id="CC_ID_REASON_FOR_VARIANCE_N1"/>
+      <viewAttribute id="CC_PTANOPROG"/>
+      <viewAttribute id="CC_PARONOPROG"/>
+      <viewAttribute id="CC_TIEMPOPARO"/>
+      <viewAttribute id="CC_CONTADOR_TIEMPOPARO"/>
+      <viewAttribute id="CC_FECHA_INICIO"/>
+      <viewAttribute id="CC_FECHA_FIN"/>
+      <viewAttribute id="ARBPL"/>
+      <viewAttribute id="LINEA"/>
+      <viewAttribute id="CAPACIDAD"/>
+      <viewAttribute id="AREA"/>
+      <viewAttribute id="PRESENTACION"/>
+      <viewAttribute id="OBJTY"/>
+      <viewAttribute id="OBJID"/>
+      <viewAttribute id="CC_MATNR_NUMBER"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="GRUND"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="LOW"/>
+      <viewAttribute id="HIGH"/>
+      <viewAttribute id="NAME"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_TVARVC"/>
+    <filter>&quot;NAME&quot; =  'ZPP184_MULTIPACK'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="CC_MATNR_NUMBER" aggregationType="sum"/>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="AUFNR"/>
+      <viewAttribute id="APRIO"/>
+      <viewAttribute id="PLNBEZ"/>
+      <viewAttribute id="RUECK"/>
+      <viewAttribute id="RMZHL"/>
+      <viewAttribute id="ORIND"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="STOKZ"/>
+      <viewAttribute id="AUERU"/>
+      <viewAttribute id="GRUND"/>
+      <viewAttribute id="LTXA1"/>
+      <viewAttribute id="ISDZ"/>
+      <viewAttribute id="ISDD"/>
+      <viewAttribute id="IEDZ"/>
+      <viewAttribute id="IEDD"/>
+      <viewAttribute id="ERNAM"/>
+      <viewAttribute id="PERNR"/>
+      <viewAttribute id="SMENG" aggregationType="sum"/>
+      <viewAttribute id="XMNGA" aggregationType="sum"/>
+      <viewAttribute id="MEINH"/>
+      <viewAttribute id="BUDAT"/>
+      <viewAttribute id="STZHL"/>
+      <viewAttribute id="CC_LOSS_TIME_SECONDS" aggregationType="sum"/>
+      <viewAttribute id="CC_ID_REASON_FOR_VARIANCE_N1"/>
+      <viewAttribute id="ARBPL"/>
+      <viewAttribute id="AREA"/>
+      <viewAttribute id="CAPACIDAD"/>
+      <viewAttribute id="LINEA"/>
+      <viewAttribute id="PRESENTACION"/>
+      <viewAttribute id="OBJID"/>
+      <viewAttribute id="OBJTY"/>
+      <viewAttribute id="HIGH"/>
+      <viewAttribute id="GMNGA" aggregationType="sum"/>
+      <viewAttribute id="CC_PTANOPROG" aggregationType="sum"/>
+      <viewAttribute id="CC_PARONOPROG" aggregationType="sum"/>
+      <viewAttribute id="CC_TIEMPOPARO" aggregationType="sum"/>
+      <viewAttribute id="CC_CONTADOR_TIEMPOPARO" aggregationType="sum"/>
+      <viewAttribute id="CC_FECHA_INICIO" aggregationType="min"/>
+      <viewAttribute id="CC_FECHA_FIN" aggregationType="min"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_PRODUCCION" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
+        <formula>CASE &quot;HIGH&quot;
+	 WHEN NULL then &quot;GMNGA&quot; 
+	 ELSE TO_int(&quot;HIGH&quot;)*&quot;GMNGA&quot;
+ END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_TVA" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
+        <formula>CASE TO_DECIMAL(&quot;CAPACIDAD&quot;) 
+	 WHEN 0 then 0 
+	 ELSE &quot;CC_PRODUCCION&quot;/TO_DECIMAL(&quot;CAPACIDAD&quot;) 
+ END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CC_MERMA" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
+        <formula>CASE &quot;HIGH&quot; 
+	 WHEN NULL then &quot;XMNGA&quot; 
+	 ELSE TO_int(&quot;HIGH&quot;)*&quot;XMNGA&quot; 
+ END</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_MATNR_NUMBER" source="CC_MATNR_NUMBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AUFNR" source="AUFNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="APRIO" source="APRIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLNBEZ" source="PLNBEZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RUECK" source="RUECK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RMZHL" source="RMZHL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORIND" source="ORIND"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WERKS" source="WERKS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STOKZ" source="STOKZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AUERU" source="AUERU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GRUND" source="GRUND"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LTXA1" source="LTXA1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISDZ" source="ISDZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISDD" source="ISDD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IEDZ" source="IEDZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IEDD" source="IEDD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PERNR" source="PERNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SMENG" source="SMENG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="XMNGA" source="XMNGA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MEINH" source="MEINH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUDAT" source="BUDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STZHL" source="STZHL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_LOSS_TIME_SECONDS" source="CC_LOSS_TIME_SECONDS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_ID_REASON_FOR_VARIANCE_N1" source="CC_ID_REASON_FOR_VARIANCE_N1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ARBPL" source="ARBPL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AREA" source="AREA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CAPACIDAD" source="CAPACIDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LINEA" source="LINEA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRESENTACION" source="PRESENTACION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJID" source="OBJID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJTY" source="OBJTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GMNGA" source="GMNGA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_PTANOPROG" source="CC_PTANOPROG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_PARONOPROG" source="CC_PARONOPROG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_TIEMPOPARO" source="CC_TIEMPOPARO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_CONTADOR_TIEMPOPARO" source="CC_CONTADOR_TIEMPOPARO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_FECHA_INICIO" source="CC_FECHA_INICIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_FECHA_FIN" source="CC_FECHA_FIN"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="HIGH" source="HIGH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_MATNR_NUMBER" source="LOW"/>
+    </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="CC_MATNR_NUMBER"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="AUFNR"/>
+      <viewAttribute id="APRIO"/>
+      <viewAttribute id="PLNBEZ"/>
+      <viewAttribute id="RUECK"/>
+      <viewAttribute id="RMZHL"/>
+      <viewAttribute id="ORIND"/>
+      <viewAttribute id="WERKS"/>
+      <viewAttribute id="STOKZ"/>
+      <viewAttribute id="AUERU"/>
+      <viewAttribute id="GRUND"/>
+      <viewAttribute id="LTXA1"/>
+      <viewAttribute id="ISDZ"/>
+      <viewAttribute id="ISDD"/>
+      <viewAttribute id="IEDZ"/>
+      <viewAttribute id="IEDD"/>
+      <viewAttribute id="ERNAM"/>
+      <viewAttribute id="PERNR"/>
+      <viewAttribute id="SMENG" aggregationType="sum"/>
+      <viewAttribute id="XMNGA" aggregationType="sum"/>
+      <viewAttribute id="MEINH"/>
+      <viewAttribute id="BUDAT"/>
+      <viewAttribute id="STZHL"/>
+      <viewAttribute id="CC_LOSS_TIME_SECONDS" aggregationType="sum"/>
+      <viewAttribute id="CC_ID_REASON_FOR_VARIANCE_N1"/>
+      <viewAttribute id="ARBPL"/>
+      <viewAttribute id="AREA"/>
+      <viewAttribute id="CAPACIDAD"/>
+      <viewAttribute id="LINEA"/>
+      <viewAttribute id="PRESENTACION"/>
+      <viewAttribute id="OBJID"/>
+      <viewAttribute id="OBJTY"/>
+      <viewAttribute id="HIGH"/>
+      <viewAttribute id="CC_PRODUCCION" aggregationType="sum"/>
+      <viewAttribute id="GMNGA" aggregationType="sum"/>
+      <viewAttribute id="CC_TVA" aggregationType="sum"/>
+      <viewAttribute id="CC_PTANOPROG" aggregationType="sum"/>
+      <viewAttribute id="CC_PARONOPROG" aggregationType="sum"/>
+      <viewAttribute id="CC_TIEMPOPARO" aggregationType="sum"/>
+      <viewAttribute id="CC_CONTADOR_TIEMPOPARO" aggregationType="sum"/>
+      <viewAttribute id="CC_FECHA_INICIO" aggregationType="max"/>
+      <viewAttribute id="CC_FECHA_FIN" aggregationType="max"/>
+      <viewAttribute id="CC_MERMA" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ISSD_F" datatype="DATE" expressionLanguage="SQL">
+        <formula>TO_DATE(&quot;ISDD&quot;, 'YYYYMMDD')</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="Join_1"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Aggregation_1">
   <attributes>
-    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MANDT"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="MANDT"/>
+    <attribute id="AUFNR" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Order Number"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="AUFNR"/>
     </attribute>
-    <attribute id="AUFNR" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="AUFNR"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="AUFNR"/>
+    <attribute id="APRIO" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Order priority"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="APRIO"/>
     </attribute>
     <attribute id="PLNBEZ" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PLNBEZ"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="PLNBEZ"/>
+      <descriptions defaultDescription="Material Number"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PLNBEZ"/>
     </attribute>
-    <attribute id="APRIO" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="APRIO"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="APRIO"/>
+    <attribute id="RUECK" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Completion confirmation number for the operation"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="RUECK"/>
     </attribute>
-    <attribute id="RUECK" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="RUECK"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="RUECK"/>
+    <attribute id="RMZHL" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Confirmation counter"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="RMZHL"/>
     </attribute>
-    <attribute id="RMZHL" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="RMZHL"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="RMZHL"/>
+    <attribute id="ORIND" hidden="true" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Origin Indicator of PDC Message (Application)"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ORIND"/>
     </attribute>
-    <attribute id="ERNAM" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ERNAM"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ERNAM"/>
+    <attribute id="STOKZ" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Indicator: Document Has Been Reversed"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="STOKZ"/>
     </attribute>
-    <attribute id="BUDAT" order="8" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BUDAT"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="BUDAT"/>
+    <attribute id="AUERU" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Partial/Final Confirmation"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="AUERU"/>
     </attribute>
     <attribute id="LTXA1" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LTXA1"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="LTXA1"/>
+      <descriptions defaultDescription="Confirmation text"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="LTXA1"/>
     </attribute>
-    <attribute id="GMNGA" order="10">
-      <descriptions defaultDescription="GMNGA"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GMNGA"/>
+    <attribute id="ISDZ" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Confirmed time for &apos;Execution start&apos;"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ISDZ"/>
     </attribute>
-    <attribute id="XMNGA" order="11">
-      <descriptions defaultDescription="XMNGA"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="XMNGA"/>
+    <attribute id="ISDD" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Confirmed date for start of execution"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ISDD"/>
     </attribute>
-    <attribute id="MEINH" order="12" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MEINH"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="MEINH"/>
+    <attribute id="IEDZ" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Confirmed time for &apos;Execution finish&apos;"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="IEDZ"/>
     </attribute>
-    <attribute id="PERNR" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PERNR"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="PERNR"/>
+    <attribute id="IEDD" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Confirmed date for execution finish"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="IEDD"/>
     </attribute>
-    <attribute id="ISDD" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ISDD"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ISDD"/>
+    <attribute id="ERNAM" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name of the person who entered the confirmation"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ERNAM"/>
     </attribute>
-    <attribute id="ISDZ" order="15" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ISDZ"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ISDZ"/>
+    <attribute id="PERNR_1" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Personnel number"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PERNR"/>
     </attribute>
-    <attribute id="IEDD" order="16" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="IEDD"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="IEDD"/>
+    <attribute id="MEINH" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Confirmation unit of measure"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="MEINH"/>
     </attribute>
-    <attribute id="IEDZ" order="17" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="IEDZ"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="IEDZ"/>
+    <attribute id="BUDAT" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Posting date"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="BUDAT"/>
     </attribute>
-    <attribute id="AUERU" order="18" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="AUERU"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="AUERU"/>
+    <attribute id="STZHL" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Confirmation counter of cancelled confirmation"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="STZHL"/>
     </attribute>
-    <attribute id="STOKZ" order="19" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="STOKZ"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="STOKZ"/>
+    <attribute id="CC_ID_REASON_FOR_VARIANCE_N1" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Reason for Variance N1"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CC_ID_REASON_FOR_VARIANCE_N1"/>
     </attribute>
-    <attribute id="STZHL" order="20" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="STZHL"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="STZHL"/>
+    <attribute id="ARBPL" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Work center"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ARBPL"/>
     </attribute>
-    <attribute id="ORIND" order="22" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ORIND"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ORIND"/>
+    <attribute id="AREA" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Area"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="AREA"/>
     </attribute>
-    <attribute id="CC_ID_REASON_FOR_VARIANCE_N1" order="24" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_ID_REASON_FOR_VARIANCE_N1"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_ID_REASON_FOR_VARIANCE_N1"/>
+    <attribute id="CAPACIDAD" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Nominal Rate"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CAPACIDAD"/>
     </attribute>
-    <attribute id="ARBPL" order="31" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ARBPL"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ARBPL"/>
+    <attribute id="LINEA" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Line"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="LINEA"/>
     </attribute>
-    <attribute id="LINEA" order="32" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LINEA"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="LINEA"/>
+    <attribute id="PRESENTACION" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Presentation"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PRESENTACION"/>
     </attribute>
-    <attribute id="CAPACIDAD" order="33" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CAPACIDAD"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CAPACIDAD"/>
+    <attribute id="OBJID_1" hidden="true" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OBJID_1"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="OBJID"/>
     </attribute>
-    <attribute id="AREA" order="34" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="AREA"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="AREA"/>
+    <attribute id="OBJTY_1" hidden="true" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OBJTY_1"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="OBJTY"/>
     </attribute>
-    <attribute id="PRESENTACION" order="35" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PRESENTACION"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="PRESENTACION"/>
+    <attribute id="HIGH_1" hidden="true" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="HIGH_1"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="HIGH"/>
     </attribute>
-    <attribute id="OBJTY" order="36" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="OBJTY"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="OBJTY"/>
+    <attribute id="ISSD_F" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONFIRMED DATE FOR START OF EXECUTION _ F"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ISSD_F"/>
     </attribute>
-    <attribute id="OBJID" order="37" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="OBJID"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="OBJID"/>
+    <attribute id="MANDT$local">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="MANDT"/>
     </attribute>
-    <attribute id="CC_MATNR_NUMBER" order="38">
-      <descriptions defaultDescription="CC_MATNR_NUMBER"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_MATNR_NUMBER"/>
+    <attribute id="PLNBEZ$local">
+      <descriptions defaultDescription="PLNBEZ"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PLNBEZ"/>
     </attribute>
-    <attribute id="HIGH" order="39" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="HIGH"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="HIGH"/>
-    </attribute>
-    <attribute id="ISSD_F" order="43" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ISSD_F"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ISSD_F"/>
-    </attribute>
-    <attribute id="WERKS" order="44" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="WERKS$local">
       <descriptions defaultDescription="WERKS"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="WERKS"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="WERKS"/>
     </attribute>
-    <attribute id="NAME1" order="45" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NAME1"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="NAME1"/>
+    <attribute id="CC_ID_REASON_FOR_VARIANCE_N1$local">
+      <descriptions defaultDescription="CC_ID_REASON_FOR_VARIANCE_N1"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CC_ID_REASON_FOR_VARIANCE_N1"/>
     </attribute>
-    <attribute id="PFACH" order="46" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PFACH"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="PFACH"/>
-    </attribute>
-    <attribute id="PSTLZ" order="47" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PSTLZ"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="PSTLZ"/>
-    </attribute>
-    <attribute id="ORT01" order="48" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ORT01"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ORT01"/>
-    </attribute>
-    <attribute id="VKORG" order="49" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="VKORG"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="VKORG"/>
-    </attribute>
-    <attribute id="EKORG" order="50" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="EKORG"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="EKORG"/>
-    </attribute>
-    <attribute id="LAND1" order="51" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LAND1"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="LAND1"/>
-    </attribute>
-    <attribute id="LANDX" order="52" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LANDX"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="LANDX"/>
-    </attribute>
-    <attribute id="NATIO" order="53" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NATIO"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="NATIO"/>
-    </attribute>
-    <attribute id="CHAZV_OLD" order="54" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CHAZV_OLD"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CHAZV_OLD"/>
-    </attribute>
-    <attribute id="STREET" order="55" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="STREET"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="STREET"/>
-    </attribute>
-    <attribute id="BEZEI" order="56" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BEZEI"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="BEZEI"/>
-    </attribute>
-    <attribute id="HOUSE_NUM1" order="57" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="HOUSE_NUM1"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="HOUSE_NUM1"/>
-    </attribute>
-    <attribute id="REGION" order="58" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="REGION"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="REGION"/>
-    </attribute>
-    <attribute id="EKOTX" order="59" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="EKOTX"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="EKOTX"/>
-    </attribute>
-    <attribute id="BUKRS" order="60" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BUKRS"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="BUKRS"/>
-    </attribute>
-    <attribute id="TEL_NUMBER" order="61" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TEL_NUMBER"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="TEL_NUMBER"/>
-    </attribute>
-    <attribute id="TEL_EXTENS" order="62" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TEL_EXTENS"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="TEL_EXTENS"/>
-    </attribute>
-    <attribute id="TIME_ZONE" order="63" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TIME_ZONE"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="TIME_ZONE"/>
-    </attribute>
-    <attribute id="BUTXT" order="64" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BUTXT"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="BUTXT"/>
-    </attribute>
-    <attribute id="GRUND" order="65" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="GRUND$local">
       <descriptions defaultDescription="GRUND"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GRUND"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="GRUND"/>
     </attribute>
-    <attribute id="GRDTX" order="66" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GRDTX"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GRDTX"/>
+    <attribute id="PERNR$local">
+      <descriptions defaultDescription="PERNR"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="PERNR"/>
     </attribute>
-    <attribute id="KTEXT" order="67" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="KTEXT"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="KTEXT"/>
+    <attribute id="OBJID$local">
+      <descriptions defaultDescription="OBJID"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="OBJID"/>
     </attribute>
-    <attribute id="KTEXT_UP" order="68" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="KTEXT_UP"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="KTEXT_UP"/>
-    </attribute>
-    <attribute id="MATNR" order="69" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MATNR"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="MATNR"/>
-    </attribute>
-    <attribute id="NTGEW" order="70">
-      <descriptions defaultDescription="NTGEW"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="NTGEW"/>
-    </attribute>
-    <attribute id="CC_SUPER_FAMILY" order="71" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_SUPER_FAMILY"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_SUPER_FAMILY"/>
-    </attribute>
-    <attribute id="CC_CVE_SUPER_FAMILY" order="72" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_SUPER_FAMILY"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_CVE_SUPER_FAMILY"/>
-    </attribute>
-    <attribute id="CC_CVE_FAMILY" order="73" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_FAMILY"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_CVE_FAMILY"/>
-    </attribute>
-    <attribute id="CC_CVE_BRAND" order="74" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_BRAND"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_CVE_BRAND"/>
-    </attribute>
-    <attribute id="CC_CVE_SUB_BRAND" order="75" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_SUB_BRAND"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_CVE_SUB_BRAND"/>
-    </attribute>
-    <attribute id="CC_BRAND" order="76" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_BRAND"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_BRAND"/>
-    </attribute>
-    <attribute id="CC_CVE_LINE" order="77" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_LINE"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_CVE_LINE"/>
-    </attribute>
-    <attribute id="CC_CVE_FAMILYN" order="78" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_CVE_FAMILYN"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_CVE_FAMILYN"/>
-    </attribute>
-    <attribute id="CC_FAMILY" order="79" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_FAMILY"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_FAMILY"/>
-    </attribute>
-    <attribute id="MTBEZ" order="80" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MTBEZ"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="MTBEZ"/>
-    </attribute>
-    <attribute id="EAN11" order="81" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="EAN11"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="EAN11"/>
-    </attribute>
-    <attribute id="MATKL" order="82" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MATKL"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="MATKL"/>
-    </attribute>
-    <attribute id="CC_SUB_BRAND" order="83" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_SUB_BRAND"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_SUB_BRAND"/>
-    </attribute>
-    <attribute id="WGBEZ" order="84" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="WGBEZ"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="WGBEZ"/>
-    </attribute>
-    <attribute id="MTART" order="85" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MTART"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="MTART"/>
-    </attribute>
-    <attribute id="CC_LINE" order="86" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_LINE"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_LINE"/>
-    </attribute>
-    <attribute id="CC_FAMILYN" order="87" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_FAMILYN"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_FAMILYN"/>
-    </attribute>
-    <attribute id="MHDHB" order="88">
-      <descriptions defaultDescription="MHDHB"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="MHDHB"/>
-    </attribute>
-    <attribute id="MAKTX" order="89" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MAKTX"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="MAKTX"/>
-    </attribute>
-    <attribute id="LOW" order="90" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LOW"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="LOW"/>
-    </attribute>
-    <attribute id="ENDDA" order="91" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ENDDA"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ENDDA"/>
-    </attribute>
-    <attribute id="BEGDA" order="92" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BEGDA"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="BEGDA"/>
-    </attribute>
-    <attribute id="AEDTM" order="93" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="AEDTM"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="AEDTM"/>
-    </attribute>
-    <attribute id="UNAME" order="94" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="UNAME"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="UNAME"/>
-    </attribute>
-    <attribute id="NACHN" order="95" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NACHN"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="NACHN"/>
-    </attribute>
-    <attribute id="NACH2" order="96" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NACH2"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="NACH2"/>
-    </attribute>
-    <attribute id="VORNA" order="97" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="VORNA"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="VORNA"/>
-    </attribute>
-    <attribute id="ANRED" order="98" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ANRED"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ANRED"/>
-    </attribute>
-    <attribute id="GESCH" order="99" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GESCH"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GESCH"/>
-    </attribute>
-    <attribute id="GBDAT" order="100" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GBDAT"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GBDAT"/>
-    </attribute>
-    <attribute id="GBLND" order="101" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GBLND"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GBLND"/>
-    </attribute>
-    <attribute id="GBDEP" order="102" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GBDEP"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GBDEP"/>
-    </attribute>
-    <attribute id="GBORT" order="103" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GBORT"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GBORT"/>
-    </attribute>
-    <attribute id="NATI2" order="104" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NATI2"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="NATI2"/>
-    </attribute>
-    <attribute id="SPRSL" order="105" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="SPRSL"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="SPRSL"/>
-    </attribute>
-    <attribute id="FAMST" order="106" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="FAMST"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="FAMST"/>
-    </attribute>
-    <attribute id="FAMDT" order="107" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="FAMDT"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="FAMDT"/>
-    </attribute>
-    <attribute id="ANZKD" order="108">
-      <descriptions defaultDescription="ANZKD"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="ANZKD"/>
-    </attribute>
-    <attribute id="PERMO" order="109" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PERMO"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="PERMO"/>
-    </attribute>
-    <attribute id="PERID" order="110" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PERID"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="PERID"/>
-    </attribute>
-    <attribute id="GBPAS" order="111" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GBPAS"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GBPAS"/>
-    </attribute>
-    <attribute id="GBJHR" order="112" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GBJHR"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GBJHR"/>
-    </attribute>
-    <attribute id="GBMON" order="113" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GBMON"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GBMON"/>
-    </attribute>
-    <attribute id="GBTAG" order="114" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="GBTAG"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="GBTAG"/>
-    </attribute>
-    <attribute id="NCHMC" order="115" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="NCHMC"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="NCHMC"/>
-    </attribute>
-    <attribute id="VNAMC" order="116" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="VNAMC"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="VNAMC"/>
-    </attribute>
-    <attribute id="CC_FULL_NAME" order="117" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CC_FULL_NAME"/>
-      <keyMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_FULL_NAME"/>
+    <attribute id="OBJTY$local">
+      <descriptions defaultDescription="OBJTY"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="OBJTY"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="SMENG" order="21" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="SMENG"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="SMENG"/>
+    <measure id="SMENG" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Operation Quantity"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="SMENG"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_LOSS_TIME_SECONDS" order="23" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_LOSS_TIME_SECONDS"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_LOSS_TIME_SECONDS"/>
+    <measure id="CC_LOSS_TIME_SECONDS" order="20" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Loss Time Seconds"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_LOSS_TIME_SECONDS"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_PTANOPROG" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_PTANOPROG"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_PTANOPROG"/>
+    <measure id="CC_PRODUCCION" order="30" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Production"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_PRODUCCION"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_PARONOPROG" order="26" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_PARONOPROG"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_PARONOPROG"/>
+    <measure id="CC_TVA" order="31" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="TVA"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_TVA"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_TIEMPOPARO" order="27" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_TIEMPOPARO"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_TIEMPOPARO"/>
+    <measure id="CC_PTANOPROG" order="32" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Plant Out of Program"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_PTANOPROG"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_CONTADOR_TIEMPOPARO" order="28" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_CONTADOR_TIEMPOPARO"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_CONTADOR_TIEMPOPARO"/>
+    <measure id="CC_PARONOPROG" order="33" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Stop Out of Progam"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_PARONOPROG"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_FECHA_INICIO" order="29" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_FECHA_INICIO"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_FECHA_INICIO"/>
+    <measure id="CC_TIEMPOPARO" order="34" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Stop Time Seconds"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_TIEMPOPARO"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_FECHA_FIN" order="30" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_FECHA_FIN"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_FECHA_FIN"/>
+    <measure id="CC_CONTADOR_TIEMPOPARO" order="35" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Stop Counter"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_CONTADOR_TIEMPOPARO"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_PRODUCCION" order="40" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_PRODUCCION"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_PRODUCCION"/>
+    <measure id="CC_FECHA_INICIO" order="36" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Confirmed date/time for start of execution"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_FECHA_INICIO"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_TVA" order="41" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_TVA"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_TVA"/>
+    <measure id="CC_FECHA_FIN" order="37" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Confirmed date/time for execution finish"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_FECHA_FIN"/>
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_MERMA" order="42" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="CC_MERMA"/>
-      <measureMapping columnObjectName="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" columnName="CC_MERMA"/>
+    <measure id="CC_MERMA" order="38" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Scrap to Be Confirmed"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="CC_MERMA"/>
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
   <restrictedMeasures/>
   <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="CV_DMA_MATERIAL">
+      <attributes>
+        <attributeRef>MANDT$local</attributeRef>
+        <attributeRef>PLNBEZ$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MANDT</attributeName>
+        <attributeName>MATNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="MATNR" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_PLANT">
+      <attributes>
+        <attributeRef>MANDT$local</attributeRef>
+        <attributeRef>WERKS$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MANDT</attributeName>
+        <attributeName>WERKS</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_1" attributeName="MANDT" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_REASON_FOR_VARIANCE_N1">
+      <attributes>
+        <attributeRef>MANDT$local</attributeRef>
+        <attributeRef>CC_ID_REASON_FOR_VARIANCE_N1$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MANDT</attributeName>
+        <attributeName>LOW</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_2" attributeName="MANDT" hidden="true"/>
+        <attributeReference attributeName="LOW" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_REASON_FOR_VARIANCE_N2">
+      <attributes>
+        <attributeRef>MANDT$local</attributeRef>
+        <attributeRef>WERKS$local</attributeRef>
+        <attributeRef>GRUND$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MANDT</attributeName>
+        <attributeName>WERKS</attributeName>
+        <attributeName>GRUND</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_3" attributeName="MANDT" hidden="true"/>
+        <attributeReference alias="WERKS_1" attributeName="WERKS"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_PERSONAL_DATA">
+      <attributes>
+        <attributeRef>MANDT$local</attributeRef>
+        <attributeRef>PERNR$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MANDT</attributeName>
+        <attributeName>PERNR</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_4" attributeName="MANDT" hidden="true"/>
+        <attributeReference alias="NATIO_1" attributeName="NATIO" hidden="true"/>
+        <attributeReference attributeName="PERNR" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMA_WORK_CENTER">
+      <attributes>
+        <attributeRef>MANDT$local</attributeRef>
+        <attributeRef>OBJID$local</attributeRef>
+        <attributeRef>OBJTY$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MANDT</attributeName>
+        <attributeName>OBJID</attributeName>
+        <attributeName>OBJTY</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="C1_N" joinType="leftOuter" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference alias="MANDT_5" attributeName="MANDT" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+  </sharedDimensions>
 </logicalModel>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
       <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="475"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="350" y="425"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="333"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="136"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="382" y="611"/>
+      <rectangleSize width="136"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="90" y="266"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_MATERIAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="375" y="33"/>
+      <rectangleSize width="219"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_PLANT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="-240" y="30"/>
+      <rectangleSize width="162"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_REASON_FOR_VARIANCE_N1" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="375" y="506"/>
+      <rectangleSize width="295"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_REASON_FOR_VARIANCE_N2" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="-360" y="516"/>
+      <rectangleSize width="295"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_PERSONAL_DATA" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="381" y="612"/>
+      <rectangleSize width="226"/>
+    </shape>
+    <shape modelObjectName="CV_DMA_WORK_CENTER" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="-273" y="658"/>
+      <rectangleSize width="215"/>
     </shape>
   </shapes>
 </layout>
