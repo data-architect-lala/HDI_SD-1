@@ -13,7 +13,7 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="FECHA"/>
       <viewAttribute id="CLI_AGRUPADOR"/>
@@ -30,8 +30,10 @@
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="GVM_ZSDT113_LOG"/>
+  
+    <filter>&quot;FECHA&quot; &gt;= TO_NVARCHAR(ADD_DAYS(CURRENT_DATE, -365),'YYYYMMDD')</filter>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="PED_FREG"/>
       <viewAttribute id="CLI_AGRUPADOR"/>
@@ -62,6 +64,8 @@ END</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="GVM_ZSDT113_C"/>
+  
+    <filter>&quot;PED_FREG&quot; &gt;= TO_NVARCHAR(ADD_DAYS(CURRENT_DATE, -365),'YYYYMMDD')</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="Union_1">
     <viewAttributes>
@@ -216,10 +220,14 @@ END</formula>
     <measure id="PED_CANTIDAD" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Order Quantity"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="PED_CANTIDAD"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="CANTIDAD" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Error Order Quantity"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CANTIDAD"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures>
@@ -230,7 +238,9 @@ END</formula>
       </exceptionAggregation>
       <formula>1</formula>
       
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>
