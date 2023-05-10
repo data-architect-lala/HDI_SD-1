@@ -53,6 +53,12 @@
             "schema": "SPS_SD"
         }
     },
+    "ZMMT018_BIT": {
+        "target": {
+            "object": "GVX_ZMMT018_BIT",
+            "schema": "SPS_SD"
+        }
+    },
     "ZTSDE282_VALIDA": {
         "target": {
             "object": "GVX_ZTSDE282_VALIDA",
