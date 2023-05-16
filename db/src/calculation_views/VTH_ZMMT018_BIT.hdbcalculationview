@@ -71,31 +71,19 @@
       <descriptions defaultDescription="RUTA"/>
       <keyMapping columnObjectName="ZMMT018_BIT" columnName="RUTA"/>
     </attribute>
-    <attribute id="UNIDAD" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="UNIDAD"/>
-      <keyMapping columnObjectName="ZMMT018_BIT" columnName="UNIDAD"/>
-    </attribute>
-    <attribute id="CAP" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CAP"/>
-      <keyMapping columnObjectName="ZMMT018_BIT" columnName="CAP"/>
-    </attribute>
-    <attribute id="EMP" order="15" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="EMP"/>
-      <keyMapping columnObjectName="ZMMT018_BIT" columnName="EMP"/>
-    </attribute>
-    <attribute id="TMOV" order="16" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="TMOV" order="13" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="TMOV"/>
       <keyMapping columnObjectName="ZMMT018_BIT" columnName="TMOV"/>
     </attribute>
-    <attribute id="LOGNUMBER" order="17" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="LOGNUMBER" order="14" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="LOGNUMBER"/>
       <keyMapping columnObjectName="ZMMT018_BIT" columnName="LOGNUMBER"/>
     </attribute>
-    <attribute id="MBLNR" order="18" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="MBLNR" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="MBLNR"/>
       <keyMapping columnObjectName="ZMMT018_BIT" columnName="MBLNR"/>
     </attribute>
-    <attribute id="MJAHR" order="19" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="MJAHR" order="16" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="MJAHR"/>
       <keyMapping columnObjectName="ZMMT018_BIT" columnName="MJAHR"/>
     </attribute>
