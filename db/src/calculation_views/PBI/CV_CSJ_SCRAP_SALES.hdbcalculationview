@@ -80,7 +80,7 @@
     <calculatedViewAttributes/>
     <input node="GVM_VBAK"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_MARM">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_MARM" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="MATNR"/>
       <viewAttribute id="UMREN"/>
@@ -93,6 +93,8 @@
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="GVM_MARM"/>
+  
+    <filter>&quot;MEINH&quot; = 'K/L'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="Join_MSEG_SCRAP_TYPE" cardinality="CN_1" joinType="inner">
     <viewAttributes>
@@ -384,33 +386,47 @@ END </formula>
     <measure id="CC_QUANTITY" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Quantity"/>
       <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="CC_QUANTITY"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="CC_QUANTITY_KL" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Quantity KL"/>
       <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="CC_QUANTITY_KL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="LFIMG" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="LFIMG"/>
       <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="LFIMG"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="MENGE" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="MENGE"/>
       <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="MENGE"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="FUM" order="12" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="FUM"/>
       <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="FUM"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="DMBTR" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Importe ML"/>
       <measureMapping columnObjectName="Aggregation_SCRAP_SALES" columnName="DMBTR"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures>
     <measure id="CC_AMOUNT" order="13" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Amount"/>
       <formula>&quot;KBETR&quot; * &quot;CC_QUANTITY&quot;</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>
