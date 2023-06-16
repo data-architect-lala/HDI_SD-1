@@ -28,10 +28,6 @@
       <viewAttribute id="XMNGA"/>
       <viewAttribute id="MEINH"/>
       <viewAttribute id="PERNR"/>
-      <viewAttribute id="ISDD"/>
-      <viewAttribute id="ISDZ"/>
-      <viewAttribute id="IEDD"/>
-      <viewAttribute id="IEDZ"/>
       <viewAttribute id="AUERU"/>
       <viewAttribute id="STOKZ"/>
       <viewAttribute id="STZHL"/>
@@ -55,6 +51,16 @@
       <viewAttribute id="CC_MATNR_NUMBER"/>
       <viewAttribute id="WERKS"/>
       <viewAttribute id="GRUND"/>
+    
+      <viewAttribute id="CC_FECH_INIT"/>
+      <viewAttribute id="CC_HORA_INIT"/>
+      <viewAttribute id="CC_FECH_FIN"/>
+      <viewAttribute id="CC_HORA_FIN"/>
+    
+      <viewAttribute id="ISDD"/>
+      <viewAttribute id="ISDZ"/>
+      <viewAttribute id="IEDD"/>
+      <viewAttribute id="IEDZ"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS"/>
@@ -85,10 +91,6 @@
       <viewAttribute id="AUERU"/>
       <viewAttribute id="GRUND"/>
       <viewAttribute id="LTXA1"/>
-      <viewAttribute id="ISDZ"/>
-      <viewAttribute id="ISDD"/>
-      <viewAttribute id="IEDZ"/>
-      <viewAttribute id="IEDD"/>
       <viewAttribute id="ERNAM"/>
       <viewAttribute id="PERNR"/>
       <viewAttribute id="SMENG" aggregationType="sum"/>
@@ -113,6 +115,12 @@
       <viewAttribute id="CC_CONTADOR_TIEMPOPARO" aggregationType="sum"/>
       <viewAttribute id="CC_FECHA_INICIO" aggregationType="min"/>
       <viewAttribute id="CC_FECHA_FIN" aggregationType="min"/>
+      <viewAttribute id="ISDD"/>
+      <viewAttribute id="ISDZ"/>
+      <viewAttribute id="IEDD"/>
+      <viewAttribute id="IEDZ"/>
+      <viewAttribute hidden="true" id="JOIN$MANDT$MANDT"/>
+      <viewAttribute hidden="true" id="JOIN$CC_MATNR_NUMBER$LOW"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_PRODUCCION" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
@@ -148,10 +156,6 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="AUERU" source="AUERU"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="GRUND" source="GRUND"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LTXA1" source="LTXA1"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ISDZ" source="ISDZ"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ISDD" source="ISDD"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="IEDZ" source="IEDZ"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="IEDD" source="IEDD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ERNAM" source="ERNAM"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="PERNR" source="PERNR"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="SMENG" source="SMENG"/>
@@ -175,14 +179,20 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_CONTADOR_TIEMPOPARO" source="CC_CONTADOR_TIEMPOPARO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_FECHA_INICIO" source="CC_FECHA_INICIO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CC_FECHA_FIN" source="CC_FECHA_FIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISDD" source="ISDD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISDZ" source="ISDZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IEDD" source="IEDD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IEDZ" source="IEDZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_MATNR_NUMBER$LOW" source="CC_MATNR_NUMBER"/>
     </input>
     <input node="Projection_2">
       <mapping xsi:type="Calculation:AttributeMapping" target="HIGH" source="HIGH"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_MATNR_NUMBER" source="LOW"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_MATNR_NUMBER$LOW" source="LOW"/>
     </input>
-    <joinAttribute name="MANDT"/>
-    <joinAttribute name="CC_MATNR_NUMBER"/>
+    <joinAttribute name="JOIN$MANDT$MANDT"/>
+    <joinAttribute name="JOIN$CC_MATNR_NUMBER$LOW"/>
   </calculationView>
   <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
     <viewAttributes>
@@ -198,10 +208,6 @@
       <viewAttribute id="AUERU"/>
       <viewAttribute id="GRUND"/>
       <viewAttribute id="LTXA1"/>
-      <viewAttribute id="ISDZ"/>
-      <viewAttribute id="ISDD"/>
-      <viewAttribute id="IEDZ"/>
-      <viewAttribute id="IEDD"/>
       <viewAttribute id="ERNAM"/>
       <viewAttribute id="PERNR"/>
       <viewAttribute id="SMENG" aggregationType="sum"/>
@@ -229,6 +235,11 @@
       <viewAttribute id="CC_FECHA_INICIO" aggregationType="max"/>
       <viewAttribute id="CC_FECHA_FIN" aggregationType="max"/>
       <viewAttribute id="CC_MERMA" aggregationType="sum"/>
+    
+      <viewAttribute id="ISDD"/>
+      <viewAttribute id="ISDZ"/>
+      <viewAttribute id="IEDD"/>
+      <viewAttribute id="IEDZ"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <restrictedViewAttributes/>
@@ -273,77 +284,77 @@
       <descriptions defaultDescription="Confirmation text"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="LTXA1"/>
     </attribute>
-    <attribute id="ISDZ" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Confirmed time for &apos;Execution start&apos;"/>
-      <keyMapping columnObjectName="Aggregation_1" columnName="ISDZ"/>
-    </attribute>
-    <attribute id="ISDD" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Confirmed date for start of execution"/>
-      <keyMapping columnObjectName="Aggregation_1" columnName="ISDD"/>
-    </attribute>
-    <attribute id="IEDZ" order="12" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Confirmed time for &apos;Execution finish&apos;"/>
-      <keyMapping columnObjectName="Aggregation_1" columnName="IEDZ"/>
-    </attribute>
-    <attribute id="IEDD" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Confirmed date for execution finish"/>
-      <keyMapping columnObjectName="Aggregation_1" columnName="IEDD"/>
-    </attribute>
-    <attribute id="ERNAM" order="14" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="ERNAM" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Name of the person who entered the confirmation"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="ERNAM"/>
     </attribute>
-    <attribute id="PERNR_1" order="15" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="PERNR_1" order="11" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Personnel number"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="PERNR"/>
     </attribute>
-    <attribute id="MEINH" order="17" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="MEINH" order="13" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Confirmation unit of measure"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="MEINH"/>
     </attribute>
-    <attribute id="BUDAT" order="18" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="BUDAT" order="14" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Posting date"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="BUDAT"/>
     </attribute>
-    <attribute id="STZHL" order="19" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="STZHL" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Confirmation counter of cancelled confirmation"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="STZHL"/>
     </attribute>
-    <attribute id="CC_ID_REASON_FOR_VARIANCE_N1" order="21" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CC_ID_REASON_FOR_VARIANCE_N1" order="17" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Reason for Variance N1"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="CC_ID_REASON_FOR_VARIANCE_N1"/>
     </attribute>
-    <attribute id="ARBPL" order="22" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="ARBPL" order="18" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Work center"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="ARBPL"/>
     </attribute>
-    <attribute id="AREA" order="23" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="AREA" order="19" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Area"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="AREA"/>
     </attribute>
-    <attribute id="CAPACIDAD" order="24" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CAPACIDAD" order="20" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Nominal Rate"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="CAPACIDAD"/>
     </attribute>
-    <attribute id="LINEA" order="25" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="LINEA" order="21" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Line"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="LINEA"/>
     </attribute>
-    <attribute id="PRESENTACION" order="26" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="PRESENTACION" order="22" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Presentation"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="PRESENTACION"/>
     </attribute>
-    <attribute id="OBJID_1" hidden="true" order="27" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="OBJID_1" hidden="true" order="23" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="OBJID_1"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="OBJID"/>
     </attribute>
-    <attribute id="OBJTY_1" hidden="true" order="28" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="OBJTY_1" hidden="true" order="24" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="OBJTY_1"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="OBJTY"/>
     </attribute>
-    <attribute id="HIGH_1" hidden="true" order="29" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="HIGH_1" hidden="true" order="25" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="HIGH_1"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="HIGH"/>
+    </attribute>
+    <attribute id="ISDD" hidden="true" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ISDD"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ISDD"/>
+    </attribute>
+    <attribute id="ISDZ" hidden="true" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ISDZ"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ISDZ"/>
+    </attribute>
+    <attribute id="IEDD" hidden="true" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="IEDD"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="IEDD"/>
+    </attribute>
+    <attribute id="IEDZ" hidden="true" order="38" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="IEDZ"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="IEDZ"/>
     </attribute>
     <attribute id="MANDT$local">
       <descriptions defaultDescription="MANDT"/>
@@ -380,62 +391,61 @@
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="SMENG" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="SMENG" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Operation Quantity"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="SMENG"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_LOSS_TIME_SECONDS" order="20" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_LOSS_TIME_SECONDS" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Loss Time Seconds"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_LOSS_TIME_SECONDS"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_PRODUCCION" order="30" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_PRODUCCION" order="26" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Production"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_PRODUCCION"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_TVA" order="31" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_TVA" order="27" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="TVA"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_TVA"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_PTANOPROG" order="32" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_PTANOPROG" order="28" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Plant Out of Program"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_PTANOPROG"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_PARONOPROG" order="33" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_PARONOPROG" order="29" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Stop Out of Progam"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_PARONOPROG"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_TIEMPOPARO" order="34" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_TIEMPOPARO" order="30" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Stop Time Seconds"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_TIEMPOPARO"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_CONTADOR_TIEMPOPARO" order="35" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_CONTADOR_TIEMPOPARO" order="31" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Stop Counter"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_CONTADOR_TIEMPOPARO"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_FECHA_INICIO" order="36" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_FECHA_INICIO" order="32" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Confirmed date/time for start of execution"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_FECHA_INICIO"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_FECHA_FIN" order="37" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_FECHA_FIN" order="33" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Confirmed date/time for execution finish"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_FECHA_FIN"/>
       <exceptionAggregationMetadata/>
     </measure>
-    <measure id="CC_MERMA" order="38" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="CC_MERMA" order="34" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Scrap to Be Confirmed"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CC_MERMA"/>
       <exceptionAggregationMetadata/>
-    </measure>
-  </baseMeasures>
+    </measure></baseMeasures>
   <calculatedMeasures/>
   <restrictedMeasures/>
   <localDimensions/>
@@ -537,11 +547,13 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="40" y="85"/>
+      <upperLeftCorner x="90" y="105"/>
+    
+      <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="475"/>
+      <upperLeftCorner x="90" y="475"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
