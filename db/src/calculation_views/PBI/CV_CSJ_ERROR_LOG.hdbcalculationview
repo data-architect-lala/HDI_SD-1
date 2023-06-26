@@ -4,7 +4,7 @@
 <localVariables>
   <variable id="V_FECHA_INI">
     <descriptions defaultDescription="FECHA INICIO"/>
-    <variableProperties datatype="NVARCHAR" length="8" scale="null" mandatory="true">
+    <variableProperties datatype="NVARCHAR" length="8" scale="NaN" mandatory="true">
       <valueDomain type="AttributeValue">
         <attribute name="FECHA"/>
       </valueDomain>
@@ -24,7 +24,7 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
     <viewAttributes>
       <viewAttribute id="FECHA"/>
       <viewAttribute id="CLI_AGRUPADOR"/>
@@ -41,7 +41,7 @@
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="GVM_ZSDT113_LOG"/></calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="SQL">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
     <viewAttributes>
       <viewAttribute id="PED_FREG"/>
       <viewAttribute id="CLI_AGRUPADOR"/>
@@ -148,26 +148,26 @@ END</formula>
 </calculationViews>
 <logicalModel id="Aggregation_1">
   <attributes>
-    <attribute id="CED_CLAVE" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CEDIS"/>
-      <keyMapping columnObjectName="Aggregation_1" columnName="CED_CLAVE"/>
-    </attribute>
-    <attribute id="FECHA" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="FECHA" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="FECHA"/>
       <localVariable>V_FECHA_INI</localVariable>
       <keyMapping columnObjectName="Aggregation_1" columnName="FECHA"/>
     </attribute>
-    <attribute id="CLI_AGRUPADOR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CLI_AGRUPADOR" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Customer Cluster"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="CLI_AGRUPADOR"/>
     </attribute>
-    <attribute id="MSGNO" order="4" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="MSGNO" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Message  Number"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="MSGNO"/>
     </attribute>
-    <attribute id="MAT_CLAVE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="MAT_CLAVE" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="SKU"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="MAT_CLAVE"/>
+    </attribute>
+    <attribute id="CED_CLAVE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CEDIS"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CED_CLAVE"/>
     </attribute>
     <attribute id="PED_FOLIO" order="6" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Order Number"/>
@@ -184,10 +184,6 @@ END</formula>
     <attribute id="SUC_CLAVE" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Branch Number"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="SUC_CLAVE"/>
-    </attribute>
-    <attribute id="FUM" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="FUM"/>
-      <keyMapping columnObjectName="Aggregation_1" columnName="FUM"/>
     </attribute>
     <attribute id="PED_TIPO" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="PED_TIPO"/>
@@ -233,6 +229,12 @@ END</formula>
       <descriptions defaultDescription="Error Order Quantity"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CANTIDAD"/>
     
+      <exceptionAggregationMetadata/>
+    </measure>
+  
+    <measure id="FUM" order="14" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FUM"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="FUM"/>
       <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
