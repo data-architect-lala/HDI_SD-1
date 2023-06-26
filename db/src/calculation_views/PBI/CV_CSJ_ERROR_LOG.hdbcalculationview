@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_ERROR_LOG" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CV_CSJ_ERROR_LOG.hdbcalculationview"/>
-<localVariables/>
+<localVariables>
+  <variable id="V_FECHA_INI">
+    <descriptions defaultDescription="FECHA INICIO"/>
+    <variableProperties datatype="NVARCHAR" length="8" scale="null" mandatory="true">
+      <valueDomain type="AttributeValue">
+        <attribute name="FECHA"/>
+      </valueDomain>
+      <selection type="Range"/>
+      <defaultRange operator="GT" including="true"/>
+    </variableProperties>
+  </variable>
+</localVariables>
 <variableMappings/>
 <dataSources>
   <DataSource id="GVM_ZSDT113_LOG">
@@ -29,10 +40,7 @@
       <viewAttribute id="CLI_CLAVE"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="GVM_ZSDT113_LOG"/>
-  
-    <filter>&quot;FECHA&quot; &gt;= TO_NVARCHAR(ADD_DAYS(CURRENT_DATE, -365),'YYYYMMDD')</filter>
-  </calculationView>
+    <input node="GVM_ZSDT113_LOG"/></calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="PED_FREG"/>
@@ -63,10 +71,7 @@ ELSE 0
 END</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="GVM_ZSDT113_C"/>
-  
-    <filter>&quot;PED_FREG&quot; &gt;= TO_NVARCHAR(ADD_DAYS(CURRENT_DATE, -365),'YYYYMMDD')</filter>
-  </calculationView>
+    <input node="GVM_ZSDT113_C"/></calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="Union_1">
     <viewAttributes>
       <viewAttribute id="FECHA"/>
@@ -149,6 +154,7 @@ END</formula>
     </attribute>
     <attribute id="FECHA" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="FECHA"/>
+      <localVariable>V_FECHA_INI</localVariable>
       <keyMapping columnObjectName="Aggregation_1" columnName="FECHA"/>
     </attribute>
     <attribute id="CLI_AGRUPADOR" order="3" displayAttribute="false" attributeHierarchyActive="false">
@@ -331,7 +337,7 @@ END</formula>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="222" y="416"/>
+      <upperLeftCorner x="222" y="414"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
