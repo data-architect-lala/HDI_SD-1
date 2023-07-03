@@ -89,7 +89,7 @@
   <calculatedMeasures/>
   <restrictedMeasures/>
 
-  <filter>'$$IP_FECHA$$' &gt;= &quot;FECHA_DOC&quot;</filter>
+  <filter>&quot;FECHA_DOC&quot; &gt;= '$$IP_FECHA$$'</filter>
 </logicalModel>
 <layout>
   <shapes>
