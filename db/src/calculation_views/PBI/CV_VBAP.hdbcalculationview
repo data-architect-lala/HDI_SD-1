@@ -68,60 +68,83 @@
       <descriptions defaultDescription="ROUTE"/>
       <keyMapping columnObjectName="GV_VBAP" columnName="ROUTE"/>
     </attribute>
-    <attribute id="ERDAT" order="22" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ERDAT"/>
+    <attribute id="ERDAT_1" order="22" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="ERDAT_1"/>
       <keyMapping columnObjectName="GV_VBAP" columnName="ERDAT"/>
     </attribute>
-    <attribute id="PRCTR" order="23" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="PRCTR" order="24" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="PRCTR"/>
       <keyMapping columnObjectName="GV_VBAP" columnName="PRCTR"/>
     </attribute>
-    <attribute id="PCTRF" order="25" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="PCTRF" order="26" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="PCTRF"/>
       <keyMapping columnObjectName="GV_VBAP" columnName="PCTRF"/>
     </attribute>
-    <attribute id="OPERACION" order="26" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="OPERACION" order="27" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="OPERACION"/>
       <keyMapping columnObjectName="GV_VBAP" columnName="OPERACION"/>
     </attribute>
-    <attribute id="AUART" order="27" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="AUART" order="28" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="AUART"/>
       <keyMapping columnObjectName="GV_VBAP" columnName="AUART"/>
     </attribute>
   </attributes>
-  <calculatedAttributes/>
+  <calculatedAttributes>
+    <calculatedAttribute id="ERDAT" order="23" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ERDAT"/>
+      <keyCalculation datatype="DATE" expressionLanguage="SQL">
+        <formula>TO_DATE(&quot;ERDAT_1&quot;)</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+  </calculatedAttributes>
   <baseMeasures>
     <measure id="KBVER" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="KBVER"/>
       <measureMapping columnObjectName="GV_VBAP" columnName="KBVER"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="KEVER" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="KEVER"/>
       <measureMapping columnObjectName="GV_VBAP" columnName="KEVER"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="NETWR" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="NETWR"/>
       <measureMapping columnObjectName="GV_VBAP" columnName="NETWR"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="KWMENG" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="KWMENG"/>
       <measureMapping columnObjectName="GV_VBAP" columnName="KWMENG"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="LSMENG" order="14" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="LSMENG"/>
       <measureMapping columnObjectName="GV_VBAP" columnName="LSMENG"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="KBMENG" order="15" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="KBMENG"/>
       <measureMapping columnObjectName="GV_VBAP" columnName="KBMENG"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="KLMENG" order="16" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="KLMENG"/>
       <measureMapping columnObjectName="GV_VBAP" columnName="KLMENG"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="MWSBP" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="MWSBP" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="MWSBP"/>
       <measureMapping columnObjectName="GV_VBAP" columnName="MWSBP"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
