@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_ERROR_LOG" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CV_CSJ_ERROR_LOG.hdbcalculationview"/>
-<localVariables>
-  <variable id="V_FECHA_INI">
-    <descriptions defaultDescription="FECHA INICIO"/>
-    <variableProperties datatype="NVARCHAR" length="8" scale="NaN" mandatory="true">
-      <valueDomain type="AttributeValue">
-        <attribute name="FECHA"/>
-      </valueDomain>
-      <selection type="Range"/>
-      <defaultRange operator="GT" including="true"/>
-    </variableProperties>
-  </variable>
-</localVariables>
+<localVariables/>
 <variableMappings/>
 <dataSources>
   <DataSource id="GVM_ZSDT113_LOG">
@@ -24,7 +13,7 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="FECHA"/>
       <viewAttribute id="CLI_AGRUPADOR"/>
@@ -40,8 +29,11 @@
       <viewAttribute id="CLI_CLAVE"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="GVM_ZSDT113_LOG"/></calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <input node="GVM_ZSDT113_LOG"/>
+  
+    <filter>&quot;FECHA&quot; &gt;= TO_NVARCHAR(ADD_DAYS(CURRENT_DATE, -365),'YYYYMMDD')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="PED_FREG"/>
       <viewAttribute id="CLI_AGRUPADOR"/>
@@ -71,7 +63,10 @@ ELSE 0
 END</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <input node="GVM_ZSDT113_C"/></calculationView>
+    <input node="GVM_ZSDT113_C"/>
+  
+    <filter>&quot;PED_FREG&quot; &gt;= TO_NVARCHAR(ADD_DAYS(CURRENT_DATE, -365),'YYYYMMDD')</filter>
+  </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="Union_1">
     <viewAttributes>
       <viewAttribute id="FECHA"/>
@@ -148,26 +143,25 @@ END</formula>
 </calculationViews>
 <logicalModel id="Aggregation_1">
   <attributes>
-    <attribute id="FECHA" order="1" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CED_CLAVE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CEDIS"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="CED_CLAVE"/>
+    </attribute>
+    <attribute id="FECHA" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="FECHA"/>
-      <localVariable>V_FECHA_INI</localVariable>
       <keyMapping columnObjectName="Aggregation_1" columnName="FECHA"/>
     </attribute>
-    <attribute id="CLI_AGRUPADOR" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CLI_AGRUPADOR" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Customer Cluster"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="CLI_AGRUPADOR"/>
     </attribute>
-    <attribute id="MSGNO" order="3" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="MSGNO" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Message  Number"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="MSGNO"/>
     </attribute>
-    <attribute id="MAT_CLAVE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="MAT_CLAVE" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="SKU"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="MAT_CLAVE"/>
-    </attribute>
-    <attribute id="CED_CLAVE" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CEDIS"/>
-      <keyMapping columnObjectName="Aggregation_1" columnName="CED_CLAVE"/>
     </attribute>
     <attribute id="PED_FOLIO" order="6" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Order Number"/>
@@ -184,6 +178,10 @@ END</formula>
     <attribute id="SUC_CLAVE" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Branch Number"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="SUC_CLAVE"/>
+    </attribute>
+    <attribute id="FUM" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FUM"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="FUM"/>
     </attribute>
     <attribute id="PED_TIPO" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="PED_TIPO"/>
@@ -229,12 +227,6 @@ END</formula>
       <descriptions defaultDescription="Error Order Quantity"/>
       <measureMapping columnObjectName="Aggregation_1" columnName="CANTIDAD"/>
     
-      <exceptionAggregationMetadata/>
-    </measure>
-  
-    <measure id="FUM" order="14" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
-      <descriptions defaultDescription="FUM"/>
-      <measureMapping columnObjectName="Aggregation_1" columnName="FUM"/>
       <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
@@ -339,7 +331,7 @@ END</formula>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="222" y="414"/>
+      <upperLeftCorner x="222" y="416"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
