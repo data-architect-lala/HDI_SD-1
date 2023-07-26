@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="VTH_VBAK_ERDAT_HOY" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="VTH_VBAK_ERDAT_HOY.hdbcalculationview"/>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="VTH_VBAK_ERDAT_HOY_1AM" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="VTH_VBAK_ERDAT_HOY_1AM.hdbcalculationview"/>
 <localVariables>
   <variable id="IP_DATE" parameter="true">
     <descriptions defaultDescription=""/>
@@ -8,7 +8,7 @@
       <valueDomain type="empty"/>
       <selection multiLine="false" type="SingleValue"/>
       <derivationRule>
-        <resourceUri>current_date-1</resourceUri>
+        <resourceUri>current_date</resourceUri>
       </derivationRule>
     </variableProperties>
   </variable>
