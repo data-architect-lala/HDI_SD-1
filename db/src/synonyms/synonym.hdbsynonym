@@ -430,5 +430,41 @@
         "object": "GVM_DMA_WORK_CENTER",
         "schema": "SPS_SD"
       }      
+    },
+    "GVM_COMBUSTIBLE": {
+        "target": {
+            "object": "GVM_COMBUSTIBLE",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_EQUIEQUZILOA": {
+        "target": {
+            "object": "GVM_EQUIEQUZILOA",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_AUFK": {
+        "target": {
+            "object": "GVM_AUFK",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_COEP_EXT": {
+        "target": {
+            "object": "GVM_COEP_EXT",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_AFIH": {
+        "target": {
+            "object": "GVM_AFIH",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_CSKS_CSKT": {
+        "target": {
+            "object": "GVM_CSKS_CSKT",
+            "schema": "SPS_SD"
+        }
     }
   }
