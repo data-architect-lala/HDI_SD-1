@@ -356,6 +356,36 @@
                "type": "SYNONYM",
                "name":"GVM_DMA_WORK_CENTER",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_COMBUSTIBLE",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_EQUIEQUZILOA",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_AUFK",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_COEP_EXT",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_AFIH",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_CSKS_CSKT",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

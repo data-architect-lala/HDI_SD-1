@@ -126,6 +126,11 @@
                "type": "VIEW",
                "name":"CV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_MTOCOM",
+               "privileges": ["SELECT"]
             }
          ]
     }
