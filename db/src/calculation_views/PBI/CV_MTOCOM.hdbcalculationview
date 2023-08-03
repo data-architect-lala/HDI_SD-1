@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_MTOCOM" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_MTOCOM.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_COMBUSTIBLE">
+    <resourceUri>GVM_COMBUSTIBLE</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_EQUIEQUZILOA">
+    <resourceUri>GVM_EQUIEQUZILOA</resourceUri>
+  </DataSource>
+  <DataSource id="KM$$$$GVM_COMBUSTIBLE$$">
+    <resourceUri>GVM_COMBUSTIBLE</resourceUri>
+  </DataSource>
+  <DataSource id="T_COMBUSTIBLE$$$$GVM_COMBUSTIBLE$$">
+    <resourceUri>GVM_COMBUSTIBLE</resourceUri>
+  </DataSource>
+  <DataSource id="C_COMBUSTIBLE$$$$GVM_COMBUSTIBLE$$">
+    <resourceUri>GVM_COMBUSTIBLE</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_AUFK">
+    <resourceUri>GVM_AUFK</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_COEP_EXT">
+    <resourceUri>GVM_COEP_EXT</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_AFIH">
+    <resourceUri>GVM_AFIH</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_CSKS_CSKT">
+    <resourceUri>GVM_CSKS_CSKT</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Combustible">
+    <viewAttributes>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="Equipo"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Ejercicio" datatype="NVARCHAR" length="4" expressionLanguage="SQL">
+        <formula>substring(&quot;F_COMBUSTIBLE&quot;,0,4)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Mes" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>substring(&quot;F_COMBUSTIBLE&quot;,5,2)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="DIVISION" datatype="NVARCHAR" length="4" expressionLanguage="SQL">
+        <formula>''</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="TIPO_MONEDA" datatype="NVARCHAR" length="5" expressionLanguage="SQL">
+        <formula>''</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="I_GASTO" datatype="DECIMAL" length="15" scale="2" expressionLanguage="SQL">
+        <formula>0.0</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CECO" datatype="NVARCHAR" length="22" expressionLanguage="SQL">
+        <formula>''</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="ORDEN" datatype="NVARCHAR" length="22" expressionLanguage="SQL">
+        <formula>''</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="DESCRIPCION" datatype="NVARCHAR" length="40" expressionLanguage="SQL">
+        <formula>''</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_COMBUSTIBLE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="IDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="EQUNR"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="EQUNR"/>
+      <viewAttribute id="EQTYP"/>
+      <viewAttribute id="ANIOMES"/>
+      <viewAttribute id="EQKTX"/>
+      <viewAttribute id="EQUNR2"/>
+      <viewAttribute id="DATBI"/>
+      <viewAttribute id="ILOAN2"/>
+      <viewAttribute id="CENTRO"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="GSBER"/>
+      <viewAttribute id="KOSTL"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ILOAN"/>
+      <viewAttribute id="EQKTU"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_EQUIEQUZILOA">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CENTRO" source="SWERK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="MSGRP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="BUKRS"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="KM" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="EQUNR"/>
+      <viewAttribute id="ATNAM"/>
+      <viewAttribute id="KM"/>
+      <viewAttribute id="DIFERENCIA"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute id="IDATE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="KM$$$$GVM_COMBUSTIBLE$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="CC_READG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="CC_CDIF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="INDCT"/>
+    </input>
+    <filter>&quot;ATNAM&quot; IN ('KILOMETRAJE','KILOMETRAJE SETYLSA')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="T_COMBUSTIBLE" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="T_COMBUSTIBLE"/>
+      <viewAttribute id="COMBUSTIBLE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="T_COMBUSTIBLE$$$$GVM_COMBUSTIBLE$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="IDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="EQUNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="ATNAM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="CC_READG"/>
+    </input>
+    <filter>&quot;T_COMBUSTIBLE&quot; IN ('GASOLINA','DIESEL','GAS','DIESEL_US','GAS_US')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="C_COMBUSTIBLE" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="IDATE"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="ATNAM"/>
+      <viewAttribute id="C_COMBUSTIBLE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="C_COMBUSTIBLE$$$$GVM_COMBUSTIBLE$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="EQUNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="CC_READG"/>
+    </input>
+    <filter>&quot;ATNAM&quot; IN ('COSTO_COMBUSTIBLE')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="AUFK">
+    <viewAttributes>
+      <viewAttribute id="AUFNR"/>
+      <viewAttribute id="DESCRIPCION"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_AUFK">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="KTEXT"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="COEP_EXT" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="Periodo"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="VRGNG"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ORDERN_UNION" datatype="NVARCHAR" length="22" expressionLanguage="SQL">
+        <formula>REPLACE(&quot;ORDEN&quot;,'OR','')</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="OBJNR_UNION" datatype="NVARCHAR" length="22" expressionLanguage="SQL">
+        <formula>REPLACE(REPLACE(&quot;CECO&quot;,'KSLALA',''),'KLLALA','')</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="F_COMBUSTIBLE" datatype="NVARCHAR" length="8" expressionLanguage="SQL">
+        <formula>''</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="KM" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>0</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="DIFERENCIA" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>0</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="O_cambio" datatype="NVARCHAR" length="1" expressionLanguage="SQL">
+        <formula>''</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="T_COMBUSTIBLE" datatype="NVARCHAR" length="30" expressionLanguage="SQL">
+        <formula>''</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="COMBUSTIBLE" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>0</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="C_COMBUSTIBLE" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>0</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Mes" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>substring(&quot;Periodo&quot;,2,2)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_COEP_EXT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="GJAHR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Periodo" source="PERIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="GSBER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="OWAER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="WOGBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="OBJNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="PAROB1"/>
+    </input>
+    <filter>&quot;VRGNG&quot; = 'KOAO'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="AFIH">
+    <viewAttributes>
+      <viewAttribute id="AUFNR"/>
+      <viewAttribute id="Equipo"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_AFIH">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="EQUNR"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CSKS" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="KOSTL"/>
+      <viewAttribute id="DATBI"/>
+      <viewAttribute id="ABTEI"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_CSKS_CSKT"/>
+    <filter>&quot;DATBI&quot;='99991231'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="DESCRIPCION"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ANIOMES" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+        <formula>CONCAT(&quot;Ejercicio&quot;, &quot;Mes&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="Combustible"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Descripcion" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="GJAHR"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="ORDERN_UNION"/>
+      <viewAttribute id="OBJNR_UNION"/>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="KM" aggregationType="sum"/>
+      <viewAttribute id="DIFERENCIA" aggregationType="sum"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute id="T_COMBUSTIBLE"/>
+      <viewAttribute id="COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="C_COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute hidden="true" id="JOIN$ORDERN_UNION$AUFNR"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="COEP_EXT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="GJAHR" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDERN_UNION" source="ORDERN_UNION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR_UNION" source="OBJNR_UNION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="T_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="C_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ORDERN_UNION$AUFNR" source="ORDERN_UNION"/>
+    </input>
+    <input node="AUFK">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ORDERN_UNION$AUFNR" source="AUFNR"/>
+    </input>
+    <joinAttribute name="JOIN$ORDERN_UNION$AUFNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="CENTRO"/>
+      <viewAttribute hidden="true" id="JOIN$Equipo$EQUNR"/>
+      <viewAttribute hidden="true" id="JOIN$ANIOMES$ANIOMES"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Aggregation_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$EQUNR" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ANIOMES$ANIOMES" source="ANIOMES"/>
+    </input>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CENTRO" source="CENTRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$EQUNR" source="EQUNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ANIOMES$ANIOMES" source="ANIOMES"/>
+    </input>
+    <joinAttribute name="JOIN$Equipo$EQUNR"/>
+    <joinAttribute name="JOIN$ANIOMES$ANIOMES"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Equipo" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="OBJNR_UNION"/>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="KM" aggregationType="sum"/>
+      <viewAttribute id="DIFERENCIA" aggregationType="sum"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute id="T_COMBUSTIBLE"/>
+      <viewAttribute id="COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="C_COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute hidden="true" id="JOIN$ORDERN_UNION$AUFNR"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ANIOMES" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+        <formula>CONCAT(&quot;Ejercicio&quot;, &quot;Mes&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Descripcion">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="GJAHR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR_UNION" source="OBJNR_UNION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="T_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="C_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ORDERN_UNION$AUFNR" source="ORDERN_UNION"/>
+    </input>
+    <input node="AFIH">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ORDERN_UNION$AUFNR" source="AUFNR"/>
+    </input>
+    <joinAttribute name="JOIN$ORDERN_UNION$AUFNR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="CENTRO"/>
+      <viewAttribute id="KM" aggregationType="sum"/>
+      <viewAttribute id="DIFERENCIA" aggregationType="sum"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute hidden="true" id="JOIN$Equipo$EQUNR"/>
+      <viewAttribute hidden="true" id="JOIN$F_COMBUSTIBLE$IDATE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CENTRO" source="CENTRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$EQUNR" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$F_COMBUSTIBLE$IDATE" source="F_COMBUSTIBLE"/>
+    </input>
+    <input node="KM">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$EQUNR" source="EQUNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$F_COMBUSTIBLE$IDATE" source="IDATE"/>
+    </input>
+    <joinAttribute name="JOIN$Equipo$EQUNR"/>
+    <joinAttribute name="JOIN$F_COMBUSTIBLE$IDATE"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="ID_RUTA" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="OBJNR_UNION"/>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="KM" aggregationType="sum"/>
+      <viewAttribute id="DIFERENCIA" aggregationType="sum"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute id="T_COMBUSTIBLE"/>
+      <viewAttribute id="COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="C_COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute hidden="true" id="JOIN$Equipo$EQUNR"/>
+      <viewAttribute hidden="true" id="JOIN$ANIOMES$ANIOMES"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Equipo">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJNR_UNION" source="OBJNR_UNION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="T_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="C_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$EQUNR" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ANIOMES$ANIOMES" source="ANIOMES"/>
+    </input>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$EQUNR" source="EQUNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ANIOMES$ANIOMES" source="ANIOMES"/>
+    </input>
+    <joinAttribute name="JOIN$Equipo$EQUNR"/>
+    <joinAttribute name="JOIN$ANIOMES$ANIOMES"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="CENTRO"/>
+      <viewAttribute id="KM" aggregationType="sum"/>
+      <viewAttribute id="DIFERENCIA" aggregationType="sum"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute id="T_COMBUSTIBLE"/>
+      <viewAttribute id="COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$F_COMBUSTIBLE$F_COMBUSTIBLE"/>
+      <viewAttribute hidden="true" id="JOIN$Equipo$Equipo"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CENTRO" source="CENTRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$F_COMBUSTIBLE$F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$Equipo" source="Equipo"/>
+    </input>
+    <input node="T_COMBUSTIBLE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="T_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$F_COMBUSTIBLE$F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$Equipo" source="Equipo"/>
+    </input>
+    <joinAttribute name="JOIN$F_COMBUSTIBLE$F_COMBUSTIBLE"/>
+    <joinAttribute name="JOIN$Equipo$Equipo"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="CENTRO" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="BUKRS"/>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="KM" aggregationType="sum"/>
+      <viewAttribute id="DIFERENCIA" aggregationType="sum"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute id="T_COMBUSTIBLE"/>
+      <viewAttribute id="COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="C_COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="CENTRO"/>
+      <viewAttribute hidden="true" id="JOIN$OBJNR_UNION$KOSTL"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="ID_RUTA">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BUKRS" source="BUKRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="T_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="C_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$OBJNR_UNION$KOSTL" source="OBJNR_UNION"/>
+    </input>
+    <input node="CSKS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CENTRO" source="ABTEI"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$OBJNR_UNION$KOSTL" source="KOSTL"/>
+    </input>
+    <joinAttribute name="JOIN$OBJNR_UNION$KOSTL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_4" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="CENTRO"/>
+      <viewAttribute id="KM" aggregationType="sum"/>
+      <viewAttribute id="DIFERENCIA" aggregationType="sum"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute id="T_COMBUSTIBLE"/>
+      <viewAttribute id="COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="C_COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$F_COMBUSTIBLE$IDATE"/>
+      <viewAttribute hidden="true" id="JOIN$Equipo$Equipo"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CENTRO" source="CENTRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="T_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$F_COMBUSTIBLE$IDATE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$Equipo" source="Equipo"/>
+    </input>
+    <input node="C_COMBUSTIBLE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="C_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$F_COMBUSTIBLE$IDATE" source="IDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$Equipo$Equipo" source="Equipo"/>
+    </input>
+    <joinAttribute name="JOIN$F_COMBUSTIBLE$IDATE"/>
+    <joinAttribute name="JOIN$Equipo$Equipo"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="DIVISION"/>
+      <viewAttribute id="TIPO_MONEDA"/>
+      <viewAttribute id="I_GASTO" aggregationType="sum"/>
+      <viewAttribute id="CECO"/>
+      <viewAttribute id="ORDEN"/>
+      <viewAttribute id="F_COMBUSTIBLE"/>
+      <viewAttribute id="KM" aggregationType="sum"/>
+      <viewAttribute id="DIFERENCIA" aggregationType="sum"/>
+      <viewAttribute id="O_cambio"/>
+      <viewAttribute id="T_COMBUSTIBLE"/>
+      <viewAttribute id="COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="C_COMBUSTIBLE" aggregationType="sum"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="DESCRIPCION"/>
+      <viewAttribute id="Equipo"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="CENTRO"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CENTRO">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="T_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="C_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CENTRO" source="CENTRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="BUKRS"/>
+    </input>
+    <input node="Join_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Ejercicio" source="Ejercicio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIVISION" source="DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TIPO_MONEDA" source="TIPO_MONEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CECO" source="CECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDEN" source="ORDEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="F_COMBUSTIBLE" source="F_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="O_cambio" source="O_cambio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="T_COMBUSTIBLE" source="T_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="C_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Mes" source="Mes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DESCRIPCION" source="DESCRIPCION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Equipo" source="Equipo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CENTRO" source="CENTRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Union_1">
+  <attributes>
+    <attribute id="Ejercicio" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Ejercicio"/>
+      <keyMapping columnObjectName="Union_1" columnName="Ejercicio"/>
+    </attribute>
+    <attribute id="DIVISION" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Division"/>
+      <keyMapping columnObjectName="Union_1" columnName="DIVISION"/>
+    </attribute>
+    <attribute id="TIPO_MONEDA" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tipo Moneda"/>
+      <keyMapping columnObjectName="Union_1" columnName="TIPO_MONEDA"/>
+    </attribute>
+    <attribute id="CECO" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Ce.Costo"/>
+      <keyMapping columnObjectName="Union_1" columnName="CECO"/>
+    </attribute>
+    <attribute id="ORDEN" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Orden"/>
+      <keyMapping columnObjectName="Union_1" columnName="ORDEN"/>
+    </attribute>
+    <attribute id="F_COMBUSTIBLE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Fecha Combustible"/>
+      <keyMapping columnObjectName="Union_1" columnName="F_COMBUSTIBLE"/>
+    </attribute>
+    <attribute id="O_cambio" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cambio Odom"/>
+      <keyMapping columnObjectName="Union_1" columnName="O_cambio"/>
+    </attribute>
+    <attribute id="T_COMBUSTIBLE" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tipo Combustible"/>
+      <keyMapping columnObjectName="Union_1" columnName="T_COMBUSTIBLE"/>
+    </attribute>
+    <attribute id="Mes" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Mes"/>
+      <keyMapping columnObjectName="Union_1" columnName="Mes"/>
+    </attribute>
+    <attribute id="DESCRIPCION" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KTEXT"/>
+      <keyMapping columnObjectName="Union_1" columnName="DESCRIPCION"/>
+    </attribute>
+    <attribute id="Equipo" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EQUNR"/>
+      <keyMapping columnObjectName="Union_1" columnName="Equipo"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_RUTA"/>
+      <keyMapping columnObjectName="Union_1" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="CENTRO" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Centro"/>
+      <keyMapping columnObjectName="Union_1" columnName="CENTRO"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_SOCIEDAD"/>
+      <keyMapping columnObjectName="Union_1" columnName="ID_SOCIEDAD"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="I_GASTO" order="4" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Importe Gasto"/>
+      <measureMapping columnObjectName="Union_1" columnName="I_GASTO"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="KM" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="KM"/>
+      <measureMapping columnObjectName="Union_1" columnName="KM"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="DIFERENCIA" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="DIFERENCIA"/>
+      <measureMapping columnObjectName="Union_1" columnName="DIFERENCIA"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="COMBUSTIBLE" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Combustible"/>
+      <measureMapping columnObjectName="Union_1" columnName="COMBUSTIBLE"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="C_COMBUSTIBLE" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Costo Combustible"/>
+      <measureMapping columnObjectName="Union_1" columnName="C_COMBUSTIBLE"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Combustible" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-141" y="573"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-373" y="782"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-213" y="687"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="177.6845703125"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="160.572265625"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-143" y="837"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="KM" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-421" y="612"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-213" y="510"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="KM" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="T_COMBUSTIBLE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-438" y="470"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-223" y="380"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_2" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="T_COMBUSTIBLE" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="C_COMBUSTIBLE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-421" y="322"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-213" y="239"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_3" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="177.6845703125"/>
+    </shape>
+    <shape modelObjectName="C_COMBUSTIBLE" modelObjectNameSpace="Join_4" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="178.9091796875"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="200"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AUFK" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="191" y="882"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="COEP_EXT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="390" y="882"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Descripcion" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="281" y="783"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="COEP_EXT" modelObjectNameSpace="Descripcion" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="178.9091796875"/>
+    </shape>
+    <shape modelObjectName="AUFK" modelObjectNameSpace="Descripcion" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="162.3984375"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AFIH" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="467" y="729"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Equipo" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="291" y="647"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Descripcion" modelObjectNameSpace="Equipo" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="178.9091796875"/>
+    </shape>
+    <shape modelObjectName="AFIH" modelObjectNameSpace="Equipo" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="100"/>
+    </shape>
+    <shape expanded="true" modelObjectName="ID_RUTA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="106" y="563"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Equipo" modelObjectNameSpace="ID_RUTA" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="ID_RUTA" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="CSKS" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="249" y="476"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="CENTRO" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="106" y="378"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="ID_RUTA" modelObjectNameSpace="CENTRO" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="178.9091796875"/>
+    </shape>
+    <shape modelObjectName="CSKS" modelObjectNameSpace="CENTRO" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="100"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
