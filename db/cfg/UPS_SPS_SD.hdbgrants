@@ -426,6 +426,42 @@
                     "name": "GVM_DMA_WORK_CENTER",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_COMBUSTIBLE",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_EQUIEQUZILOA",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_AUFK",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_COEP_EXT",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_AFIH",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_CSKS_CSKT",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
                 }
             ]
         }
