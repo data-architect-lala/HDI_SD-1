@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="VTH_VBPA" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="VTH_VBPA.hdbcalculationview"/>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="VTH_VBPA_AEDAT" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="VTH_VBPA_AEDAT.hdbcalculationview"/>
 <localVariables>
   <variable id="IP_FECHA" parameter="true">
     <descriptions defaultDescription=""/>
@@ -133,7 +133,7 @@
   <calculatedMeasures/>
   <restrictedMeasures/>
 
-  <filter>&quot;VBAK_ERDAT&quot; = '$$IP_FECHA$$' </filter>
+  <filter>&quot;VBAK_AEDAT&quot; = '$$IP_FECHA$$' </filter>
 </logicalModel>
 <layout>
   <shapes>
