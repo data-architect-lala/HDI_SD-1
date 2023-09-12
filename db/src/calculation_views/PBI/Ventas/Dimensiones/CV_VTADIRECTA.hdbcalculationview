@@ -1254,6 +1254,8 @@ AND
       <viewAttribute id="ID_FECHAL" aggregationType="min"/>
       <viewAttribute id="COSTO_VAL" aggregationType="sum"/>
       <viewAttribute id="TXT_STCLIENTE"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_SOLD_TO$ID_SOLD_TO"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="Union_1">
@@ -1407,12 +1409,14 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="COSTO_VAL" source="COSTO_VAL"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOLD_TO$ID_SOLD_TO" source="ID_SOLD_TO"/>
     </input>
     <input node="Projection_4">
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOLD_TO$ID_SOLD_TO" source="ID_SOLD_TO"/>
     </input>
-    <joinAttribute name="ID_SOLD_TO"/>
+    <joinAttribute name="JOIN$ID_SOLD_TO$ID_SOLD_TO"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="Join_1">
@@ -1991,53 +1995,77 @@ AND
     <measure id="SUBTOT_1S" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 1"/>
       <measureMapping columnObjectName="Join_1" columnName="SUBTOT_1S"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="SUBTOT_2S" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 2"/>
       <measureMapping columnObjectName="Join_1" columnName="SUBTOT_2S"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAUMB" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta UMB"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTAUMB"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAMN" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta MN"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAKL" order="14" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta KL"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTAKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="row_count" order="18" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="row_count"/>
       <measureMapping columnObjectName="Join_1" columnName="row_count"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="DEVOLUCIONMN_C" order="140" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <measureMapping columnObjectName="Join_1" columnName="DEVOLUCIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="BONIFICACIONMN" order="141" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="BONIFICACIONMN"/>
       <measureMapping columnObjectName="Join_1" columnName="BONIFICACIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="COSTO_VAL" order="152" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Precio factura moneda estadística"/>
       <measureMapping columnObjectName="Join_1" columnName="COSTO_VAL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures>
     <measure id="C_BONIFICACIONMN" order="142" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Bonificacion MN"/>
       <formula>(ifnull(&quot;BONIFICACIONMN&quot;,0) + ifnull(&quot;SUBTOT_2S&quot;,0) )*-1</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTABRUTAMN" order="143" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta Bruta MN"/>
-      <formula>(&quot;VENTAMN&quot; + &quot;C_BONIFICACIONMN&quot; + &quot;DEVOLUCIONMN_C&quot;)</formula>
-      </measure>
+      <formula>(&quot;VENTAMN&quot; + &quot;C_BONIFICACIONMN&quot; + &quot;DEVOLUCIONMN&quot;)</formula>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="DEVOLUCIONMN" order="153" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <formula>ifnull(&quot;DEVOLUCIONMN_C&quot;,0)*-1</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>

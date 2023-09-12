@@ -649,7 +649,7 @@
       <viewAttribute id="SUBTOT_2S" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="Projection_1">
+    <input node="Projection_1" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
@@ -801,7 +801,7 @@
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BONIFICACIONMN" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
     </input>
-    <input node="Projection_2">
+    <input node="Projection_2" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
@@ -947,13 +947,13 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="COSTO_VAL" null="true" value=""/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_2S" source="SUBTOT_2S"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SUBTOT_2S" null="true"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTALG" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAKL" null="true" value=""/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
     </input>
-    <input node="Projection_3">
+    <input node="Projection_3" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_EJPERIODO" source="ID_EJPERIODO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_VARIANTEEJ" source="ID_VARIANTEEJ"/>
@@ -1099,7 +1099,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="COSTO_VAL" null="true" value=""/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_2S" source="SUBTOT_2S"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SUBTOT_2S" null="true"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTALG" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="VENTAKL" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BONIFICACIONMN" null="true" value=""/>
@@ -1259,6 +1259,8 @@
       <viewAttribute id="COSTO_VAL" aggregationType="sum"/>
       <viewAttribute id="SUBTOT_2S" aggregationType="sum"/>
       <viewAttribute id="TXT_STCLIENTE"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_SOLD_TO$ID_SOLD_TO"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="Union_1">
@@ -1412,12 +1414,14 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="COSTO_VAL" source="COSTO_VAL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_2S" source="SUBTOT_2S"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOLD_TO$ID_SOLD_TO" source="ID_SOLD_TO"/>
     </input>
     <input node="Projection_4">
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOLD_TO$ID_SOLD_TO" source="ID_SOLD_TO"/>
     </input>
-    <joinAttribute name="ID_SOLD_TO"/>
+    <joinAttribute name="JOIN$ID_SOLD_TO$ID_SOLD_TO"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="Join_1">
@@ -1458,7 +1462,7 @@
       <descriptions defaultDescription="ID Organizacion Venta"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_ORGVTA"/>
     </attribute>
-    <attribute id="LOADDATE" order="12">
+    <attribute id="LOADDATE" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="LOADDATE"/>
       <keyMapping columnObjectName="Join_1" columnName="LOADDATE"/>
     </attribute>
@@ -1490,7 +1494,7 @@
       <descriptions defaultDescription="ID Cedis/Planta"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_CEDIS"/>
     </attribute>
-    <attribute id="ID_CALTITUDE" order="21">
+    <attribute id="ID_CALTITUDE" order="21" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Altitud Cedis"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_CALTITUDE"/>
     </attribute>
@@ -1498,11 +1502,11 @@
       <descriptions defaultDescription="ID País Cedis"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_CPAIS"/>
     </attribute>
-    <attribute id="ID_CLATITUDE" order="23">
+    <attribute id="ID_CLATITUDE" order="23" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Latitud Cedis"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_CLATITUDE"/>
     </attribute>
-    <attribute id="ID_CLONGITUDE" order="24">
+    <attribute id="ID_CLONGITUDE" order="24" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Longitud Cedis"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_CLONGITUDE"/>
     </attribute>
@@ -1530,7 +1534,7 @@
       <descriptions defaultDescription="País Cedis"/>
       <keyMapping columnObjectName="Join_1" columnName="TXT_CPAIS"/>
     </attribute>
-    <attribute id="PESOBRUTO" order="31">
+    <attribute id="PESOBRUTO" order="31" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Peso Bruto"/>
       <keyMapping columnObjectName="Join_1" columnName="PESOBRUTO"/>
     </attribute>
@@ -1542,7 +1546,7 @@
       <descriptions defaultDescription="Zona Comercial Cedis Txt Brev"/>
       <keyMapping columnObjectName="Join_1" columnName="TXTM_CZONAC"/>
     </attribute>
-    <attribute id="FACTORKL" order="34">
+    <attribute id="FACTORKL" order="34" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Factor KL"/>
       <keyMapping columnObjectName="Join_1" columnName="FACTORKL"/>
     </attribute>
@@ -1594,7 +1598,7 @@
       <descriptions defaultDescription="ID Super Familia"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_SUPFAMILIA"/>
     </attribute>
-    <attribute id="FACTORLG" order="47">
+    <attribute id="FACTORLG" order="47" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Factor LG"/>
       <keyMapping columnObjectName="Join_1" columnName="FACTORLG"/>
     </attribute>
@@ -1682,11 +1686,11 @@
       <descriptions defaultDescription="Sub Tipo"/>
       <keyMapping columnObjectName="Join_1" columnName="TXT_SUBTIPO"/>
     </attribute>
-    <attribute id="ID_RSLATITUDE" order="69">
+    <attribute id="ID_RSLATITUDE" order="69" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Rs. Latitud"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_RSLATITUDE"/>
     </attribute>
-    <attribute id="ID_RSLONGITUDE" order="70">
+    <attribute id="ID_RSLONGITUDE" order="70" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Rs. Longitud"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_RSLONGITUDE"/>
     </attribute>
@@ -1814,11 +1818,11 @@
       <descriptions defaultDescription="Rs. País"/>
       <keyMapping columnObjectName="Join_1" columnName="TXT_RSPAIS"/>
     </attribute>
-    <attribute id="ID_SUCLATITUDE" order="102">
+    <attribute id="ID_SUCLATITUDE" order="102" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Suc. Latitud"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_SUCLATITUDE"/>
     </attribute>
-    <attribute id="ID_SUCLONGITUDE" order="103">
+    <attribute id="ID_SUCLONGITUDE" order="103" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Suc. Longitud"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_SUCLONGITUDE"/>
     </attribute>
@@ -1982,7 +1986,7 @@
       <descriptions defaultDescription="ID Año/Semana"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_ANIOSEMANA"/>
     </attribute>
-    <attribute id="ID_FECHAL" order="149">
+    <attribute id="ID_FECHAL" order="149" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ID Fecha Larga"/>
       <keyMapping columnObjectName="Join_1" columnName="ID_FECHAL"/>
     </attribute>
@@ -1996,53 +2000,77 @@
     <measure id="VENTAUMB" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta UMB"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTAUMB"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAMN" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta MN"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="row_count" order="15" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="row_count"/>
       <measureMapping columnObjectName="Join_1" columnName="row_count"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="DEVOLUCIONMN_C" order="137" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <measureMapping columnObjectName="Join_1" columnName="DEVOLUCIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTALG" order="138" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta L/G"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTALG"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="BONIFICACIONMN_C" order="139" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Bonificación MN"/>
       <measureMapping columnObjectName="Join_1" columnName="BONIFICACIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAKL" order="141" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta KL"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTAKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="COSTO_VAL" order="150" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Precio factura moneda estadística"/>
       <measureMapping columnObjectName="Join_1" columnName="COSTO_VAL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="SUBTOT_2S" order="153" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 2"/>
       <measureMapping columnObjectName="Join_1" columnName="SUBTOT_2S"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures>
     <measure id="VENTABRUTAMN" order="140" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta Bruta MN"/>
       <formula>(&quot;VENTAMN&quot; + (&quot;SUBTOT_2S&quot;*-1))</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="BONIFICACIONMN" order="151" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Bonificación MN"/>
       <formula>IFNULL(&quot;BONIFICACIONMN_C&quot;,0)*-1</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="DEVOLUCIONMN" order="152" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <formula>IFNULL(&quot;DEVOLUCIONMN_C&quot;,0)*-1</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>
@@ -2065,12 +2093,12 @@
       <upperLeftCorner x="227" y="471"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-29" y="332"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
     <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="210" y="332"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-29" y="332"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
@@ -2079,11 +2107,11 @@
     </shape>
     <shape modelObjectName="Union_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="218.623046875"/>
+      <rectangleSize width="218"/>
     </shape>
     <shape modelObjectName="Projection_4" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="288" y="164"/>
-      <rectangleSize width="154.2666015625"/>
+      <rectangleSize width="154"/>
     </shape>
   </shapes>
 </layout>
