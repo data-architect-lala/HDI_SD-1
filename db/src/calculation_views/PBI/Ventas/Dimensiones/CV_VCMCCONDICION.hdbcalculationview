@@ -134,6 +134,8 @@ AND
       <viewAttribute id="CCONDICIONUMB" aggregationType="sum"/>
       <viewAttribute id="CCONDICIONKL" aggregationType="sum"/>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_ZSD_C15">
@@ -162,11 +164,13 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONUMB" source="CCONDICIONUMB"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONKL" source="CCONDICIONKL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_CUSTOMER">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
-    <joinAttribute name="ID_SUCURSAL"/>
+    <joinAttribute name="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_CCONSUCMAT" cardinality="C1_1" joinType="inner">
     <viewAttributes>
@@ -195,6 +199,8 @@ AND
       <viewAttribute id="CCONDICIONUMB" aggregationType="sum"/>
       <viewAttribute id="CCONDICIONKL" aggregationType="sum"/>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CCONSUC">
@@ -223,11 +229,13 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONUMB" source="CCONDICIONUMB"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CCONDICIONKL" source="CCONDICIONKL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIAL">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
-    <joinAttribute name="ID_MATERIAL"/>
+    <joinAttribute name="JOIN$ID_MATERIAL$ID_MATERIAL"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="J_CCONSUCMAT">
@@ -236,7 +244,7 @@ AND
       <descriptions defaultDescription="ID Fecha"/>
       <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_FECHA"/>
     </attribute>
-    <attribute id="ID_ANIOMES" order="2">
+    <attribute id="ID_ANIOMES" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ID Año/Mes"/>
       <keyMapping columnObjectName="J_CCONSUCMAT" columnName="ID_ANIOMES"/>
     </attribute>
@@ -323,24 +331,32 @@ AND
       <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="4">
         <formula>'VC15'</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures>
     <measure id="CCONDICIONMN" order="23" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Cla. Con. MN"/>
       <measureMapping columnObjectName="J_CCONSUCMAT" columnName="CCONDICIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="CCONDICIONUMB" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Cla. Con. UMB"/>
       <measureMapping columnObjectName="J_CCONSUCMAT" columnName="CCONDICIONUMB"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="CCONDICIONKL" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Cla. Con. KL"/>
       <measureMapping columnObjectName="J_CCONSUCMAT" columnName="CCONDICIONKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="LOADDATE" order="26" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="LOADDATE"/>
       <measureMapping columnObjectName="J_CCONSUCMAT" columnName="LOADDATE"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -350,46 +366,46 @@ AND
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="328.6900820831794" y="112"/>
+      <upperLeftCorner x="328" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_ZSD_C15" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="501.9999976158142"/>
+      <upperLeftCorner x="92" y="501"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_CUSTOMER" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="501.9999976158142"/>
+      <upperLeftCorner x="302" y="501"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MATERIAL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="395" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_CCONSUC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="118.66666666666666" y="360.3333321412405"/>
+      <upperLeftCorner x="118" y="360"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_ZSD_C15" modelObjectNameSpace="J_CCONSUC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="181.96533203125"/>
+      <rectangleSize width="181"/>
     </shape>
     <shape modelObjectName="P_CUSTOMER" modelObjectNameSpace="J_CCONSUC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="185.623046875"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_MATERIAL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="395.83468516943316" y="356.9999988079071"/>
-      <rectangleSize height="30" width="160"/>
+      <rectangleSize width="185"/>
     </shape>
     <shape expanded="true" modelObjectName="J_CCONSUCMAT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="328.6900820831794" y="217"/>
+      <upperLeftCorner x="328" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_CCONSUC" modelObjectNameSpace="J_CCONSUCMAT" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="181.96533203125"/>
+      <rectangleSize width="181"/>
     </shape>
     <shape modelObjectName="P_MATERIAL" modelObjectNameSpace="J_CCONSUCMAT" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="167.91455078125"/>
+      <rectangleSize width="167"/>
     </shape>
   </shapes>
 </layout>

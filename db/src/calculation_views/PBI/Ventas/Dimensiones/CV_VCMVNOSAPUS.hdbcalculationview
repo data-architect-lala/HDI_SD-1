@@ -281,6 +281,8 @@ AND
       <viewAttribute id="ID_MATLTYPE"/>
       <viewAttribute id="FACTORKL" aggregationType="sum"/>
       <viewAttribute id="FACTORLG" aggregationType="sum"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_ZSD_C03NSB">
@@ -309,14 +311,16 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIALB">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
-    <joinAttribute name="ID_MATERIAL"/>
+    <joinAttribute name="JOIN$ID_MATERIAL$ID_MATERIAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_VNSMAT" cardinality="C1_1" joinType="inner">
     <viewAttributes>
@@ -349,6 +353,8 @@ AND
       <viewAttribute id="ID_MATLTYPE"/>
       <viewAttribute id="FACTORKL" aggregationType="sum"/>
       <viewAttribute id="FACTORLG" aggregationType="sum"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_ZSD_C03NS">
@@ -378,14 +384,16 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="VENTAUMB"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIAL">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
-    <joinAttribute name="ID_MATERIAL"/>
+    <joinAttribute name="JOIN$ID_MATERIAL$ID_MATERIAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_VNSMATD" cardinality="C1_1" joinType="inner">
     <viewAttributes>
@@ -417,6 +425,8 @@ AND
       <viewAttribute id="ID_MATLTYPE"/>
       <viewAttribute id="FACTORKL" aggregationType="sum"/>
       <viewAttribute id="FACTORLG" aggregationType="sum"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_ZSD_C03NSD">
@@ -445,14 +455,16 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIALD">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATLTYPE" source="ID_MATLTYPE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FACTORKL" source="FACTORKL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="FACTORLG" source="FACTORLG"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
-    <joinAttribute name="ID_MATERIAL"/>
+    <joinAttribute name="JOIN$ID_MATERIAL$ID_MATERIAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="U_VTANSUS">
     <viewAttributes>
@@ -703,51 +715,76 @@ AND
       <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="4">
         <formula>'VNOS'</formula>
       </keyCalculation>
-    </calculatedAttribute>
+      </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures>
     <measure id="VENTAUMB" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta UMB"/>
       <measureMapping columnObjectName="U_VTANSUS" columnName="VENTAUMB"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAMN" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta MN"/>
       <measureMapping columnObjectName="U_VTANSUS" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="LOADDATE" order="26" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="LOADDATE"/>
       <measureMapping columnObjectName="U_VTANSUS" columnName="LOADDATE"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="BONIFICACIONMN" order="30" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="BONIFICACIONMN"/>
       <measureMapping columnObjectName="U_VTANSUS" columnName="BONIFICACIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="DEVOLUCIONMN" order="31" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="DEVOLUCIONMN"/>
       <measureMapping columnObjectName="U_VTANSUS" columnName="DEVOLUCIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures>
     <measure id="VENTAKL" order="33" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Vneta KL"/>
       <formula>&quot;VENTAUMB&quot; * &quot;FACTORKL&quot;</formula>
-      </measure>
+      
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTALG" order="34" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta L/G"/>
       <formula>(&quot;VENTAUMB&quot; * &quot;FACTORLG&quot;)</formula>
-      </measure>
+      
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="C_BONIFICACIONMN" order="35" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Bonificación MN"/>
       <formula>(&quot;BONIFICACIONMN&quot; * -1)</formula>
-      </measure>
+      
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="C_DEVOLUCIONMN" order="36" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <formula>(&quot;DEVOLUCIONMN&quot; * -1)</formula>
-      </measure>
+      
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTABRUTAMN" order="37" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta Bruta MN"/>
-      <formula>(&quot;VENTAMN&quot; + &quot;C_BONIFICACIONMN&quot; + &quot;C_DEVOLUCIONMN&quot;)</formula>
-      </measure>
+      <formula>(&quot;VENTAMN&quot; + IFNULL(&quot;C_BONIFICACIONMN&quot;,0) + IFNULL(&quot;C_DEVOLUCIONMN&quot;,0))</formula>
+      
+      
+      <exceptionAggregationMetadata/>
+    </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>

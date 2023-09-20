@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VENTACMARCA_FLT" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_VENTACMARCA_FLT.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_VENTACMARCA">
+    <resourceUri>CV_VENTACMARCA</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_CLIENTE"/>
+      <viewAttribute id="ID_CANDIST"/>
+      <viewAttribute id="ID_CREGION"/>
+      <viewAttribute id="ID_CZONAC"/>
+      <viewAttribute id="ID_FAMILIA"/>
+      <viewAttribute id="ID_FAMYLIN"/>
+      <viewAttribute id="ID_MARCA"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_SUBMARCA"/>
+      <viewAttribute id="ID_SUPCAN"/>
+      <viewAttribute id="ID_TIPOENT"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="ID_ORGVTA"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="TXT_CLIENTE"/>
+      <viewAttribute id="TXT_CANDIST"/>
+      <viewAttribute id="TXT_CREGION"/>
+      <viewAttribute id="TXTM_CZONAC"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="TXT_MARCA"/>
+      <viewAttribute id="TXT_MATERIAL"/>
+      <viewAttribute id="TXT_SUBMARCA"/>
+      <viewAttribute id="TXT_SUPCAN"/>
+      <viewAttribute id="TXT_TIPOENT"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_VENTACMARCA">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLIENTE" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CANDIST" source="ID_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CLIENTE" source="TXT_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CANDIST" source="TXT_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUPCAN" source="TXT_SUCSUPCAN"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="ID_ANIOMES" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Año/Mes"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis/Planta"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_CLIENTE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sucursal"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_CLIENTE"/>
+    </attribute>
+    <attribute id="ID_CANDIST" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Canal Distribución"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_CANDIST"/>
+    </attribute>
+    <attribute id="ID_CREGION" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Región Cedis"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_CREGION"/>
+    </attribute>
+    <attribute id="ID_CZONAC" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Zona Comercial Cedis"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_CZONAC"/>
+    </attribute>
+    <attribute id="ID_FAMILIA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Familia"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_FAMILIA"/>
+    </attribute>
+    <attribute id="ID_FAMYLIN" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Famylin"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_FAMYLIN"/>
+    </attribute>
+    <attribute id="ID_MARCA" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Marca"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_MARCA"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_SUBMARCA" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sub Marca"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_SUBMARCA"/>
+    </attribute>
+    <attribute id="ID_SUPCAN" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Súper Canal"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_SUPCAN"/>
+    </attribute>
+    <attribute id="ID_TIPOENT" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Tipo Entrega"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_TIPOENT"/>
+    </attribute>
+    <attribute id="ID_SUCESCM" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_SUCESCM"/>
+    </attribute>
+    <attribute id="ID_ORGVTA" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Organizacion Venta"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_ORGVTA"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ruta"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sociedad"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="TXT_CEDIS" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis/Planta"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_CEDIS"/>
+    </attribute>
+    <attribute id="TXT_CLIENTE" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sucursal"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_CLIENTE"/>
+    </attribute>
+    <attribute id="TXT_CANDIST" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Canal Distribución"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_CANDIST"/>
+    </attribute>
+    <attribute id="TXT_CREGION" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Región Cedis"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_CREGION"/>
+    </attribute>
+    <attribute id="TXTM_CZONAC" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Zona Comercial Cedis Txt Brev"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXTM_CZONAC"/>
+    </attribute>
+    <attribute id="TXT_FAMILIA" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Familia"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_FAMILIA"/>
+    </attribute>
+    <attribute id="TXT_FAMYLIN" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Famylin"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_FAMYLIN"/>
+    </attribute>
+    <attribute id="TXT_MARCA" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Marca"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_MARCA"/>
+    </attribute>
+    <attribute id="TXT_MATERIAL" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_MATERIAL"/>
+    </attribute>
+    <attribute id="TXT_SUBMARCA" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sub Marca"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_SUBMARCA"/>
+    </attribute>
+    <attribute id="TXT_SUPCAN" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Súper Canal"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_SUPCAN"/>
+    </attribute>
+    <attribute id="TXT_TIPOENT" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tipo Entrega Txt"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_TIPOENT"/>
+    </attribute>
+    <attribute id="TXT_SUCESCM" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TXT_SUCESCM"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="BONIFICACIONMN" order="31" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Bonificación MN"/>
+      <measureMapping columnObjectName="Projection_1" columnName="BONIFICACIONMN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="DEVOLUCIONMN" order="32" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Devolución MN"/>
+      <measureMapping columnObjectName="Projection_1" columnName="DEVOLUCIONMN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VENTAKL" order="33" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="Projection_1" columnName="VENTAKL"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VENTAMN" order="34" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="Projection_1" columnName="VENTAMN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VENTAUMB" order="35" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta UMB"/>
+      <measureMapping columnObjectName="Projection_1" columnName="VENTAUMB"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="218"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

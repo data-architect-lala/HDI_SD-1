@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VENTACMARCA_BLP" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_VENTACMARCA_BLP.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_VENTACMARCA">
+    <resourceUri>CV_VENTACMARCA</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_TVARVC">
+    <resourceUri>GVM_TVARVC</resourceUri>
+  </DataSource>
+  <DataSource id="P_TVARVC2$$$$GVM_TVARVC$$">
+    <resourceUri>GVM_TVARVC</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_VENTACMARCA">
+    <viewAttributes>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="ID_RSSUPCAN"/>
+      <viewAttribute id="ID_SUCCANDIST"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCSUBCANDIST"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_VENTACMARCA"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_TVARVC1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="NAME"/>
+      <viewAttribute id="LOW"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_TVARVC"/>
+    <filter>&quot;NAME&quot;='ZMMI224_MOD_SOC'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_TVARVC2" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="NAME"/>
+      <viewAttribute id="LOW"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_TVARVC2$$$$GVM_TVARVC$$"/>
+    <filter>&quot;NAME&quot; = 'SDI269_CANAL_CO'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_SOC" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="ID_RSSUPCAN"/>
+      <viewAttribute id="ID_SUCCANDIST"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCSUBCANDIST"/>
+      <viewAttribute hidden="true" id="JOIN$ID_SOCIEDAD$LOW"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_VENTACMARCA">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUPCAN" source="ID_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCCANDIST" source="ID_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUBCANDIST" source="ID_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOCIEDAD$LOW" source="ID_SOCIEDAD"/>
+    </input>
+    <input node="P_TVARVC1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOCIEDAD$LOW" source="LOW"/>
+    </input>
+    <joinAttribute name="JOIN$ID_SOCIEDAD$LOW"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_RSSUPCAN" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_RSSUPCAN"/>
+      <viewAttribute id="ID_SUCCANDIST"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCSUBCANDIST"/>
+      <viewAttribute hidden="true" id="JOIN$ID_RSSUPCAN$LOW"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_SOC">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RSSUPCAN" source="ID_RSSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCCANDIST" source="ID_SUCCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUBCANDIST" source="ID_SUCSUBCANDIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_RSSUPCAN$LOW" source="ID_RSSUPCAN"/>
+    </input>
+    <input node="P_TVARVC2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_RSSUPCAN$LOW" source="LOW"/>
+    </input>
+    <joinAttribute name="JOIN$ID_RSSUPCAN$LOW"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="J_RSSUPCAN">
+  <attributes>
+    <attribute id="ID_FECHA" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha"/>
+      <keyMapping columnObjectName="J_RSSUPCAN" columnName="ID_FECHA"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sucursal"/>
+      <keyMapping columnObjectName="J_RSSUPCAN" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="J_RSSUPCAN" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_RAZONSOCIAL" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Razon Social"/>
+      <keyMapping columnObjectName="J_RSSUPCAN" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="ID_RSSUPCAN" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Rs. Súper Canal"/>
+      <keyMapping columnObjectName="J_RSSUPCAN" columnName="ID_RSSUPCAN"/>
+    </attribute>
+    <attribute id="ID_SUCCANDIST" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Canal Distribución"/>
+      <keyMapping columnObjectName="J_RSSUPCAN" columnName="ID_SUCCANDIST"/>
+    </attribute>
+    <attribute id="ID_SUCSUPCAN" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Súper Canal"/>
+      <keyMapping columnObjectName="J_RSSUPCAN" columnName="ID_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="ID_SUCSUBCANDIST" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Sub Canal Distribución"/>
+      <keyMapping columnObjectName="J_RSSUPCAN" columnName="ID_SUCSUBCANDIST"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="VENTAKL" order="4" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="J_RSSUPCAN" columnName="VENTAKL"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="328" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_VENTACMARCA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="501"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_TVARVC1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="501"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_TVARVC2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="395" y="356"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_SOC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="118" y="360"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_VENTACMARCA" modelObjectNameSpace="J_SOC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="197"/>
+    </shape>
+    <shape modelObjectName="P_TVARVC1" modelObjectNameSpace="J_SOC" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="133"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_RSSUPCAN" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="328" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_SOC" modelObjectNameSpace="J_RSSUPCAN" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="197"/>
+    </shape>
+    <shape modelObjectName="P_TVARVC2" modelObjectNameSpace="J_RSSUPCAN" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="133"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

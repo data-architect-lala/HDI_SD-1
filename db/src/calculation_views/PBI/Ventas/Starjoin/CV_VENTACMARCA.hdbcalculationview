@@ -63,6 +63,12 @@ THEN 'E'
 ELSE 'S'
 END </formula>
       </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="ID_TIPOENT_UNI" datatype="NVARCHAR" length="1" expressionLanguage="SQL">
+    
+        <formula>TRIM(&quot;ID_TIPOENT&quot;)</formula>
+    
+      </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="CV_VCMUVENTAS"/>
   </calculationView>
@@ -153,9 +159,8 @@ END </formula>
       <descriptions defaultDescription="ID Cedis/Planta"/>
       <keyMapping columnObjectName="P_UVENTAS" columnName="ID_CEDIS"/>
     </attribute>
-    <attribute id="ID_TIPOENT$local">
-      <descriptions defaultDescription="ID Tipo Entrega"/>
-      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_TIPOENT"/>
+    <attribute id="ID_TIPOENT_UNI$local">
+      <keyMapping columnObjectName="P_UVENTAS" columnName="ID_TIPOENT_UNI"/>
     </attribute>
     <attribute id="ID_MATIDI$local">
       <descriptions defaultDescription="ID_MATIDI"/>
@@ -183,54 +188,80 @@ END </formula>
     <measure id="SUBTOT_1S" order="18" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 1"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="SUBTOT_1S"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="SUBTOT_2S" order="19" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 2"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="SUBTOT_2S"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAUMB" order="20" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta UMB"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="VENTAUMB"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAMN" order="21" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta MN"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAKL" order="22" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta KL"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="VENTAKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="DEVOLUCIONMN" order="23" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="DEVOLUCIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="BONIFICACIONMN" order="24" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Bonificación MN"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="BONIFICACIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTABRUTAMN" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta Bruta MN"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="VENTABRUTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="CCONDICIONMN" order="26" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Cla. Con. MN"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="CCONDICIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="CCONDICIONUMB" order="27" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Cla. Con. UMB"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="CCONDICIONUMB"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="CCONDICIONKL" order="28" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Cla. Con. KL"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="CCONDICIONKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTALG" order="29" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta L/G"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="VENTALG"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="FUM" order="30" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Fecha Última Modificación"/>
       <measureMapping columnObjectName="P_UVENTAS" columnName="FUM"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -259,13 +290,15 @@ END </formula>
     </logicalJoin>
     <logicalJoin associatedObjectUri="CV_DIMS_TIPOENT">
       <attributes>
-        <attributeRef>ID_TIPOENT$local</attributeRef>
+        <attributeRef>ID_TIPOENT_UNI$local</attributeRef>
       </attributes>
       <associatedAttributeNames>
-        <attributeName>ID_TIPOENT</attributeName>
+        <attributeName>ID_TIPOENT_UNI</attributeName>
       </associatedAttributeNames>
       <properties joinType="referential" joinOperator="Equal"/>
-      <associatedAttributeFeatures/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="ID_TIPOENT_UNI" hidden="true"/>
+      </associatedAttributeFeatures>
     </logicalJoin>
     <logicalJoin associatedObjectUri="CV_DIMS_MATR">
       <attributes>
@@ -339,35 +372,35 @@ END </formula>
     </shape>
     <shape modelObjectName="CV_DIMS_CLFACTURA" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="197.341796875"/>
+      <rectangleSize width="197"/>
     </shape>
     <shape modelObjectName="CV_DIMS_CEDIS" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="620" y="30"/>
-      <rectangleSize width="189.91455078125"/>
+      <rectangleSize width="189"/>
     </shape>
     <shape modelObjectName="CV_DIMS_TIPOENT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="920" y="30"/>
-      <rectangleSize width="176.01953125"/>
+      <rectangleSize width="176"/>
     </shape>
     <shape modelObjectName="CV_DIMS_MATR" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="753" y="80"/>
-      <rectangleSize width="177.68994140625"/>
+      <rectangleSize width="177"/>
     </shape>
     <shape modelObjectName="CV_DIMS_COMP" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="766" y="380"/>
-      <rectangleSize width="170.34765625"/>
+      <rectangleSize width="170"/>
     </shape>
     <shape modelObjectName="CV_DIMS_RAZONSOCIAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="789" y="248"/>
-      <rectangleSize width="212.013671875"/>
+      <rectangleSize width="212"/>
     </shape>
     <shape modelObjectName="CV_DIMS_SUCURSAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="791" y="324"/>
-      <rectangleSize width="216.17919921875"/>
+      <rectangleSize width="216"/>
     </shape>
     <shape modelObjectName="CV_DIMS_CLIAGRUPADOR" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
-      <upperLeftCorner x="783.125" y="936"/>
-      <rectangleSize width="221.125"/>
+      <upperLeftCorner x="783" y="936"/>
+      <rectangleSize width="221"/>
     </shape>
   </shapes>
 </layout>

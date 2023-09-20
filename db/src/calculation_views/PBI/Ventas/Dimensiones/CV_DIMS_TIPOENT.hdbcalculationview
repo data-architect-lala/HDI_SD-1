@@ -21,7 +21,13 @@
       <keyMapping columnObjectName="GVM_DIMS_TIPOENT" columnName="TXT_TIPOENT"/>
     </attribute>
   </attributes>
-  <calculatedAttributes/>
+  <calculatedAttributes>
+    <calculatedAttribute id="ID_TIPOENT_UNI" order="3" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="1">
+        <formula>TRIM(&quot;ID_TIPOENT&quot;)</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+  </calculatedAttributes>
   <baseMeasures/>
   <calculatedMeasures/>
   <restrictedMeasures/>
