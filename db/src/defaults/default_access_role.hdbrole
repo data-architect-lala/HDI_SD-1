@@ -386,6 +386,31 @@
                "type": "SYNONYM",
                "name":"GVM_CSKS_CSKT",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_FMON_FACTURACION",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_DMT_COUNTRY",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_DMT_ZPLANT",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_DMT_ZZONACOMS",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_DMT_COMP_CODE",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

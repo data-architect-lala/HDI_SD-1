@@ -466,5 +466,35 @@
             "object": "GVM_CSKS_CSKT",
             "schema": "SPS_SD"
         }
+    },
+    "GVM_FMON_FACTURACION": {
+        "target": {
+            "object": "GVM_FMON_FACTURACION",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DMT_COUNTRY": {
+        "target": {
+            "object": "GVM_DMT_COUNTRY",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DMT_ZPLANT": {
+        "target": {
+            "object": "GVM_DMT_ZPLANT",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DMT_ZZONACOMS": {
+        "target": {
+            "object": "GVM_DMT_ZZONACOMS",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_DMT_COMP_CODE": {
+        "target": {
+            "object": "GVM_DMT_COMP_CODE",
+            "schema": "SPS_SD"
+        }
     }
   }

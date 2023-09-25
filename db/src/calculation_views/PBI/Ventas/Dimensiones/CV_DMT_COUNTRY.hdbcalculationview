@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMT_COUNTRY" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_DMT_COUNTRY.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMT_COUNTRY">
+    <resourceUri>GVM_DMT_COUNTRY</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMT_COUNTRY">
+  <attributes>
+    <attribute id="LNG_CTY" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LNG_CTY"/>
+      <keyMapping columnObjectName="GVM_DMT_COUNTRY" columnName="0LANGU"/>
+    </attribute>
+    <attribute id="IDT_CTY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="IDT_CTY"/>
+      <keyMapping columnObjectName="GVM_DMT_COUNTRY" columnName="0COUNTRY"/>
+    </attribute>
+    <attribute id="TSH_CTY" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TSH_CTY"/>
+      <keyMapping columnObjectName="GVM_DMT_COUNTRY" columnName="0TXTSH"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

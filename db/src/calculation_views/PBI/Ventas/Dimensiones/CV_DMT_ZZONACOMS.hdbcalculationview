@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_DMT_ZZONACOMS" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_DMT_ZZONACOMS.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_DMT_ZZONACOMS">
+    <resourceUri>GVM_DMT_ZZONACOMS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="GVM_DMT_ZZONACOMS">
+  <attributes>
+    <attribute id="IDT_ZONAC" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Zona Comercial"/>
+      <keyMapping columnObjectName="GVM_DMT_ZZONACOMS" columnName="ID_ZONAC"/>
+    </attribute>
+    <attribute id="TSH_ZONAC" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Zona Comercial Txt Brev"/>
+      <keyMapping columnObjectName="GVM_DMT_ZZONACOMS" columnName="TXTBREV_ZONAC"/>
+    </attribute>
+    <attribute id="TXT_ZONA" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Zona Comercial Txt"/>
+      <keyMapping columnObjectName="GVM_DMT_ZZONACOMS" columnName="TXT_ZONA"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

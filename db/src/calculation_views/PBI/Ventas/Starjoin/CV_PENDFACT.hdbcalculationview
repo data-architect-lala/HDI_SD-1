@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_PENDFACT" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_PENDFACT.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_FFZSD_C03">
+    <resourceUri>GVM_FFZSD_C03</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_FMON_FACTURACION">
+    <resourceUri>GVM_FMON_FACTURACION</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_VENTADIRECTA" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="0COMP_CODE"/>
+      <viewAttribute id="ZPLANT"/>
+      <viewAttribute id="0CALDAY"/>
+      <viewAttribute id="NET_VAL_S"/>
+      <viewAttribute id="0BILL_TYPE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_FFZSD_C03"/>
+    <filter>&quot;0BILL_TYPE&quot; IN ('ZSFA','ZSC1','ZSC2','ZSFV','ZSFB','ZSPV','ZSFE','ZSCC','ZSF3')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="PEND_X_FACTURAR">
+    <descriptions>
+      <comment text="La operación debe ser para CST, pero HDI no encuentra la Zona Horaria, por lo que se le resta una hora al horario EST,  para que se iguale a la información de HANA"/>
+    </descriptions>
+    <viewAttributes>
+      <viewAttribute id="COMP_CODE"/>
+      <viewAttribute id="ZPLANT"/>
+      <viewAttribute id="COUNTRY"/>
+      <viewAttribute id="COUNTY_CDE"/>
+      <viewAttribute id="DISTR_CHAN"/>
+      <viewAttribute id="LATITUDE"/>
+      <viewAttribute id="LONGITUDE"/>
+      <viewAttribute id="PLANTCAT"/>
+      <viewAttribute id="POSTAL_CD"/>
+      <viewAttribute id="POSTCD_GIS"/>
+      <viewAttribute id="REGION"/>
+      <viewAttribute id="PURCH_ORG"/>
+      <viewAttribute id="RT_AREA"/>
+      <viewAttribute id="SALESORG"/>
+      <viewAttribute id="SALES_DIST"/>
+      <viewAttribute id="ZZONACOM"/>
+      <viewAttribute id="ZREGION"/>
+      <viewAttribute id="ZAGRCEDIS"/>
+      <viewAttribute id="ZZONPRED"/>
+      <viewAttribute id="BILL_DATE"/>
+      <viewAttribute id="NETVAL_INV"/>
+      <viewAttribute id="ZPFACT"/>
+      <viewAttribute id="ZFACTU"/>
+      <viewAttribute id="DOC_CURRCY"/>
+      <viewAttribute id="LOADDATE"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="LOADUTC" datatype="TIMESTAMP" expressionLanguage="SQL">
+        <formula>ADD_SECONDS(UTCTOLOCAL(&quot;LOADDATE&quot;,'EST'),-3600) </formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="COMP_CODE_U" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+    
+        <formula>CASE 
+WHEN &quot;COMP_CODE&quot; = '' THEN 'A'
+WHEN &quot;COMP_CODE&quot; = ' ' THEN 'B'
+ELSE &quot;COMP_CODE&quot;
+END</formula>
+    
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_FMON_FACTURACION"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="A_VENTADIRECTA">
+    <viewAttributes>
+      <viewAttribute id="0COMP_CODE"/>
+      <viewAttribute id="ZPLANT"/>
+      <viewAttribute id="0CALDAY"/>
+      <viewAttribute id="NET_VAL_S" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="COMP_CODE_V" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+        <formula>CASE 
+WHEN &quot;0COMP_CODE&quot; = '' THEN 'A'
+WHEN &quot;0COMP_CODE&quot; = ' ' THEN 'B'
+ELSE &quot;0COMP_CODE&quot;
+END</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="P_VENTADIRECTA"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_1" joinType="leftOuter" optimizeJoinColumns="true">
+    <viewAttributes>
+      <viewAttribute id="COMP_CODE"/>
+      <viewAttribute id="ZPLANT"/>
+      <viewAttribute id="COUNTRY"/>
+      <viewAttribute id="COUNTY_CDE"/>
+      <viewAttribute id="DISTR_CHAN"/>
+      <viewAttribute id="LATITUDE" aggregationType="sum"/>
+      <viewAttribute id="LONGITUDE" aggregationType="sum"/>
+      <viewAttribute id="PLANTCAT"/>
+      <viewAttribute id="POSTAL_CD"/>
+      <viewAttribute id="POSTCD_GIS"/>
+      <viewAttribute id="REGION"/>
+      <viewAttribute id="PURCH_ORG"/>
+      <viewAttribute id="RT_AREA"/>
+      <viewAttribute id="SALESORG"/>
+      <viewAttribute id="SALES_DIST"/>
+      <viewAttribute id="ZZONACOM"/>
+      <viewAttribute id="ZREGION"/>
+      <viewAttribute id="ZAGRCEDIS"/>
+      <viewAttribute id="ZZONPRED"/>
+      <viewAttribute id="BILL_DATE"/>
+      <viewAttribute id="NETVAL_INV" aggregationType="sum"/>
+      <viewAttribute id="ZPFACT" aggregationType="sum"/>
+      <viewAttribute id="ZFACTU" aggregationType="sum"/>
+      <viewAttribute id="DOC_CURRCY"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="LOADUTC" aggregationType="min"/>
+      <viewAttribute id="NET_VAL_S" aggregationType="sum"/>
+      <viewAttribute id="COMP_CODE_U"/>
+      <viewAttribute hidden="true" id="JOIN$BILL_DATE$0CALDAY"/>
+      <viewAttribute hidden="true" id="JOIN$ZPLANT$ZPLANT"/>
+      <viewAttribute hidden="true" id="JOIN$COMP_CODE_U$COMP_CODE_V"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="PEND_X_FACTURAR">
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMP_CODE" source="COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZPLANT" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTY_CDE" source="COUNTY_CDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DISTR_CHAN" source="DISTR_CHAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LATITUDE" source="LATITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LONGITUDE" source="LONGITUDE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANTCAT" source="PLANTCAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTAL_CD" source="POSTAL_CD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="POSTCD_GIS" source="POSTCD_GIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REGION" source="REGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PURCH_ORG" source="PURCH_ORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RT_AREA" source="RT_AREA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESORG" source="SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALES_DIST" source="SALES_DIST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZZONACOM" source="ZZONACOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZREGION" source="ZREGION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZAGRCEDIS" source="ZAGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZZONPRED" source="ZZONPRED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BILL_DATE" source="BILL_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NETVAL_INV" source="NETVAL_INV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZPFACT" source="ZPFACT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZFACTU" source="ZFACTU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DOC_CURRCY" source="DOC_CURRCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADUTC" source="LOADUTC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMP_CODE_U" source="COMP_CODE_U"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BILL_DATE$0CALDAY" source="BILL_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ZPLANT$ZPLANT" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$COMP_CODE_U$COMP_CODE_V" source="COMP_CODE_U"/>
+    </input>
+    <input node="A_VENTADIRECTA">
+      <mapping xsi:type="Calculation:AttributeMapping" target="NET_VAL_S" source="NET_VAL_S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BILL_DATE$0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ZPLANT$ZPLANT" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$COMP_CODE_U$COMP_CODE_V" source="COMP_CODE_V"/>
+    </input>
+    <joinAttribute name="JOIN$BILL_DATE$0CALDAY"/>
+    <joinAttribute name="JOIN$ZPLANT$ZPLANT"/>
+    <joinAttribute name="JOIN$COMP_CODE_U$COMP_CODE_V"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="FEF_FACT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FEF_FACT"/>
+      <keyMapping columnObjectName="Join_1" columnName="BILL_DATE"/>
+    </attribute>
+    <attribute id="ID_SOC" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_SOC"/>
+      <keyMapping columnObjectName="Join_1" columnName="COMP_CODE"/>
+    </attribute>
+    <attribute id="ID_PAIS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_PAIS"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="ID_MON" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_MON"/>
+      <keyMapping columnObjectName="Join_1" columnName="DOC_CURRCY"/>
+    </attribute>
+    <attribute id="LATITUD" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LATITUD"/>
+      <keyMapping columnObjectName="Join_1" columnName="LATITUDE"/>
+    </attribute>
+    <attribute id="LONGITUD" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LONGITUD"/>
+      <keyMapping columnObjectName="Join_1" columnName="LONGITUDE"/>
+    </attribute>
+    <attribute id="PLANTCAT" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PLANTCAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="PLANTCAT"/>
+    </attribute>
+    <attribute id="CODPOSTAL" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CODPOSTAL"/>
+      <keyMapping columnObjectName="Join_1" columnName="POSTAL_CD"/>
+    </attribute>
+    <attribute id="PCD_GIS" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PCD_GIS"/>
+      <keyMapping columnObjectName="Join_1" columnName="POSTCD_GIS"/>
+    </attribute>
+    <attribute id="ID_REGION" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_REGION"/>
+      <keyMapping columnObjectName="Join_1" columnName="REGION"/>
+    </attribute>
+    <attribute id="ID_AREA" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_AREA"/>
+      <keyMapping columnObjectName="Join_1" columnName="RT_AREA"/>
+    </attribute>
+    <attribute id="ID_CEDAGR" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_CEDAGR"/>
+      <keyMapping columnObjectName="Join_1" columnName="ZAGRCEDIS"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_CEDIS"/>
+      <keyMapping columnObjectName="Join_1" columnName="ZPLANT"/>
+    </attribute>
+    <attribute id="ID_ZONACOM" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_ZONACOM"/>
+      <keyMapping columnObjectName="Join_1" columnName="ZZONACOM"/>
+    </attribute>
+    <attribute id="ID_ZONAPRD" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_ZONAPRD"/>
+      <keyMapping columnObjectName="Join_1" columnName="ZZONPRED"/>
+    </attribute>
+    <attribute id="ID_ZREGION" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_ZREGION"/>
+      <keyMapping columnObjectName="Join_1" columnName="ZREGION"/>
+    </attribute>
+    <attribute id="FEC_CARGA" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOADDATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="LOADDATE"/>
+    </attribute>
+    <attribute id="LOADUTC" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOADUTC"/>
+      <keyMapping columnObjectName="Join_1" columnName="LOADUTC"/>
+    </attribute>
+    <attribute id="COUNTRY$local">
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="ZPLANT$local">
+      <keyMapping columnObjectName="Join_1" columnName="ZPLANT"/>
+    </attribute>
+    <attribute id="ZZONACOM$local">
+      <keyMapping columnObjectName="Join_1" columnName="ZZONACOM"/>
+    </attribute>
+    <attribute id="COMP_CODE_U$local">
+      <keyMapping columnObjectName="Join_1" columnName="COMP_CODE_U"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="VTA_NETA" order="7" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="VTA_NETA"/>
+      <measureMapping columnObjectName="Join_1" columnName="NETVAL_INV"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="FACTURADO" order="14" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FACTURADO"/>
+      <measureMapping columnObjectName="Join_1" columnName="ZFACTU"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="PEND_FACT" order="15" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="PEND_FACT"/>
+      <measureMapping columnObjectName="Join_1" columnName="ZPFACT"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VENTA_CUBO" order="20" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="VENTA_CUBO"/>
+      <measureMapping columnObjectName="Join_1" columnName="NET_VAL_S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="CV_DMT_COUNTRY">
+      <attributes>
+        <attributeRef>COUNTRY$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>IDT_CTY</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMT_ZPLANT">
+      <attributes>
+        <attributeRef>ZPLANT$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>IDT_CEDIS</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="IDT_CEDIS" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMT_ZZONACOMS">
+      <attributes>
+        <attributeRef>ZZONACOM$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>IDT_ZONAC</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="IDT_ZONAC" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+    <logicalJoin associatedObjectUri="CV_DMT_COMP_CODE">
+      <attributes>
+        <attributeRef>COMP_CODE_U$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>COMP_CODE_U</attributeName>
+      </associatedAttributeNames>
+      <properties joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures>
+        <attributeReference attributeName="IDT_SOC" hidden="true"/>
+        <attributeReference attributeName="COMP_CODE_U" hidden="true"/>
+      </associatedAttributeFeatures>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="213" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_VENTADIRECTA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="541"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="PEND_X_FACTURAR" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="301" y="436"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="A_VENTADIRECTA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="436"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="213" y="277"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="PEND_X_FACTURAR" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="184"/>
+    </shape>
+    <shape modelObjectName="A_VENTADIRECTA" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="171"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="212" y="78"/>
+      <rectangleSize width="163"/>
+    </shape>
+  
+    <shape modelObjectName="CV_DMT_COUNTRY" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="471" y="71"/>
+      <rectangleSize width="178"/>
+    </shape>
+    <shape modelObjectName="CV_DMT_ZPLANT" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="476" y="231"/>
+      <rectangleSize width="167"/>
+    </shape>
+    <shape modelObjectName="CV_DMT_ZZONACOMS" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="486" y="402"/>
+      <rectangleSize width="197"/>
+    </shape>
+    <shape modelObjectName="CV_DMT_COMP_CODE" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="-103" y="108"/>
+      <rectangleSize width="197"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

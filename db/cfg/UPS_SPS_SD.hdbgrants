@@ -462,6 +462,36 @@
                     "name": "GVM_CSKS_CSKT",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_FMON_FACTURACION",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_DMT_COUNTRY",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_DMT_ZPLANT",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_DMT_ZZONACOMS",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_DMT_COMP_CODE",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
                 }
             ]
         }
