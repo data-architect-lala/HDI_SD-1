@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VFDAMCM" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_VFDAMCM.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_SAPVTAFLE">
+    <resourceUri>CV_SAPVTAFLE</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_SAPDEPAR">
+    <resourceUri>GVM_SAPDEPAR</resourceUri>
+  </DataSource>
+  <DataSource id="CV_MERMA">
+    <resourceUri>CV_MERMA</resourceUri>
+  </DataSource>
+  <DataSource id="CV_MTOCOM">
+    <resourceUri>CV_MTOCOM</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTABRUTAMN"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="COSTO_VAL"/>
+      <viewAttribute id="FLETE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_SAPVTAFLE"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="ABTEI"/>
+      <viewAttribute id="MSGRP"/>
+      <viewAttribute id="DMBTR"/>
+      <viewAttribute id="GJAHR"/>
+      <viewAttribute id="MONAT"/>
+      <viewAttribute id="Depreciacion"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID_ANIOMES" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+        <formula>concat(&quot;GJAHR&quot;, &quot;MONAT&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_SAPDEPAR"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+    <viewAttributes>
+      <viewAttribute id="IHREZ"/>
+      <viewAttribute id="CALMONTH"/>
+      <viewAttribute id="CC_QUANTITY"/>
+      <viewAttribute id="CC_QUANTITY_KL"/>
+      <viewAttribute id="CC_AMOUNT"/>
+      <viewAttribute id="UNI_CEDIS"/>
+      <viewAttribute id="DMBTR"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_MERMA"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4">
+    <viewAttributes>
+      <viewAttribute id="Ejercicio"/>
+      <viewAttribute id="Mes"/>
+      <viewAttribute id="I_GASTO"/>
+      <viewAttribute id="KM"/>
+      <viewAttribute id="DIFERENCIA"/>
+      <viewAttribute id="COMBUSTIBLE"/>
+      <viewAttribute id="C_COMBUSTIBLE"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="CENTRO"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="MES_T" datatype="NVARCHAR" length="2" expressionLanguage="SQL">
+        <formula>RIGHT(&quot;Mes&quot;,2)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="ID_ANIOMES" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+        <formula>concat(&quot;Ejercicio&quot;, &quot;MES_T&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="CV_MTOCOM"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTABRUTAMN"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="COSTO_VAL"/>
+      <viewAttribute id="FLETE"/>
+      <viewAttribute id="DMBTR"/>
+      <viewAttribute id="Depreciacion"/>
+      <viewAttribute hidden="true" id="JOIN$ID_ANIOMES$ID_ANIOMES"/>
+      <viewAttribute hidden="true" id="JOIN$ID_CEDIS$ABTEI"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="VENTAUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTABRUTAMN" source="VENTABRUTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COSTO_VAL" source="COSTO_VAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLETE" source="FLETE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ABTEI" source="ID_CEDIS"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Depreciacion" source="Depreciacion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ABTEI" source="ABTEI"/>
+    </input>
+    <joinAttribute name="JOIN$ID_ANIOMES$ID_ANIOMES"/>
+    <joinAttribute name="JOIN$ID_CEDIS$ABTEI"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTABRUTAMN"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="COSTO_VAL"/>
+      <viewAttribute id="FLETE"/>
+      <viewAttribute id="DMBTR"/>
+      <viewAttribute id="Depreciacion"/>
+      <viewAttribute id="CC_QUANTITY"/>
+      <viewAttribute id="CC_QUANTITY_KL"/>
+      <viewAttribute id="CC_AMOUNT"/>
+      <viewAttribute id="DMBTR_1"/>
+      <viewAttribute hidden="true" id="JOIN$ID_ANIOMES$CALMONTH"/>
+      <viewAttribute hidden="true" id="JOIN$ID_CEDIS$UNI_CEDIS"/>
+      <viewAttribute hidden="true" id="JOIN$ID_RUTA$IHREZ"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="VENTAUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTABRUTAMN" source="VENTABRUTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COSTO_VAL" source="COSTO_VAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLETE" source="FLETE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Depreciacion" source="Depreciacion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$CALMONTH" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$UNI_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_RUTA$IHREZ" source="ID_RUTA"/>
+    </input>
+    <input node="Projection_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QUANTITY" source="CC_QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QUANTITY_KL" source="CC_QUANTITY_KL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_AMOUNT" source="CC_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR_1" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$CALMONTH" source="CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$UNI_CEDIS" source="UNI_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_RUTA$IHREZ" source="IHREZ"/>
+    </input>
+    <joinAttribute name="JOIN$ID_ANIOMES$CALMONTH"/>
+    <joinAttribute name="JOIN$ID_CEDIS$UNI_CEDIS"/>
+    <joinAttribute name="JOIN$ID_RUTA$IHREZ"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_3" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="CC_AMOUNT"/>
+      <viewAttribute id="DMBTR"/>
+      <viewAttribute id="CC_QUANTITY"/>
+      <viewAttribute id="CC_QUANTITY_KL"/>
+      <viewAttribute id="FLETE"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTABRUTAMN"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="COSTO_VAL"/>
+      <viewAttribute id="VENTAUMB"/>
+      <viewAttribute id="DMBTR_1"/>
+      <viewAttribute id="Depreciacion"/>
+      <viewAttribute id="I_GASTO"/>
+      <viewAttribute id="KM"/>
+      <viewAttribute id="DIFERENCIA"/>
+      <viewAttribute id="COMBUSTIBLE"/>
+      <viewAttribute id="C_COMBUSTIBLE"/>
+      <viewAttribute hidden="true" id="JOIN$ID_ANIOMES$ID_ANIOMES"/>
+      <viewAttribute hidden="true" id="JOIN$ID_CEDIS$CENTRO"/>
+      <viewAttribute hidden="true" id="JOIN$ID_RUTA$ID_RUTA"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_AMOUNT" source="CC_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QUANTITY" source="CC_QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QUANTITY_KL" source="CC_QUANTITY_KL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLETE" source="FLETE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTABRUTAMN" source="VENTABRUTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COSTO_VAL" source="COSTO_VAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAUMB" source="VENTAUMB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR_1" source="DMBTR_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Depreciacion" source="Depreciacion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$CENTRO" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_RUTA$ID_RUTA" source="ID_RUTA"/>
+    </input>
+    <input node="Projection_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="I_GASTO" source="I_GASTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KM" source="KM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIFERENCIA" source="DIFERENCIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMBUSTIBLE" source="COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="C_COMBUSTIBLE" source="C_COMBUSTIBLE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$CENTRO" source="CENTRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_RUTA$ID_RUTA" source="ID_RUTA"/>
+    </input>
+    <joinAttribute name="JOIN$ID_ANIOMES$ID_ANIOMES"/>
+    <joinAttribute name="JOIN$ID_CEDIS$CENTRO"/>
+    <joinAttribute name="JOIN$ID_RUTA$ID_RUTA"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_3">
+  <attributes>
+    <attribute id="ID_ANIOMES" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Anio/Mes"/>
+      <keyMapping columnObjectName="Join_3" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CEDIS"/>
+      <keyMapping columnObjectName="Join_3" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Ruta"/>
+      <keyMapping columnObjectName="Join_3" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="CC_AMOUNT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Importe Mermas"/>
+      <keyMapping columnObjectName="Join_3" columnName="CC_AMOUNT"/>
+    </attribute>
+    <attribute id="DMBTR" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Importe Mermas KL"/>
+      <keyMapping columnObjectName="Join_3" columnName="DMBTR"/>
+    </attribute>
+    <attribute id="CC_QUANTITY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cantidad"/>
+      <keyMapping columnObjectName="Join_3" columnName="CC_QUANTITY"/>
+    </attribute>
+    <attribute id="CC_QUANTITY_KL" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cantidad KL"/>
+      <keyMapping columnObjectName="Join_3" columnName="CC_QUANTITY_KL"/>
+    </attribute>
+    <attribute id="FLETE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLETE"/>
+      <keyMapping columnObjectName="Join_3" columnName="FLETE"/>
+    </attribute>
+    <attribute id="VENTAKL" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VENTAKL"/>
+      <keyMapping columnObjectName="Join_3" columnName="VENTAKL"/>
+    </attribute>
+    <attribute id="VENTABRUTAMN" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VENTABRUTAMN"/>
+      <keyMapping columnObjectName="Join_3" columnName="VENTABRUTAMN"/>
+    </attribute>
+    <attribute id="DEVOLUCIONMN" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DEVOLUCIONMN"/>
+      <keyMapping columnObjectName="Join_3" columnName="DEVOLUCIONMN"/>
+    </attribute>
+    <attribute id="BONIFICACIONMN" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BONIFICACIONMN"/>
+      <keyMapping columnObjectName="Join_3" columnName="BONIFICACIONMN"/>
+    </attribute>
+    <attribute id="VENTAMN" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VENTAMN"/>
+      <keyMapping columnObjectName="Join_3" columnName="VENTAMN"/>
+    </attribute>
+    <attribute id="COSTO_VAL" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COSTO_VAL"/>
+      <keyMapping columnObjectName="Join_3" columnName="COSTO_VAL"/>
+    </attribute>
+    <attribute id="VENTAUMB" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Pza"/>
+      <keyMapping columnObjectName="Join_3" columnName="VENTAUMB"/>
+    </attribute>
+    <attribute id="DMBTR_1" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Arrendamiento"/>
+      <keyMapping columnObjectName="Join_3" columnName="DMBTR_1"/>
+    </attribute>
+    <attribute id="Depreciacion" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Depreciacion"/>
+      <keyMapping columnObjectName="Join_3" columnName="Depreciacion"/>
+    </attribute>
+    <attribute id="I_GASTO" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Importe Gasto"/>
+      <keyMapping columnObjectName="Join_3" columnName="I_GASTO"/>
+    </attribute>
+    <attribute id="KM" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KM"/>
+      <keyMapping columnObjectName="Join_3" columnName="KM"/>
+    </attribute>
+    <attribute id="DIFERENCIA" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Diferencia"/>
+      <keyMapping columnObjectName="Join_3" columnName="DIFERENCIA"/>
+    </attribute>
+    <attribute id="COMBUSTIBLE" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Combustible"/>
+      <keyMapping columnObjectName="Join_3" columnName="COMBUSTIBLE"/>
+    </attribute>
+    <attribute id="C_COMBUSTIBLE" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Costo Combustible"/>
+      <keyMapping columnObjectName="Join_3" columnName="C_COMBUSTIBLE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-116" y="576"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="73" y="578"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="180" y="446"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-30" y="446"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="34" y="326"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="182"/>
+    </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="136"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-160" y="298"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="0" y="204"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_2" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="102.015625"/>
+    </shape>
+    <shape modelObjectName="Projection_4" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="136.0234375"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

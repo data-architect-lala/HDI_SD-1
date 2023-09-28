@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_MERMA" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CV_MERMA.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_CSJ_SCRAP_SALES">
+    <resourceUri>CV_CSJ_SCRAP_SALES</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_CAT_CLASIFICACION_RUTA">
+    <resourceUri>GVM_CAT_CLASIFICACION_RUTA</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_CAT_SUPER_CANAL">
+    <resourceUri>GVM_CAT_SUPER_CANAL</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="IHREZ"/>
+      <viewAttribute id="CC_QUANTITY" aggregationType="sum"/>
+      <viewAttribute id="CC_QUANTITY_KL" aggregationType="sum"/>
+      <viewAttribute id="FUM" aggregationType="max"/>
+      <viewAttribute id="CC_AMOUNT" aggregationType="sum"/>
+      <viewAttribute id="ID_FECHAL"/>
+      <viewAttribute id="PSTYV"/>
+      <viewAttribute id="DMBTR" aggregationType="sum"/>
+      <viewAttribute id="CALMONTH"/>
+      <viewAttribute id="DATE_SQL"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="WERKS_1"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="LLAVE" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
+        <formula>CONCAT(&quot;IHREZ&quot;,&quot;WERKS_1&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="CV_CSJ_SCRAP_SALES"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="UNI_CEDIS"/>
+      <viewAttribute id="RUT_CLAVE"/>
+      <viewAttribute id="RUT_TIPO"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="LLAVE_RUTA" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
+        <formula>concat(to_nvarchar(to_int(&quot;RUT_CLAVE&quot;)),&quot;UNI_CEDIS&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_CAT_CLASIFICACION_RUTA"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="ID_CLASIFICACION_RUTA"/>
+      <viewAttribute id="CLASIFICACION_RUTA"/>
+      <viewAttribute id="ID_SUPER_CANAL"/>
+      <viewAttribute id="SUPER_CANAL"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_CAT_SUPER_CANAL"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="IHREZ"/>
+      <viewAttribute id="CC_QUANTITY" aggregationType="sum"/>
+      <viewAttribute id="CC_QUANTITY_KL" aggregationType="sum"/>
+      <viewAttribute id="FUM" aggregationType="max"/>
+      <viewAttribute id="CC_AMOUNT" aggregationType="sum"/>
+      <viewAttribute id="ID_FECHAL" aggregationType="min"/>
+      <viewAttribute id="PSTYV"/>
+      <viewAttribute id="DMBTR" aggregationType="sum"/>
+      <viewAttribute id="CALMONTH"/>
+      <viewAttribute id="DATE_SQL"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="WERKS_1"/>
+      <viewAttribute id="LLAVE"/>
+      <viewAttribute id="UNI_CEDIS"/>
+      <viewAttribute id="RUT_TIPO"/>
+      <viewAttribute hidden="true" id="JOIN$LLAVE$LLAVE_RUTA"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Aggregation_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="IHREZ" source="IHREZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QUANTITY" source="CC_QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QUANTITY_KL" source="CC_QUANTITY_KL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FUM" source="FUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_AMOUNT" source="CC_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CALMONTH" source="CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WERKS_1" source="WERKS_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LLAVE" source="LLAVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$LLAVE$LLAVE_RUTA" source="LLAVE"/>
+    </input>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="UNI_CEDIS" source="UNI_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RUT_TIPO" source="RUT_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$LLAVE$LLAVE_RUTA" source="LLAVE_RUTA"/>
+    </input>
+    <joinAttribute name="JOIN$LLAVE$LLAVE_RUTA"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="IHREZ"/>
+      <viewAttribute id="CC_QUANTITY" aggregationType="sum"/>
+      <viewAttribute id="CC_QUANTITY_KL" aggregationType="sum"/>
+      <viewAttribute id="FUM" aggregationType="max"/>
+      <viewAttribute id="CC_AMOUNT" aggregationType="sum"/>
+      <viewAttribute id="ID_FECHAL" aggregationType="min"/>
+      <viewAttribute id="PSTYV"/>
+      <viewAttribute id="DMBTR" aggregationType="sum"/>
+      <viewAttribute id="CALMONTH"/>
+      <viewAttribute id="DATE_SQL"/>
+      <viewAttribute id="MATNR"/>
+      <viewAttribute id="WERKS_1"/>
+      <viewAttribute id="LLAVE"/>
+      <viewAttribute id="UNI_CEDIS"/>
+      <viewAttribute id="RUT_TIPO"/>
+      <viewAttribute id="ID_SUPER_CANAL"/>
+      <viewAttribute id="SUPER_CANAL"/>
+      <viewAttribute hidden="true" id="JOIN$RUT_TIPO$ID_CLASIFICACION_RUTA"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="IHREZ" source="IHREZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QUANTITY" source="CC_QUANTITY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_QUANTITY_KL" source="CC_QUANTITY_KL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FUM" source="FUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CC_AMOUNT" source="CC_AMOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHAL" source="ID_FECHAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PSTYV" source="PSTYV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DMBTR" source="DMBTR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CALMONTH" source="CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MATNR" source="MATNR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="WERKS_1" source="WERKS_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LLAVE" source="LLAVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UNI_CEDIS" source="UNI_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RUT_TIPO" source="RUT_TIPO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$RUT_TIPO$ID_CLASIFICACION_RUTA" source="RUT_TIPO"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPER_CANAL" source="ID_SUPER_CANAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUPER_CANAL" source="SUPER_CANAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$RUT_TIPO$ID_CLASIFICACION_RUTA" source="ID_CLASIFICACION_RUTA"/>
+    </input>
+    <joinAttribute name="JOIN$RUT_TIPO$ID_CLASIFICACION_RUTA"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_2">
+  <attributes>
+    <attribute id="IHREZ" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Route"/>
+      <keyMapping columnObjectName="Join_2" columnName="IHREZ"/>
+    </attribute>
+    <attribute id="ID_FECHAL" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Fecha Larga"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_FECHAL"/>
+    </attribute>
+    <attribute id="PSTYV" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Tpos"/>
+      <keyMapping columnObjectName="Join_2" columnName="PSTYV"/>
+    </attribute>
+    <attribute id="CALMONTH" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year Month YYYYMM"/>
+      <keyMapping columnObjectName="Join_2" columnName="CALMONTH"/>
+    </attribute>
+    <attribute id="DATE_SQL" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Date YYYY-MM-DD"/>
+      <keyMapping columnObjectName="Join_2" columnName="DATE_SQL"/>
+    </attribute>
+    <attribute id="MATNR" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Material Number"/>
+      <keyMapping columnObjectName="Join_2" columnName="MATNR"/>
+    </attribute>
+    <attribute id="WERKS_1" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Plant"/>
+      <keyMapping columnObjectName="Join_2" columnName="WERKS_1"/>
+    </attribute>
+    <attribute id="LLAVE" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Llave ruta"/>
+      <keyMapping columnObjectName="Join_2" columnName="LLAVE"/>
+    </attribute>
+    <attribute id="UNI_CEDIS" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_CEDIS"/>
+      <keyMapping columnObjectName="Join_2" columnName="UNI_CEDIS"/>
+    </attribute>
+    <attribute id="RUT_TIPO" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Clasificacion Ruta"/>
+      <keyMapping columnObjectName="Join_2" columnName="RUT_TIPO"/>
+    </attribute>
+    <attribute id="ID_SUPER_CANAL" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Super Canal"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_SUPER_CANAL"/>
+    </attribute>
+    <attribute id="SUPER_CANAL" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Super Canal"/>
+      <keyMapping columnObjectName="Join_2" columnName="SUPER_CANAL"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="CC_QUANTITY" order="2" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Quantity"/>
+      <measureMapping columnObjectName="Join_2" columnName="CC_QUANTITY"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="CC_QUANTITY_KL" order="3" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Quantity KL"/>
+      <measureMapping columnObjectName="Join_2" columnName="CC_QUANTITY_KL"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="FUM" order="4" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="FUM"/>
+      <measureMapping columnObjectName="Join_2" columnName="FUM"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="CC_AMOUNT" order="5" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Amout-"/>
+      <measureMapping columnObjectName="Join_2" columnName="CC_AMOUNT"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="DMBTR" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Importe ML"/>
+      <measureMapping columnObjectName="Join_2" columnName="DMBTR"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-238" y="369"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-11" y="369"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="59" y="261"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+  
+  
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-143" y="261"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="147"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="146"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-63" y="170"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="183"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="222"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

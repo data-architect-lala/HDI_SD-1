@@ -496,5 +496,23 @@
             "object": "GVM_DMT_COMP_CODE",
             "schema": "SPS_SD"
         }
+    },
+    "GVM_CAT_CLASIFICACION_RUTA": {
+        "target": {
+            "object": "GVM_CAT_CLASIFICACION_RUTA",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_CAT_SUPER_CANAL": {
+        "target": {
+            "object": "GVM_CAT_SUPER_CANAL",
+            "schema": "SPS_SD"
+        }
+    },
+    "GVM_SAPDEPAR": {
+        "target": {
+            "object": "GVM_SAPDEPAR",
+            "schema": "SPS_SD"
+        }
     }
   }

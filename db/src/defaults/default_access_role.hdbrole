@@ -411,6 +411,21 @@
                "type": "SYNONYM",
                "name":"GVM_DMT_COMP_CODE",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_CAT_CLASIFICACION_RUTA",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_CAT_SUPER_CANAL",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_SAPDEPAR",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

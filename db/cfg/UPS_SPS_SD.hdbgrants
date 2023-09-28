@@ -492,6 +492,24 @@
                     "name": "GVM_DMT_COMP_CODE",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_CAT_CLASIFICACION_RUTA",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_CAT_SUPER_CANAL",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_SAPDEPAR",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
                 }
             ]
         }

@@ -131,6 +131,16 @@
                "type": "VIEW",
                "name":"CV_MTOCOM",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_MERMA",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_VFDAMCM",
+               "privileges": ["SELECT"]
             }
          ]
     }
