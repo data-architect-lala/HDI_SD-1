@@ -13,15 +13,15 @@
 <logicalModel id="GVM_DMT_COUNTRY">
   <attributes>
     <attribute id="LNG_CTY" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LNG_CTY"/>
+      <descriptions defaultDescription="LANGU"/>
       <keyMapping columnObjectName="GVM_DMT_COUNTRY" columnName="0LANGU"/>
     </attribute>
     <attribute id="IDT_CTY" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="IDT_CTY"/>
+      <descriptions defaultDescription="COUNTRY"/>
       <keyMapping columnObjectName="GVM_DMT_COUNTRY" columnName="0COUNTRY"/>
     </attribute>
     <attribute id="TSH_CTY" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TSH_CTY"/>
+      <descriptions defaultDescription="TXTSH"/>
       <keyMapping columnObjectName="GVM_DMT_COUNTRY" columnName="0TXTSH"/>
     </attribute>
   </attributes>

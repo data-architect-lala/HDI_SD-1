@@ -13,15 +13,15 @@
 <logicalModel id="GVM_DMT_ZPLANT">
   <attributes>
     <attribute id="IDT_CEDIS" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="IDT_CEDIS"/>
+      <descriptions defaultDescription="ZPLANT"/>
       <keyMapping columnObjectName="GVM_DMT_ZPLANT" columnName="ZPLANT"/>
     </attribute>
     <attribute id="TSH_CEDIS" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TSH_CEDIS"/>
+      <descriptions defaultDescription="TXTSH"/>
       <keyMapping columnObjectName="GVM_DMT_ZPLANT" columnName="TXTSH"/>
     </attribute>
     <attribute id="TMD_CEDIS" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TMD_CEDIS"/>
+      <descriptions defaultDescription="TXTMD"/>
       <keyMapping columnObjectName="GVM_DMT_ZPLANT" columnName="TXTMD"/>
     </attribute>
   </attributes>

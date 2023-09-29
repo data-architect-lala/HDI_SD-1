@@ -30,30 +30,30 @@
       <comment text="La operación debe ser para CST, pero HDI no encuentra la Zona Horaria, por lo que se le resta una hora al horario EST,  para que se iguale a la información de HANA"/>
     </descriptions>
     <viewAttributes>
+      <viewAttribute id="BILL_DATE"/>
       <viewAttribute id="COMP_CODE"/>
-      <viewAttribute id="ZPLANT"/>
       <viewAttribute id="COUNTRY"/>
       <viewAttribute id="COUNTY_CDE"/>
       <viewAttribute id="DISTR_CHAN"/>
+      <viewAttribute id="DOC_CURRCY"/>
       <viewAttribute id="LATITUDE"/>
       <viewAttribute id="LONGITUDE"/>
+      <viewAttribute id="NETVAL_INV"/>
       <viewAttribute id="PLANTCAT"/>
       <viewAttribute id="POSTAL_CD"/>
       <viewAttribute id="POSTCD_GIS"/>
-      <viewAttribute id="REGION"/>
       <viewAttribute id="PURCH_ORG"/>
+      <viewAttribute id="REGION"/>
       <viewAttribute id="RT_AREA"/>
       <viewAttribute id="SALESORG"/>
       <viewAttribute id="SALES_DIST"/>
-      <viewAttribute id="ZZONACOM"/>
-      <viewAttribute id="ZREGION"/>
       <viewAttribute id="ZAGRCEDIS"/>
-      <viewAttribute id="ZZONPRED"/>
-      <viewAttribute id="BILL_DATE"/>
-      <viewAttribute id="NETVAL_INV"/>
-      <viewAttribute id="ZPFACT"/>
       <viewAttribute id="ZFACTU"/>
-      <viewAttribute id="DOC_CURRCY"/>
+      <viewAttribute id="ZPFACT"/>
+      <viewAttribute id="ZPLANT"/>
+      <viewAttribute id="ZREGION"/>
+      <viewAttribute id="ZZONACOM"/>
+      <viewAttribute id="ZZONPRED"/>
       <viewAttribute id="LOADDATE"/>
     </viewAttributes>
     <calculatedViewAttributes>
@@ -121,11 +121,7 @@ END</formula>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
       <viewAttribute id="LOADUTC" aggregationType="min"/>
       <viewAttribute id="NET_VAL_S" aggregationType="sum"/>
-      <viewAttribute id="COMP_CODE_U"/>
-      <viewAttribute hidden="true" id="JOIN$BILL_DATE$0CALDAY"/>
-      <viewAttribute hidden="true" id="JOIN$ZPLANT$ZPLANT"/>
-      <viewAttribute hidden="true" id="JOIN$COMP_CODE_U$COMP_CODE_V"/>
-    </viewAttributes>
+      <viewAttribute id="COMP_CODE_U"/></viewAttributes>
     <calculatedViewAttributes/>
     <input node="PEND_X_FACTURAR">
       <mapping xsi:type="Calculation:AttributeMapping" target="COMP_CODE" source="COMP_CODE"/>
@@ -154,26 +150,22 @@ END</formula>
       <mapping xsi:type="Calculation:AttributeMapping" target="DOC_CURRCY" source="DOC_CURRCY"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADUTC" source="LOADUTC"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="COMP_CODE_U" source="COMP_CODE_U"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BILL_DATE$0CALDAY" source="BILL_DATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ZPLANT$ZPLANT" source="ZPLANT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$COMP_CODE_U$COMP_CODE_V" source="COMP_CODE_U"/>
-    </input>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMP_CODE_U" source="COMP_CODE_U"/></input>
     <input node="A_VENTADIRECTA">
       <mapping xsi:type="Calculation:AttributeMapping" target="NET_VAL_S" source="NET_VAL_S"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BILL_DATE$0CALDAY" source="0CALDAY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ZPLANT$ZPLANT" source="ZPLANT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$COMP_CODE_U$COMP_CODE_V" source="COMP_CODE_V"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BILL_DATE" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZPLANT" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COMP_CODE_U" source="COMP_CODE_V"/>
     </input>
-    <joinAttribute name="JOIN$BILL_DATE$0CALDAY"/>
-    <joinAttribute name="JOIN$ZPLANT$ZPLANT"/>
-    <joinAttribute name="JOIN$COMP_CODE_U$COMP_CODE_V"/>
+    <joinAttribute name="BILL_DATE"/>
+    <joinAttribute name="ZPLANT"/>
+    <joinAttribute name="COMP_CODE_U"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="Join_1">
   <attributes>
-    <attribute id="FEF_FACT" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="FEF_FACT"/>
+    <attribute id="FEC_FACT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FEC_FACT"/>
       <keyMapping columnObjectName="Join_1" columnName="BILL_DATE"/>
     </attribute>
     <attribute id="ID_SOC" order="2" displayAttribute="false" attributeHierarchyActive="false">
@@ -237,11 +229,11 @@ END</formula>
       <keyMapping columnObjectName="Join_1" columnName="ZREGION"/>
     </attribute>
     <attribute id="FEC_CARGA" order="21" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LOADDATE"/>
+      <descriptions defaultDescription="Fecha Carga"/>
       <keyMapping columnObjectName="Join_1" columnName="LOADDATE"/>
     </attribute>
     <attribute id="LOADUTC" order="22" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LOADUTC"/>
+      <descriptions defaultDescription="Fecha Carga CST"/>
       <keyMapping columnObjectName="Join_1" columnName="LOADUTC"/>
     </attribute>
     <attribute id="COUNTRY$local">

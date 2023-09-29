@@ -1,0 +1,447 @@
+{
+    "role":{
+         "name":"arq_access_role",
+         "object_privileges": [
+            {
+               "type": "VIEW",
+               "name":"AT_CEDIS",
+               "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AT_CLFACTURA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AT_CLIENTESRS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AT_CLIENTESSU",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AT_MATERIALES",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AT_SOCIEDAD",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AT_TIEMPO",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AT_TIPOENT",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CARTA_PORTE",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CSJ_DIRECT_SALES",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CSJ_ELECTRONIC_PURCHASE_ORDERS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CSJ_ERROR_LOG",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CSJ_LIST_PRICES_SCRAP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CSJ_SCRAP_SALES",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CSJ_SHIPMENT_LEVEL_OF_SERVICE",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_CSJ_WEEKLY_COMMERCIAL_PIN_DAILY",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_COMMERCIAL_STRUCTURE",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_CUSTOMER",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_MATERIAL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_PERSONAL_DATA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_PLANT",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_REASON_FOR_VARIANCE_N1",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_REASON_FOR_VARIANCE_N2",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_TIME",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMA_WORK_CENTER",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_MERMA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_MTOCOM",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_TSEGH",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_TTSEGEVTY",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_TVAGT",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_TVAUT",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VBAK",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VBAP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VBKD",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VBPA_EC",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VBRK_EC",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VBRP_EC",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VFDAMCM",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AV_VTACENTRAL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AV_VTADIRECTA_ALL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AV_VTADIRECTA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AV_VTADIRECTAUS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AV_VTANOSAP_ALL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AV_VTANOSAP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"AV_VTANOSAPUS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DIMS_CEDIS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DIMS_CLFACTURA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DIMS_CLIAGRUPADOR",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DIMS_COMP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DIMS_MATR",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DIMS_RAZONSOCIAL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DIMS_SUCURSAL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DIMS_TIPOENT",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMT_COMP_CODE",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMT_COUNTRY",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMT_ZPLANT",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_DMT_ZZONACOMS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VCMCCONDICION",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VCMUVENTAS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VCMVCENTRALIZADA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VCMVDIRECTA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VCMVDIRECTAUS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VCMVNOSAP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VCMVNOSAPUS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VTACENTRAL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VTACONDICION",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VTADIRECTA_ALL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VTADIRECTA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VTADIRECTAUS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VTANOSAP_ALL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VTANOSAP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VTANOSAPUS",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_COSTVENTPAPM",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_FVENTACM",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_IBP_CO_CED",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_IBP_CO_PLA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_IBP_DET",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_PENDFACT",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_SAPVTAFLE_VNTBRU",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_SAPVTAFLE",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_UVENTACM_ALL",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_UVENTACM_BONI",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_UVENTACM",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA_BLP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA_FLT",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA_IBP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA",
+                "privileges": ["SELECT"]
+            }
+         ]
+    }
+}

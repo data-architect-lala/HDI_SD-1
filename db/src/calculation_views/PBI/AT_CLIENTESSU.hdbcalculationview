@@ -125,7 +125,7 @@
       <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCFORMATO"/>
     </attribute>
     <attribute id="TXT_SUCURSAL" order="29" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TXT_SUCURSAL"/>
+      <descriptions defaultDescription="Sucursal"/>
       <keyMapping columnObjectName="GVM_DCLIENTESSU" columnName="TXT_SUCURSAL"/>
     </attribute>
   </attributes>
