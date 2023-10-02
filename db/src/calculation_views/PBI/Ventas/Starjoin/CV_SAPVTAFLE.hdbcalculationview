@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_SAPVTAFLE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_SAPVTAFLE.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_SAPVTAFLE_QUERY">
+    <resourceUri>CV_SAPVTAFLE_QUERY</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="CV_SAPVTAFLE_QUERY">
+  <attributes>
+    <attribute id="ID_ANIOMES" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_ANIOMES"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_CEDIS"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_RUTA"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="ID_RAZONSOCIAL" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_RAZONSOCIAL"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_SUCURSAL"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_MATERIAL"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_FAMILIA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_FAMILIA"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_FAMILIA"/>
+    </attribute>
+    <attribute id="ID_INFOSITIO" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_INFOSITIO"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_INFOSITIO"/>
+    </attribute>
+    <attribute id="ID_SOCIEDAD" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_SOCIEDAD"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="VENTAUMB" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VENTAUMB"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="VENTAUMB"/>
+    </attribute>
+    <attribute id="VENTAKL" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VENTAKL"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="VENTAKL"/>
+    </attribute>
+    <attribute id="VENTABRUTAMN" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VENTABRUTAMN"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="VENTABRUTAMN"/>
+    </attribute>
+    <attribute id="DEVOLUCIONMN" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DEVOLUCIONMN"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="DEVOLUCIONMN"/>
+    </attribute>
+    <attribute id="BONIFICACIONMN" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BONIFICACIONMN"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="BONIFICACIONMN"/>
+    </attribute>
+    <attribute id="VENTAMN" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VENTAMN"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="VENTAMN"/>
+    </attribute>
+    <attribute id="COSTO_VAL" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COSTO_VAL"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="COSTO_VAL"/>
+    </attribute>
+    <attribute id="FLETE" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLETE"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="FLETE"/>
+    </attribute>
+    <attribute id="MARCA" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MARCA"/>
+      <keyMapping columnObjectName="CV_SAPVTAFLE_QUERY" columnName="MARCA"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

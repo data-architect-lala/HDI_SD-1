@@ -1,0 +1,12 @@
+{
+    "role":{
+         "name":"FI_access_role",
+         "object_privileges": [
+            {
+                "type": "VIEW",
+                "name":"CV_SAPVTAFLE",
+                "privileges": ["SELECT"]
+             }
+            ]
+        }
+    }

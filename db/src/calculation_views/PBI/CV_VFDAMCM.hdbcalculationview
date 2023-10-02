@@ -4,8 +4,8 @@
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="CV_SAPVTAFLE">
-    <resourceUri>CV_SAPVTAFLE</resourceUri>
+  <DataSource id="CV_SAPVTAFLE_QUERY">
+    <resourceUri>CV_SAPVTAFLE_QUERY</resourceUri>
   </DataSource>
   <DataSource id="GVM_SAPDEPAR">
     <resourceUri>GVM_SAPDEPAR</resourceUri>
@@ -34,7 +34,7 @@
       <viewAttribute id="FLETE"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="CV_SAPVTAFLE"/>
+    <input node="CV_SAPVTAFLE_QUERY"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
     <viewAttributes>
@@ -367,6 +367,11 @@
       <rectangleSize height="30" width="160"/>
     </shape>
   
+    <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-160" y="298"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="-30" y="446"/>
       <rectangleSize height="30" width="160"/>
@@ -391,22 +396,17 @@
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="136"/>
     </shape>
-  
-    <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-160" y="298"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
     <shape expanded="true" modelObjectName="Join_3" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="0" y="204"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="Join_2" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="102.015625"/>
+      <rectangleSize width="102"/>
     </shape>
     <shape modelObjectName="Projection_4" modelObjectNameSpace="Join_3" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="136.0234375"/>
+      <rectangleSize width="136"/>
     </shape>
   </shapes>
 </layout>
