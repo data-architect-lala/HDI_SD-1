@@ -1,0 +1,52 @@
+{
+    "role":{
+         "name":"ibp_access_role",
+         "object_privileges": [
+            {
+                "type": "TABLE",
+                "name":"IBP_MEX_PLAN_WEEK",
+                "privileges": ["SELECT","INSERT","DELETE","UPDATE"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_COSTVENTPAPM",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA_IBP",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "TABLE",
+                "name":"IBP_USA_CURRENCY",
+                "privileges": ["SELECT","INSERT","DELETE","UPDATE"]
+            },
+            {
+                "type": "TABLE",
+                "name":"IBP_USA_PLAN_DAY",
+                "privileges": ["SELECT","INSERT","DELETE","UPDATE"]
+            },
+            {
+                "type": "TABLE",
+                "name":"IBP_USA_PLAN_MONTH",
+                "privileges": ["SELECT","INSERT","DELETE","UPDATE"]
+            },
+            {
+                "type": "TABLE",
+                "name":"IBP_USA_PLAN_WEEK",
+                "privileges": ["SELECT","INSERT","DELETE","UPDATE"]
+            },
+            {
+                "type": "TABLE",
+                "name":"IBP_USA_PRODUCT_UOM",
+                "privileges": ["SELECT","INSERT","DELETE","UPDATE"]
+            }
+            ]
+        }
+    }
