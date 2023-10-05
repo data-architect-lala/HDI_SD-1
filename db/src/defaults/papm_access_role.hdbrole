@@ -1,0 +1,12 @@
+{
+    "role":{
+         "name":"papm_access_role",
+         "object_privileges": [
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA_FLT",
+                "privileges": ["SELECT"]
+             }
+            ]
+        }
+    }
