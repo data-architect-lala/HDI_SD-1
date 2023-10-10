@@ -2319,80 +2319,116 @@
       </keyCalculation>
     </calculatedAttribute></calculatedAttributes>
   <baseMeasures>
-    <measure id="SUBTOT_2S_ORG" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="SUBTOT_2S_ORG" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Subtotal 2 ORIGINAL"/>
       <measureMapping columnObjectName="Union_1" columnName="SUBTOT_2S"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="VENTAUMB_ORG" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="VENTAUMB_ORG" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Venta UMB ORIGINAL"/>
       <measureMapping columnObjectName="Union_1" columnName="VENTAUMB"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="VENTAMN_ORG" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="VENTAMN_ORG" order="12" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Venta MN ORIGINAL"/>
       <measureMapping columnObjectName="Union_1" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="VENTAKL_ORG" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="VENTAKL_ORG" order="13" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Venta KL ORIGINAL"/>
       <measureMapping columnObjectName="Union_1" columnName="VENTAKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="DEVOLUCIONMN_ORG" order="138" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="DEVOLUCIONMN_ORG" order="138" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Devolución MN"/>
       <measureMapping columnObjectName="Union_1" columnName="DEVOLUCIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="BONIFICACIONMN_ORG" order="139" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="BONIFICACIONMN_ORG" order="139" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Bonificacion MN"/>
       <measureMapping columnObjectName="Union_1" columnName="BONIFICACIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="VENTABRUTAMN_ORG" order="140" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="VENTABRUTAMN_ORG" order="140" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Venta Bruta MN"/>
       <measureMapping columnObjectName="Union_1" columnName="VENTABRUTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="VENTALG_ORG" order="148" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="VENTALG_ORG" order="148" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Venta L/G"/>
       <measureMapping columnObjectName="Union_1" columnName="VENTALG"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="COSTO_VAL_ORG" order="151" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+    <measure id="COSTO_VAL_ORG" order="151" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL" hidden="true">
       <descriptions defaultDescription="Costo"/>
       <measureMapping columnObjectName="Union_1" columnName="COSTO_VAL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures>
     <measure id="SUBTOT_2S" order="152" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 2"/>
       <formula>ifnull(&quot;SUBTOT_2S_ORG&quot;,0)</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTAUMB" order="153" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta UMB"/>
       <formula>ifnull(&quot;VENTAUMB_ORG&quot;,0)</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTAMN" order="154" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta MN"/>
       <formula>ifnull(&quot;VENTAMN_ORG&quot;,0)</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTAKL" order="155" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="3" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta KL"/>
       <formula>ifnull(&quot;VENTAKL_ORG&quot;,0)</formula>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="DEVOLUCIONMN" order="156" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <formula>ifnull(&quot;DEVOLUCIONMN_ORG&quot;,0) </formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="BONIFICACIONMN" order="157" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Bonificacion MN"/>
       <formula>ifnull(&quot;BONIFICACIONMN_ORG&quot;,0)</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTABRUTAMN" order="158" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta Bruta MN"/>
       <formula>ifnull(&quot;VENTABRUTAMN_ORG&quot;,0)</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTALG" order="159" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta L/G"/>
       <formula>ifnull(&quot;VENTALG_ORG&quot;,0)</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="COSTO_VAL" order="160" aggregationType="sum" measureType="simple" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Costo"/>
       <formula>ifnull(&quot;COSTO_VAL_ORG&quot;,0)</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>
