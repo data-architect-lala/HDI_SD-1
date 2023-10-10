@@ -118,7 +118,10 @@
       <viewAttribute id="ISDD"/>
       <viewAttribute id="ISDZ"/>
       <viewAttribute id="IEDD"/>
-      <viewAttribute id="IEDZ"/></viewAttributes>
+      <viewAttribute id="IEDZ"/>
+      <viewAttribute hidden="true" id="JOIN$MANDT$MANDT"/>
+      <viewAttribute hidden="true" id="JOIN$CC_MATNR_NUMBER$LOW"/>
+    </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="CC_PRODUCCION" datatype="DECIMAL" length="15" scale="3" expressionLanguage="SQL">
         <formula>CASE &quot;HIGH&quot;
@@ -179,14 +182,17 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="ISDD" source="ISDD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ISDZ" source="ISDZ"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="IEDD" source="IEDD"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="IEDZ" source="IEDZ"/></input>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IEDZ" source="IEDZ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_MATNR_NUMBER$LOW" source="CC_MATNR_NUMBER"/>
+    </input>
     <input node="Projection_2">
       <mapping xsi:type="Calculation:AttributeMapping" target="HIGH" source="HIGH"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CC_MATNR_NUMBER" source="LOW"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$MANDT$MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CC_MATNR_NUMBER$LOW" source="LOW"/>
     </input>
-    <joinAttribute name="MANDT"/>
-    <joinAttribute name="CC_MATNR_NUMBER"/>
+    <joinAttribute name="JOIN$MANDT$MANDT"/>
+    <joinAttribute name="JOIN$CC_MATNR_NUMBER$LOW"/>
   </calculationView>
   <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
     <viewAttributes>
@@ -235,7 +241,11 @@
       <viewAttribute id="IEDD"/>
       <viewAttribute id="IEDZ"/>
     </viewAttributes>
-    <calculatedViewAttributes/>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ISSD_F" datatype="DATE" expressionLanguage="SQL">
+        <formula>TO_DATE(&quot;ISDD&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
     <restrictedViewAttributes/>
     <input node="Join_1"/>
   </calculationView>
@@ -279,19 +289,19 @@
       <keyMapping columnObjectName="Aggregation_1" columnName="LTXA1"/>
     </attribute>
     <attribute id="ISDD" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ISDD"/>
+      <descriptions defaultDescription="Confirmed date for start of execution"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="ISDD"/>
     </attribute>
     <attribute id="ISDZ" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ISDZ"/>
+      <descriptions defaultDescription="Confirmed time for &apos;Execution start&apos;"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="ISDZ"/>
     </attribute>
     <attribute id="IEDD" order="12" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="IEDD"/>
+      <descriptions defaultDescription="Confirmed date for execution finish"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="IEDD"/>
     </attribute>
     <attribute id="IEDZ" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="IEDZ"/>
+      <descriptions defaultDescription="Confirmed time for &apos;Execution finish&apos;"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="IEDZ"/>
     </attribute>
     <attribute id="ERNAM" order="14" displayAttribute="false" attributeHierarchyActive="false">
@@ -349,6 +359,10 @@
     <attribute id="HIGH_1" hidden="true" order="29" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="HIGH_1"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="HIGH"/>
+    </attribute>
+    <attribute id="ISSD_F" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONFIRMED DATE FOR START OF EXECUTION _ F"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ISSD_F"/>
     </attribute>
     <attribute id="MANDT$local">
       <descriptions defaultDescription="MANDT"/>

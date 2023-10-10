@@ -21,7 +21,7 @@
       <keyMapping columnObjectName="GVM_DMA_REASON_FOR_VARIANCE_N2" columnName="SPRAS"/>
     </attribute>
     <attribute id="WERKS" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="WERKS"/>
+      <descriptions defaultDescription="Plant"/>
       <keyMapping columnObjectName="GVM_DMA_REASON_FOR_VARIANCE_N2" columnName="WERKS"/>
     </attribute>
     <attribute id="GRUND" order="4" displayAttribute="false" attributeHierarchyActive="false">

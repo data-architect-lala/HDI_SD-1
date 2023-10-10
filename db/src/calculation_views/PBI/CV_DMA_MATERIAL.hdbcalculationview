@@ -97,7 +97,7 @@
       <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MHDHB"/>
     </attribute>
     <attribute id="MAKTX" order="22" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MAKTX"/>
+      <descriptions defaultDescription="Material Description"/>
       <keyMapping columnObjectName="GVM_DMA_MATERIAL" columnName="MAKTX"/>
     </attribute>
   </attributes>
