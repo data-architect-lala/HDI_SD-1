@@ -1,7 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS.hdbcalculationview"/>
-<localVariables/>
+<localVariables>
+  <variable id="VAR_ISSD">
+    <descriptions defaultDescription="Confirmed date for start of execution"/>
+    <variableProperties datatype="NVARCHAR" length="8" scale="null">
+      <valueDomain type="AttributeValue">
+        <attribute name="ISDD"/>
+      </valueDomain>
+      <selection type="Range"/>
+      <defaultRange operator="BT" including="true"/>
+    </variableProperties>
+  </variable>
+  <variable id="VAR_IEDD">
+    <descriptions defaultDescription="Confirmed date for execution finish"/>
+    <variableProperties datatype="NVARCHAR" length="8" scale="null">
+      <valueDomain type="AttributeValue">
+        <attribute name="IEDD"/>
+      </valueDomain>
+      <selection type="Range"/>
+      <defaultRange operator="BT" including="true"/>
+    </variableProperties>
+  </variable>
+  <variable id="VAR_WERKS">
+    <descriptions defaultDescription="Plant"/>
+    <variableProperties datatype="NVARCHAR" length="4" scale="null">
+      <valueDomain type="AttributeValue">
+        <attribute name="WERKS" resourceUri="CV_DMA_PLANT"/>
+      </valueDomain>
+      <selection type="Range"/>
+      <defaultRange operator="BT" including="true"/>
+    </variableProperties>
+  </variable>
+  <variable id="VAR_AREA">
+    <descriptions defaultDescription="Area"/>
+    <variableProperties datatype="NVARCHAR" length="40" scale="null" defaultValue="">
+      <valueDomain type="AttributeValue">
+        <attribute name="AREA"/>
+      </valueDomain>
+      <selection multiLine="true" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+  <variable id="VAR_WORK_CENTER">
+    <descriptions defaultDescription="Work Center"/>
+    <variableProperties datatype="NVARCHAR" length="8" scale="null" defaultValue="">
+      <valueDomain type="AttributeValue">
+        <attribute name="ARBPL"/>
+      </valueDomain>
+      <selection multiLine="true" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+  <variable id="VAR_ISSD_F">
+    <descriptions defaultDescription="CONFIRMED DATE FOR START OF EXECUTION _ F"/>
+    <variableProperties datatype="DATE">
+      <valueDomain type="AttributeValue">
+        <attribute name="ISSD_F"/>
+      </valueDomain>
+      <selection type="Range"/>
+      <defaultRange operator="BT" including="true"/>
+    </variableProperties>
+  </variable>
+</localVariables>
 <variableMappings/>
 <dataSources>
   <DataSource id="GV_CSJ_OVERALL_EQUIPMENT_EFFECTIVENESS">
@@ -290,6 +349,7 @@
     </attribute>
     <attribute id="ISDD" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Confirmed date for start of execution"/>
+      <localVariable>VAR_ISSD</localVariable>
       <keyMapping columnObjectName="Aggregation_1" columnName="ISDD"/>
     </attribute>
     <attribute id="ISDZ" order="11" displayAttribute="false" attributeHierarchyActive="false">
@@ -298,6 +358,7 @@
     </attribute>
     <attribute id="IEDD" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Confirmed date for execution finish"/>
+      <localVariable>VAR_IEDD</localVariable>
       <keyMapping columnObjectName="Aggregation_1" columnName="IEDD"/>
     </attribute>
     <attribute id="IEDZ" order="13" displayAttribute="false" attributeHierarchyActive="false">
@@ -330,10 +391,12 @@
     </attribute>
     <attribute id="ARBPL" order="22" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Work center"/>
+      <localVariable>VAR_WORK_CENTER</localVariable>
       <keyMapping columnObjectName="Aggregation_1" columnName="ARBPL"/>
     </attribute>
     <attribute id="AREA" order="23" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Area"/>
+      <localVariable>VAR_AREA</localVariable>
       <keyMapping columnObjectName="Aggregation_1" columnName="AREA"/>
     </attribute>
     <attribute id="CAPACIDAD" order="24" displayAttribute="false" attributeHierarchyActive="false">
@@ -362,6 +425,7 @@
     </attribute>
     <attribute id="ISSD_F" order="39" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CONFIRMED DATE FOR START OF EXECUTION _ F"/>
+      <localVariable>VAR_ISSD_F</localVariable>
       <keyMapping columnObjectName="Aggregation_1" columnName="ISSD_F"/>
     </attribute>
     <attribute id="MANDT$local">
@@ -484,6 +548,9 @@
       <properties cardinality="CN_1" joinType="leftOuter" joinOperator="Equal"/>
       <associatedAttributeFeatures>
         <attributeReference alias="MANDT_1" attributeName="MANDT" hidden="true"/>
+        <attributeReference attributeName="WERKS">
+          <localVariable>VAR_WERKS</localVariable>
+        </attributeReference>
       </associatedAttributeFeatures>
     </logicalJoin>
     <logicalJoin associatedObjectUri="CV_DMA_REASON_FOR_VARIANCE_N1">
