@@ -6,7 +6,17 @@
                 "type": "VIEW",
                 "name":"CV_SAPVTAFLE",
                 "privileges": ["SELECT"]
-             }
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_UVENTACM_ALMRUTA",
+                "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_UVENTACM",
+                "privileges": ["SELECT"]
+            }
             ]
         }
     }

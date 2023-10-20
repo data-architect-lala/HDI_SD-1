@@ -513,5 +513,11 @@
             "object": "GVM_SAPDEPAR",
             "schema": "SPS_SD"
         }
+    },
+    "GVM_ALMACEN": {
+        "target": {
+            "object": "GVM_ALMACEN",
+            "schema": "SPS_SD"
+        }
     }
 }

@@ -426,6 +426,11 @@
                "type": "SYNONYM",
                "name":"GVM_SAPDEPAR",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_ALMACEN",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_UVENTACM_ALMRUTA" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_UVENTACM_ALMRUTA.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_UVENTACM">
+    <resourceUri>CV_UVENTACM</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_ALMACEN">
+    <resourceUri>GVM_ALMACEN</resourceUri>
+  </DataSource>
+  <DataSource id="Projection_4$$$$CV_UVENTACM$$">
+    <resourceUri>CV_UVENTACM</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="ID_RUTA"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="COMP_CODE" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+        <formula>CONCAT('00', &quot;ID_SOCIEDAD&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="CV_UVENTACM"/>
+    <filter>&quot;ID_INFOSITIO&quot; &lt;&gt; 'VCEN' AND &quot;ID_CEDIS&quot; LIKE '4%' AND (&quot;ID_RUTA&quot; &lt;&gt; '' and &quot;ID_RUTA&quot;&lt;&gt;'#')</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Projection_3" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="FISCPER"/>
+      <viewAttribute id="COMP_CODE"/>
+      <viewAttribute id="ABTEI"/>
+      <viewAttribute id="_BIC_ZDEBCRELC" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="GVM_ALMACEN">
+      <mapping xsi:type="Calculation:AttributeMapping" target="_BIC_ZDEBCRELC" source="BICZDEBCRELC"/>
+    </input>
+    <filter>&quot;ABTEI&quot; LIKE '4%'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTAMN"/>
+      <viewAttribute id="DEVOLUCIONMN"/>
+      <viewAttribute id="BONIFICACIONMN"/>
+      <viewAttribute id="VENTABRUTAMN"/>
+      <viewAttribute id="COSTO_VAL"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_4$$$$CV_UVENTACM$$"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="SUM_AN_SOC_CEDPTA_vta"/>
+    
+      <viewAttribute id="COMP_CODE"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID_ANIOMES_C" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
+        <formula>CONCAT(CONCAT(SUBSTR(&quot;ID_ANIOMES&quot;,1,4),'0'),SUBSTR(&quot;ID_ANIOMES&quot;,5,3))</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CEDPTA_vta" source="VENTAKL"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="SUM_AN_SOC_CEDPTA_vta" aggregationType="sum"/>
+      <viewAttribute id="COMP_CODE"/>
+      <viewAttribute id="ID_ANIOMES_C"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Projection_2"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="SUM_AN_SOC_CEDPTA" aggregationType="sum"/>
+      <viewAttribute id="ID_ANIOMES_C"/>
+      <viewAttribute id="SUM_AN_SOC_CED" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$ID_ANIOMES_C$FISCPER"/>
+      <viewAttribute hidden="true" id="JOIN$ID_CEDIS$ABTEI"/>
+      <viewAttribute hidden="true" id="JOIN$COMP_CODE$COMP_CODE"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Factor" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>case when &quot;SUM_AN_SOC_CEDPTA&quot; &lt;&gt; 0 then &quot;SUM_AN_SOC_CED&quot;/&quot;SUM_AN_SOC_CEDPTA&quot; else 0 end</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Aggregation_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CEDPTA" source="SUM_AN_SOC_CEDPTA_vta"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES_C" source="ID_ANIOMES_C"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES_C$FISCPER" source="ID_ANIOMES_C"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ABTEI" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$COMP_CODE$COMP_CODE" source="COMP_CODE"/>
+    </input>
+    <input node="Projection_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CED" source="_BIC_ZDEBCRELC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES_C$FISCPER" source="FISCPER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ABTEI" source="ABTEI"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$COMP_CODE$COMP_CODE" source="COMP_CODE"/>
+    </input>
+    <joinAttribute name="JOIN$ID_ANIOMES_C$FISCPER"/>
+    <joinAttribute name="JOIN$ID_CEDIS$ABTEI"/>
+    <joinAttribute name="JOIN$COMP_CODE$COMP_CODE"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_N" joinType="rightOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_SOCIEDAD"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ID_RAZONSOCIAL"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
+      <viewAttribute id="BONIFICACIONMN" aggregationType="sum"/>
+      <viewAttribute id="VENTABRUTAMN" aggregationType="sum"/>
+      <viewAttribute id="COSTO_VAL" aggregationType="sum"/>
+      <viewAttribute id="SUM_AN_SOC_CEDPTA" aggregationType="sum"/>
+      <viewAttribute id="SUM_AN_SOC_CED" aggregationType="sum"/>
+      <viewAttribute id="Factor" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$ID_ANIOMES$ID_ANIOMES"/>
+      <viewAttribute hidden="true" id="JOIN$ID_SOCIEDAD$ID_SOCIEDAD"/>
+      <viewAttribute hidden="true" id="JOIN$ID_CEDIS$ID_CEDIS"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="AN_SOC_CEDPTA" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>case when &quot;ID_INFOSITIO&quot; &lt;&gt; 'VCEN' AND &quot;ID_CEDIS&quot; LIKE '4%' AND (&quot;ID_RUTA&quot; &lt;&gt; '' and &quot;ID_RUTA&quot;&lt;&gt;'#') then &quot;SUM_AN_SOC_CEDPTA&quot; else 0 end</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="AN_SOC_CED" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>CASE WHEN &quot;ID_INFOSITIO&quot; &lt;&gt; 'VCEN' AND &quot;ID_CEDIS&quot; LIKE '4%' AND (&quot;ID_RUTA&quot; &lt;&gt; '' and &quot;ID_RUTA&quot;&lt;&gt;'#') THEN &quot;SUM_AN_SOC_CED&quot; ELSE 0 END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="FACTOR" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>CASE WHEN &quot;ID_INFOSITIO&quot; &lt;&gt; 'VCEN' AND &quot;ID_CEDIS&quot; LIKE '4%' AND (&quot;ID_RUTA&quot; &lt;&gt; '' and &quot;ID_RUTA&quot;&lt;&gt;'#') THEN &quot;Factor&quot; ELSE 0 END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="ALMACEN" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>CASE WHEN &quot;ID_INFOSITIO&quot; &lt;&gt; 'VCEN' AND &quot;ID_CEDIS&quot; LIKE '4%' AND (&quot;ID_RUTA&quot; &lt;&gt; '' and &quot;ID_RUTA&quot;&lt;&gt;'#') THEN &quot;FACTOR&quot;*&quot;VENTAKL&quot; ELSE 0 END</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Projection_4">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RAZONSOCIAL" source="ID_RAZONSOCIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_INFOSITIO" source="ID_INFOSITIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTABRUTAMN" source="VENTABRUTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COSTO_VAL" source="COSTO_VAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOCIEDAD$ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ID_CEDIS" source="ID_CEDIS"/>
+    </input>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CEDPTA" source="SUM_AN_SOC_CEDPTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CED" source="SUM_AN_SOC_CED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Factor" source="Factor"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOCIEDAD$ID_SOCIEDAD" source="ID_SOCIEDAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ID_CEDIS" source="ID_CEDIS"/>
+    </input>
+    <joinAttribute name="JOIN$ID_ANIOMES$ID_ANIOMES"/>
+    <joinAttribute name="JOIN$ID_SOCIEDAD$ID_SOCIEDAD"/>
+    <joinAttribute name="JOIN$ID_CEDIS$ID_CEDIS"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_2">
+  <attributes>
+    <attribute id="ID_SOCIEDAD" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_SOCIEDAD"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_SOCIEDAD"/>
+    </attribute>
+    <attribute id="ID_ANIOMES" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_ANIOMES"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID_CEDIS"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ruta"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="ID_RAZONSOCIAL" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Razon Social"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_RAZONSOCIAL"/>
+    </attribute>
+    <attribute id="ID_SUCURSAL" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Sucursal"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_SUCURSAL"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="ID_INFOSITIO" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Infositio"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_INFOSITIO"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="VENTAKL" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="Join_2" columnName="VENTAKL"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VENTAMN" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="Join_2" columnName="VENTAMN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="DEVOLUCIONMN" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Devolución MN"/>
+      <measureMapping columnObjectName="Join_2" columnName="DEVOLUCIONMN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="BONIFICACIONMN" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Bonificacion MN"/>
+      <measureMapping columnObjectName="Join_2" columnName="BONIFICACIONMN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VENTABRUTAMN" order="13" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Venta Bruta MN"/>
+      <measureMapping columnObjectName="Join_2" columnName="VENTABRUTAMN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="COSTO_VAL" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Costo"/>
+      <measureMapping columnObjectName="Join_2" columnName="COSTO_VAL"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="SUM_AN_SOC_CEDPTA" hidden="true" order="15" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SUM_AN_SOC_CEDPTA"/>
+      <measureMapping columnObjectName="Join_2" columnName="SUM_AN_SOC_CEDPTA"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="SUM_AN_SOC_CED" hidden="true" order="16" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="_BIC_ZDEBCRELC"/>
+      <measureMapping columnObjectName="Join_2" columnName="SUM_AN_SOC_CED"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="Factor" hidden="true" order="17" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Factor"/>
+      <measureMapping columnObjectName="Join_2" columnName="Factor"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="AN_SOC_CEDPTA" order="18" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="AN_SOC_CEDPTA"/>
+      <measureMapping columnObjectName="Join_2" columnName="AN_SOC_CEDPTA"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="AN_SOC_CED" order="19" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="AN_SOC_CED"/>
+      <measureMapping columnObjectName="Join_2" columnName="AN_SOC_CED"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="FACTOR" order="20" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="FACTOR"/>
+      <measureMapping columnObjectName="Join_2" columnName="FACTOR"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="ALMACEN" order="21" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ALMACEN"/>
+      <measureMapping columnObjectName="Join_2" columnName="ALMACEN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="187" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="159" y="766"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="407" y="641"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="376"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="159" y="661"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="159" y="546"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="376"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="260" y="22"/>
+      <rectangleSize width="232"/>
+    </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="576" y="25"/>
+      <rectangleSize width="183"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="187" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_4" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="232"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="136"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>

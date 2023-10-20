@@ -441,6 +441,11 @@
                 "type": "VIEW",
                 "name":"CV_VENTACMARCA",
                 "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_UVENTACM_ALMRUTA",
+                "privileges": ["SELECT"]
             }
          ]
     }
