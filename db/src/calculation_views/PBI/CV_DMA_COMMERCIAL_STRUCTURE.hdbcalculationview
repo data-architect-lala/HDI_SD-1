@@ -45,7 +45,7 @@
       <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="CLI_AREACONTROL"/>
     </attribute>
     <attribute id="DISTRIBUTION_CHANNEL" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DISTRIBUTION_CHANNEL"/>
+      <descriptions defaultDescription="Customer Distribution Channel"/>
       <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="DISTRIBUTION_CHANNEL"/>
     </attribute>
     <attribute id="DISTRIB_SUBCHAN" order="10" displayAttribute="false" attributeHierarchyActive="false">
@@ -65,7 +65,7 @@
       <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="DISTRIB_SUBCHAN2"/>
     </attribute>
     <attribute id="DISTRIBUTION_CHANNEL_2" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DISTRIBUTION_CHANNEL_2"/>
+      <descriptions defaultDescription="Customer Format"/>
       <keyMapping columnObjectName="GVM_DMA_COMMERCIAL_STRUCTURE" columnName="DISTRIBUTION_CHANNEL_2"/>
     </attribute>
     <attribute id="COMMERCIAL_STRUCTURE" order="15" displayAttribute="false" attributeHierarchyActive="false">
