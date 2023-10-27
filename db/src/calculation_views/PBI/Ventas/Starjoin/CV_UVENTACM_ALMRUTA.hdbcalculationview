@@ -19,24 +19,18 @@
   <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="ID_ANIOMES"/>
-      <viewAttribute id="ID_SOCIEDAD"/>
       <viewAttribute id="ID_CEDIS"/>
       <viewAttribute id="ID_INFOSITIO"/>
       <viewAttribute id="VENTAKL"/>
       <viewAttribute id="ID_RUTA"/>
     </viewAttributes>
-    <calculatedViewAttributes>
-      <calculatedViewAttribute id="COMP_CODE" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
-        <formula>CONCAT('00', &quot;ID_SOCIEDAD&quot;)</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
+    <calculatedViewAttributes/>
     <input node="CV_UVENTACM"/>
     <filter>&quot;ID_INFOSITIO&quot; &lt;&gt; 'VCEN' AND &quot;ID_CEDIS&quot; LIKE '4%' AND (&quot;ID_RUTA&quot; &lt;&gt; '' and &quot;ID_RUTA&quot;&lt;&gt;'#')</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:AggregationView" id="Projection_3" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="FISCPER"/>
-      <viewAttribute id="COMP_CODE"/>
       <viewAttribute id="ABTEI"/>
       <viewAttribute id="_BIC_ZDEBCRELC" aggregationType="sum"/>
     </viewAttributes>
@@ -70,12 +64,8 @@
   <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
     <viewAttributes>
       <viewAttribute id="ID_ANIOMES"/>
-      <viewAttribute id="ID_SOCIEDAD"/>
       <viewAttribute id="ID_CEDIS"/>
-      <viewAttribute id="SUM_AN_SOC_CEDPTA_vta"/>
-    
-      <viewAttribute id="COMP_CODE"/>
-    </viewAttributes>
+      <viewAttribute id="SUM_AN_SOC_CEDPTA_vta"/></viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="ID_ANIOMES_C" datatype="NVARCHAR" length="7" expressionLanguage="SQL">
         <formula>CONCAT(CONCAT(SUBSTR(&quot;ID_ANIOMES&quot;,1,4),'0'),SUBSTR(&quot;ID_ANIOMES&quot;,5,3))</formula>
@@ -88,10 +78,8 @@
   <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
     <viewAttributes>
       <viewAttribute id="ID_ANIOMES"/>
-      <viewAttribute id="ID_SOCIEDAD"/>
       <viewAttribute id="ID_CEDIS"/>
       <viewAttribute id="SUM_AN_SOC_CEDPTA_vta" aggregationType="sum"/>
-      <viewAttribute id="COMP_CODE"/>
       <viewAttribute id="ID_ANIOMES_C"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -101,14 +89,12 @@
   <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="leftOuter">
     <viewAttributes>
       <viewAttribute id="ID_ANIOMES"/>
-      <viewAttribute id="ID_SOCIEDAD"/>
       <viewAttribute id="ID_CEDIS"/>
       <viewAttribute id="SUM_AN_SOC_CEDPTA" aggregationType="sum"/>
       <viewAttribute id="ID_ANIOMES_C"/>
       <viewAttribute id="SUM_AN_SOC_CED" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$ID_ANIOMES_C$FISCPER"/>
       <viewAttribute hidden="true" id="JOIN$ID_CEDIS$ABTEI"/>
-      <viewAttribute hidden="true" id="JOIN$COMP_CODE$COMP_CODE"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="Factor" datatype="DOUBLE" expressionLanguage="SQL">
@@ -117,23 +103,19 @@
     </calculatedViewAttributes>
     <input node="Aggregation_1">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CEDPTA" source="SUM_AN_SOC_CEDPTA_vta"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES_C" source="ID_ANIOMES_C"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES_C$FISCPER" source="ID_ANIOMES_C"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ABTEI" source="ID_CEDIS"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$COMP_CODE$COMP_CODE" source="COMP_CODE"/>
     </input>
     <input node="Projection_3">
       <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CED" source="_BIC_ZDEBCRELC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES_C$FISCPER" source="FISCPER"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ABTEI" source="ABTEI"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$COMP_CODE$COMP_CODE" source="COMP_CODE"/>
     </input>
     <joinAttribute name="JOIN$ID_ANIOMES_C$FISCPER"/>
     <joinAttribute name="JOIN$ID_CEDIS$ABTEI"/>
-    <joinAttribute name="JOIN$COMP_CODE$COMP_CODE"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_N" joinType="rightOuter">
     <viewAttributes>
@@ -155,7 +137,6 @@
       <viewAttribute id="SUM_AN_SOC_CED" aggregationType="sum"/>
       <viewAttribute id="Factor" aggregationType="sum"/>
       <viewAttribute hidden="true" id="JOIN$ID_ANIOMES$ID_ANIOMES"/>
-      <viewAttribute hidden="true" id="JOIN$ID_SOCIEDAD$ID_SOCIEDAD"/>
       <viewAttribute hidden="true" id="JOIN$ID_CEDIS$ID_CEDIS"/>
     </viewAttributes>
     <calculatedViewAttributes>
@@ -184,23 +165,20 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTABRUTAMN" source="VENTABRUTAMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="COSTO_VAL" source="COSTO_VAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$ID_ANIOMES" source="ID_ANIOMES"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOCIEDAD$ID_SOCIEDAD" source="ID_SOCIEDAD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ID_CEDIS" source="ID_CEDIS"/>
     </input>
     <input node="Join_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOCIEDAD" source="ID_SOCIEDAD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CEDPTA" source="SUM_AN_SOC_CEDPTA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="SUM_AN_SOC_CED" source="SUM_AN_SOC_CED"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="Factor" source="Factor"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_ANIOMES$ID_ANIOMES" source="ID_ANIOMES"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOCIEDAD$ID_SOCIEDAD" source="ID_SOCIEDAD"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_CEDIS$ID_CEDIS" source="ID_CEDIS"/>
     </input>
     <joinAttribute name="JOIN$ID_ANIOMES$ID_ANIOMES"/>
-    <joinAttribute name="JOIN$ID_SOCIEDAD$ID_SOCIEDAD"/>
     <joinAttribute name="JOIN$ID_CEDIS$ID_CEDIS"/>
   </calculationView>
 </calculationViews>
