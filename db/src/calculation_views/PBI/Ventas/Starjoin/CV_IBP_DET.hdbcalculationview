@@ -132,31 +132,39 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
     <viewAttributes>
       <viewAttribute id="VWERK"/>
       <viewAttribute id="KUNNR"/>
+    
+      <viewAttribute hidden="true" id="JOIN$VWERK$LOW"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_KNVV">
       <mapping xsi:type="Calculation:AttributeMapping" target="VWERK" source="VWERK"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KUNNR" source="KUNNR"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$VWERK$LOW" source="VWERK"/>
     </input>
     <input node="P_CEDIS">
-      <mapping xsi:type="Calculation:AttributeMapping" target="VWERK" source="LOW"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$VWERK$LOW" source="LOW"/>
     </input>
-    <joinAttribute name="VWERK"/>
+    <joinAttribute name="JOIN$VWERK$LOW"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_SUCURSAL" joinType="inner">
     <viewAttributes>
       <viewAttribute id="VWERK"/>
       <viewAttribute id="KUNNR"/>
+    
+      <viewAttribute hidden="true" id="JOIN$KUNNR$LOW"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CEDIS">
       <mapping xsi:type="Calculation:AttributeMapping" target="VWERK" source="VWERK"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KUNNR" source="KUNNR"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KUNNR$LOW" source="KUNNR"/>
     </input>
     <input node="P_SUCURSAL">
-      <mapping xsi:type="Calculation:AttributeMapping" target="KUNNR" source="LOW"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KUNNR$LOW" source="LOW"/>
     </input>
-    <joinAttribute name="KUNNR"/>
+    <joinAttribute name="JOIN$KUNNR$LOW"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_ID_SUC" cardinality="C1_1" joinType="leftOuter">
     <viewAttributes>
@@ -179,10 +187,12 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <viewAttribute id="ID_AGRCEDIS_ECC"/>
       <viewAttribute id="TXT_STCLIENTE"/>
       <viewAttribute id="ID_SUCURSAL"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_AGRCEDIS_ECC$VWERK"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="ID_CLIENTE" datatype="NVARCHAR" length="20" expressionLanguage="SQL">
-        <formula>&quot;ID_AGRCEDIS_ECC&quot;+LTRIM(&quot;ID_SUCURSAL&quot;,'0')</formula>
+        <formula>CONCAT(&quot;ID_AGRCEDIS_ECC&quot;,LTRIM(&quot;ID_SUCURSAL&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="AGR_DETALLE">
@@ -204,12 +214,14 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="ID_AGRCEDIS_ECC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_AGRCEDIS_ECC$VWERK" source="ID_AGRCEDIS_ECC"/>
     </input>
     <input node="J_SUCURSAL">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="KUNNR"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="VWERK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_AGRCEDIS_ECC$VWERK" source="VWERK"/>
     </input>
-    <joinAttribute name="ID_AGRCEDIS_ECC"/>
+    <joinAttribute name="JOIN$ID_AGRCEDIS_ECC$VWERK"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="leftOuter">
     <viewAttributes>
@@ -235,6 +247,8 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <viewAttribute id="ID_CLIENTE"/>
       <viewAttribute id="ID_SUCESCM"/>
       <viewAttribute id="TXT_SUCESCM"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_ID_SUC">
@@ -258,13 +272,15 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLIENTE" source="ID_CLIENTE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_DIMSUC">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
-    <joinAttribute name="ID_SUCURSAL"/>
+    <joinAttribute name="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="Join_1">
@@ -355,10 +371,14 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
     <measure id="VENTAKL" order="8" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta KL"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTAKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAMN" order="9" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta MN"/>
       <measureMapping columnObjectName="Join_1" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -368,86 +388,86 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="330.73889887523563" y="112"/>
+      <upperLeftCorner x="330" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_KNVV_P" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="187.91677951002669" y="906.9999952316284"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_KNVV" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="187.91677951002663" y="791.9999952316284"/>
+      <upperLeftCorner x="187" y="906"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_CEDIS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="397.9167795100267" y="781.9999952316284"/>
+      <upperLeftCorner x="397" y="781"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_SUCURSAL" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="636"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_VENTACMARCA_DET" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="552" y="636"/>
+      <rectangleSize height="30" width="194"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_DIMSUC" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="223" y="356"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_KNVV" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="187" y="791"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="AGR_DETALLE" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="503" y="504"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_CEDIS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="335.11824024918116" y="640.3333297570546"/>
+      <upperLeftCorner x="335" y="640"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_KNVV" modelObjectNameSpace="J_CEDIS" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="126.3369140625"/>
+      <rectangleSize width="126"/>
     </shape>
     <shape modelObjectName="P_CEDIS" modelObjectNameSpace="J_CEDIS" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="117.78076171875"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_SUCURSAL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92.00000000000006" y="636.9999964237213"/>
-      <rectangleSize height="30" width="160"/>
+      <rectangleSize width="117"/>
     </shape>
     <shape expanded="true" modelObjectName="J_SUCURSAL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="118.66666666666669" y="496.9999976158142"/>
+      <upperLeftCorner x="118" y="496"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_CEDIS" modelObjectNameSpace="J_SUCURSAL" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="126.3369140625"/>
+      <rectangleSize width="126"/>
     </shape>
     <shape modelObjectName="P_SUCURSAL" modelObjectNameSpace="J_SUCURSAL" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="145.345703125"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_VENTACMARCA_DET" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="552.5607413048788" y="636.9999964237213"/>
-      <rectangleSize height="30" width="194"/>
-    </shape>
-    <shape expanded="true" modelObjectName="AGR_DETALLE" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="503.30413085215685" y="504.4999976158142"/>
-      <rectangleSize height="30" width="160"/>
+      <rectangleSize width="145"/>
     </shape>
     <shape expanded="true" modelObjectName="J_ID_SUC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="433.1980878560141" y="356.9999988079071"/>
+      <upperLeftCorner x="433" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="AGR_DETALLE" modelObjectNameSpace="J_ID_SUC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="189.91455078125"/>
+      <rectangleSize width="189"/>
     </shape>
     <shape modelObjectName="J_SUCURSAL" modelObjectNameSpace="J_ID_SUC" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="144.015625"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_DIMSUC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="223.19808785601413" y="356.9999988079071"/>
-      <rectangleSize height="30" width="160"/>
+      <rectangleSize width="144"/>
     </shape>
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="330.73889887523563" y="217"/>
+      <upperLeftCorner x="330" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_ID_SUC" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="189.91455078125"/>
+      <rectangleSize width="189"/>
     </shape>
     <shape modelObjectName="P_DIMSUC" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="167.8984375"/>
+      <rectangleSize width="167"/>
     </shape>
   </shapes>
 </layout>

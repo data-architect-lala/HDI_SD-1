@@ -87,10 +87,12 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <viewAttribute id="ID_SOLD_TO"/>
       <viewAttribute id="ID_AGRCEDIS_ECC"/>
       <viewAttribute id="TXT_STCLIENTE"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_AGRCEDIS_ECC$WERKS"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="ID_CLIENTE" datatype="NVARCHAR" length="20" expressionLanguage="SQL">
-        <formula>&quot;ID_AGRCEDIS_ECC&quot;+LTRIM(&quot;ID_SUCURSAL&quot;,'0')</formula>
+        <formula>CONCAT(&quot;ID_AGRCEDIS_ECC&quot;,LTRIM(&quot;ID_SUCURSAL&quot;,'0'))</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="P_VENTA_PLA">
@@ -114,11 +116,13 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="ID_AGRCEDIS_ECC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_AGRCEDIS_ECC$WERKS" source="ID_AGRCEDIS_ECC"/>
     </input>
     <input node="Projection_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="WERKS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_AGRCEDIS_ECC$WERKS" source="WERKS"/>
     </input>
-    <joinAttribute name="ID_AGRCEDIS_ECC"/>
+    <joinAttribute name="JOIN$ID_AGRCEDIS_ECC$WERKS"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_CO_PLA" joinType="leftOuter">
     <viewAttributes>
@@ -145,6 +149,8 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <viewAttribute id="ID_CLIENTE"/>
       <viewAttribute id="ID_SUCESCM"/>
       <viewAttribute id="TXT_SUCESCM"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_T001W_PLA">
@@ -169,13 +175,15 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="ID_AGRCEDIS_ECC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLIENTE" source="ID_CLIENTE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_DIMSUC_PLA">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
-    <joinAttribute name="ID_SUCURSAL"/>
+    <joinAttribute name="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="J_CO_PLA">
@@ -270,10 +278,14 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
     <measure id="VENTAKL" order="10" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta KL"/>
       <measureMapping columnObjectName="J_CO_PLA" columnName="VENTAKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAMN" order="11" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta MN"/>
       <measureMapping columnObjectName="J_CO_PLA" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
@@ -283,46 +295,46 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="328.6900820831794" y="112"/>
+      <upperLeftCorner x="328" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_VENTA_PLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="496.9999976158142"/>
+      <upperLeftCorner x="92" y="496"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="496.9999976158142"/>
+      <upperLeftCorner x="302" y="496"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_DIMSUC_PLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="395" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_T001W_PLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="118.66666666666666" y="356.9999988079071"/>
+      <upperLeftCorner x="118" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_VENTA_PLA" modelObjectNameSpace="J_T001W_PLA" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="189.91455078125"/>
+      <rectangleSize width="189"/>
     </shape>
     <shape modelObjectName="Projection_1" modelObjectNameSpace="J_T001W_PLA" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="146.5107421875"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_DIMSUC_PLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="395.83468516943316" y="356.9999988079071"/>
-      <rectangleSize height="30" width="160"/>
+      <rectangleSize width="146"/>
     </shape>
     <shape expanded="true" modelObjectName="J_CO_PLA" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="328.6900820831794" y="217"/>
+      <upperLeftCorner x="328" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_T001W_PLA" modelObjectNameSpace="J_CO_PLA" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="189.91455078125"/>
+      <rectangleSize width="189"/>
     </shape>
     <shape modelObjectName="P_DIMSUC_PLA" modelObjectNameSpace="J_CO_PLA" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="167.8984375"/>
+      <rectangleSize width="167"/>
     </shape>
   </shapes>
 </layout>
