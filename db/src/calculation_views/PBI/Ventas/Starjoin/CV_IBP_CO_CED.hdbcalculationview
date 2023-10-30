@@ -83,7 +83,6 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <viewAttribute id="ID_SOLD_TO"/>
       <viewAttribute id="ID_AGRCEDIS_ECC"/>
       <viewAttribute id="TXT_STCLIENTE"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_AGRCEDIS_ECC$WERKS"/>
     </viewAttributes>
     <calculatedViewAttributes>
@@ -110,7 +109,6 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="ID_AGRCEDIS_ECC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_AGRCEDIS_ECC$WERKS" source="ID_AGRCEDIS_ECC"/>
     </input>
     <input node="P_T001W">
@@ -141,7 +139,6 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <viewAttribute id="ID_CLIENTE"/>
       <viewAttribute id="ID_SUCESCM"/>
       <viewAttribute id="TXT_SUCESCM"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_SOLD_TO$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -165,7 +162,6 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="ID_AGRCEDIS_ECC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLIENTE" source="ID_CLIENTE"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SOLD_TO$ID_SUCURSAL" source="ID_SOLD_TO"/>
     </input>
     <input node="P_DIMSUC_CED">

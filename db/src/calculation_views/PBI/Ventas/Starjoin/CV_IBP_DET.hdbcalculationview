@@ -41,7 +41,7 @@
     <input node="GVM_TVARVC"/>
     <filter>&quot;NAME&quot;='ZIBP_CEDIS'</filter>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="P_SUCURSAL">
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_SUCURSAL" filterExpressionLanguage="SQL">
     <viewAttributes>
       <viewAttribute id="NAME"/>
       <viewAttribute id="I_LOW"/>
@@ -54,6 +54,8 @@
     <input node="P_SUCURSAL$$$$GVM_TVARVC$$">
       <mapping xsi:type="Calculation:AttributeMapping" target="I_LOW" source="LOW"/>
     </input>
+  
+    <filter>&quot;NAME&quot;='ZIBP_SUCURSAL'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_VENTACMARCA_DET" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -132,14 +134,12 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
     <viewAttributes>
       <viewAttribute id="VWERK"/>
       <viewAttribute id="KUNNR"/>
-    
       <viewAttribute hidden="true" id="JOIN$VWERK$LOW"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_KNVV">
       <mapping xsi:type="Calculation:AttributeMapping" target="VWERK" source="VWERK"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KUNNR" source="KUNNR"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$VWERK$LOW" source="VWERK"/>
     </input>
     <input node="P_CEDIS">
@@ -151,14 +151,12 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
     <viewAttributes>
       <viewAttribute id="VWERK"/>
       <viewAttribute id="KUNNR"/>
-    
       <viewAttribute hidden="true" id="JOIN$KUNNR$LOW"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_CEDIS">
       <mapping xsi:type="Calculation:AttributeMapping" target="VWERK" source="VWERK"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="KUNNR" source="KUNNR"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$KUNNR$LOW" source="KUNNR"/>
     </input>
     <input node="P_SUCURSAL">
@@ -187,7 +185,6 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <viewAttribute id="ID_AGRCEDIS_ECC"/>
       <viewAttribute id="TXT_STCLIENTE"/>
       <viewAttribute id="ID_SUCURSAL"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_AGRCEDIS_ECC$VWERK"/>
     </viewAttributes>
     <calculatedViewAttributes>
@@ -214,7 +211,6 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS_ECC" source="ID_AGRCEDIS_ECC"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_AGRCEDIS_ECC$VWERK" source="ID_AGRCEDIS_ECC"/>
     </input>
     <input node="J_SUCURSAL">
@@ -247,7 +243,6 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <viewAttribute id="ID_CLIENTE"/>
       <viewAttribute id="ID_SUCESCM"/>
       <viewAttribute id="TXT_SUCESCM"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -272,7 +267,6 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <mapping xsi:type="Calculation:AttributeMapping" target="TXT_STCLIENTE" source="TXT_STCLIENTE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_CLIENTE" source="ID_CLIENTE"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_DIMSUC">
@@ -410,7 +404,7 @@ AND &quot;ID_MATLTYPE&quot;='ZFER'</filter>
       <rectangleSize height="30" width="194"/>
     </shape>
     <shape expanded="true" modelObjectName="P_DIMSUC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="223" y="356"/>
+      <upperLeftCorner x="215" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_KNVV" modelObjectNameSpace="CalculationView">
