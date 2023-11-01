@@ -1,0 +1,12 @@
+{
+    "role":{
+         "name":"cam_access_role",
+         "object_privileges": [
+            {
+                "type": "VIEW",
+                "name":"CV_UVENTACM",
+                "privileges": ["SELECT"]
+            }
+            ]
+        }
+}
