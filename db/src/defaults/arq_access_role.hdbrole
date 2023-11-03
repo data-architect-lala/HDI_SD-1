@@ -451,6 +451,11 @@
                 "type": "VIEW",
                 "name":"CV_VENTACMARCA_BUD",
                 "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_PROMOTORIA",
+                "privileges": ["SELECT"]
             }
          ]
     }

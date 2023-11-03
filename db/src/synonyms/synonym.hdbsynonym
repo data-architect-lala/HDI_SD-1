@@ -526,5 +526,17 @@
           "object": "GVM_FDM_TZNOMCORTO",
           "schema": "SPS_SD"
       }
+    },
+    "GVM_PROMOTORIA": {
+      "target": {
+          "object": "GVM_PROMOTORIA",
+          "schema": "SPS_SD"
+      }
+    },
+    "GVM_PROMOTORIA_sub": {
+      "target": {
+          "object": "GVM_PROMOTORIA_sub",
+          "schema": "SPS_SD"
+      }
     }
 }

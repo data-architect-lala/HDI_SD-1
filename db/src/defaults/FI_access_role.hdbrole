@@ -16,6 +16,11 @@
                 "type": "VIEW",
                 "name":"CV_UVENTACM",
                 "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_PROMOTORIA",
+                "privileges": ["SELECT"]
             }
             ]
         }

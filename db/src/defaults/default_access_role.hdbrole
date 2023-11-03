@@ -436,6 +436,16 @@
                "type": "SYNONYM",
                "name":"GVM_ALMACEN",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_PROMOTORIA",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_PROMOTORIA_sub",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

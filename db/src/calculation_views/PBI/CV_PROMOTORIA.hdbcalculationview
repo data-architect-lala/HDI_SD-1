@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_PROMOTORIA" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_PROMOTORIA.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_PROMOTORIA">
+    <resourceUri>GVM_PROMOTORIA</resourceUri>
+  </DataSource>
+  <DataSource id="CV_UVENTACM">
+    <resourceUri>CV_UVENTACM</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_PROMOTORIA_sub">
+    <resourceUri>GVM_PROMOTORIA_sub</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ANIO"/>
+      <viewAttribute id="MES"/>
+      <viewAttribute id="CEDIS"/>
+      <viewAttribute id="SUCURSALSAP"/>
+      <viewAttribute id="NOTIENDA"/>
+      <viewAttribute id="NOPERSONAS"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="SUCURSALSAP_STRING" datatype="NVARCHAR" length="10" expressionLanguage="SQL">
+        <formula>CONCAT('000',TO_NVARCHAR(SUCURSALSAP))</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="DIASPROMORUTA" datatype="DECIMAL" length="13" scale="2" expressionLanguage="SQL">
+        <formula>&quot;DIASNAT&quot;*&quot;NOPERSONAS&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="DIASNAT" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>CASE WHEN &quot;MES&quot;&lt;=9 
+THEN DAYOFMONTH(LAST_DAY(TO_DATE( CONCAT(CONCAT(CONCAT(&quot;ANIO&quot;,'-0'),&quot;MES&quot;),'-01'), 'YYYY-MM-DD'))) 
+ELSE DAYOFMONTH(LAST_DAY(TO_DATE( CONCAT(CONCAT(CONCAT(&quot;ANIO&quot;,'-'),&quot;MES&quot;),'-01'), 'YYYY-MM-DD'))) 
+END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="BIWMONTH" datatype="NVARCHAR" length="513" expressionLanguage="SQL">
+        <formula>CASE WHEN &quot;MES&quot; &lt;=9 
+THEN CONCAT(CONCAT(TO_NVARCHAR(&quot;ANIO&quot;),'0'),TO_NVARCHAR(&quot;MES&quot;))
+ELSE CONCAT(TO_NVARCHAR(&quot;ANIO&quot;),TO_NVARCHAR(&quot;MES&quot;))
+END</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="CEDIS_STRING" datatype="NVARCHAR" length="4" expressionLanguage="SQL">
+        <formula>TO_NVARCHAR(&quot;CEDIS&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_PROMOTORIA"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+    <viewAttributes>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_UVENTACM"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+    <viewAttributes>
+      <viewAttribute id="ABTEI"/>
+      <viewAttribute id="BIWMONTH"/>
+      <viewAttribute id="Carga_Social"/>
+      <viewAttribute id="Sueldos"/>
+      <viewAttribute id="Dias"/>
+      <viewAttribute id="Prestaciones"/>
+      <viewAttribute id="Comisiones"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ABTEI_INT" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;ABTEI&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_PROMOTORIA_sub"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="SUCURSALSAP_STRING"/>
+      <viewAttribute id="ANIO"/>
+      <viewAttribute id="MES"/>
+      <viewAttribute id="CEDIS"/>
+      <viewAttribute id="SUCURSALSAP"/>
+      <viewAttribute id="NOTIENDA"/>
+      <viewAttribute id="NOPERSONAS"/>
+      <viewAttribute id="DIASPROMORUTA"/>
+      <viewAttribute id="DIASNAT"/>
+      <viewAttribute id="BIWMONTH"/>
+      <viewAttribute id="CEDIS_STRING"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute hidden="true" id="JOIN$BIWMONTH$ID_ANIOMES"/>
+      <viewAttribute hidden="true" id="JOIN$SUCURSALSAP_STRING$ID_SUCURSAL"/>
+      <viewAttribute hidden="true" id="JOIN$CEDIS_STRING$ID_CEDIS"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCURSALSAP_STRING" source="SUCURSALSAP_STRING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ANIO" source="ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MES" source="MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEDIS" source="CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCURSALSAP" source="SUCURSALSAP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOTIENDA" source="NOTIENDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOPERSONAS" source="NOPERSONAS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIASPROMORUTA" source="DIASPROMORUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIASNAT" source="DIASNAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BIWMONTH" source="BIWMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEDIS_STRING" source="CEDIS_STRING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BIWMONTH$ID_ANIOMES" source="BIWMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$SUCURSALSAP_STRING$ID_SUCURSAL" source="SUCURSALSAP_STRING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CEDIS_STRING$ID_CEDIS" source="CEDIS_STRING"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BIWMONTH$ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$SUCURSALSAP_STRING$ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CEDIS_STRING$ID_CEDIS" source="ID_CEDIS"/>
+    </input>
+    <joinAttribute name="JOIN$BIWMONTH$ID_ANIOMES"/>
+    <joinAttribute name="JOIN$SUCURSALSAP_STRING$ID_SUCURSAL"/>
+    <joinAttribute name="JOIN$CEDIS_STRING$ID_CEDIS"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="SUCURSALSAP_STRING"/>
+      <viewAttribute id="ANIO"/>
+      <viewAttribute id="MES"/>
+      <viewAttribute id="CEDIS"/>
+      <viewAttribute id="SUCURSALSAP"/>
+      <viewAttribute id="NOTIENDA"/>
+      <viewAttribute id="NOPERSONAS"/>
+      <viewAttribute id="DIASPROMORUTA"/>
+      <viewAttribute id="DIASNAT"/>
+      <viewAttribute id="BIWMONTH"/>
+      <viewAttribute id="CEDIS_STRING"/>
+      <viewAttribute id="ID_SUCURSAL"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="ID_RUTA"/>
+      <viewAttribute id="ABTEI"/>
+      <viewAttribute id="Carga_Social"/>
+      <viewAttribute id="Sueldos"/>
+      <viewAttribute id="Dias"/>
+      <viewAttribute id="Prestaciones"/>
+      <viewAttribute id="Comisiones"/>
+      <viewAttribute id="ABTEI_INT"/>
+      <viewAttribute hidden="true" id="JOIN$CEDIS$ABTEI_INT"/>
+      <viewAttribute hidden="true" id="JOIN$BIWMONTH$BIWMONTH"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Sueldos_C" datatype="DECIMAL" length="34" scale="13" expressionLanguage="SQL">
+        <formula>&quot;Sueldos&quot;/&quot;Dias&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Comisiones_C" datatype="DECIMAL" length="36" scale="13" expressionLanguage="SQL">
+        <formula>&quot;Comisiones&quot;/&quot;Dias&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Prestaciones_C" datatype="DECIMAL" length="36" scale="13" expressionLanguage="SQL">
+        <formula>&quot;Prestaciones&quot;/&quot;Dias&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Carga_Social_C" datatype="DECIMAL" length="36" scale="13" expressionLanguage="SQL">
+        <formula>&quot;Carga_Social&quot;/&quot;Dias&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="TOTAL_CC" datatype="DECIMAL" length="38" scale="15" expressionLanguage="SQL">
+        <formula>IFNULL(&quot;Carga_Social_CC&quot;,0)+IFNULL(&quot;SUELDO_CC&quot;,0)+IFNULL(&quot;Prestaciones_CC&quot;,0)+IFNULL(&quot;Comisiones_CC&quot;,0)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="TOTAL_C" datatype="DECIMAL" length="36" scale="13" expressionLanguage="SQL">
+        <formula>IFNULL(&quot;Carga_Social_C&quot;,0)+IFNULL(&quot;Sueldos_C&quot;,0)+IFNULL(&quot;Prestaciones_C&quot;,0)+IFNULL(&quot;Comisiones_C&quot;,0)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Carga_Social_CC" datatype="DECIMAL" length="38" scale="15" expressionLanguage="SQL">
+        <formula>&quot;Carga_Social_C&quot;*&quot;DIASPROMORUTA&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Prestaciones_CC" datatype="DECIMAL" length="38" scale="15" expressionLanguage="SQL">
+        <formula>&quot;Prestaciones_C&quot;* &quot;DIASPROMORUTA&quot;
+</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="Comisiones_CC" datatype="DECIMAL" length="38" scale="15" expressionLanguage="SQL">
+        <formula>&quot;Comisiones_C&quot;*&quot;DIASPROMORUTA&quot;
+</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="SUELDO_CC" datatype="DECIMAL" length="38" scale="15" expressionLanguage="SQL">
+        <formula>&quot;Sueldos_C&quot;*&quot;DIASPROMORUTA&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCURSALSAP_STRING" source="SUCURSALSAP_STRING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ANIO" source="ANIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MES" source="MES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEDIS" source="CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUCURSALSAP" source="SUCURSALSAP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOTIENDA" source="NOTIENDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOPERSONAS" source="NOPERSONAS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIASPROMORUTA" source="DIASPROMORUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DIASNAT" source="DIASNAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BIWMONTH" source="BIWMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CEDIS_STRING" source="CEDIS_STRING"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_RUTA" source="ID_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CEDIS$ABTEI_INT" source="CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BIWMONTH$BIWMONTH" source="BIWMONTH"/>
+    </input>
+    <input node="Projection_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ABTEI" source="ABTEI"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Carga_Social" source="Carga_Social"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Sueldos" source="Sueldos"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Dias" source="Dias"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Prestaciones" source="Prestaciones"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Comisiones" source="Comisiones"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ABTEI_INT" source="ABTEI_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CEDIS$ABTEI_INT" source="ABTEI_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$BIWMONTH$BIWMONTH" source="BIWMONTH"/>
+    </input>
+    <joinAttribute name="JOIN$CEDIS$ABTEI_INT"/>
+    <joinAttribute name="JOIN$BIWMONTH$BIWMONTH"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_2">
+  <attributes>
+    <attribute id="ANIO" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ANIO"/>
+      <keyMapping columnObjectName="Join_2" columnName="ANIO"/>
+    </attribute>
+    <attribute id="MES" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MES"/>
+      <keyMapping columnObjectName="Join_2" columnName="MES"/>
+    </attribute>
+    <attribute id="ID_RUTA" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Ruta"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_RUTA"/>
+    </attribute>
+    <attribute id="CEDIS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CEDIS"/>
+      <keyMapping columnObjectName="Join_2" columnName="CEDIS"/>
+    </attribute>
+    <attribute id="SUCURSALSAP" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUCURSALSAP"/>
+      <keyMapping columnObjectName="Join_2" columnName="SUCURSALSAP"/>
+    </attribute>
+    <attribute id="NOTIENDA" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NOTIENDA"/>
+      <keyMapping columnObjectName="Join_2" columnName="NOTIENDA"/>
+    </attribute>
+    <attribute id="Dias" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Dias"/>
+      <keyMapping columnObjectName="Join_2" columnName="Dias"/>
+    </attribute>
+    <attribute id="NOPERSONAS" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NOPERSONAS"/>
+      <keyMapping columnObjectName="Join_2" columnName="NOPERSONAS"/>
+    </attribute>
+    <attribute id="DIASPROMORUTA" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DIASPROMORUTA"/>
+      <keyMapping columnObjectName="Join_2" columnName="DIASPROMORUTA"/>
+    </attribute>
+    <attribute id="DIASNAT" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DIASNAT"/>
+      <keyMapping columnObjectName="Join_2" columnName="DIASNAT"/>
+    </attribute>
+    <attribute id="ABTEI_INT" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ABTEI_INT"/>
+      <keyMapping columnObjectName="Join_2" columnName="ABTEI_INT"/>
+    </attribute>
+    <attribute id="Sueldos_C" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sueldos_C"/>
+      <keyMapping columnObjectName="Join_2" columnName="Sueldos_C"/>
+    </attribute>
+    <attribute id="Prestaciones_C" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Prestaciones_C"/>
+      <keyMapping columnObjectName="Join_2" columnName="Prestaciones_C"/>
+    </attribute>
+    <attribute id="Carga_Social_C" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Carga_Social_C"/>
+      <keyMapping columnObjectName="Join_2" columnName="Carga_Social_C"/>
+    </attribute>
+    <attribute id="TOTAL_C" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TOTAL_C"/>
+      <keyMapping columnObjectName="Join_2" columnName="TOTAL_C"/>
+    </attribute>
+    <attribute id="SUELDO_CC" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SUELDO_CC"/>
+      <keyMapping columnObjectName="Join_2" columnName="SUELDO_CC"/>
+    </attribute>
+    <attribute id="Comisiones_CC" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Comisiones_CC"/>
+      <keyMapping columnObjectName="Join_2" columnName="Comisiones_CC"/>
+    </attribute>
+    <attribute id="Prestaciones_CC" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Prestaciones_CC"/>
+      <keyMapping columnObjectName="Join_2" columnName="Prestaciones_CC"/>
+    </attribute>
+    <attribute id="Carga_Social_CC" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Carga_Social_CC"/>
+      <keyMapping columnObjectName="Join_2" columnName="Carga_Social_CC"/>
+    </attribute>
+    <attribute id="TOTAL_CC" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TOTAL_CC"/>
+      <keyMapping columnObjectName="Join_2" columnName="TOTAL_CC"/>
+    </attribute>
+    <attribute id="Comisiones_C" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Comisiones_C"/>
+      <keyMapping columnObjectName="Join_2" columnName="Comisiones_C"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-138" y="499"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="62" y="499"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-34" y="378"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="215.58837890625"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="163.021484375"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-194" y="301"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-24" y="210"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="152.03759765625"/>
+    </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
