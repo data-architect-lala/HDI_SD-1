@@ -46,6 +46,11 @@
                 "type": "TABLE",
                 "name":"IBP_USA_PRODUCT_UOM",
                 "privileges": ["SELECT","INSERT","DELETE","UPDATE"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA_BUD",
+                "privileges": ["SELECT"]
             }
             ]
         }

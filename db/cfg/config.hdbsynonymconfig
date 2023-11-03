@@ -514,6 +514,12 @@
             "schema": "SPS_SD"
         }
     },
+    "GVM_FDM_TZNOMCORTO": {
+        "target": {
+            "object": "GVM_FDM_TZNOMCORTO",
+            "schema": "SPS_SD"
+        }
+    },
     "GVM_ALMACEN": {
         "target": {
             "object": "GVM_ALMACEN",

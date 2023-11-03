@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VENTACMARCA_BUD" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_VENTACMARCA_BUD.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_VENTACMARCA">
+    <resourceUri>CV_VENTACMARCA</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_TVARVC">
+    <resourceUri>GVM_TVARVC</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_FDM_TZNOMCORTO">
+    <resourceUri>GVM_FDM_TZNOMCORTO</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCNOMCOR"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTAMN"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_VENTACMARCA"/>
+    <filter>&quot;ID_INFOSITIO&quot; IN ('VC03','VCEN') AND &quot;ID_SPAIS&quot; = 'MX'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="NAME"/>
+      <viewAttribute id="LOW"/>
+      <viewAttribute id="HIGH"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_TVARVC"/>
+    <filter>&quot;NAME&quot; = 'ZIBP_NOMCORTO'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ZNOMCORTO"/>
+      <viewAttribute id="LANGU"/>
+      <viewAttribute id="TXTMD"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="GVM_FDM_TZNOMCORTO"/>
+    <filter>&quot;LANGU&quot; = 'S'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="ID_ANIOMES" aggregationType="sum"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCNOMCOR_S"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute id="ID_SUCNOMCOR_NEW"/>
+      <viewAttribute hidden="true" id="JOIN$ID_SUCNOMCOR$LOW"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID_SUCNOMCOR" datatype="NVARCHAR" length="3" expressionLanguage="SQL">
+        <formula>CASE WHEN &quot;ID_SUCNOMCOR_NEW&quot; IS NULL THEN &quot;ID_SUCNOMCOR_S&quot; ELSE &quot;ID_SUCNOMCOR_NEW&quot; END</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_INFOSITIO" source="ID_INFOSITIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SPAIS" source="ID_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS" source="ID_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMILIA" source="TXT_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMYLIN" source="TXT_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCNOMCOR_S" source="ID_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCNOMCOR$LOW" source="ID_SUCNOMCOR"/>
+    </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCNOMCOR_NEW" source="HIGH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCNOMCOR$LOW" source="LOW"/>
+    </input>
+    <joinAttribute name="JOIN$ID_SUCNOMCOR$LOW"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="ID_ANIOMES"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCNOMCOR"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Join_1"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ID_INFOSITIO"/>
+      <viewAttribute id="ID_SPAIS"/>
+      <viewAttribute id="ID_ANIOMES" aggregationType="sum"/>
+      <viewAttribute id="ID_AGRCEDIS"/>
+      <viewAttribute id="ID_MATERIAL"/>
+      <viewAttribute id="TXT_FAMILIA"/>
+      <viewAttribute id="TXT_FAMYLIN"/>
+      <viewAttribute id="ID_SUCESCM"/>
+      <viewAttribute id="TXT_SUCESCM"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="ID_SUCNOMCOR"/>
+      <viewAttribute id="TXT_SUCNOMCOR"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$ID_SUCNOMCOR$ZNOMCORTO"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Aggregation_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_INFOSITIO" source="ID_INFOSITIO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SPAIS" source="ID_SPAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_AGRCEDIS" source="ID_AGRCEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMILIA" source="TXT_FAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_FAMYLIN" source="TXT_FAMYLIN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCESCM" source="ID_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCESCM" source="TXT_SUCESCM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCNOMCOR" source="ID_SUCNOMCOR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCNOMCOR$ZNOMCORTO" source="ID_SUCNOMCOR"/>
+    </input>
+    <input node="Projection_3">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCNOMCOR" source="TXTMD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCNOMCOR$ZNOMCORTO" source="ZNOMCORTO"/>
+    </input>
+    <joinAttribute name="JOIN$ID_SUCNOMCOR$ZNOMCORTO"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_2">
+  <attributes>
+    <attribute id="ID_INFOSITIO" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Infositio"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_INFOSITIO"/>
+    </attribute>
+    <attribute id="ID_SPAIS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID País Sociedad"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_SPAIS"/>
+    </attribute>
+    <attribute id="ID_ANIOMES" order="3">
+      <descriptions defaultDescription="ID Año/Mes"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_ANIOMES"/>
+    </attribute>
+    <attribute id="ID_AGRCEDIS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis Agrupador"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_AGRCEDIS"/>
+    </attribute>
+    <attribute id="ID_MATERIAL" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Material"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_MATERIAL"/>
+    </attribute>
+    <attribute id="TXT_FAMILIA" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Familia"/>
+      <keyMapping columnObjectName="Join_2" columnName="TXT_FAMILIA"/>
+    </attribute>
+    <attribute id="TXT_FAMYLIN" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Famylin"/>
+      <keyMapping columnObjectName="Join_2" columnName="TXT_FAMYLIN"/>
+    </attribute>
+    <attribute id="ID_SUCESCM" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_SUCESCM"/>
+    </attribute>
+    <attribute id="TXT_SUCESCM" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Estructura Comercial"/>
+      <keyMapping columnObjectName="Join_2" columnName="TXT_SUCESCM"/>
+    </attribute>
+    <attribute id="ID_SUCSUPCAN" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Súper Canal"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="TXT_SUCSUPCAN" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Súper Canal"/>
+      <keyMapping columnObjectName="Join_2" columnName="TXT_SUCSUPCAN"/>
+    </attribute>
+    <attribute id="ID_SUCNOMCOR" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Nombre Corto"/>
+      <keyMapping columnObjectName="Join_2" columnName="ID_SUCNOMCOR"/>
+    </attribute>
+    <attribute id="TXT_SUCNOMCOR" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Nombre Corto"/>
+      <keyMapping columnObjectName="Join_2" columnName="TXT_SUCNOMCOR"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="VENTAKL" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="Join_2" columnName="VENTAKL"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VENTAMN" order="15" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="Join_2" columnName="VENTAMN"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="-136" y="105"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-270" y="573"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-40" y="573"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-151" y="445"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="186"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="136"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-151" y="354"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="85" y="354"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-120" y="237"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggregation_1" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="181.9599609375"/>
+    </shape>
+    <shape modelObjectName="Projection_3" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="294" y="115"/>
+      <rectangleSize width="157.7041015625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

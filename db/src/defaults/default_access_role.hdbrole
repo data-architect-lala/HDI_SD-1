@@ -429,6 +429,11 @@
             },
             {
                "type": "SYNONYM",
+               "name":"GVM_FDM_TZNOMCORTO",
+               "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
                "name":"GVM_ALMACEN",
                "privileges": ["SELECT"]
             }

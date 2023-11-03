@@ -513,6 +513,7 @@
                 },
                 {
                     "type": "VIEW",
+                    "name": "GVM_FDM_TZNOMCORTO",
                     "name": "GVM_ALMACEN",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]
