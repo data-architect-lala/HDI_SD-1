@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VENTACMARCA_MENS_IBP" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false" analyticViewCompatibilityMode="true">
+<descriptions defaultDescription="CV_VENTACMARCA_MENS_IBP.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_IBP_CO_CED">
+    <resourceUri>CV_IBP_CO_CED</resourceUri>
+  </DataSource>
+  <DataSource id="CV_IBP_CO_PLA">
+    <resourceUri>CV_IBP_CO_PLA</resourceUri>
+  </DataSource>
+  <DataSource id="CV_IBP_DET">
+    <resourceUri>CV_IBP_DET</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_CO_CED">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTAMN"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_IBP_CO_CED"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_CO_PLA">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTAMN"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_IBP_CO_PLA"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_DET">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="VENTAKL"/>
+      <viewAttribute id="VENTAMN"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_IBP_DET"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="ID_SUCSUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/></viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="P_CO_CED" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+    </input>
+    <input node="P_CO_PLA" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCSUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="U_IBP">
+    <viewAttributes>
+      <viewAttribute id="ID_FECHA"/>
+      <viewAttribute id="ID_CEDIS"/>
+      <viewAttribute id="TXT_CEDIS"/>
+      <viewAttribute id="ID_SUPCAN"/>
+      <viewAttribute id="TXT_SUCSUPCAN"/>
+      <viewAttribute id="VENTAKL" aggregationType="sum"/>
+      <viewAttribute id="VENTAMN" aggregationType="sum"/></viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CC_ID_CALMONTH" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
+        <formula>YEAR(&quot;ID_FECHA&quot;)||MONTH(&quot;ID_FECHA&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Union_1" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+    </input>
+    <input node="P_DET" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUPCAN" source="ID_SUCSUPCAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_CEDIS" source="TXT_CEDIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXT_SUCSUPCAN" source="TXT_SUCSUPCAN"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="U_IBP">
+  <attributes>
+    <attribute id="CC_ID_CALMONTH" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CC_ID_CALMONTH"/>
+      <keyMapping columnObjectName="U_IBP" columnName="CC_ID_CALMONTH"/>
+    </attribute>
+    <attribute id="ID_CEDIS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Cedis/Planta"/>
+      <keyMapping columnObjectName="U_IBP" columnName="ID_CEDIS"/>
+    </attribute>
+    <attribute id="TXT_CEDIS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Cedis/Planta"/>
+      <keyMapping columnObjectName="U_IBP" columnName="TXT_CEDIS"/>
+    </attribute>
+    <attribute id="ID_SUPCAN" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID Suc. Súper Canal"/>
+      <keyMapping columnObjectName="U_IBP" columnName="ID_SUPCAN"/>
+    </attribute>
+    <attribute id="TXT_SUCSUPCAN" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Suc. Súper Canal"/>
+      <keyMapping columnObjectName="U_IBP" columnName="TXT_SUCSUPCAN"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="VENTAKL" order="6" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta KL"/>
+      <measureMapping columnObjectName="U_IBP" columnName="VENTAKL"/>
+    
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VENTAMN" order="7" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription="Venta MN"/>
+      <measureMapping columnObjectName="U_IBP" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="P_CO_CED" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-264" y="564"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_CO_PLA" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="48" y="564"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_DET" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="180" y="421"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-112" y="421"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="U_IBP" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="30" y="295"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
