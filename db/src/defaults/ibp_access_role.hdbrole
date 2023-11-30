@@ -17,11 +17,11 @@
                 "name":"CV_VENTACMARCA",
                 "privileges": ["SELECT"]
             },
-           /* { SE RESTRINGE ACCESO POR PBI
+            { 
                 "type": "VIEW",
                 "name":"CV_VENTACMARCA_IBP",
                 "privileges": ["SELECT"]
-            },*/
+            },
             {
                 "type": "VIEW",
                 "name":"CV_VENTACMARCA_MENS_IBP",
