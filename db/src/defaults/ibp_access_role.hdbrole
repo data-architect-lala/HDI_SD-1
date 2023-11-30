@@ -17,11 +17,11 @@
                 "name":"CV_VENTACMARCA",
                 "privileges": ["SELECT"]
             },
-            {
+           /* {
                 "type": "VIEW",
                 "name":"CV_VENTACMARCA_IBP",
                 "privileges": ["SELECT"]
-            },
+            },*/
             {
                 "type": "TABLE",
                 "name":"IBP_USA_CURRENCY",
