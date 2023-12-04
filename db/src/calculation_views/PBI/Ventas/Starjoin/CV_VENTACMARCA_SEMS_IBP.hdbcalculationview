@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VENTACMARCA_MENS_IBP" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false" analyticViewCompatibilityMode="false">
-<descriptions defaultDescription="CV_VENTACMARCA_MENS_IBP.hdbcalculationview"/>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VENTACMARCA_SEMS_IBP" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false" analyticViewCompatibilityMode="false">
+<descriptions defaultDescription="CV_VENTACMARCA_SEMS_IBP.hdbcalculationview"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
@@ -94,6 +94,12 @@
       <calculatedViewAttribute id="CC_ID_CALMONTH" datatype="NVARCHAR" length="6" expressionLanguage="SQL">
         <formula>YEAR(&quot;ID_FECHA&quot;)||MONTH(&quot;ID_FECHA&quot;)</formula>
       </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="SEMANA_CC" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+    
+        <formula>YEAR(&quot;ID_FECHA&quot;) || SUBSTR_AFTER( ISOWEEK(&quot;ID_FECHA&quot;), 'W' )</formula>
+    
+      </calculatedViewAttribute>
     </calculatedViewAttributes>
     <input node="Union_1" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_CEDIS" source="ID_CEDIS"/>
@@ -138,6 +144,13 @@
     <attribute id="TXT_SUCSUPCAN" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Suc. Súper Canal"/>
       <keyMapping columnObjectName="U_IBP" columnName="TXT_SUCSUPCAN"/>
+    </attribute>
+  
+    <attribute id="SEMANA_CC" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEMANA_CC"/>
+  
+      <keyMapping columnObjectName="U_IBP" columnName="SEMANA_CC"/>
+  
     </attribute>
   </attributes>
   <calculatedAttributes/>

@@ -21,6 +21,11 @@
                 "type": "VIEW",
                 "name":"CV_PROMOTORIA",
                 "privileges": ["SELECT"]
+            },
+            {
+               "type": "VIEW",
+               "name":"CV_MTOCOM",
+               "privileges": ["SELECT"]
             }
             ]
         }

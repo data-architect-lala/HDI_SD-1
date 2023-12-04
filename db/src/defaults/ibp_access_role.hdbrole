@@ -56,6 +56,11 @@
                 "type": "VIEW",
                 "name":"CV_VENTACMARCA_BUD",
                 "privileges": ["SELECT"]
+            },
+            {
+                "type": "VIEW",
+                "name":"CV_VENTACMARCA_SEMS_IBP",
+                "privileges": ["SELECT"]
             }
             ]
         }
