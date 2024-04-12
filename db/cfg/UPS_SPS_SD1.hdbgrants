@@ -1,5 +1,5 @@
 {
-    "UPS_SPS_SD": {
+    "UPS_SPS_SD1": {
         "object_owner": {
             "object_privileges": [
                 {
@@ -532,6 +532,12 @@
                 {
                     "type": "VIEW",
                     "name": "GVM_PROMOTORIA_sub",
+                    "privileges": ["SELECT"],
+                    "privileges_with_grant_option": ["SELECT"]
+                },
+                {
+                    "type": "VIEW",
+                    "name": "GVM_FFZSD_C03_2018",
                     "privileges": ["SELECT"],
                     "privileges_with_grant_option": ["SELECT"]
                 }

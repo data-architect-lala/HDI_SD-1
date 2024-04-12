@@ -446,6 +446,11 @@
                "type": "SYNONYM",
                "name":"GVM_PROMOTORIA_sub",
                "privileges": ["SELECT"]
+            },
+            {
+               "type": "SYNONYM",
+               "name":"GVM_FFZSD_C03_2018",
+               "privileges": ["SELECT"]
             }
          ],
          "schema_privileges":[

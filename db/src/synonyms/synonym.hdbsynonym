@@ -538,5 +538,11 @@
           "object": "GVM_PROMOTORIA_sub",
           "schema": "SPS_SD"
       }
+    },
+    "GVM_FFZSD_C03_2018": {
+      "target": {
+          "object": "GVM_FFZSD_C03_2018",
+          "schema": "SPS_SD"
+      }
     }
 }
