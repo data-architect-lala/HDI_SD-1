@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_VENTADIRECTA" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" application="BAS" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" pruningTable="">
+<descriptions defaultDescription="CV_VENTADIRECTA.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="GVM_FFZSD_C03">
+    <resourceUri>GVM_FFZSD_C03</resourceUri>
+  </DataSource>
+  <DataSource id="GVM_FFZSD_C03_2018">
+    <resourceUri>GVM_FFZSD_C03_2018</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="KEY_ZSD_C03P"/>
+      <viewAttribute id="KEY_ZSD_C03T"/>
+      <viewAttribute id="KEY_ZSD_C03U"/>
+      <viewAttribute id="KEY_ZSD_C031"/>
+      <viewAttribute id="KEY_ZSD_C032"/>
+      <viewAttribute id="KEY_ZSD_C033"/>
+      <viewAttribute id="KEY_ZSD_C034"/>
+      <viewAttribute id="KEY_ZSD_C035"/>
+      <viewAttribute id="KEY_ZSD_C036"/>
+      <viewAttribute id="KEY_ZSD_C037"/>
+      <viewAttribute id="KEY_ZSD_C038"/>
+      <viewAttribute id="KEY_ZSD_C039"/>
+      <viewAttribute id="SID_0CALMONTH"/>
+      <viewAttribute id="SUBTOT_1S"/>
+      <viewAttribute id="SUBTOT_2S"/>
+      <viewAttribute id="SUBTOT_3S"/>
+      <viewAttribute id="SUBTOT_4S"/>
+      <viewAttribute id="SUBTOT_5S"/>
+      <viewAttribute id="SUBTOT_6S"/>
+      <viewAttribute id="OPORDQTYBM"/>
+      <viewAttribute id="OPORDVALSC"/>
+      <viewAttribute id="QUANT_B"/>
+      <viewAttribute id="DOCUMENTS"/>
+      <viewAttribute id="DOC_ITEMS"/>
+      <viewAttribute id="NET_VAL_S"/>
+      <viewAttribute id="COST_VAL_S"/>
+      <viewAttribute id="GR_WT_KG"/>
+      <viewAttribute id="NT_WT_KG"/>
+      <viewAttribute id="VOLUME_CDM"/>
+      <viewAttribute id="_BIC_ZQUANT_KL"/>
+      <viewAttribute id="0COMP_CODE"/>
+      <viewAttribute id="0SALES_GRP"/>
+      <viewAttribute id="0SALES_OFF"/>
+      <viewAttribute id="0SALESEMPLY"/>
+      <viewAttribute id="0SHIP_POINT"/>
+      <viewAttribute id="0DOC_CATEG"/>
+      <viewAttribute id="0BILL_TYPE"/>
+      <viewAttribute id="0VTYPE"/>
+      <viewAttribute id="0DEB_CRED"/>
+      <viewAttribute id="0ITEM_CATEG"/>
+      <viewAttribute id="ZSEMANA"/>
+      <viewAttribute id="0VERSION"/>
+      <viewAttribute id="ZPLANT"/>
+      <viewAttribute id="ZNOMCORTO"/>
+      <viewAttribute id="ZGRUPOCAD"/>
+      <viewAttribute id="ZSOLD_TO"/>
+      <viewAttribute id="ZBILLPRTY"/>
+      <viewAttribute id="0DISTR_CHAN"/>
+      <viewAttribute id="0SALESORG"/>
+      <viewAttribute id="0DIVISION"/>
+      <viewAttribute id="ZENT_TYPE"/>
+      <viewAttribute id="ZMATERIAL"/>
+      <viewAttribute id="ZFAMILIA"/>
+      <viewAttribute id="ZSHIP_TO"/>
+      <viewAttribute id="ZSUPERV"/>
+      <viewAttribute id="ZGRUPOSUP"/>
+      <viewAttribute id="ZTIP_RUTA"/>
+      <viewAttribute id="ZRUTA"/>
+      <viewAttribute id="0BASE_UOM"/>
+      <viewAttribute id="0STAT_CURR"/>
+      <viewAttribute id="0CALQUART1"/>
+      <viewAttribute id="0CALQUARTER"/>
+      <viewAttribute id="0CALYEAR"/>
+      <viewAttribute id="0WEEKDAY1"/>
+      <viewAttribute id="0CALWEEK"/>
+      <viewAttribute id="0CALDAY"/>
+      <viewAttribute id="0CALMONTH"/>
+      <viewAttribute id="0CALMONTH2"/>
+      <viewAttribute id="0FISCPER"/>
+      <viewAttribute id="0FISCVARNT"/>
+      <viewAttribute id="OPERATION"/>
+      <viewAttribute id="LOADDATE"/>
+      <viewAttribute id="SCALMONTH"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID_ANIO" datatype="NVARCHAR" length="4" expressionLanguage="SQL">
+        <formula>SUBSTR(&quot;SID_0CALMONTH&quot;,0,4)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_FFZSD_C03">
+      <mapping xsi:type="Calculation:AttributeMapping" target="_BIC_ZQUANT_KL" source="/BIC/ZQUANT_KL"/>
+    </input>
+  
+    <filter>&quot;0CALYEAR&quot; &lt;&gt; '2019'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="KEY_ZSD_C03P"/>
+      <viewAttribute id="KEY_ZSD_C03T"/>
+      <viewAttribute id="KEY_ZSD_C03U"/>
+      <viewAttribute id="KEY_ZSD_C031"/>
+      <viewAttribute id="KEY_ZSD_C032"/>
+      <viewAttribute id="KEY_ZSD_C033"/>
+      <viewAttribute id="KEY_ZSD_C034"/>
+      <viewAttribute id="KEY_ZSD_C035"/>
+      <viewAttribute id="KEY_ZSD_C036"/>
+      <viewAttribute id="KEY_ZSD_C037"/>
+      <viewAttribute id="KEY_ZSD_C038"/>
+      <viewAttribute id="KEY_ZSD_C039"/>
+      <viewAttribute id="SID_0CALMONTH"/>
+      <viewAttribute id="SUBTOT_1S"/>
+      <viewAttribute id="SUBTOT_2S"/>
+      <viewAttribute id="SUBTOT_3S"/>
+      <viewAttribute id="SUBTOT_4S"/>
+      <viewAttribute id="SUBTOT_5S"/>
+      <viewAttribute id="SUBTOT_6S"/>
+      <viewAttribute id="OPORDQTYBM"/>
+      <viewAttribute id="OPORDVALSC"/>
+      <viewAttribute id="QUANT_B"/>
+      <viewAttribute id="DOCUMENTS"/>
+      <viewAttribute id="DOC_ITEMS"/>
+      <viewAttribute id="NET_VAL_S"/>
+      <viewAttribute id="COST_VAL_S"/>
+      <viewAttribute id="GR_WT_KG"/>
+      <viewAttribute id="NT_WT_KG"/>
+      <viewAttribute id="VOLUME_CDM"/>
+      <viewAttribute id="_BIC_ZQUANT_KL"/>
+      <viewAttribute id="0COMP_CODE"/>
+      <viewAttribute id="0SALES_GRP"/>
+      <viewAttribute id="0SALES_OFF"/>
+      <viewAttribute id="0SALESEMPLY"/>
+      <viewAttribute id="0SHIP_POINT"/>
+      <viewAttribute id="0DOC_CATEG"/>
+      <viewAttribute id="0BILL_TYPE"/>
+      <viewAttribute id="0VTYPE"/>
+      <viewAttribute id="0DEB_CRED"/>
+      <viewAttribute id="0ITEM_CATEG"/>
+      <viewAttribute id="ZSEMANA"/>
+      <viewAttribute id="0VERSION"/>
+      <viewAttribute id="ZPLANT"/>
+      <viewAttribute id="ZNOMCORTO"/>
+      <viewAttribute id="ZGRUPOCAD"/>
+      <viewAttribute id="ZSOLD_TO"/>
+      <viewAttribute id="ZBILLPRTY"/>
+      <viewAttribute id="0DISTR_CHAN"/>
+      <viewAttribute id="0SALESORG"/>
+      <viewAttribute id="0DIVISION"/>
+      <viewAttribute id="ZENT_TYPE"/>
+      <viewAttribute id="ZMATERIAL"/>
+      <viewAttribute id="ZFAMILIA"/>
+      <viewAttribute id="ZSHIP_TO"/>
+      <viewAttribute id="ZSUPERV"/>
+      <viewAttribute id="ZGRUPOSUP"/>
+      <viewAttribute id="ZTIP_RUTA"/>
+      <viewAttribute id="ZRUTA"/>
+      <viewAttribute id="0BASE_UOM"/>
+      <viewAttribute id="0STAT_CURR"/>
+      <viewAttribute id="0CALQUART1"/>
+      <viewAttribute id="0CALQUARTER"/>
+      <viewAttribute id="0CALYEAR"/>
+      <viewAttribute id="0WEEKDAY1"/>
+      <viewAttribute id="0CALWEEK"/>
+      <viewAttribute id="0CALDAY"/>
+      <viewAttribute id="0CALMONTH"/>
+      <viewAttribute id="0CALMONTH2"/>
+      <viewAttribute id="0FISCPER"/>
+      <viewAttribute id="0FISCVARNT"/>
+      <viewAttribute id="OPERATION"/>
+      <viewAttribute id="LOADDATE"/>
+      <viewAttribute id="SCALMONTH"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID_ANIO" datatype="NVARCHAR" length="4" expressionLanguage="SQL">
+        <formula>SUBSTR(&quot;SID_0CALMONTH&quot;,0, 4)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="GVM_FFZSD_C03_2018">
+      <mapping xsi:type="Calculation:AttributeMapping" target="_BIC_ZQUANT_KL" source="/BIC/ZQUANT_KL"/>
+    </input>
+  
+    <filter>&quot;0CALYEAR&quot; = '2018'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1" columnBasedPruningFlag="true">
+    <viewAttributes>
+      <viewAttribute id="KEY_ZSD_C03P" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C03T" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C03U" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C031" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C032" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C033" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C034" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C035" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C036" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C037" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C038" aggregationType="sum"/>
+      <viewAttribute id="KEY_ZSD_C039" aggregationType="sum"/>
+      <viewAttribute id="SID_0CALMONTH" aggregationType="sum"/>
+      <viewAttribute id="SUBTOT_1S" aggregationType="sum"/>
+      <viewAttribute id="SUBTOT_2S" aggregationType="sum"/>
+      <viewAttribute id="SUBTOT_3S" aggregationType="sum"/>
+      <viewAttribute id="SUBTOT_4S" aggregationType="sum"/>
+      <viewAttribute id="SUBTOT_5S" aggregationType="sum"/>
+      <viewAttribute id="SUBTOT_6S" aggregationType="sum"/>
+      <viewAttribute id="OPORDQTYBM" aggregationType="sum"/>
+      <viewAttribute id="OPORDVALSC" aggregationType="sum"/>
+      <viewAttribute id="QUANT_B" aggregationType="sum"/>
+      <viewAttribute id="DOCUMENTS" aggregationType="sum"/>
+      <viewAttribute id="DOC_ITEMS" aggregationType="sum"/>
+      <viewAttribute id="NET_VAL_S" aggregationType="sum"/>
+      <viewAttribute id="COST_VAL_S" aggregationType="sum"/>
+      <viewAttribute id="GR_WT_KG" aggregationType="sum"/>
+      <viewAttribute id="NT_WT_KG" aggregationType="sum"/>
+      <viewAttribute id="VOLUME_CDM" aggregationType="sum"/>
+      <viewAttribute id="_BIC_ZQUANT_KL" aggregationType="sum"/>
+      <viewAttribute id="0COMP_CODE"/>
+      <viewAttribute id="0SALES_GRP"/>
+      <viewAttribute id="0SALES_OFF"/>
+      <viewAttribute id="0SALESEMPLY"/>
+      <viewAttribute id="0SHIP_POINT"/>
+      <viewAttribute id="0DOC_CATEG"/>
+      <viewAttribute id="0BILL_TYPE"/>
+      <viewAttribute id="0VTYPE"/>
+      <viewAttribute id="0DEB_CRED"/>
+      <viewAttribute id="0ITEM_CATEG"/>
+      <viewAttribute id="ZSEMANA"/>
+      <viewAttribute id="0VERSION"/>
+      <viewAttribute id="ZPLANT"/>
+      <viewAttribute id="ZNOMCORTO"/>
+      <viewAttribute id="ZGRUPOCAD"/>
+      <viewAttribute id="ZSOLD_TO"/>
+      <viewAttribute id="ZBILLPRTY"/>
+      <viewAttribute id="0DISTR_CHAN"/>
+      <viewAttribute id="0SALESORG"/>
+      <viewAttribute id="0DIVISION"/>
+      <viewAttribute id="ZENT_TYPE"/>
+      <viewAttribute id="ZMATERIAL"/>
+      <viewAttribute id="ZFAMILIA"/>
+      <viewAttribute id="ZSHIP_TO"/>
+      <viewAttribute id="ZSUPERV"/>
+      <viewAttribute id="ZGRUPOSUP"/>
+      <viewAttribute id="ZTIP_RUTA"/>
+      <viewAttribute id="ZRUTA"/>
+      <viewAttribute id="0BASE_UOM"/>
+      <viewAttribute id="0STAT_CURR"/>
+      <viewAttribute id="0CALQUART1"/>
+      <viewAttribute id="0CALQUARTER"/>
+      <viewAttribute id="0CALYEAR"/>
+      <viewAttribute id="0WEEKDAY1"/>
+      <viewAttribute id="0CALWEEK"/>
+      <viewAttribute id="0CALDAY"/>
+      <viewAttribute id="0CALMONTH" aggregationType="sum"/>
+      <viewAttribute id="0CALMONTH2"/>
+      <viewAttribute id="0FISCPER"/>
+      <viewAttribute id="0FISCVARNT"/>
+      <viewAttribute id="OPERATION"/>
+      <viewAttribute id="LOADDATE" aggregationType="min"/>
+      <viewAttribute id="SCALMONTH"/>
+      <viewAttribute id="ID_ANIO"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C03P" source="KEY_ZSD_C03P"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C03T" source="KEY_ZSD_C03T"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C03U" source="KEY_ZSD_C03U"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C031" source="KEY_ZSD_C031"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C032" source="KEY_ZSD_C032"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C033" source="KEY_ZSD_C033"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C034" source="KEY_ZSD_C034"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C035" source="KEY_ZSD_C035"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C036" source="KEY_ZSD_C036"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C037" source="KEY_ZSD_C037"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C038" source="KEY_ZSD_C038"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C039" source="KEY_ZSD_C039"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SID_0CALMONTH" source="SID_0CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_1S" source="SUBTOT_1S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_2S" source="SUBTOT_2S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_3S" source="SUBTOT_3S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_4S" source="SUBTOT_4S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_5S" source="SUBTOT_5S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_6S" source="SUBTOT_6S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPORDQTYBM" source="OPORDQTYBM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPORDVALSC" source="OPORDVALSC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANT_B" source="QUANT_B"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DOCUMENTS" source="DOCUMENTS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DOC_ITEMS" source="DOC_ITEMS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NET_VAL_S" source="NET_VAL_S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COST_VAL_S" source="COST_VAL_S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GR_WT_KG" source="GR_WT_KG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NT_WT_KG" source="NT_WT_KG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VOLUME_CDM" source="VOLUME_CDM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="_BIC_ZQUANT_KL" source="_BIC_ZQUANT_KL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0COMP_CODE" source="0COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SALES_GRP" source="0SALES_GRP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SALES_OFF" source="0SALES_OFF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SALESEMPLY" source="0SALESEMPLY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SHIP_POINT" source="0SHIP_POINT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0DOC_CATEG" source="0DOC_CATEG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0BILL_TYPE" source="0BILL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0VTYPE" source="0VTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0DEB_CRED" source="0DEB_CRED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0ITEM_CATEG" source="0ITEM_CATEG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZSEMANA" source="ZSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0VERSION" source="0VERSION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZPLANT" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZNOMCORTO" source="ZNOMCORTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZGRUPOCAD" source="ZGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZSOLD_TO" source="ZSOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZBILLPRTY" source="ZBILLPRTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0DISTR_CHAN" source="0DISTR_CHAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SALESORG" source="0SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0DIVISION" source="0DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZENT_TYPE" source="ZENT_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZMATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZFAMILIA" source="ZFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZSHIP_TO" source="ZSHIP_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZSUPERV" source="ZSUPERV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZGRUPOSUP" source="ZGRUPOSUP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZTIP_RUTA" source="ZTIP_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZRUTA" source="ZRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0BASE_UOM" source="0BASE_UOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0STAT_CURR" source="0STAT_CURR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALQUART1" source="0CALQUART1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALQUARTER" source="0CALQUARTER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALYEAR" source="0CALYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0WEEKDAY1" source="0WEEKDAY1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALWEEK" source="0CALWEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALMONTH" source="0CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALMONTH2" source="0CALMONTH2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0FISCPER" source="0FISCPER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0FISCVARNT" source="0FISCVARNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPERATION" source="OPERATION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCALMONTH" source="SCALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+    </input>
+    <input node="Projection_2" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C03P" source="KEY_ZSD_C03P"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C03T" source="KEY_ZSD_C03T"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C03U" source="KEY_ZSD_C03U"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C031" source="KEY_ZSD_C031"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C032" source="KEY_ZSD_C032"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C033" source="KEY_ZSD_C033"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C034" source="KEY_ZSD_C034"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C035" source="KEY_ZSD_C035"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C036" source="KEY_ZSD_C036"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C037" source="KEY_ZSD_C037"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C038" source="KEY_ZSD_C038"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_ZSD_C039" source="KEY_ZSD_C039"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SID_0CALMONTH" source="SID_0CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_1S" source="SUBTOT_1S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_2S" source="SUBTOT_2S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_3S" source="SUBTOT_3S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_4S" source="SUBTOT_4S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_5S" source="SUBTOT_5S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_6S" source="SUBTOT_6S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPORDQTYBM" source="OPORDQTYBM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPORDVALSC" source="OPORDVALSC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANT_B" source="QUANT_B"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DOCUMENTS" source="DOCUMENTS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DOC_ITEMS" source="DOC_ITEMS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NET_VAL_S" source="NET_VAL_S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COST_VAL_S" source="COST_VAL_S"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GR_WT_KG" source="GR_WT_KG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NT_WT_KG" source="NT_WT_KG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="VOLUME_CDM" source="VOLUME_CDM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="_BIC_ZQUANT_KL" source="_BIC_ZQUANT_KL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0COMP_CODE" source="0COMP_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SALES_GRP" source="0SALES_GRP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SALES_OFF" source="0SALES_OFF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SALESEMPLY" source="0SALESEMPLY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SHIP_POINT" source="0SHIP_POINT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0DOC_CATEG" source="0DOC_CATEG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0BILL_TYPE" source="0BILL_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0VTYPE" source="0VTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0DEB_CRED" source="0DEB_CRED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0ITEM_CATEG" source="0ITEM_CATEG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZSEMANA" source="ZSEMANA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0VERSION" source="0VERSION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZPLANT" source="ZPLANT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZNOMCORTO" source="ZNOMCORTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZGRUPOCAD" source="ZGRUPOCAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZSOLD_TO" source="ZSOLD_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZBILLPRTY" source="ZBILLPRTY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0DISTR_CHAN" source="0DISTR_CHAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0SALESORG" source="0SALESORG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0DIVISION" source="0DIVISION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZENT_TYPE" source="ZENT_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZMATERIAL" source="ZMATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZFAMILIA" source="ZFAMILIA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZSHIP_TO" source="ZSHIP_TO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZSUPERV" source="ZSUPERV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZGRUPOSUP" source="ZGRUPOSUP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZTIP_RUTA" source="ZTIP_RUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZRUTA" source="ZRUTA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0BASE_UOM" source="0BASE_UOM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0STAT_CURR" source="0STAT_CURR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALQUART1" source="0CALQUART1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALQUARTER" source="0CALQUARTER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALYEAR" source="0CALYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0WEEKDAY1" source="0WEEKDAY1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALWEEK" source="0CALWEEK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALMONTH" source="0CALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALMONTH2" source="0CALMONTH2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0FISCPER" source="0FISCPER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0FISCVARNT" source="0FISCVARNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OPERATION" source="OPERATION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SCALMONTH" source="SCALMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIO" source="ID_ANIO"/>
+    </input>
+  
+    <columnBasedPruningAttributes>
+      <columnBasedPruningAttribute id="0CALYEAR"/>
+      <columnBasedPruningAttribute id="SID_0CALMONTH"/>
+      <columnBasedPruningAttribute id="0CALDAY"/>
+      <columnBasedPruningAttribute id="0CALWEEK"/>
+    </columnBasedPruningAttributes>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Union_1">
+  <attributes>
+    <attribute id="KEY_ZSD_C03P" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C03P"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C03P"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C03T" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C03T"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C03T"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C03U" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C03U"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C03U"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C031" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C031"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C031"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C032" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C032"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C032"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C033" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C033"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C033"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C034" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C034"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C034"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C035" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C035"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C035"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C036" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C036"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C036"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C037" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C037"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C037"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C038" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C038"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C038"/>
+    </attribute>
+    <attribute id="KEY_ZSD_C039" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="KEY_ZSD_C039"/>
+      <keyMapping columnObjectName="Union_1" columnName="KEY_ZSD_C039"/>
+    </attribute>
+    <attribute id="SID_0CALMONTH" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SID_0CALMONTH"/>
+      <keyMapping columnObjectName="Union_1" columnName="SID_0CALMONTH"/>
+    </attribute>
+    <attribute id="0COMP_CODE" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0COMP_CODE"/>
+      <keyMapping columnObjectName="Union_1" columnName="0COMP_CODE"/>
+    </attribute>
+    <attribute id="0SALES_GRP" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0SALES_GRP"/>
+      <keyMapping columnObjectName="Union_1" columnName="0SALES_GRP"/>
+    </attribute>
+    <attribute id="0SALES_OFF" order="33" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0SALES_OFF"/>
+      <keyMapping columnObjectName="Union_1" columnName="0SALES_OFF"/>
+    </attribute>
+    <attribute id="0SALESEMPLY" order="34" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0SALESEMPLY"/>
+      <keyMapping columnObjectName="Union_1" columnName="0SALESEMPLY"/>
+    </attribute>
+    <attribute id="0SHIP_POINT" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0SHIP_POINT"/>
+      <keyMapping columnObjectName="Union_1" columnName="0SHIP_POINT"/>
+    </attribute>
+    <attribute id="0DOC_CATEG" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0DOC_CATEG"/>
+      <keyMapping columnObjectName="Union_1" columnName="0DOC_CATEG"/>
+    </attribute>
+    <attribute id="0BILL_TYPE" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0BILL_TYPE"/>
+      <keyMapping columnObjectName="Union_1" columnName="0BILL_TYPE"/>
+    </attribute>
+    <attribute id="0VTYPE" order="38" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0VTYPE"/>
+      <keyMapping columnObjectName="Union_1" columnName="0VTYPE"/>
+    </attribute>
+    <attribute id="0DEB_CRED" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0DEB_CRED"/>
+      <keyMapping columnObjectName="Union_1" columnName="0DEB_CRED"/>
+    </attribute>
+    <attribute id="0ITEM_CATEG" order="40" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0ITEM_CATEG"/>
+      <keyMapping columnObjectName="Union_1" columnName="0ITEM_CATEG"/>
+    </attribute>
+    <attribute id="ZSEMANA" order="41" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZSEMANA"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZSEMANA"/>
+    </attribute>
+    <attribute id="0VERSION" order="42" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0VERSION"/>
+      <keyMapping columnObjectName="Union_1" columnName="0VERSION"/>
+    </attribute>
+    <attribute id="ZPLANT" order="43" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZPLANT"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZPLANT"/>
+    </attribute>
+    <attribute id="ZNOMCORTO" order="44" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZNOMCORTO"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZNOMCORTO"/>
+    </attribute>
+    <attribute id="ZGRUPOCAD" order="45" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZGRUPOCAD"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZGRUPOCAD"/>
+    </attribute>
+    <attribute id="ZSOLD_TO" order="46" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZSOLD_TO"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZSOLD_TO"/>
+    </attribute>
+    <attribute id="ZBILLPRTY" order="47" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZBILLPRTY"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZBILLPRTY"/>
+    </attribute>
+    <attribute id="0DISTR_CHAN" order="48" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0DISTR_CHAN"/>
+      <keyMapping columnObjectName="Union_1" columnName="0DISTR_CHAN"/>
+    </attribute>
+    <attribute id="0SALESORG" order="49" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0SALESORG"/>
+      <keyMapping columnObjectName="Union_1" columnName="0SALESORG"/>
+    </attribute>
+    <attribute id="0DIVISION" order="50" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0DIVISION"/>
+      <keyMapping columnObjectName="Union_1" columnName="0DIVISION"/>
+    </attribute>
+    <attribute id="ZENT_TYPE" order="51" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZENT_TYPE"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZENT_TYPE"/>
+    </attribute>
+    <attribute id="ZMATERIAL" order="52" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZMATERIAL"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZMATERIAL"/>
+    </attribute>
+    <attribute id="ZFAMILIA" order="53" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZFAMILIA"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZFAMILIA"/>
+    </attribute>
+    <attribute id="ZSHIP_TO" order="54" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZSHIP_TO"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZSHIP_TO"/>
+    </attribute>
+    <attribute id="ZSUPERV" order="55" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZSUPERV"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZSUPERV"/>
+    </attribute>
+    <attribute id="ZGRUPOSUP" order="56" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZGRUPOSUP"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZGRUPOSUP"/>
+    </attribute>
+    <attribute id="ZTIP_RUTA" order="57" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZTIP_RUTA"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZTIP_RUTA"/>
+    </attribute>
+    <attribute id="ZRUTA" order="58" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ZRUTA"/>
+      <keyMapping columnObjectName="Union_1" columnName="ZRUTA"/>
+    </attribute>
+    <attribute id="0BASE_UOM" order="59" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0BASE_UOM"/>
+      <keyMapping columnObjectName="Union_1" columnName="0BASE_UOM"/>
+    </attribute>
+    <attribute id="0STAT_CURR" order="60" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0STAT_CURR"/>
+      <keyMapping columnObjectName="Union_1" columnName="0STAT_CURR"/>
+    </attribute>
+    <attribute id="0CALQUART1" order="61" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0CALQUART1"/>
+      <keyMapping columnObjectName="Union_1" columnName="0CALQUART1"/>
+    </attribute>
+    <attribute id="0CALQUARTER" order="62" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0CALQUARTER"/>
+      <keyMapping columnObjectName="Union_1" columnName="0CALQUARTER"/>
+    </attribute>
+    <attribute id="0CALYEAR" order="63" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0CALYEAR"/>
+      <keyMapping columnObjectName="Union_1" columnName="0CALYEAR"/>
+    </attribute>
+    <attribute id="0WEEKDAY1" order="64" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0WEEKDAY1"/>
+      <keyMapping columnObjectName="Union_1" columnName="0WEEKDAY1"/>
+    </attribute>
+    <attribute id="0CALWEEK" order="65" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0CALWEEK"/>
+      <keyMapping columnObjectName="Union_1" columnName="0CALWEEK"/>
+    </attribute>
+    <attribute id="0CALDAY" order="66" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0CALDAY"/>
+      <keyMapping columnObjectName="Union_1" columnName="0CALDAY"/>
+    </attribute>
+    <attribute id="0CALMONTH" order="67" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0CALMONTH"/>
+      <keyMapping columnObjectName="Union_1" columnName="0CALMONTH"/>
+    </attribute>
+    <attribute id="0CALMONTH2" order="68" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0CALMONTH2"/>
+      <keyMapping columnObjectName="Union_1" columnName="0CALMONTH2"/>
+    </attribute>
+    <attribute id="0FISCPER" order="69" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0FISCPER"/>
+      <keyMapping columnObjectName="Union_1" columnName="0FISCPER"/>
+    </attribute>
+    <attribute id="0FISCVARNT" order="70" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="0FISCVARNT"/>
+      <keyMapping columnObjectName="Union_1" columnName="0FISCVARNT"/>
+    </attribute>
+    <attribute id="OPERATION" order="71" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OPERATION"/>
+      <keyMapping columnObjectName="Union_1" columnName="OPERATION"/>
+    </attribute>
+    <attribute id="LOADDATE" order="72" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOADDATE"/>
+      <keyMapping columnObjectName="Union_1" columnName="LOADDATE"/>
+    </attribute>
+    <attribute id="SCALMONTH" order="73" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SCALMONTH"/>
+      <keyMapping columnObjectName="Union_1" columnName="SCALMONTH"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="SUBTOT_1S" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SUBTOT_1S"/>
+      <measureMapping columnObjectName="Union_1" columnName="SUBTOT_1S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="SUBTOT_2S" order="15" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SUBTOT_2S"/>
+      <measureMapping columnObjectName="Union_1" columnName="SUBTOT_2S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="SUBTOT_3S" order="16" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SUBTOT_3S"/>
+      <measureMapping columnObjectName="Union_1" columnName="SUBTOT_3S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="SUBTOT_4S" order="17" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SUBTOT_4S"/>
+      <measureMapping columnObjectName="Union_1" columnName="SUBTOT_4S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="SUBTOT_5S" order="18" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SUBTOT_5S"/>
+      <measureMapping columnObjectName="Union_1" columnName="SUBTOT_5S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="SUBTOT_6S" order="19" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SUBTOT_6S"/>
+      <measureMapping columnObjectName="Union_1" columnName="SUBTOT_6S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="OPORDQTYBM" order="20" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="OPORDQTYBM"/>
+      <measureMapping columnObjectName="Union_1" columnName="OPORDQTYBM"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="OPORDVALSC" order="21" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="OPORDVALSC"/>
+      <measureMapping columnObjectName="Union_1" columnName="OPORDVALSC"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="QUANT_B" order="22" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="QUANT_B"/>
+      <measureMapping columnObjectName="Union_1" columnName="QUANT_B"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="DOCUMENTS" order="23" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="DOCUMENTS"/>
+      <measureMapping columnObjectName="Union_1" columnName="DOCUMENTS"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="DOC_ITEMS" order="24" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="DOC_ITEMS"/>
+      <measureMapping columnObjectName="Union_1" columnName="DOC_ITEMS"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="NET_VAL_S" order="25" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NET_VAL_S"/>
+      <measureMapping columnObjectName="Union_1" columnName="NET_VAL_S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="COST_VAL_S" order="26" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="COST_VAL_S"/>
+      <measureMapping columnObjectName="Union_1" columnName="COST_VAL_S"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="GR_WT_KG" order="27" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="GR_WT_KG"/>
+      <measureMapping columnObjectName="Union_1" columnName="GR_WT_KG"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="NT_WT_KG" order="28" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NT_WT_KG"/>
+      <measureMapping columnObjectName="Union_1" columnName="NT_WT_KG"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="VOLUME_CDM" order="29" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="VOLUME_CDM"/>
+      <measureMapping columnObjectName="Union_1" columnName="VOLUME_CDM"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="_BIC_ZQUANT_KL" order="30" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="_BIC_ZQUANT_KL"/>
+      <measureMapping columnObjectName="Union_1" columnName="_BIC_ZQUANT_KL"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-21" y="340"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="204" y="338"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="80" y="221"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -99,7 +99,8 @@
     </input>
     <filter>(&quot;ID_SOCIEDAD&quot; NOT IN ('1003','1054','6201','6202','US11','US12','US13','US14','US15') 
 AND 
-&quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18'))</filter>
+&quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18'))
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_CUSTOMER" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -193,7 +194,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
 AND  
 &quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18')
 AND 
-&quot;ID_CLFACTURA&quot; IN ('S2','ZNCC','ZNCT', 'ZNCM','ZS6','ZND1','ZNCB','ZNC1','B3','ZINC','ZNBP','ZFCP','ZNCP','ZS9','S4','ZFRN','ZFCK','ZS15'))</filter>
+&quot;ID_CLFACTURA&quot; IN ('S2','ZNCC','ZNCT', 'ZNCM','ZS6','ZND1','ZNCB','ZNC1','B3','ZINC','ZNBP','ZFCP','ZNCP','ZS9','S4','ZFRN','ZFCK','ZS15'))
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_CUSTOMERB" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -287,7 +289,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
 AND  
 &quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18')
 AND 
-&quot;ID_CLFACTURA&quot; IN ('ZSR2', 'ZS2', 'ZRE', 'ZSR5', 'ZSR3', 'ZIDV', 'ZRCU', 'ZNCU', 'ZS8','ZRER','ZFRR','ZS14'))</filter>
+&quot;ID_CLFACTURA&quot; IN ('ZSR2', 'ZS2', 'ZRE', 'ZSR5', 'ZSR3', 'ZIDV', 'ZRCU', 'ZNCU', 'ZS8','ZRER','ZFRR','ZS14'))
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_CUSTOMERD" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -352,7 +355,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <viewAttribute id="LOADDATE" aggregationType="min"/>
       <viewAttribute id="ID_SOLD_TO"/>
       <viewAttribute id="ID_DIRFUNCIONAL"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -387,7 +389,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_CUSTOMER">
@@ -425,7 +426,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <viewAttribute id="LOADDATE" aggregationType="min"/>
       <viewAttribute id="ID_SOLD_TO"/>
       <viewAttribute id="ID_DIRFUNCIONAL"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -456,7 +456,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_CUSTOMERB">
@@ -494,7 +493,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <viewAttribute id="LOADDATE" aggregationType="min"/>
       <viewAttribute id="ID_SOLD_TO"/>
       <viewAttribute id="ID_DIRFUNCIONAL"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -525,7 +523,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_CUSTOMERD">
@@ -570,7 +567,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <viewAttribute id="ID_FAMILIA"/>
       <viewAttribute id="ID_SUPFAMILIA"/>
       <viewAttribute id="ID_SUPMARCA"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -606,7 +602,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIRFUNCIONAL" source="ID_DIRFUNCIONAL"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIAL">
@@ -649,7 +644,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <viewAttribute id="ID_FAMILIA"/>
       <viewAttribute id="ID_SUPFAMILIA"/>
       <viewAttribute id="ID_SUPMARCA"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -681,7 +675,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIRFUNCIONAL" source="ID_DIRFUNCIONAL"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIALB">
@@ -724,7 +717,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <viewAttribute id="ID_FAMILIA"/>
       <viewAttribute id="ID_SUPFAMILIA"/>
       <viewAttribute id="ID_SUPMARCA"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -756,7 +748,6 @@ AND &quot;ID_SUPMARCA&quot; IN ('001','002','003','004','005','006','008','009',
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_DIRFUNCIONAL" source="ID_DIRFUNCIONAL"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIALD">

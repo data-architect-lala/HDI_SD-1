@@ -84,7 +84,8 @@
     </input>
     <filter>(&quot;ID_SOCIEDAD&quot; IN ('6201','6202','US11','US12','US13','US14','US15') 
 AND 
-&quot;ID_CLFACTURA&quot; IN ('S1', 'ZF4', 'ZRBI', 'ZRF2', 'ZS1', 'ZS2', 'ZR01','ZFRN','ZFCK','ZS15'))</filter>
+&quot;ID_CLFACTURA&quot; IN ('S1', 'ZF4', 'ZRBI', 'ZRF2', 'ZS1', 'ZS2', 'ZR01','ZFRN','ZFCK','ZS15'))
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_MATERIALB" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -163,7 +164,7 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ZSOLD_TO"/>
     </input>
     <filter>(&quot;ID_SOCIEDAD&quot; IN ('6201','6202','US11','US12','US13','US14','US15'))
-</filter>
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_MATERIAL" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -241,7 +242,7 @@ AND
     <filter>(&quot;ID_SOCIEDAD&quot; IN ('6201','6202','US11','US12','US13','US14','US15')
 AND 
 &quot;ID_CLFACTURA&quot; IN ('S1', 'ZF4', 'ZRBI', 'ZRF2', 'ZS1', 'ZS2', 'ZR01','ZRER','ZFRR','ZS14'))
-</filter>
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_MATERIALD" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -290,7 +291,6 @@ AND
       <viewAttribute id="ID_MATLTYPE"/>
       <viewAttribute id="FACTORKL" aggregationType="sum"/>
       <viewAttribute id="FACTORLG" aggregationType="sum"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -321,7 +321,6 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIALB">
@@ -365,7 +364,6 @@ AND
       <viewAttribute id="ID_MATLTYPE"/>
       <viewAttribute id="FACTORKL" aggregationType="sum"/>
       <viewAttribute id="FACTORLG" aggregationType="sum"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -398,7 +396,6 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="SUBTOT_2S" source="SUBTOT_2S"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIAL">
@@ -440,7 +437,6 @@ AND
       <viewAttribute id="ID_MATLTYPE"/>
       <viewAttribute id="FACTORKL" aggregationType="sum"/>
       <viewAttribute id="FACTORLG" aggregationType="sum"/>
-    
       <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -471,7 +467,6 @@ AND
       <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_SOLD_TO" source="ID_SOLD_TO"/>
-    
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIALD">

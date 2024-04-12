@@ -97,7 +97,8 @@
     </input>
     <filter>(&quot;ID_SOCIEDAD&quot; NOT IN ('1003','1054','6201','6202','US11','US12','US13','US14','US15')
 AND 
-&quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18'))</filter>
+&quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18'))
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_CUSTOMER" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -188,7 +189,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
 AND 
 &quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18')
 AND 
-&quot;ID_CLFACTURA&quot; IN ('S2', 'ZNCC','ZNCT', 'ZNCM','ZS6','ZND1','ZNCB','ZNC1','B3','ZINC','ZNBP','ZFCP','ZNCP','ZS9','S4','ZFRN','ZFCK','ZS15'))</filter>
+&quot;ID_CLFACTURA&quot; IN ('S2', 'ZNCC','ZNCT', 'ZNCM','ZS6','ZND1','ZNCB','ZNC1','B3','ZINC','ZNBP','ZFCP','ZNCP','ZS9','S4','ZFRN','ZFCK','ZS15'))
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_CUSTOMERB" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -280,7 +282,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
 AND 
 &quot;ID_CANDISOB&quot; IN ('03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18')
 AND 
-&quot;ID_CLFACTURA&quot; IN ('ZSR2', 'ZS2', 'ZRE', 'ZSR5', 'ZSR3', 'ZIDV', 'ZRCU', 'ZNCU', 'ZS8','ZRER','ZFRR','ZS14'))</filter>
+&quot;ID_CLFACTURA&quot; IN ('ZSR2', 'ZS2', 'ZRE', 'ZSR5', 'ZSR3', 'ZIDV', 'ZRCU', 'ZNCU', 'ZS8','ZRER','ZFRR','ZS14'))
+AND &quot;ID_ANIOMES&quot; &gt;= '202301'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="P_CUSTOMERD" filterExpressionLanguage="SQL">
     <viewAttributes>
@@ -343,6 +346,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <viewAttribute id="VENTAMN" aggregationType="sum"/>
       <viewAttribute id="VENTAKL" aggregationType="sum"/>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_ZSD_C03NS">
@@ -375,11 +380,13 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_CUSTOMER">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
-    <joinAttribute name="ID_SUCURSAL"/>
+    <joinAttribute name="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_VNSSUCB" cardinality="C1_1" joinType="inner">
     <viewAttributes>
@@ -408,6 +415,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <viewAttribute id="ID_ORGVTA"/>
       <viewAttribute id="BONIFICACIONMN" aggregationType="sum"/>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_ZSD_C03NSB">
@@ -436,11 +445,13 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_CUSTOMERB">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
-    <joinAttribute name="ID_SUCURSAL"/>
+    <joinAttribute name="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_VNSSUCD" cardinality="C1_1" joinType="inner">
     <viewAttributes>
@@ -469,6 +480,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <viewAttribute id="ID_ORGVTA"/>
       <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="P_ZSD_C03NSD">
@@ -497,11 +510,13 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
     <input node="P_CUSTOMERD">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_SUCURSAL" source="ID_SUCURSAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_SUCURSAL$ID_SUCURSAL" source="ID_SUCURSAL"/>
     </input>
-    <joinAttribute name="ID_SUCURSAL"/>
+    <joinAttribute name="JOIN$ID_SUCURSAL$ID_SUCURSAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_VNSSUCMAT" cardinality="C1_1" joinType="inner">
     <viewAttributes>
@@ -534,6 +549,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <viewAttribute id="VENTAMN" aggregationType="sum"/>
       <viewAttribute id="VENTAKL" aggregationType="sum"/>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_VNSSUC">
@@ -566,11 +583,13 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTAMN" source="VENTAMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="VENTAKL" source="VENTAKL"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIAL">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
-    <joinAttribute name="ID_MATERIAL"/>
+    <joinAttribute name="JOIN$ID_MATERIAL$ID_MATERIAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_VNSSUCMATB" cardinality="C1_1" joinType="inner">
     <viewAttributes>
@@ -599,6 +618,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <viewAttribute id="ID_ORGVTA"/>
       <viewAttribute id="BONIFICACIONMN" aggregationType="sum"/>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_VNSSUCB">
@@ -627,11 +648,13 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIALB">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
-    <joinAttribute name="ID_MATERIAL"/>
+    <joinAttribute name="JOIN$ID_MATERIAL$ID_MATERIAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="J_VNSSUCMATD" cardinality="C1_1" joinType="inner">
     <viewAttributes>
@@ -660,6 +683,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <viewAttribute id="ID_ORGVTA"/>
       <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
       <viewAttribute id="LOADDATE" aggregationType="min"/>
+    
+      <viewAttribute hidden="true" id="JOIN$ID_MATERIAL$ID_MATERIAL"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_VNSSUCD">
@@ -688,11 +713,13 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ORGVTA" source="ID_ORGVTA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="DEVOLUCIONMN" source="DEVOLUCIONMN"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="LOADDATE" source="LOADDATE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
     <input node="P_MATERIALB_copy">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID_MATERIAL" source="ID_MATERIAL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID_MATERIAL$ID_MATERIAL" source="ID_MATERIAL"/>
     </input>
-    <joinAttribute name="ID_MATERIAL"/>
+    <joinAttribute name="JOIN$ID_MATERIAL$ID_MATERIAL"/>
   </calculationView>
   <calculationView xsi:type="Calculation:UnionView" id="U_VTANOSAP">
     <viewAttributes>
@@ -729,7 +756,7 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <viewAttribute id="DEVOLUCIONMN" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="J_VNSSUCMAT">
+    <input node="J_VNSSUCMAT" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
@@ -762,7 +789,7 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="BONIFICACIONMN" null="true" value=""/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
     </input>
-    <input node="J_VNSSUCMATB">
+    <input node="J_VNSSUCMATB" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
@@ -795,7 +822,7 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <mapping xsi:type="Calculation:AttributeMapping" target="BONIFICACIONMN" source="BONIFICACIONMN"/>
       <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEVOLUCIONMN" null="true" value=""/>
     </input>
-    <input node="J_VNSSUCMATD">
+    <input node="J_VNSSUCMATD" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_FECHA" source="ID_FECHA"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOMES" source="ID_ANIOMES"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ID_ANIOSEMANA" source="ID_ANIOSEMANA"/>
@@ -840,7 +867,7 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <descriptions defaultDescription="ID Fecha"/>
       <keyMapping columnObjectName="U_VTANOSAP" columnName="ID_FECHA"/>
     </attribute>
-    <attribute id="ID_ANIOMES" order="3">
+    <attribute id="ID_ANIOMES" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ID Año/Mes"/>
       <keyMapping columnObjectName="U_VTANOSAP" columnName="ID_ANIOMES"/>
     </attribute>
@@ -931,55 +958,77 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="4">
         <formula>'VNOS'</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures>
     <measure id="SUBTOT_1S" order="25" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 1"/>
       <measureMapping columnObjectName="U_VTANOSAP" columnName="SUBTOT_1S"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="SUBTOT_2S" order="26" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Subtotal 2"/>
       <measureMapping columnObjectName="U_VTANOSAP" columnName="SUBTOT_2S"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAUMB" order="27" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta UMB"/>
       <measureMapping columnObjectName="U_VTANOSAP" columnName="VENTAUMB"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAMN" order="28" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta MN"/>
       <measureMapping columnObjectName="U_VTANOSAP" columnName="VENTAMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="VENTAKL" order="29" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta KL"/>
       <measureMapping columnObjectName="U_VTANOSAP" columnName="VENTAKL"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="BONIFICACIONMN" hidden="true" order="30" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="BONIFICACIONMN"/>
       <measureMapping columnObjectName="U_VTANOSAP" columnName="BONIFICACIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="DEVOLUCIONMN_C" order="31" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <measureMapping columnObjectName="U_VTANOSAP" columnName="DEVOLUCIONMN"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
     <measure id="LOADDATE" order="34" aggregationType="max" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="LOADDATE"/>
       <measureMapping columnObjectName="U_VTANOSAP" columnName="LOADDATE"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures>
     <measure id="C_BONIFICACIONMN" order="32" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Bonificación MN"/>
       <formula>(IFNULL(&quot;BONIFICACIONMN&quot;,0) + IFNULL(&quot;SUBTOT_2S&quot;,0))*-1</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="VENTABRUTAMN" order="33" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Venta Bruta MN"/>
       <formula>(&quot;VENTAMN&quot; + &quot;C_BONIFICACIONMN&quot; + &quot;DEVOLUCIONMN&quot;)</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
     <measure id="DEVOLUCIONMN" order="35" aggregationType="sum" measureType="simple" aggregatable="true" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Devolución MN"/>
       <formula>IFNULL(&quot;DEVOLUCIONMN_C&quot;,0)*-1</formula>
-      </measure>
+      
+      <exceptionAggregationMetadata/>
+    </measure>
   </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>
@@ -987,26 +1036,51 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="687.3160513738916" y="112"/>
+      <upperLeftCorner x="687" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="P_ZSD_C03NS" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="600.6633400661492" y="731.9999952316284"/>
+      <upperLeftCorner x="600" y="731"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_CUSTOMER" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="810.6633400661494" y="731.9999952316284"/>
+      <upperLeftCorner x="810" y="731"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="P_MATERIAL" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="511.99999999999955" y="571.9999964237213"/>
+      <upperLeftCorner x="511" y="571"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   
+    <shape expanded="true" modelObjectName="P_ZSD_C03NSB" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="180" y="731"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_CUSTOMERB" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="390" y="731"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MATERIALB" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="571"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1020" y="731"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_CUSTOMERD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1230" y="731"/>
+      <rectangleSize width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_MATERIALB_copy" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="931" y="571"/>
+      <rectangleSize width="160"/>
+    </shape>
+  
     <shape expanded="true" modelObjectName="J_VNSSUC" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="721.9999999999998" y="571.9999964237213"/>
+      <upperLeftCorner x="721" y="571"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="P_ZSD_C03NS" modelObjectNameSpace="J_VNSSUC" modelObjectType="JoinNodeInput">
@@ -1017,8 +1091,32 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="185"/>
     </shape>
+    <shape expanded="true" modelObjectName="J_VNSSUCB" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="301" y="585"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ZSD_C03NSB" modelObjectNameSpace="J_VNSSUCB" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="182"/>
+    </shape>
+    <shape modelObjectName="P_CUSTOMERB" modelObjectNameSpace="J_VNSSUCB" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="185"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_VNSSUCD" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="1141" y="585"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="J_VNSSUCD" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="181"/>
+    </shape>
+    <shape modelObjectName="P_CUSTOMERD" modelObjectNameSpace="J_VNSSUCD" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="185"/>
+    </shape>
     <shape expanded="true" modelObjectName="J_VNSSUCMAT" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="607.0366770935241" y="391.9999976158142"/>
+      <upperLeftCorner x="607" y="391"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_VNSSUC" modelObjectNameSpace="J_VNSSUCMAT" modelObjectType="JoinNodeInput">
@@ -1029,33 +1127,8 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="167"/>
     </shape>
-  
-    <shape expanded="true" modelObjectName="P_ZSD_C03NSB" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="180.6633400661496" y="731.9999952316284"/>
-      <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_CUSTOMERB" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="390.6633400661495" y="731.9999952316284"/>
-      <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_VNSSUCB" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="301.99999999999994" y="585.3333297570547"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="P_ZSD_C03NSB" modelObjectNameSpace="J_VNSSUCB" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="182.55615234375"/>
-    </shape>
-    <shape modelObjectName="P_CUSTOMERB" modelObjectNameSpace="J_VNSSUCB" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="185.623046875"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_MATERIALB" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92.00000000000006" y="571.9999964237213"/>
-      <rectangleSize width="160"/>
-    </shape>
     <shape expanded="true" modelObjectName="J_VNSSUCMATB" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="275.3333333333333" y="405.3333309491475"/>
+      <upperLeftCorner x="275" y="405"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_VNSSUCB" modelObjectNameSpace="J_VNSSUCMATB" modelObjectType="JoinNodeInput">
@@ -1066,44 +1139,20 @@ AND &quot;ID_SUPMARCA&quot; IN ('000', '001','002','003','004','005','006','008'
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="250"/>
     </shape>
-    <shape expanded="true" modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1020.6633400661494" y="731.9999952316284"/>
-      <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_CUSTOMERD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1230.6633400661492" y="731.9999952316284"/>
-      <rectangleSize width="160"/>
-    </shape>
-    <shape expanded="true" modelObjectName="J_VNSSUCD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="1141.9999999999998" y="585.3333297570547"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="P_ZSD_C03NSD" modelObjectNameSpace="J_VNSSUCD" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="181.96533203125"/>
-    </shape>
-    <shape modelObjectName="P_CUSTOMERD" modelObjectNameSpace="J_VNSSUCD" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="185.623046875"/>
-    </shape>
-    <shape expanded="true" modelObjectName="P_MATERIALB_copy" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="931.9999999999998" y="571.9999964237213"/>
-      <rectangleSize width="160"/>
-    </shape>
     <shape expanded="true" modelObjectName="J_VNSSUCMATD" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="900.3671743459997" y="405.3333309491475"/>
+      <upperLeftCorner x="900" y="405"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_VNSSUCD" modelObjectNameSpace="J_VNSSUCMATD" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="181.96533203125"/>
+      <rectangleSize width="181"/>
     </shape>
     <shape modelObjectName="P_MATERIALB_copy" modelObjectNameSpace="J_VNSSUCMATD" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="183.126953125"/>
+      <rectangleSize width="183"/>
     </shape>
     <shape expanded="true" modelObjectName="U_VTANOSAP" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="607.0366770935241" y="236.9999988079071"/>
+      <upperLeftCorner x="607" y="236"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
